@@ -1,4 +1,75 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20%3E%3Cdefs%3E%3CradialGradient%20id=%22fg%22%20cx=%22.38%22%20cy=%22.3%22%20r=%22.85%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23C6FF6A%22/%3E%3Cstop%20offset=%22.45%22%20stop-color=%22%233FBF2F%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%231B7A2A%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2229%22%20fill=%22url%28%23fg%29%22%20stroke=%22%232F8F2A%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M32%2015v34M15%2032h34%22%20stroke=%22%23fff%22%20stroke-width=%2210%22%20stroke-linecap=%22round%22/%3E%3Cellipse%20cx=%2225%22%20cy=%2217%22%20rx=%2213%22%20ry=%226%22%20fill=%22%23fff%22%20opacity=%22.28%22%20transform=%22rotate%28-25%2025%2017%29%22/%3E%3C/svg%3E"><meta name="theme-color" content="#3FBF2F"></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="INFASUB"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+.utop{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.utot{color:var(--muted)}.utot b{color:var(--fg,inherit);font-size:1.2rem}
+.usearch{flex:1 1 220px;max-width:360px;border:1px solid var(--line);background:var(--surface);color:inherit;border-radius:8px;padding:9px 12px;font:inherit}
+.ulist{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.ucard{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c,var(--line));border-radius:12px;padding:14px}
+.ucard .avm.big{width:64px;height:64px}
+.ucard .ui{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ucard .ue{color:var(--muted);font-size:.85rem;overflow-wrap:anywhere}
+.ucard .um{color:var(--muted);font-size:.8rem}
+.uyou{font-size:.72rem;font-weight:600;border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:4px}
+
+.regbtn{border:0;border-radius:8px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;color:#fff;background:linear-gradient(135deg,#FF3D81,#7B2FF7);white-space:nowrap}
+.regbtn:hover{filter:brightness(1.1)}
+.btn.reg{border:0;color:#fff;background:linear-gradient(135deg,#FF3D81,#7B2FF7);cursor:pointer;font:inherit;font-weight:700}
+@media(max-width:560px){.regbtn{padding:7px 10px;font-size:.85rem}}
+
+.signin{position:relative}
+.nbadge{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:#E5233D;color:#fff;font:700 .7rem/18px var(--font-body,inherit);font-style:normal;text-align:center;box-shadow:0 0 0 2px var(--bg)}
+.msgb{position:fixed;right:16px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;border:1px solid var(--line);cursor:pointer;background:var(--surface);color:var(--fg);font-family:var(--font-body);font-weight:700;font-size:.9rem;padding:10px 16px;border-radius:99px;box-shadow:0 8px 24px -8px rgba(0,0,0,.35)}
+.msgb:hover{filter:brightness(1.06)}.msgb svg{width:18px;height:18px;flex:none}
+.msgb .nbadge{top:-6px;right:-4px}
+.msp{position:fixed;right:16px;bottom:calc(144px + env(safe-area-inset-bottom,0px));z-index:41;width:min(380px,calc(100vw - 32px));max-height:calc(100vh - 200px);overflow:auto;display:none;background:var(--panel,var(--surface));color:var(--fg);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.msp.open{display:block}
+.msh{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--surface);position:sticky;top:0}
+.msx{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:1rem;padding:4px 8px;border-radius:8px}
+.msbody{padding:14px;display:flex;flex-direction:column;gap:10px}
+.msbody label{display:block;font-size:.85rem;color:var(--muted)}
+.msrow{display:flex;gap:8px}.msrow .pbtn{margin-top:0}
+.msnote{font-size:.75rem;color:var(--muted);margin:0}
+.pbtn.sec{background:var(--soft,var(--surface));color:var(--fg);border:1px solid var(--line)}
+.msn{display:inline-block;min-width:20px;padding:0 6px;border-radius:99px;background:#E5233D;color:#fff;font-size:.75rem;line-height:20px;text-align:center;vertical-align:middle}
+.msl{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.msi{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg)}
+.msi.new{border-color:#E5233D;box-shadow:inset 3px 0 0 #E5233D}
+.msit{display:flex;justify-content:space-between;gap:8px;font-size:.85rem}.msit span{color:var(--muted);font-size:.75rem}
+.msi p{margin:6px 0;overflow-wrap:anywhere;white-space:pre-wrap}
+.msreply{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:4px 10px;font:inherit;font-size:.8rem;cursor:pointer}
+.mssh{margin:16px 0 0;font-size:.85rem;color:var(--muted)}.msempty{color:var(--muted)}
+@media(max-width:560px){.msgb span{display:none}.msgb{padding:11px}}
+
+.streakb{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:99px;padding:6px 12px;font:inherit;font-weight:800;cursor:pointer}
+.streakb svg{width:20px;height:20px;fill:currentColor;flex:none}
+.streakb.on{color:#FF7A00;border-color:#FF7A00}
+.streakb.on svg{filter:drop-shadow(0 0 5px rgba(255,140,0,.6))}
+.stp{position:fixed;top:64px;right:12px;z-index:70;width:min(320px,calc(100vw - 24px));display:none;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 24px 60px -20px rgba(0,0,0,.5)}
+.stp.open{display:block}
+.stbig{display:flex;align-items:center;gap:12px;color:var(--muted)}
+.stbig svg{width:46px;height:46px;fill:currentColor}
+.stbig.on{color:#FF7A00}.stbig.on svg{filter:drop-shadow(0 0 8px rgba(255,140,0,.6))}
+.stbig b{display:block;font-size:1.5rem;color:var(--fg);line-height:1.1}.stbig small{color:var(--muted)}
+.stweek{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:14px 0}
+.stc{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.7rem;color:var(--muted)}
+.stc i{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-style:normal;color:#FF7A00}
+.stc i svg{width:18px;height:18px;fill:currentColor}
+.stc.on i{border-color:#FF7A00;background:rgba(255,122,0,.12)}
+.stc.today span{color:var(--fg);font-weight:700}
+.stp p{margin:0 0 10px;font-size:.88rem}
+.stmeta{display:flex;justify-content:space-between;gap:8px;font-size:.78rem;color:var(--muted)}.stmeta b{color:var(--fg)}
+@media(max-width:560px){.streakb{padding:5px 9px}}
+
+.uav{position:relative;display:inline-flex;flex:none}
+.uav .dot{position:absolute;right:2px;bottom:2px;width:16px;height:16px;border-radius:50%;background:#9AA0AE;border:3px solid var(--surface)}
+.uav .dot.on{background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:uping 2s infinite}
+@keyframes uping{70%{box-shadow:0 0 0 7px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+.ust{font-size:.8rem;color:var(--muted)}.ust.on{color:#16A34A;font-weight:700}
+.utop{gap:16px}
+@media(prefers-reduced-motion:reduce){.uav .dot.on{animation:none}}
+
+.aib svg{width:26px;height:26px}
+.aih .ai-logo{background:transparent}.aih .ai-logo svg{width:34px;height:34px}
+</style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20%3E%3Cdefs%3E%3CradialGradient%20id=%22fg%22%20cx=%22.38%22%20cy=%22.3%22%20r=%22.85%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23C6FF6A%22/%3E%3Cstop%20offset=%22.45%22%20stop-color=%22%233FBF2F%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%231B7A2A%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2229%22%20fill=%22url%28%23fg%29%22%20stroke=%22%232F8F2A%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M32%2015v34M15%2032h34%22%20stroke=%22%23fff%22%20stroke-width=%2210%22%20stroke-linecap=%22round%22/%3E%3Cellipse%20cx=%2225%22%20cy=%2217%22%20rx=%2213%22%20ry=%226%22%20fill=%22%23fff%22%20opacity=%22.28%22%20transform=%22rotate%28-25%2025%2017%29%22/%3E%3C/svg%3E"><meta name="theme-color" content="#3FBF2F"></head><body>
 <title>INFASUB</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700;800&family=Manrope:wght@700;800&display=swap">
@@ -378,24 +449,116 @@ textarea.fld{resize:vertical;font-family:inherit}
 .mainb:hover{border-color:var(--c)}
 .mainb[aria-pressed="true"]{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 30%,transparent);background:color-mix(in srgb,var(--c) 10%,var(--surface))}
 
-.pfc,.pfbody{position:relative;z-index:1}
-.ba{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;--ac:rgba(255,255,255,.6)}
-.ba.pg{position:fixed}
-.ba i{position:absolute;left:var(--x);font-style:normal;font-size:var(--s);color:var(--ac);line-height:1;white-space:nowrap}
-.ba-inf i{top:-12%;font-family:var(--font-mono);font-weight:700;text-shadow:0 0 8px var(--ac);animation:baFall var(--d) linear var(--l) infinite}
-.ba-alg i{top:108%;font-family:Georgia,serif;font-weight:700;font-style:italic;animation:baRise var(--d) linear var(--l) infinite,baSway 5s ease-in-out var(--l) infinite alternate}
-.ba-geo i{top:108%;animation:baRise var(--d) linear var(--l) infinite,baSpin 9s linear var(--l) infinite}
-.ba-phy i{top:var(--y);text-shadow:0 0 10px var(--ac);animation:baTwinkle 2.6s ease-in-out var(--l) infinite}
-.ba-che i{top:108%;width:var(--s);height:var(--s);border-radius:50%;border:1.5px solid var(--ac);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.55),transparent 60%);animation:baRise var(--d) ease-in var(--l) infinite,baSway 3s ease-in-out var(--l) infinite alternate}
-.ba-bio i{top:-12%;animation:baFall var(--d) linear var(--l) infinite,baSwing 4s ease-in-out var(--l) infinite alternate}
-.orb{position:absolute;left:78%;top:50%;width:calc(var(--r)*2);height:calc(var(--r)*2);margin:calc(var(--r)*-1) 0 0 calc(var(--r)*-1);border:1.5px solid var(--ac);border-radius:50%;opacity:.6;animation:baSpin var(--t) linear infinite}
-.orb::after{content:"";position:absolute;top:-5px;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--ac);box-shadow:0 0 10px var(--ac)}
-@keyframes baFall{from{top:-12%;opacity:0}10%{opacity:1}90%{opacity:1}to{top:108%;opacity:0}}
-@keyframes baRise{from{top:108%;opacity:0}10%{opacity:1}90%{opacity:1}to{top:-14%;opacity:0}}
-@keyframes baSway{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
-@keyframes baSwing{from{transform:translateX(-18px) rotate(-30deg)}to{transform:translateX(18px) rotate(30deg)}}
-@keyframes baSpin{to{transform:rotate(360deg)}}
-@keyframes baTwinkle{0%,100%{opacity:.12;transform:scale(.6)}50%{opacity:1;transform:scale(1.25)}}
+/* ===== INFASUB: avatars, subject backgrounds, INFASUB AI ===== */
+.avgrid{grid-template-columns:repeat(6,minmax(0,1fr));max-width:520px}
+@media (max-width:460px){.avgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.avey{transform-box:fill-box;transform-origin:center;animation:avblink 5s infinite}
+@keyframes avblink{0%,91%,100%{transform:scaleY(1)}94%{transform:scaleY(.08)}}
+.avm.big svg{animation:avbob 4.5s ease-in-out infinite}
+@keyframes avbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+.avb{transition:transform .15s}.avb:hover{transform:translateY(-2px) scale(1.05)}
+
+.sbg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;--k:var(--c,var(--accent))}
+.pfc .sbg{--k:#fff}
+.sbg>span{position:absolute;display:block;color:var(--k)}
+.sv-head.hasbg{position:relative;overflow:hidden;isolation:isolate;max-width:none;padding:28px 26px;border:1px solid var(--line);border-radius:16px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c) 18%,var(--surface)),var(--surface) 75%)}
+.sv-head.hasbg>:not(.sbg){position:relative;z-index:1;max-width:64ch}
+.mainprev{position:relative;overflow:hidden;isolation:isolate;min-height:130px;border:1px solid var(--line);border-radius:14px;margin:0 0 14px;display:flex;align-items:flex-end;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c,var(--accent)) 20%,var(--surface)),var(--surface) 80%)}
+.mainprev .mpt{position:relative;z-index:1;padding:14px 16px;display:flex;flex-direction:column;gap:2px;max-width:60ch}
+.mainprev .mpt b{font-family:var(--font-display);font-size:1.1rem}.mainprev .mpt span{font-size:.85rem;color:var(--muted)}
+
+/* informatics: code rain */
+.bg-d{top:-260px;white-space:pre;font-family:var(--font-mono);line-height:1.2;opacity:.42;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 55%,transparent);
+  animation:bgfall 8s linear infinite}
+@keyframes bgfall{to{transform:translateY(640px)}}
+/* algebra: floating symbols */
+.bg-s{font-family:var(--font-display);font-weight:700;opacity:.22;animation:bgfloat 9s ease-in-out infinite alternate}
+@keyframes bgfloat{0%{transform:translate(0,0) rotate(-8deg);opacity:.12}100%{transform:translate(14px,-34px) rotate(10deg);opacity:.34}}
+/* geometry: drifting shapes */
+.bg-g{background:var(--k);opacity:.2;animation:bgdrift 12s ease-in-out infinite alternate}
+.bg-g.tri{clip-path:polygon(50% 0,100% 100%,0 100%)}
+.bg-g.hex{clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0 50%)}
+.bg-g.cir{border-radius:50%}
+.bg-g.sq{border-radius:5px}
+.bg-g.ring{background:none;border:3px solid var(--k);border-radius:50%;opacity:.35}
+.bg-g.sqr{background:none;border:3px solid var(--k);border-radius:4px;opacity:.35}
+@keyframes bgdrift{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(26px,-30px) rotate(200deg)}}
+/* physics: orbits */
+.bg-o{left:72%;top:50%;border:1px dashed var(--k);border-radius:50%;opacity:.45;animation:bgspin 12s linear infinite}
+.bg-o::after{content:"";position:absolute;left:50%;top:-4px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--k);box-shadow:0 0 10px var(--k)}
+.bg-n{left:72%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--k);opacity:.8;box-shadow:0 0 24px 6px var(--k);animation:bgpulse 3s ease-in-out infinite alternate}
+.bg-t{width:3px;height:3px;border-radius:50%;background:var(--k);animation:bgtwk 3s ease-in-out infinite}
+@keyframes bgspin{to{transform:rotate(360deg)}}
+@keyframes bgtwk{0%,100%{opacity:.1}50%{opacity:.9}}
+@keyframes bgpulse{to{transform:scale(1.25);opacity:1}}
+/* chemistry: bubbles */
+.bg-b{bottom:-50px;border:2px solid var(--k);border-radius:50%;background:radial-gradient(circle at 30% 30%,color-mix(in srgb,var(--k) 35%,transparent),transparent 65%);opacity:0;animation:bgrise 9s ease-in infinite}
+.bg-m{bottom:-30px;font-family:var(--font-mono);font-weight:700;font-size:15px;opacity:0;animation:bgrise 12s linear infinite}
+@keyframes bgrise{0%{transform:translate(0,0);opacity:0}15%{opacity:.5}30%{transform:translate(10px,-90px)}55%{transform:translate(-8px,-190px)}80%{transform:translate(10px,-280px);opacity:.35}100%{transform:translate(0,-380px);opacity:0}}
+/* biology: cells + leaves */
+.bg-c{border:2px solid var(--k);border-radius:50%;background:color-mix(in srgb,var(--k) 12%,transparent);opacity:.5;animation:bgcell 7s ease-in-out infinite alternate}
+.bg-c::after{content:"";position:absolute;left:30%;top:34%;width:34%;height:34%;border-radius:50%;background:var(--k);opacity:.55}
+.bg-l{width:28px;height:15px;border-radius:0 100% 0 100%;background:var(--k);opacity:.3;animation:bgsway 6s ease-in-out infinite alternate}
+@keyframes bgcell{0%{transform:translate(0,0) scale(1)}100%{transform:translate(18px,-22px) scale(1.14)}}
+@keyframes bgsway{0%{margin:0 0 0 0}100%{margin:-22px 0 0 18px}}
+
+/* ===== INFASUB AI chat ===== */
+.aib{position:fixed;right:16px;bottom:calc(40px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:8px;border:0;cursor:pointer;background:var(--accent);color:var(--on-accent);font-family:var(--font-body);font-weight:700;font-size:.9rem;padding:11px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.28)}
+.aib:hover{filter:brightness(1.08)}.aib svg{width:19px;height:19px;flex:none}
+.aib:focus-visible,.aip button:focus-visible,.aip input:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.aip{position:fixed;right:16px;bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:41;width:min(400px,calc(100vw - 32px));height:min(560px,calc(100vh - 150px));display:none;flex-direction:column;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 60px rgba(0,0,0,.38);overflow:hidden;font-family:var(--font-body)}
+.aip.open{display:flex}
+.aih{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--surface)}
+.aih .ai-logo{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;flex:none}
+.aih .ai-logo svg{width:20px;height:20px}
+.aiT{font-family:var(--font-display);font-weight:800;font-size:1rem;line-height:1.1}
+.aiS{font-size:.74rem;color:var(--muted)}
+.aih .sp{flex:1}
+.aic{border:0;background:transparent;color:var(--muted);font:inherit;font-size:.78rem;cursor:pointer;padding:6px 8px;border-radius:8px}
+.aic:hover{background:var(--soft);color:var(--fg)}
+.aim{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.aiu,.aia{max-width:90%;padding:9px 12px;border-radius:14px;line-height:1.5;font-size:.92rem;overflow-wrap:anywhere}
+.aiu{align-self:flex-end;background:var(--accent);color:var(--on-accent);border-bottom-right-radius:4px}
+.aia{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:4px}
+.aia b{font-weight:800}
+.aid{display:inline-flex;gap:4px;padding:3px 0}.aid i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:aidot 1s infinite}
+.aid i:nth-child(2){animation-delay:.15s}.aid i:nth-child(3){animation-delay:.3s}
+@keyframes aidot{0%,60%,100%{opacity:.25;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.aiq{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
+.aiq button{font:inherit;font-size:.78rem;border:1px solid var(--line);background:var(--soft);color:var(--fg);border-radius:999px;padding:5px 10px;cursor:pointer}
+.aiq button:hover{border-color:var(--accent)}
+.aif{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--surface)}
+.aif input{flex:1;min-width:0;font:inherit;font-size:16px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg)}
+.aif button{border:0;background:var(--accent);color:var(--on-accent);font:inherit;font-weight:700;padding:0 14px;border-radius:10px;cursor:pointer}
+
+/* ===== mobile version ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,a,.chip,.pbtn{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+@media (max-width:600px){
+  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  input,select,textarea,.fld{font-size:16px!important}
+  .chip,.pbtn,.rdbtn,.mainb,.avb{min-height:40px}
+  .sv-head.hasbg{padding:20px 16px;border-radius:14px}
+  .sbg>span:nth-child(n+13){display:none}
+  .mainprev{min-height:110px}
+  .aib{right:12px;bottom:calc(38px + env(safe-area-inset-bottom,0px));width:52px;height:52px;padding:0;justify-content:center;border-radius:50%}
+  .aib span{display:none}.aib svg{width:24px;height:24px}
+  .aip{left:0;right:0;bottom:0;width:100%;height:calc(100vh - 56px);height:calc(100dvh - 56px);border-radius:18px 18px 0 0;padding-bottom:env(safe-area-inset-bottom,0px);z-index:70}
+  .aih{padding-top:14px}
+  .aic{min-height:40px;min-width:40px}
+  .aiq button{padding:8px 12px;font-size:.82rem}
+  .aif button{min-height:44px}
+  .toast{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:360px){.aiu,.aia{max-width:96%}.avgrid{gap:6px}}
+.ubadge{display:inline-block;font-family:var(--font-mono);font-size:.68rem;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);vertical-align:middle}
+.ubadge.adm{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.ucard .ui .udel{align-self:flex-start;margin-top:6px;color:var(--bad,#E5233D);border-color:var(--bad,#E5233D)}
+.ucard .ui .ue{overflow-wrap:anywhere}
+.ahint{color:var(--muted);font-size:.85rem;margin:0 0 12px}
 </style>
 
 <header class="top">
@@ -407,6 +570,7 @@ textarea.fld{resize:vertical;font-family:inherit}
       <button type="button" data-l="tg" aria-pressed="false"><svg class="fl" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><rect width="30" height="5.7" fill="#CC0000"/><rect y="14.3" width="30" height="5.7" fill="#006600"/><path d="M11.5 11.2h7l-.8-2.6-1.6 1.2-1.1-2.2-1.1 2.2-1.6-1.2z" fill="#F8C300"/><path d="M10.6 7.6a4.6 4.6 0 0 1 8.8 0" fill="none" stroke="#F8C300" stroke-width=".6"/><circle cx="19.9" cy="6.3" r=".55" fill="#F8C300"/><circle cx="18.3" cy="4.6" r=".55" fill="#F8C300"/><circle cx="15.9" cy="3.8" r=".55" fill="#F8C300"/><circle cx="14.1" cy="3.8" r=".55" fill="#F8C300"/><circle cx="11.7" cy="4.6" r=".55" fill="#F8C300"/><circle cx="10.1" cy="6.3" r=".55" fill="#F8C300"/></svg><span>TJ</span></button>
       <button type="button" data-l="en" aria-pressed="false"><svg class="fl" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#012169"/><path d="M0 0 30 20M30 0 0 20" stroke="#fff" stroke-width="4"/><path d="M0 0 30 20M30 0 0 20" stroke="#C8102E" stroke-width="1.6"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.5"/><path d="M15 0v20M0 10h30" stroke="#C8102E" stroke-width="3.6"/></svg><span>EN</span></button>
     </div>
+    <button type="button" class="streakb" id="streak" aria-expanded="false" aria-haspopup="dialog"></button>
     <button type="button" class="signin out" id="signin" data-auth-open></button>
     <button type="button" class="theme" id="theme" aria-label="Theme" data-theme-toggle>☀️</button>
   </div>
@@ -425,8 +589,8 @@ textarea.fld{resize:vertical;font-family:inherit}
 (function(){
 var LANGS=['ru','tg','en'];
 var UI={
-ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_about:'Сведения о программе',
- lead:'Справочник по школьным предметам на трёх языках: темы и формулы, электронные книги, задачи с проверкой, калькулятор, исполнитель и пять языков программирования.',
+ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
+ lead:'Справочник по школьным предметам на трёх языках: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.',
  cta1:'Решать задачи',cta2:'Языки программирования',
  term1:'предметов: 6',term2:'языков интерфейса: 3 (ru · tg · en)',term3:'языков программирования: 5',term_ready:'Выберите модуль ниже',
  back:'← Главная',topics_h:'Темы',formulas_h:'Формулы',solve:'Решать задачи',tolang:'Языки программирования',
@@ -441,9 +605,9 @@ ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инстру�
  exec_s:'Составьте программу для робота, чтобы он дошёл до цели.',c_f:'Вперёд',c_l:'Налево',c_r:'Направо',run:'Запуск',undo:'Отменить',clear:'Очистить',level:'Уровень',prog_h:'Программа',
  ex_ok:'Цель достигнута! Команд: {n}.',ex_wall:'Робот упёрся в стену.',ex_miss:'Цель не достигнута. Измените программу.',ex_empty:'Добавьте команды.',
  about_t:'Сведения о программе',auth_t:'Авторы (исполнители)',goal_t:'Наша цель',goal:'Развитие цифрового образования, повышение интереса молодёжи к информационным технологиям и точным наукам, а также создание доступных возможностей для самостоятельного обучения и подготовки к олимпиадам.',auth_l:'Проект INFASUB создали два автора:',authors:[{n:'Шамсзода Рукия Муким',r:'Автор · 11 класс',d:'Призёр многих олимпиад по информатике.'},{n:'Шамсзода Муким Нарзулло',r:'Второй автор · преподаватель информатики',d:'Преподаватель информатики с 15-летним педагогическим стажем. За годы профессиональной деятельности подготовил множество учеников, добившихся высоких результатов на предметных олимпиадах и ставших их призёрами.'}],
- about:['INFASUB (Information about subjects) — справочник по школьным предметам.','Предметы: информатика, алгебра, геометрия, физика, химия, биология.','Языки интерфейса: русский, таджикский, английский.','Внутри: темы и формулы, электронные книги, задачи с проверкой, калькулятор, исполнитель и пять языков программирования.']},
-tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_about:'Маълумот дар бораи барнома',
- lead:'Маълумотнома оид ба фанҳои мактабӣ ба се забон: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор, тартибдиҳанда ва панҷ забони барномасозӣ.',
+ about:['INFASUB (Information about subjects) — справочник по школьным предметам.','Предметы: информатика, алгебра, геометрия, физика, химия, биология.','Языки интерфейса: русский, таджикский, английский.','Внутри: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.']},
+tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
+ lead:'Маълумотнома оид ба фанҳои мактабӣ ба се забон: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.',
  cta1:'Масъалаҳо ҳал кунед',cta2:'Забонҳои барномасозӣ',
  term1:'фанҳо: 6',term2:'забонҳои интерфейс: 3 (ru · tg · en)',term3:'забонҳои барномасозӣ: 5',term_ready:'Дар поён модулро интихоб кунед',
  back:'← Асосӣ',topics_h:'Мавзӯъҳо',formulas_h:'Формулаҳо',solve:'Масъалаҳо ҳал кунед',tolang:'Забонҳои барномасозӣ',
@@ -458,9 +622,9 @@ tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books
  exec_s:'Барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',c_f:'Пеш',c_l:'Ба чап',c_r:'Ба рост',run:'Иҷро',undo:'Бекор кардан',clear:'Тоза кардан',level:'Сатҳ',prog_h:'Барнома',
  ex_ok:'Ҳадаф ба даст омад! Фармонҳо: {n}.',ex_wall:'Робот ба девор бархурд.',ex_miss:'Ба ҳадаф нарасид. Барномаро тағйир диҳед.',ex_empty:'Фармонҳо илова кунед.',
  about_t:'Маълумот дар бораи барнома',auth_t:'Муаллифон (иҷрокунандагон)',goal_t:'Мақсади мо',goal:'Рушди таълими рақамӣ, баланд бардоштани таваҷҷӯҳи ҷавонон ба технологияҳои иттилоотӣ ва илмҳои дақиқ, инчунин фароҳам овардани имкониятҳои дастрас барои худомӯзӣ ва омодагӣ ба олимпиадаҳо.',auth_l:'Лоиҳаи INFASUB-ро ду муаллиф таҳия кардаанд:',authors:[{n:'Шамсзода Руқия Муқим',r:'Муаллиф · синфи 11',d:'Ғолиби ҷоизадори бисёр олимпиадаҳои информатика.'},{n:'Шамсзода Муқим Нарзулло',r:'Муаллифи дуюм · омӯзгори информатика',d:'Омӯзгори информатика бо 15 соли собиқаи педагогӣ. Дар тӯли фаъолияти касбӣ шумораи зиёди хонандагонро омода кардааст, ки дар олимпиадаҳои фаннӣ ба натиҷаҳои баланд расида, ғолибони ҷоизадор шудаанд.'}],
- about:['INFASUB (Information about subjects) — маълумотнома оид ба фанҳои мактабӣ.','Фанҳо: информатика, алгебра, геометрия, физика, химия, биология.','Забонҳои интерфейс: русӣ, тоҷикӣ, англисӣ.','Дарун: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор, тартибдиҳанда ва панҷ забони барномасозӣ.']},
-en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_about:'Information about the program',
- lead:'A reference for school subjects in three languages: topics and formulas, e-books, problems with answer checking, a calculator, an executor and five programming languages.',
+ about:['INFASUB (Information about subjects) — маълумотнома оид ба фанҳои мактабӣ.','Фанҳо: информатика, алгебра, геометрия, физика, химия, биология.','Забонҳои интерфейс: русӣ, тоҷикӣ, англисӣ.','Дарун: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.']},
+en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_nf:'Nothing found.',t_about:'Information about the program',
+ lead:'A reference for school subjects in three languages: topics and formulas, e-books, problems with answer checking, a calculator and five programming languages.',
  cta1:'Solve problems',cta2:'Programming languages',
  term1:'subjects: 6',term2:'interface languages: 3 (ru · tg · en)',term3:'programming languages: 5',term_ready:'Choose a module below',
  back:'← Home',topics_h:'Topics',formulas_h:'Formulas',solve:'Solve problems',tolang:'Programming languages',
@@ -475,7 +639,7 @@ en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_task
  exec_s:'Write a program so the robot reaches the target.',c_f:'Forward',c_l:'Turn left',c_r:'Turn right',run:'Run',undo:'Undo',clear:'Clear',level:'Level',prog_h:'Program',
  ex_ok:'Target reached! Commands: {n}.',ex_wall:'The robot hit a wall.',ex_miss:'Target not reached. Change the program.',ex_empty:'Add some commands.',
  about_t:'Information about the program',auth_t:'Authors (performers)',goal_t:'Our goal',goal:'Developing digital education, increasing young people\'s interest in information technology and the exact sciences, and creating accessible opportunities for self-study and preparation for olympiads.',auth_l:'The INFASUB project was created by two authors:',authors:[{n:'Shamszoda Ruqiya Muqim',r:'Author · Grade 11',d:'Prizewinner of many computer science olympiads.'},{n:'Shamszoda Muqim Narzullo',r:'Second author · computer science teacher',d:'Computer science teacher with 15 years of teaching experience. Over the years of his professional work he has prepared many students who achieved high results at subject olympiads and became prizewinners.'}],
- about:['INFASUB (Information about subjects) is a reference for school subjects.','Subjects: computer science, algebra, geometry, physics, chemistry, biology.','Interface languages: Russian, Tajik, English.','Inside: topics and formulas, e-books, problems with answer checking, a calculator, an executor and five programming languages.']}
+ about:['INFASUB (Information about subjects) is a reference for school subjects.','Subjects: computer science, algebra, geometry, physics, chemistry, biology.','Interface languages: Russian, Tajik, English.','Inside: topics and formulas, e-books, problems with answer checking, a calculator and five programming languages.']}
 };
 
 var SUBJECTS=[
@@ -513,9 +677,8 @@ var TOOLS=[
 {id:'problems',code:'TEST',c:'red',key:'t_tasks',snip:'solve(3x − 7 = 11)',file:'problems.md'},
 {id:'languages',code:'CODE',c:'violet',key:'t_langs',snip:'Python · JS · C++ · Java · C#',file:'languages.md'},
 {id:'calculator',code:'CALC',c:'cyan',key:'t_calc',snip:'2 + 2 × 3 = 8',file:'tools/calc.js'},
-{id:'executor',code:'RUN',c:'green',key:'t_exec',snip:'authors.json',file:'tools/executor.js'},
 {id:'quizzes',code:'QUIZ',c:'pink',key:'t_quiz',snip:'play(); score++;',file:'quizzes.js'},
-{id:'about',code:'INFO',c:'blue',key:'t_about',snip:'README.md',file:'about.md'}
+{id:'users',code:'USERS',c:'cyan',key:'t_users',snip:'users.length',file:'users.json'}
 ];
 var VIEWS=['home'].concat(SUBJECTS.map(function(s){return s.id}),TOOLS.map(function(t){return t.id}));
 
@@ -747,7 +910,7 @@ function showEl(z){
   b.scrollIntoView({block:'nearest',behavior:'smooth'});
 }
 function viewSubject(id){
-  var s=subj(id),out=head(tr(s.name),tr(s.desc),s.code,s.c);
+  var s=subj(id),out=bgHead(head(tr(s.name),tr(s.desc),s.code,s.c),id);
   out+='<h2 class="cm" style="margin-top:0">'+esc(ui('topics_h'))+'</h2>';
   if(id==='inf'){
     out+='<div class="parts">'+INF_PARTS.map(function(p){return '<div class="part"><h3>'+esc(tr(p.t))+'</h3><p>'+esc(tr(p.d))+'</p></div>'}).join('')+'</div>';
@@ -827,7 +990,7 @@ function checkProblem(id){
   var v=parseFloat(String(vals[id]||'').replace(',','.'));
   var good=!isNaN(v)&&Math.abs(v-p.ans)<1e-9;
   fb[id]=good?'ok':'bad';track('p',id,good);
-  if(good){solved[id]=1;try{localStorage.setItem('infasub-solved',JSON.stringify(solved))}catch(e){}}
+  if(good){solved[id]=1;try{localStorage.setItem('infasub-solved',JSON.stringify(solved))}catch(e){}streakHit();}
   var el=$('#fb-'+id);
   if(el){el.className='fb '+fb[id];el.textContent=fbText(id);}
   updateProgress();
@@ -954,7 +1117,7 @@ function viewQuiz(){
     '<div class="cmds"><button type="button" class="btn sm" data-ex="run">'+esc(ui('run'))+'</button><button type="button" class="btn ghost sm" data-ex="undo">'+esc(ui('undo'))+'</button><button type="button" class="btn ghost sm" data-ex="clear">'+esc(ui('clear'))+'</button></div></div></div>';
 }
 function viewExec(){
-  return head(ui('t_exec'),'','RUN','green')+authorsBlock();
+  return head(ui('t_exec'),'','RUN','green');
 }
 function exCmd(c){
   if(c==='run')return exRun();
@@ -988,20 +1151,88 @@ function exRun(){
   exTimer=setTimeout(step,200);
 }
 
-function authorsBlock(){
-  var cols=[['#FF3D81','#7B2FF7'],['#00C2FF','#00C98D']];
-  var a=ui('authors');
-  return '<section class="auth"><h2>'+esc(ui('auth_t'))+'</h2><p class="auth-lead">'+esc(ui('auth_l'))+'</p><div class="acards">'+
-    a.map(function(p,i){var w=p.n.split(' ');var ini=(w[0].charAt(0)+(w[1]||'').charAt(0)).toUpperCase();
-      return '<div class="acard" style="--c1:'+cols[i%2][0]+';--c2:'+cols[i%2][1]+'"><div class="av" aria-hidden="true">'+esc(ini)+'</div><div><b>'+esc(p.n)+'</b><span class="r">'+esc(p.r)+'</span>'+(p.d?'<p class="ad">'+esc(p.d)+'</p>':'')+'</div></div>';}).join('')+
-    '</div><div class="aim"><h3>'+esc(ui('goal_t'))+'</h3><p>'+esc(ui('goal'))+'</p></div></section>';
-}
-function viewAbout(){
-  var l=ui('about');
-  return head(ui('t_about'),'','INFO','blue').replace(/<div class="sv-head"[\s\S]*<\/div>$/,'')+
-    '<div class="readme"><h1>'+esc(ui('about_t'))+'</h1>'+l.map(function(x){return '<p>'+esc(x)+'</p>'}).join('')+'</div>'+authorsBlock();
-}
 
+
+var userQ='';
+function fmtDate(t){if(!t)return '—';try{return new Date(t).toLocaleDateString(lang==='tg'?'tg-TJ':lang==='en'?'en-GB':'ru-RU')}catch(e){return '—'}}
+function userRowsLocal(){
+  var us=getUsers(),me=sessionLogin(),q=userQ.trim().toLowerCase();
+  var arr=Object.keys(us).map(function(k){var u=us[k]||{};return {login:k,name:u.name||k,av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});
+  arr.sort(function(a,b){return b.created-a.created});
+  var all=arr.length,on=arr.filter(function(u){return isOnline(u.login)}).length;
+  arr.sort(function(a,b){return (isOnline(b.login)?1:0)-(isOnline(a.login)?1:0)||b.created-a.created});
+  if(q)arr=arr.filter(function(u){return (u.name+' '+u.login+' '+u.school+' '+u.city+' '+u.country).toLowerCase().indexOf(q)>-1});
+  if(!arr.length)return {all:all,on:on,html:'<div class="readme"><p>'+esc(ui(all?'users_nf':'users_none'))+'</p></div>'};
+  return {all:all,on:on,html:'<div class="ulist">'+arr.map(function(u){
+    var sb=u.main&&subj(u.main)?subj(u.main):null,meta=[];
+    if(sb)meta.push(ui('users_main')+': '+tr(sb.name));
+    if(u.school)meta.push(u.school);if(u.city)meta.push(u.city);if(u.country)meta.push(u.country);
+    meta.push(ui('users_since')+': '+fmtDate(u.created));
+    return '<div class="ucard"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(isOnline(u.login)?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ue">'+esc(u.login)+'</span><span class="ust'+(isOnline(u.login)?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
+  }).join('')+'</div>'};
+}
+var SRV={list:null,at:0,admin:false,err:false};
+function srvAgo(u){return u.ago==null?null:u.ago+(Date.now()-SRV.at)}
+function srvOnline(u){var a=srvAgo(u);return a!==null&&a<50000}
+function srvPres(u){
+  var T=PR(),a=srvAgo(u);if(a===null)return T.off;if(a<50000)return T.on;
+  var m=Math.floor(a/60000),v;if(m<1)return T.off;
+  if(m<60)v=m+' '+T.u[0];else if(m<1440)v=Math.floor(m/60)+' '+T.u[1];else v=Math.floor(m/1440)+' '+T.u[2];
+  return T.ago.replace('{t}',v);
+}
+function userRows(){
+  if(!AUTH_API)return userRowsLocal();
+  var L=SRV.list;
+  if(!L)return {all:0,on:0,html:'<div class="readme"><p>'+esc(ui(SRV.err?'users_err':'users_load'))+'</p>'+(SRV.err?'<button type="button" class="btn ghost sm" data-users-refresh>'+esc(ui('users_refresh'))+'</button>':'')+'</div>'};
+  var q=userQ.trim().toLowerCase(),admin=SRV.admin;
+  var arr=L.slice();
+  var all=arr.length,on=arr.filter(srvOnline).length;
+  arr.sort(function(a,b){return (b.admin-a.admin)||((srvOnline(b)?1:0)-(srvOnline(a)?1:0))||b.created-a.created});
+  if(q)arr=arr.filter(function(u){return (u.name+' '+(u.email||'')+' '+u.school+' '+u.city+' '+cname(u.country)).toLowerCase().indexOf(q)>-1});
+  var top=admin?'<p class="ahint">'+esc(ui('users_adm_note'))+'</p>':'';
+  if(!arr.length)return {all:all,on:on,html:top+'<div class="readme"><p>'+esc(ui(all?'users_nf':'users_none'))+'</p></div>'};
+  return {all:all,on:on,html:top+'<div class="ulist">'+arr.map(function(u){
+    var sb=u.main&&subj(u.main)?subj(u.main):null,meta=[];
+    if(sb)meta.push(ui('users_main')+': '+tr(sb.name));
+    if(u.school)meta.push(u.school);if(u.city)meta.push(u.city);
+    meta.push(ui('users_since')+': '+fmtDate(u.created));
+    var on1=srvOnline(u);
+    return '<div class="ucard"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml({av:u.av,main:u.main,login:'u'+u.id},true)+'<i class="dot'+(on1?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+
+      (u.admin?' <span class="ubadge adm">'+esc(ui('users_admin'))+'</span>':'')+(u.you?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b>'+
+      '<span class="ue">🌍 '+esc(cname(u.country))+'</span>'+(u.email?'<span class="ue">'+esc(u.email)+'</span>':'')+
+      '<span class="ust'+(on1?' on':'')+'">'+esc(srvPres(u))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span>'+
+      (admin&&!u.admin&&u.email?'<button type="button" class="btn ghost sm udel" data-user-del="'+esc(u.email)+'" data-user-name="'+esc(u.name)+'">'+esc(ui('users_del'))+'</button>':'')+'</div></div>';
+  }).join('')+'</div>'};
+}
+function refreshUsersBox(){
+  if(view!=='users')return;var b=document.getElementById('ubox');if(!b)return;
+  var r=userRows();b.innerHTML=r.html;
+  var c=document.getElementById('ucount');if(c)c.textContent=r.all;var o=document.getElementById('uonline');if(o)o.textContent=r.on;
+}
+function loadUsers(){
+  if(!AUTH_API)return;
+  var tok=getToken();if(!tok||!sessionLogin())return;
+  api('users',{session:tok}).then(function(r){
+    if(!r.ok){
+      if(r.error==='auth'){setSession(null);setToken('');SRV.list=null;renderAuth();if(view==='users')render();return;}
+      SRV.err=true;refreshUsersBox();return;
+    }
+    SRV.list=r.users;SRV.admin=!!(r.me&&r.me.admin);SRV.at=Date.now();SRV.err=false;refreshUsersBox();
+  }).catch(function(){if(!SRV.list)SRV.err=true;refreshUsersBox();});
+}
+function syncProfile(){
+  if(!AUTH_API)return;var tok=getToken(),u=curUserObj();if(!tok||!u)return;
+  api('profile',{session:tok,av:u.av||'',main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||''}).catch(function(){});
+}
+function viewUsers(){
+  if(AUTH_API&&(!getToken()||!sessionLogin()))return head(ui('t_users'),ui('users_note'),'USERS','cyan')+'<div class="readme"><p>'+esc(ui('users_need'))+'</p><button type="button" class="btn" data-auth-open>'+esc(ui('users_login'))+'</button></div>';
+  var r=userRows();
+  return head(ui('t_users'),ui('users_note'),'USERS','cyan')+
+    '<div class="utop"><span class="utot">'+esc(ui('users_total'))+': <b id="ucount">'+r.all+'</b></span><span class="utot">'+esc(PR().cnt)+': <b id="uonline">'+r.on+'</b></span><input type="search" id="usearch" class="usearch" placeholder="'+esc(ui('users_search'))+'" value="'+esc(userQ)+'" autocomplete="off"></div><div id="ubox">'+r.html+'</div>';
+}
+document.addEventListener('input',function(e){
+  if(e.target&&e.target.id==='usearch'){userQ=e.target.value;var b=document.getElementById('ubox');if(b)b.innerHTML=userRows().html;}
+});
 function render(){
   var v=view,h;
   if(v==='home')h=viewHome();
@@ -1010,19 +1241,20 @@ function render(){
   else if(v==='problems')h=viewProblems();
   else if(v==='languages')h=viewLangs();
   else if(v==='calculator')h=viewCalc();
+  else if(v==='users')h=viewUsers();
   else if(v==='quizzes')h=viewQuiz();
-  else if(v==='executor')h=viewExec();
-  else h=viewAbout();
+  else h=viewHome();
   $('#view').innerHTML=h;
   renderChrome();
   renderAuth();
   if(subj(v))track('s',v);
-  if(v==='books'&&readBook>=0)track('ch',readBook+'_'+readCh);
+  if(v==='books'&&readBook>=0){track('ch',readBook+'_'+readCh);streakHit();}
   if(v==='books')renderBookList();
   if(v==='problems')renderProblemList();
   if(v==='languages')renderLangList();
   if(v==='calculator'){renderHist();updateCalc();}
   if(v==='quizzes'){exReset();refreshExec();}
+  if(v==='users')loadUsers();
 }
 function route(){
   var h=location.hash.slice(1);
@@ -1037,7 +1269,7 @@ tg:{signin:'Ворид шудан',tab_login:'Воридшавӣ',tab_reg:'Са�
 en:{signin:'Sign in',tab_login:'Log in',tab_reg:'Register',name:'Name',login:'Username',pass:'Password',pass2:'Repeat password',btn_login:'Log in',btn_reg:'Create account',hint:'Data is stored only in this browser.',e_fill:'Fill in all fields.',e_name:'Name: at least 2 characters.',e_login:'Username: 3+ characters, Latin letters, digits and . _ - @',e_pass:'Password: at least 6 characters.',e_match:'Passwords do not match.',e_exists:'This username is already taken.',e_bad:'Wrong username or password.',as:'Signed in as',logout:'Log out',close:'Close',read:'Read here',newtab:'Open in a new tab',nofit:'If the book does not load, the author’s site does not allow showing it inside other sites. Open it in a new tab.',loading:'Loading…'}
 };
 
-var AUTH_API='https://infasub-api.onrender.com'; /* <-- сюда вставьте URL веб-приложения Google Apps Script (см. README) */
+var AUTH_API='https://infasub-api.onrender.com'; /* адрес сервера входа на Render (папка server) */
 (function(){
 var X={
 ru:{login:'Эл. почта (Gmail)',tab_reg:'Регистрация',hint:'Мы отправим код подтверждения на вашу почту.',e_login:'Введите адрес Gmail (name@gmail.com).',e_email:'Введите адрес Gmail (name@gmail.com).',e_exists:'Эта почта уже зарегистрирована.',e_bad:'Неверная почта или пароль.',e_code:'Неверный код.',e_expired:'Код устарел. Запросите новый.',e_tries:'Слишком много попыток. Запросите новый код.',e_wait:'Подождите минуту перед повторной отправкой.',e_locked:'Слишком много попыток входа. Попробуйте позже.',e_quota:'Лимит отправки писем исчерпан. Попробуйте завтра.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',code_t:'Подтверждение почты',code_sent:'Мы отправили 6-значный код на',code:'Код из письма',btn_verify:'Подтвердить',resend:'Отправить код снова',back:'Назад',test_mode:'Тестовый режим (почта не подключена), ваш код'},
@@ -1049,9 +1281,9 @@ for(var l in X)for(var k in X[l])AUTH[l][k]=X[l][k];
 
 (function(){
 var Y={
-ru:{prof_t:'Мой профиль',avatar_l:'Аватар',email_l:'Эл. почта',school_l:'Школа / класс',city_l:'Город',about_l:'О себе',since:'Дата регистрации',save:'Сохранить',saved:'Сохранено ✓',e_nomail:'Отправка писем пока не настроена на сайте. Обратитесь к администратору.',hint:'Код подтверждения придёт на вашу почту. Проверьте также папку «Спам».'},
-tg:{prof_t:'Профили ман',avatar_l:'Аватар',email_l:'Почтаи электронӣ',school_l:'Мактаб / синф',city_l:'Шаҳр',about_l:'Дар бораи худ',since:'Санаи сабти ном',save:'Нигоҳ доштан',saved:'Нигоҳ дошта шуд ✓',e_nomail:'Фиристодани мактуб ҳанӯз танзим нашудааст. Ба администратор муроҷиат кунед.',hint:'Рамзи тасдиқ ба почтаи шумо меояд. Ҷузвдони «Спам»-ро низ санҷед.'},
-en:{prof_t:'My profile',avatar_l:'Avatar',email_l:'Email',school_l:'School / grade',city_l:'City',about_l:'About me',since:'Registered',save:'Save',saved:'Saved ✓',e_nomail:'Email sending is not set up on this site yet. Please contact the administrator.',hint:'The confirmation code will be emailed to you. Check your spam folder too.'}
+ru:{prof_t:'Мой профиль',avatar_l:'Аватар',email_l:'Эл. почта',school_l:'Школа / класс',city_l:'Город',country_l:'Страна',about_l:'О себе',since:'Дата регистрации',save:'Сохранить',saved:'Сохранено ✓',e_nomail:'Отправка писем пока не настроена на сайте. Обратитесь к администратору.',hint:'Код подтверждения придёт на вашу почту. Проверьте также папку «Спам».'},
+tg:{prof_t:'Профили ман',avatar_l:'Аватар',email_l:'Почтаи электронӣ',school_l:'Мактаб / синф',city_l:'Шаҳр',country_l:'Кишвар',about_l:'Дар бораи худ',since:'Санаи сабти ном',save:'Нигоҳ доштан',saved:'Нигоҳ дошта шуд ✓',e_nomail:'Фиристодани мактуб ҳанӯз танзим нашудааст. Ба администратор муроҷиат кунед.',hint:'Рамзи тасдиқ ба почтаи шумо меояд. Ҷузвдони «Спам»-ро низ санҷед.'},
+en:{prof_t:'My profile',avatar_l:'Avatar',email_l:'Email',school_l:'School / grade',city_l:'City',country_l:'Country',about_l:'About me',since:'Registered',save:'Save',saved:'Saved ✓',e_nomail:'Email sending is not set up on this site yet. Please contact the administrator.',hint:'The confirmation code will be emailed to you. Check your spam folder too.'}
 };
 for(var l in Y)for(var k in Y[l])AUTH[l][k]=Y[l][k];
 })();
@@ -1091,78 +1323,91 @@ en:{setup_t:'Welcome',setup_s:'Choose your main subject and an avatar.',main_l:'
 };
 for(var l in Q)for(var k in Q[l])AUTH[l][k]=Q[l][k];
 })();
+(function(){
+var X={
+ru:{country_ph:'Выберите страну',e_country:'Выберите страну.',u_conf:'Удалить пользователя {n}? Это нельзя отменить.',u_err:'Не удалось выполнить действие. Попробуйте ещё раз.'},
+tg:{country_ph:'Кишварро интихоб кунед',e_country:'Кишварро интихоб кунед.',u_conf:'Корбар {n} нест карда шавад? Инро бозгардонидан мумкин нест.',u_err:'Амал иҷро нашуд. Боз кӯшиш кунед.'},
+en:{country_ph:'Select a country',e_country:'Select a country.',u_conf:'Delete user {n}? This cannot be undone.',u_err:'The action failed. Please try again.'}
+};
+for(var l in X)for(var k in X[l])AUTH[l][k]=X[l][k];
+var Y={
+ru:{users_note:'Все, кто зарегистрировался на INFASUB. Список виден после входа в аккаунт.',users_need:'Список пользователей виден после входа в аккаунт.',users_login:'Войти',users_load:'Загрузка…',users_err:'Не удалось загрузить список. Попробуйте ещё раз.',users_refresh:'Обновить',users_admin:'админ',users_del:'Удалить',users_adm_note:'Вы администратор: вам видны почты и доступно удаление пользователей.'},
+tg:{users_note:'Ҳамаи онҳое, ки дар INFASUB сабти ном шудаанд. Рӯйхат пас аз ворид шудан намоён мешавад.',users_need:'Рӯйхати корбарон пас аз ворид шудан намоён мешавад.',users_login:'Ворид шудан',users_load:'Бор шуда истодааст…',users_err:'Рӯйхат бор нашуд. Боз кӯшиш кунед.',users_refresh:'Навсозӣ',users_admin:'админ',users_del:'Нест кардан',users_adm_note:'Шумо администратор ҳастед: почтаҳо намоён ва нест кардани корбарон дастрас аст.'},
+en:{users_note:'Everyone who has registered on INFASUB. The list is visible after you sign in.',users_need:'The list of users is visible after you sign in.',users_login:'Sign in',users_load:'Loading…',users_err:'Could not load the list. Please try again.',users_refresh:'Refresh',users_admin:'admin',users_del:'Delete',users_adm_note:'You are the admin: you can see emails and delete users.'}
+};
+for(var l2 in Y)for(var k2 in Y[l2])UI[l2][k2]=Y[l2][k2];
+})();
+var CC='AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CA CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KP KR KW KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW'.split(' ');
+var _dn={};
+function cname(c){
+  if(!c)return '—';
+  if(CC.indexOf(c)<0)return c;
+  try{
+    if(!window.Intl||!Intl.DisplayNames)return c;
+    if(!_dn[lang]){var ok=Intl.DisplayNames.supportedLocalesOf([lang]).length>0;_dn[lang]=new Intl.DisplayNames([ok?lang:'ru'],{type:'region'});}
+    return _dn[lang].of(c)||c;
+  }catch(e){return c}
+}
+function countryOptions(sel){
+  var arr=CC.map(function(c){return {c:c,n:cname(c)}});
+  arr.sort(function(a,b){return a.n.localeCompare(b.n,lang==='tg'?'ru':lang)});
+  return '<option value="">'+esc(at('country_ph'))+'</option>'+arr.map(function(o){return '<option value="'+o.c+'"'+(o.c===sel?' selected':'')+'>'+esc(o.n)+'</option>'}).join('');
+}
+function getToken(){try{return localStorage.getItem('infasub-token')||''}catch(e){return ''}}
+function setToken(v){try{if(v)localStorage.setItem('infasub-token',v);else localStorage.removeItem('infasub-token')}catch(e){}}
 function at(k){return (AUTH[lang]||AUTH.ru)[k]}
 function getUsers(){try{return JSON.parse(localStorage.getItem('infasub-users')||'{}')||{}}catch(e){return {}}}
 function putUsers(u){try{localStorage.setItem('infasub-users',JSON.stringify(u));return true}catch(e){return false}}
 function sessionLogin(){try{return localStorage.getItem('infasub-session')}catch(e){return null}}
 function setSession(l){try{if(l)localStorage.setItem('infasub-session',l);else localStorage.removeItem('infasub-session')}catch(e){}}
 var avUid=0,AVP={inf:215,alg:275,geo:180,phy:25,che:330,bio:130},AVN=['inf','alg','geo','phy','che','bio'];
-var AVSK=['#f6d2b0','#e0a878','#8d5a3a','#f3c9a5'],AVHR=['#4a2c17','#14101a','#2a1a14','#d9a441'];
-function avPerson(sb,v,h,ac){
-  var sk=AVSK[v],hr=AVHR[v],sh=sb==='che'?'#f4f7fb':'hsl('+(h+v*8)+',68%,48%)',o='';
-  if(v===1)o+='<path d="M29 46C24 70 27 84 34 86H66C73 84 76 70 71 46Z" fill="'+hr+'"/>';
-  if(v===2)o+='<g fill="'+hr+'"><circle cx="33" cy="34" r="10"/><circle cx="44" cy="25" r="11"/><circle cx="57" cy="25" r="11"/><circle cx="68" cy="34" r="10"/><circle cx="29" cy="46" r="6"/><circle cx="71" cy="46" r="6"/></g>';
-  if(v===3)o+='<circle cx="50" cy="15" r="9" fill="'+hr+'"/>';
-  o+='<path d="M14 100C14 80 32 71 50 71S86 80 86 100Z" fill="'+sh+'"/>';
-  if(sb==='che')o+='<path d="M41 71L50 87L59 71Z" fill="hsl('+h+',65%,62%)"/><path d="M41 71L50 87L38 100M59 71L50 87L62 100" stroke="#c5d0de" stroke-width="2" fill="none"/>';
-  o+='<rect x="44" y="60" width="12" height="15" rx="5" fill="'+sk+'"/><circle cx="33" cy="48" r="3.6" fill="'+sk+'"/><circle cx="67" cy="48" r="3.6" fill="'+sk+'"/><ellipse cx="50" cy="46" rx="17" ry="19" fill="'+sk+'"/>';
-  o+=v===2?'<g fill="'+hr+'"><circle cx="42" cy="31" r="5"/><circle cx="50" cy="29" r="5"/><circle cx="58" cy="31" r="5"/></g>':'<path d="'+(v===1?'M31 47C26 20 74 20 69 47C67 36 60 28 50 28C47 36 38 40 31 47Z':'M32 46C29 22 71 22 68 46C66 36 59 31 50 31C41 31 34 36 32 46Z')+'" fill="'+hr+'"/>';
-  o+='<path d="M39 41Q43 39 47 41M53 41Q57 39 61 41" stroke="'+hr+'" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#1a1a2e"><ellipse cx="43" cy="47" rx="2.6" ry="3.2"/><ellipse cx="57" cy="47" rx="2.6" ry="3.2"/></g><g fill="#fff"><circle cx="43.9" cy="45.8" r="1"/><circle cx="57.9" cy="45.8" r="1"/></g><g fill="#ff7a8a" opacity=".35"><circle cx="37.5" cy="54" r="3.4"/><circle cx="62.5" cy="54" r="3.4"/></g><path d="M50 49Q48.5 52 50.8 52.5" stroke="#00000030" stroke-width="1.2" fill="none" stroke-linecap="round"/>';
-  o+=v%2?'<path d="M43 54Q50 64 57 54Z" fill="#7a2230"/><path d="M45 54.4H55Q50 58 45 54.4Z" fill="#fff"/>':'<path d="M44 55Q50 60 56 55" stroke="#8a3b3b" stroke-width="1.8" fill="none" stroke-linecap="round"/>';
-  if(sb==='inf')o+='<path d="M31 44C29 18 71 18 69 44" fill="none" stroke="#222a44" stroke-width="3.5" stroke-linecap="round"/><g fill="'+ac+'" stroke="#222a44" stroke-width="2"><rect x="27" y="42" width="7" height="13" rx="3.5"/><rect x="66" y="42" width="7" height="13" rx="3.5"/></g><path d="M45 74V85M55 74V85" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>';
-  else if(sb==='alg')o+='<g fill="rgba(255,255,255,.25)" stroke="#2b2b3a" stroke-width="1.6"><circle cx="43" cy="47" r="6"/><circle cx="57" cy="47" r="6"/></g><path d="M49 46H51" stroke="#2b2b3a" stroke-width="1.6"/><path d="M50 77L41 72V82ZM50 77L59 72V82Z" fill="'+ac+'"/><circle cx="50" cy="77" r="2.5" fill="#fff"/>';
-  else if(sb==='geo')o+='<ellipse cx="53" cy="27" rx="19" ry="7.5" fill="#d64545"/><circle cx="53" cy="19.5" r="2.6" fill="#d64545"/><path d="M50 82L44 92H56Z" fill="#fff"/>';
-  else if(sb==='phy')o+='<path d="M32 36H68" stroke="#2d3436" stroke-width="5" stroke-linecap="round"/><g fill="rgba(140,225,255,.8)" stroke="#2d3436" stroke-width="2"><circle cx="42" cy="35" r="6.5"/><circle cx="58" cy="35" r="6.5"/></g><g fill="none" stroke="#fff" stroke-width="1.5"><ellipse cx="50" cy="86" rx="8" ry="3"/><ellipse cx="50" cy="86" rx="8" ry="3" transform="rotate(60 50 86)"/><ellipse cx="50" cy="86" rx="8" ry="3" transform="rotate(120 50 86)"/></g><circle cx="50" cy="86" r="2" fill="'+ac+'"/>';
-  else if(sb==='che')o+='<g fill="rgba(170,225,255,.4)" stroke="#1c6ea4" stroke-width="1.8"><circle cx="43" cy="47" r="7"/><circle cx="57" cy="47" r="7"/></g><path d="M49.5 46H50.5" stroke="#1c6ea4" stroke-width="2"/><path d="M73 64H79V74L86 88Q88 93 83 93H69Q64 93 66 88L73 74Z" fill="#fff" stroke="#9fb3c8" stroke-width="1.2"/><path d="M69 84L67.5 88Q66.5 91 70 91H82Q85.5 91 84.5 88L82.5 84Z" fill="'+ac+'"/>';
-  else o+='<path d="M50 28V16" stroke="#2f9e44" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="44" cy="15" rx="7" ry="3.8" transform="rotate(-25 44 15)" fill="#51cf66"/><ellipse cx="57" cy="13" rx="7" ry="3.8" transform="rotate(25 57 13)" fill="#69db7c"/><path d="M40 72Q50 80 60 72L61 78Q50 86 39 78Z" fill="'+ac+'"/><circle cx="76" cy="78" r="7" fill="rgba(255,255,255,.35)" stroke="#8d5a3a" stroke-width="2.5"/><path d="M81 83L87 90" stroke="#8d5a3a" stroke-width="3" stroke-linecap="round"/>';
-  return o;
+function avEyes(a,b,y,c){c=c||'#10162f';return '<circle cx="'+a+'" cy="'+y+'" r="3.2" fill="'+c+'"/><circle cx="'+b+'" cy="'+y+'" r="3.2" fill="'+c+'"/>'}
+function avMotif(sb,ac){
+  var d='#10162f';
+  if(sb==='inf')return '<path d="M50 18v10" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="16" r="3.5" fill="'+ac+'"/><rect x="26" y="28" width="48" height="40" rx="9" fill="#fff"/><rect x="31" y="33" width="38" height="30" rx="5" fill="'+d+'"/><rect x="38" y="41" width="6" height="8" rx="2" fill="'+ac+'"/><rect x="56" y="41" width="6" height="8" rx="2" fill="'+ac+'"/><path d="M42 56Q50 61 58 56" stroke="'+ac+'" stroke-width="2.5" fill="none" stroke-linecap="round"/><rect x="38" y="72" width="24" height="5" rx="2.5" fill="#fff"/>';
+  if(sb==='alg')return '<path d="M22 78H80M26 82V22" stroke="#fff" stroke-width="2.5" opacity=".6" stroke-linecap="round" fill="none"/><path d="M28 26Q52 100 76 26" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/><circle cx="52" cy="62" r="11" fill="'+ac+'"/>'+avEyes(48,56,60)+'<path d="M48 66Q52 69 56 66" stroke="'+d+'" stroke-width="2" fill="none" stroke-linecap="round"/>';
+  if(sb==='geo')return '<path d="M50 20L83 77H17Z" fill="#fff" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M50 33L72 70H28Z" fill="'+d+'"/>'+avEyes(44,56,55,ac)+'<path d="M43 63Q50 68 57 63" stroke="'+ac+'" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="50" cy="14" r="3" fill="'+ac+'"/>';
+  if(sb==='phy')return '<g fill="none" stroke="#fff" stroke-width="2.5"><ellipse cx="50" cy="50" rx="35" ry="12"/><ellipse cx="50" cy="50" rx="35" ry="12" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="35" ry="12" transform="rotate(120 50 50)"/></g><circle cx="50" cy="50" r="11" fill="'+ac+'"/>'+avEyes(46,54,49)+'<path d="M46 54Q50 57 54 54" stroke="'+d+'" stroke-width="1.8" fill="none" stroke-linecap="round"/><g fill="#fff"><circle cx="85" cy="50" r="3.6"/><circle cx="33" cy="20.6" r="3.6"/><circle cx="67" cy="79.4" r="3.6"/></g>';
+  if(sb==='che')return '<path d="M42 22H58V40L76 72Q80 81 70 81H30Q20 81 24 72L42 40Z" fill="#fff"/><rect x="39" y="18" width="22" height="6" rx="3" fill="'+ac+'"/><path d="M34 58L28 70Q26 76 32 76H68Q74 76 72 70L66 58Z" fill="'+ac+'"/>'+avEyes(44,56,66)+'<path d="M46 70Q50 73 54 70" stroke="'+d+'" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="54" cy="12" r="3" fill="#fff" opacity=".85"/><circle cx="62" cy="7" r="2" fill="#fff" opacity=".85"/>';
+  return '<g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M36 18C72 34 28 64 64 82"/><path d="M64 18C28 34 72 64 36 82"/></g><g stroke="'+ac+'" stroke-width="3" stroke-linecap="round"><path d="M44.6 23H55.4M44.5 77H55.5"/></g><g fill="'+ac+'"><circle cx="36" cy="18" r="5"/><circle cx="64" cy="18" r="5"/><circle cx="36" cy="82" r="5"/><circle cx="64" cy="82" r="5"/><circle cx="50" cy="50" r="4"/></g>';
 }
-function avSvg(code){
+function avSvgOld(code){
   var p=String(code).split(':'),sb=AVP[p[0]]!==undefined?p[0]:'inf',v=(+p[1]||0)%4,h=AVP[sb],id='ag'+(++avUid);
   var c1='hsl('+(h+v*16)+',80%,56%)',c2='hsl('+(h+50+v*16)+',72%,26%)',ac='hsl('+(h+v*16+28)+',100%,88%)',dots='';
   for(var x=10;x<100;x+=20)for(var y=10;y<100;y+=20)dots+='<circle cx="'+x+'" cy="'+y+'" r="2.5"/>';
   var pat=['','<g fill="none" stroke="#fff" stroke-opacity=".16" stroke-width="2"><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="46"/></g>','<g fill="#fff" fill-opacity=".2">'+dots+'</g>','<path d="M-10 30L30-10M-10 60L60-10M-10 90L90-10M10 110L110 10M40 110L110 40M70 110L110 70" stroke="#fff" stroke-opacity=".14" stroke-width="5"/>'][v];
   var sp=v%2?'<path d="M82 16l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="'+ac+'"/>':'';
-  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="'+id+'" cx=".3" cy=".25" r=".95"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></radialGradient></defs><rect width="100" height="100" fill="url(#'+id+')"/>'+pat+avPerson(sb,v,h,ac)+'</svg>';
+  return '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="'+id+'" cx=".3" cy=".25" r=".95"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></radialGradient></defs><rect width="100" height="100" fill="url(#'+id+')"/>'+pat+avMotif(sb,ac)+sp+'</svg>';
 }
 function avCode(u){
   if(typeof u.av==='string'&&/^[a-z]+:\d$/.test(u.av)&&AVP[u.av.split(':')[0]]!==undefined)return u.av;
   if(u.main&&AVP[u.main]!==undefined)return u.main+':0';
-  var n=0,e=u.login||'';for(var i=0;i<e.length;i++)n+=e.charCodeAt(i);return AVN[n%6]+':'+(n%4);
+  var n=0,e=u.login||'';for(var i=0;i<e.length;i++)n+=e.charCodeAt(i);return AVN[n%6]+':'+(n%6);
 }
 function avHtml(u,big){return '<span class="avm'+(big?' big':'')+'" aria-hidden="true">'+avSvg(avCode(u))+'</span>'}
 function pfBg(code){var q=String(code||'').split(':'),h=AVP[q[0]]!==undefined?AVP[q[0]]:215,v=+q[1]||0;return 'linear-gradient(135deg,hsl('+(h+v*16)+',68%,40%),hsl('+(h+50+v*16)+',62%,26%))'}
-function curUserObj(){var l=sessionLogin();if(!l)return null;var u=getUsers()[l];if(!u)return null;return {login:l,name:u.name,av:u.av,main:u.main||'',about:u.about||'',school:u.school||'',city:u.city||'',created:u.created||0}}
-var BAG={inf:['0','1','</>','{ }','01','10','=>','#','1'],alg:['x²','π','∑','√','∞','ƒ(x)','±','÷','x³'],geo:['▲','■','●','◆','⬟','⬢','△','◇'],phy:['✦','★','·','✧','✦','⚛'],che:[''],bio:['🍃','🌿','🧬','🌱','✿','🍃']};
-function animItems(sb){
-  var n=18,o='',g=BAG[sb]||[''];
-  if(sb==='phy')o+='<b class="orb" style="--r:90px;--t:16s"></b><b class="orb" style="--r:150px;--t:26s"></b><b class="orb" style="--r:215px;--t:38s"></b>';
-  for(var i=0;i<n;i++)o+='<i style="--x:'+((i*37+11)%96)+'%;--y:'+((i*53+7)%90)+'%;--s:'+(13+(i*7)%20)+'px;--d:'+(7+(i*5)%8)+'s;--l:-'+((i*13)%11)+'s">'+esc(g[i%g.length])+'</i>';
-  return o;
-}
-function animCol(sb,k){var h=AVP[sb]||0;return k==='pg'?'hsla('+h+',80%,55%,.45)':'hsla('+h+',100%,90%,.75)'}
-function animEl(id,k,sb){return '<div id="'+id+'" data-k="'+k+'" class="ba '+k+(sb?' ba-'+sb:'')+'" style="--ac:'+animCol(sb,k)+'">'+(sb?animItems(sb):'')+'</div>'}
-function setAnim(id,sb){var e=document.getElementById(id);if(!e)return;var k=e.getAttribute('data-k');e.className='ba '+k+(sb?' ba-'+sb:'');e.style.setProperty('--ac',animCol(sb,k));e.innerHTML=sb?animItems(sb):''}
+function curUserObj(){var l=sessionLogin();if(!l)return null;var u=getUsers()[l];if(!u)return null;return {login:l,name:u.name,av:u.av,main:u.main||'',about:u.about||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}}
 function pickInner(){
   var tabs=AVN.map(function(id){var x=subj(id);return '<button type="button" class="chip" data-avtab="'+id+'" aria-pressed="'+(id===pendTab)+'">'+esc(tr(x.name))+'</button>'}).join('');
-  var g=[0,1,2,3].map(function(v){var c=pendTab+':'+v;return '<button type="button" class="avb" data-avp="'+c+'" aria-pressed="'+(c===pendAv)+'">'+avSvg(c)+'</button>'}).join('');
+  var g=[0,1,2,3,4,5].map(function(v){var c=pendTab+':'+v;return '<button type="button" class="avb" data-avp="'+c+'" aria-pressed="'+(c===pendAv)+'">'+avSvg(c)+'</button>'}).join('');
   return '<div class="chips" style="margin-bottom:10px">'+tabs+'</div><div class="avgrid">'+g+'</div>';
 }
 function pickerHtml(){return '<div class="avlab">'+esc(at('avatar_l'))+'</div><div id="avpick">'+pickInner()+'</div>'}
 function mainHtml(){
   return '<div class="avlab">'+esc(at('main_l'))+'</div><div class="mainchips" id="mainchips">'+AVN.map(function(id){var x=subj(id);
-    return '<button type="button" class="mainb" data-main="'+id+'" aria-pressed="'+(id===pendMain)+'" style="--c:'+col(x.c)+'"><span class="avm">'+avSvg(id+':0')+'</span><b>'+esc(tr(x.name))+'</b></button>'}).join('')+'</div>';
+    return '<button type="button" class="mainb" data-main="'+id+'" aria-pressed="'+(id===pendMain)+'" style="--c:'+col(x.c)+'"><span class="avm">'+avSvg(id+':0')+'</span><b>'+esc(tr(x.name))+'</b></button>'}).join('')+'</div>'+mainPrevHtml();
 }
 function refreshAv(){
   var c=document.getElementById('avcur');if(c)c.innerHTML=avHtml({av:pendAv,login:''},true);
   var cv=document.getElementById('pfcover');if(cv)cv.style.background=pfBg(pendAv);
+  syncSubjectBg();
   var pk=document.getElementById('avpick');if(pk)pk.innerHTML=pickInner();
   var m=document.querySelectorAll('.mainb');for(var i=0;i<m.length;i++)m[i].setAttribute('aria-pressed',String(m[i].getAttribute('data-main')===pendMain));
   var g=document.getElementById('setup-go');if(g)g.disabled=!pendMain;
 }
 function finishSetup(){
   if(!pendMain)return;var l=sessionLogin(),us=getUsers(),u=us[l];if(!u)return;
-  u.main=pendMain;u.av=pendAv;putUsers(us);renderAuth();closeOv();toast(at('setup_ok'));
+  u.main=pendMain;u.av=pendAv;putUsers(us);syncProfile();renderAuth();closeOv();toast(at('setup_ok'));
 }
 function hex(a){return Array.prototype.map.call(a,function(x){return ('0'+x.toString(16)).slice(-2)}).join('')}
 function sha(str){
@@ -1172,8 +1417,12 @@ function sha(str){
 function rnd(){var a=new Uint8Array(8);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else for(var i=0;i<8;i++)a[i]=Math.floor(Math.random()*256);return hex(a)}
 function renderAuth(){
   var b=document.getElementById('signin');if(!b)return;var u=curUserObj();
+  var rb=document.querySelectorAll('[data-auth-register]');for(var ri=0;ri<rb.length;ri++){rb[ri].style.display=u?'none':'';rb[ri].textContent=at('tab_reg');}
   if(u){b.className='signin';b.innerHTML=avHtml(u)+' <span class="sn">'+esc(u.name)+'</span>';b.title=u.name;}
   else{b.className='signin out';b.innerHTML='👤 <span class="sn">'+esc(at('signin'))+'</span>';b.title=at('signin');}
+  if(typeof msBadge==='function'&&typeof msPanel!=='undefined')msBadge();
+  if(typeof streakDraw==='function'&&typeof stPop!=='undefined')streakDraw();
+  if(typeof presBeat==='function')presBeat();
 }
 var authMode='login',lastFocus=null;
 function closeOv(){var o=document.getElementById('ov');if(o)o.remove();var r=document.getElementById('reader');if(r)r.remove();document.body.style.overflow='';if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
@@ -1223,7 +1472,7 @@ function statsHtml(){
     '<div class="avlab">'+esc(at('st_topics'))+'</div><div class="stchips">'+(tp||'<span class="ahint">'+esc(at('st_none'))+'</span>')+'</div>'+
     (extra.length?'<p class="ahint">'+esc(extra.join(' · '))+'</p>':'')+'</div>';
 }
-function pfBg(i){return 'linear-gradient(135deg,hsl('+(i*30)+',68%,40%),hsl('+(i*30+50)+',62%,28%))'}
+
 function sendMagic(){
   var el=document.getElementById('a-login'),email=((el&&el.value)||'').trim().toLowerCase();
   if(!email)return authErr('e_fill');
@@ -1242,7 +1491,7 @@ function handleMagic(){
   try{history.replaceState(null,'',location.pathname+location.hash)}catch(x){}
   if(!AUTH_API||!e)return;
   api('magic',{token:t,email:e}).then(function(r){
-    if(r.ok){finishLogin(e,r.name);toast(at('magic_ok'));}
+    if(r.ok){finishLogin(e,r.name,r);toast(at('magic_ok'));}
     else{openAuth('login');authErr('e_link');}
   }).catch(function(){openAuth('login');authErr('e_net')});
 }
@@ -1250,21 +1499,22 @@ function saveProfile(){
   var l=sessionLogin(),users=getUsers(),u=users[l];if(!u)return;
   var n=(document.getElementById('p-name').value||'').trim(),m=document.getElementById('p-msg');
   if(n.length<2){m.style.color='';m.textContent=at('e_name');return}
-  u.name=n;u.av=pendAv;u.main=pendMain||u.main||'';u.school=(document.getElementById('p-school').value||'').trim();u.city=(document.getElementById('p-city').value||'').trim();u.about=(document.getElementById('p-about').value||'').trim();
-  putUsers(users);renderAuth();openAuth('profile');var m2=document.getElementById('p-msg');if(m2){m2.style.color='var(--ok)';m2.textContent=at('saved');}
+  u.name=n;u.av=pendAv;u.main=pendMain||u.main||'';u.school=(document.getElementById('p-school').value||'').trim();u.city=(document.getElementById('p-city').value||'').trim();u.country=(document.getElementById('p-country').value||'').trim();u.about=(document.getElementById('p-about').value||'').trim();
+  putUsers(users);syncProfile();renderAuth();openAuth('profile');var m2=document.getElementById('p-msg');if(m2){m2.style.color='var(--ok)';m2.textContent=at('saved');}
 }
 function api(action,data){
   data=data||{};data.action=action;data.lang=lang;
   return fetch(AUTH_API,{method:'POST',body:JSON.stringify(data)}).then(function(r){return r.json()});
 }
 function pwHash(email,pw){return sha('infasub:'+email+':'+pw)}
-function errKey(c){return ({nomail:'e_nomail',no_user:'e_nouser',bad_link:'e_link',exists:'e_exists',wait:'e_wait',bad_code:'e_code',expired:'e_expired',tries:'e_tries',bad_login:'e_bad',locked:'e_locked',quota:'e_quota',invalid:'e_email'})[c]||'e_net'}
+function errKey(c){return ({nomail:'e_nomail',no_user:'e_nouser',bad_link:'e_link',exists:'e_exists',wait:'e_wait',bad_code:'e_code',expired:'e_expired',tries:'e_tries',bad_login:'e_bad',locked:'e_locked',quota:'e_quota',invalid:'e_email',country:'e_country'})[c]||'e_net'}
 function rnd6(){var a=new Uint32Array(1);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else a[0]=Math.floor(Math.random()*4294967295);return String(100000+a[0]%900000)}
 function busy(on){var b=document.querySelector('#authform button[type=submit]');if(b){b.disabled=on}}
 function authErr(k){var e=document.getElementById('a-err');if(e){e.style.color='';e.textContent=k?at(k):''}}
-function finishLogin(email,name){
+function finishLogin(email,name,r){
   var users=getUsers();if(!users[email])users[email]={name:name,created:Date.now()};else{users[email].name=name;if(!users[email].created)users[email].created=Date.now()}
-  putUsers(users);setSession(email);regPending=null;closeOv();renderAuth();var uo=curUserObj();if(uo&&!uo.main)setTimeout(function(){openAuth('setup')},250);
+  if(r){var lu=users[email];if(r.token)setToken(r.token);if(r.country)lu.country=r.country;var pr=r.profile||{};['av','main','school','city'].forEach(function(k){if(pr[k]&&!lu[k])lu[k]=pr[k]});if(pr.country&&!lu.country)lu.country=pr.country;}
+  putUsers(users);setSession(email);regPending=null;closeOv();renderAuth();SRV.list=null;if(view==='users')render();syncProfile();var uo=curUserObj();if(uo&&!uo.main)setTimeout(function(){openAuth('setup')},250);
 }
 function openAuth(mode){
   closeOv();lastFocus=document.activeElement;authMode=mode||'login';var u=curUserObj();
@@ -1274,21 +1524,22 @@ function openAuth(mode){
   var h='<div class="dlg" role="dialog" aria-modal="true"><button type="button" class="xbtn" data-ov-close aria-label="'+esc(at('close'))+'">×</button>';
   if(u&&authMode==='setup'){
     pendMain=u.main||'';pendAv=avCode(u);pendTab=pendMain||pendAv.split(':')[0];o.className='ov full';
-    h+=animEl('pgbg','pg',pendMain)+'<div class="pfc" id="pfcover" style="background:'+pfBg(pendAv)+'">'+animEl('pfanim','cov',pendMain)+'<div class="pfin"><div id="avcur">'+avHtml({av:pendAv,login:''},true)+'</div><div class="pft"><h2>'+esc(at('setup_t'))+', '+esc(u.name)+'!</h2><p class="pfabout" style="font-style:normal">'+esc(at('setup_s'))+'</p></div></div></div>'+
+    h+='<div class="pfc" id="pfcover" style="background:'+pfBg(pendAv)+'">'+bgAnim(pendMain)+'<div class="pfin"><div id="avcur">'+avHtml({av:pendAv,login:''},true)+'</div><div class="pft"><h2>'+esc(at('setup_t'))+', '+esc(u.name)+'!</h2><p class="pfabout" style="font-style:normal">'+esc(at('setup_s'))+'</p></div></div></div>'+
       '<div class="pfbody" style="grid-template-columns:minmax(0,1fr)"><div class="pfcard">'+mainHtml()+pickerHtml()+'<button type="button" class="pbtn" id="setup-go" data-setup-done'+(pendMain?'':' disabled')+'>'+esc(at('go'))+'</button></div></div>';
   }else if(u){
     pendAv=avCode(u);pendMain=u.main||'';pendTab=pendAv.split(':')[0];o.className='ov full';var r=calcStats();
     var dt=u.created?new Date(u.created).toLocaleDateString(lang==='en'?'en-GB':'ru-RU'):'—';
     var meta=[];if(u.school)meta.push('🏫 '+esc(u.school));if(u.city)meta.push('📍 '+esc(u.city));
-    h+=animEl('pgbg','pg',pendMain)+'<div class="pfc" id="pfcover" style="background:'+pfBg(pendAv)+'">'+animEl('pfanim','cov',pendMain)+'<div class="pfin"><div id="avcur">'+avHtml({av:pendAv,login:u.login},true)+'</div>'+
+    h+='<div class="pfc" id="pfcover" style="background:'+pfBg(pendAv)+'">'+bgAnim(pendMain)+'<div class="pfin"><div id="avcur">'+avHtml({av:pendAv,login:u.login},true)+'</div>'+
       '<div class="pft"><h2 id="pfname">'+esc(u.name)+'</h2><div class="pfem">'+esc(u.login)+'</div>'+
       '<div class="pfpills"><span>⭐ '+esc(at('st_level'))+' '+r.lv+' · '+r.xp+' '+esc(at('st_xp'))+'</span>'+(u.main&&subj(u.main)?'<span>🎯 '+esc(at('main_l'))+': '+esc(tr(subj(u.main).name))+'</span>':'')+'<span>📅 '+esc(at('since'))+': '+esc(dt)+'</span>'+meta.map(function(m){return '<span>'+m+'</span>'}).join('')+'</div>'+
       (u.about?'<p class="pfabout">'+esc(u.about)+'</p>':'')+'</div></div></div>'+
-      '<div class="pfbody"><div class="pfcol"><div class="pfcard">'+statsHtml()+'</div><div class="pfcard">'+achHtml(r)+'</div></div>'+
+      '<div class="pfbody"><div class="pfcol"><div class="pfcard" id="pf-inbox">'+msInbox(u)+'</div><div class="pfcard">'+statsHtml()+'</div><div class="pfcard">'+achHtml(r)+'</div></div>'+
       '<div class="pfcol"><form id="profform" class="pfcard" novalidate><h3>'+esc(at('pf_edit'))+'</h3>'+mainHtml()+pickerHtml()+
       '<label>'+esc(at('name'))+'<input class="fld" id="p-name" maxlength="60" value="'+esc(u.name)+'"></label>'+
       '<label>'+esc(at('email_l'))+'<input class="fld" value="'+esc(u.login)+'" readonly></label>'+
       '<label>'+esc(at('school_l'))+'<input class="fld" id="p-school" maxlength="60" value="'+esc(u.school)+'"></label>'+
+      '<label>'+esc(at('country_l'))+'<select class="fld" id="p-country">'+countryOptions(u.country)+'</select></label>'+
       '<label>'+esc(at('city_l'))+'<input class="fld" id="p-city" maxlength="40" value="'+esc(u.city)+'"></label>'+
       '<label>'+esc(at('about_l'))+'<textarea class="fld" id="p-about" maxlength="200" rows="3">'+esc(u.about)+'</textarea></label>'+
       '<div class="aerr" id="p-msg" role="status"></div><button type="submit" class="pbtn">'+esc(at('save'))+'</button></form>'+
@@ -1301,11 +1552,11 @@ function openAuth(mode){
   }else{
     var reg=authMode==='register';
     h+='<h2>'+esc(reg?at('tab_reg'):at('tab_login'))+'</h2><div class="atabs"><button type="button" data-amode="login" aria-pressed="'+!reg+'">'+esc(at('tab_login'))+'</button><button type="button" data-amode="register" aria-pressed="'+reg+'">'+esc(at('tab_reg'))+'</button></div>'+
-    '<form id="authform" novalidate>'+(reg?'<label>'+esc(at('name'))+'<input class="fld" id="a-name" autocomplete="name" maxlength="60"></label>':'')+
+    '<form id="authform" novalidate>'+(reg?'<label>'+esc(at('name'))+'<input class="fld" id="a-name" autocomplete="name" maxlength="60"></label><label>'+esc(at('country_l'))+'<select class="fld" id="a-country">'+countryOptions('')+'</select></label>':'')+
     '<label>'+esc(at('login'))+'<input class="fld" id="a-login" placeholder="name@gmail.com" type="email" inputmode="email" autocomplete="email" maxlength="80" autocapitalize="none" spellcheck="false"></label>'+
     '<label>'+esc(at('pass'))+'<input class="fld" id="a-pass" type="password" autocomplete="'+(reg?'new-password':'current-password')+'" maxlength="100"></label>'+
     (reg?'<label>'+esc(at('pass2'))+'<input class="fld" id="a-pass2" type="password" autocomplete="new-password" maxlength="100"></label>':'')+
-    '<div class="aerr" id="a-err" role="alert"></div><button type="submit" class="pbtn">'+esc(reg?at('btn_reg'):at('btn_login'))+'</button></form><p class="ahint">'+esc(reg?at('hint'):'')+'</p>'+(reg?'':'<div class="ahint" style="text-align:center;margin:12px 0 6px">'+esc(at('or_l'))+'</div><button type="button" class="pbtn sec" data-magic>✉️ '+esc(at('magic_btn'))+'</button>');
+    '<div class="aerr" id="a-err" role="alert"></div><button type="submit" class="pbtn">'+esc(reg?at('btn_reg'):at('btn_login'))+'</button></form><p class="ahint">'+esc(reg?at('hint'):'')+'</p>'+((reg||!AUTH_API)?'':'<div class="ahint" style="text-align:center;margin:12px 0 6px">'+esc(at('or_l'))+'</div><button type="button" class="pbtn sec" data-magic>✉️ '+esc(at('magic_btn'))+'</button>');
   }
   h+='</div>';o.innerHTML=h;document.body.appendChild(o);document.body.style.overflow='hidden';
   var f=o.querySelector('input');if(f)f.focus();
@@ -1334,16 +1585,27 @@ function submitAuth(){
   var reg=authMode==='register',email=(document.getElementById('a-login').value||'').trim().toLowerCase(),pw=document.getElementById('a-pass').value||'';
   var EMAIL=/^[^\s@]+@gmail\.com$/;
   if(reg){
-    var name=(document.getElementById('a-name').value||'').trim(),pw2=document.getElementById('a-pass2').value||'';
+    var name=(document.getElementById('a-name').value||'').trim(),pw2=document.getElementById('a-pass2').value||'',country=(document.getElementById('a-country').value||'');
     if(!name||!email||!pw||!pw2)return authErr('e_fill');
     if(name.length<2)return authErr('e_name');
+    if(!country)return authErr('e_country');
     if(!EMAIL.test(email))return authErr('e_email');
     if(pw.length<6)return authErr('e_pass');
     if(pw!==pw2)return authErr('e_match');
     if(!AUTH_API&&Object.prototype.hasOwnProperty.call(getUsers(),email))return authErr('e_exists');
     authErr('');busy(true);
+    if(!AUTH_API){
+      pwHash(email,pw).then(function(hh){
+        var us=getUsers();
+        if(Object.prototype.hasOwnProperty.call(us,email)){busy(false);return authErr('e_exists');}
+        us[email]={name:name,hash:hh,created:Date.now()};
+        if(!putUsers(us)){busy(false);return authErr('e_net');}
+        busy(false);finishLogin(email,name);
+      }).catch(function(){busy(false);authErr('e_net')});
+      return;
+    }
     pwHash(email,pw).then(function(hh){
-      regPending={name:name,email:email,hash:hh};
+      regPending={name:name,email:email,hash:hh,country:country};
       return sendCode();
     }).then(function(r){
       busy(false);
@@ -1356,7 +1618,7 @@ function submitAuth(){
     if(AUTH_API){
       pwHash(email,pw).then(function(hh){return api('login',{email:email,hash:hh})}).then(function(r){
         busy(false);if(!r.ok)return authErr(errKey(r.error==='bad_login'?'bad_login':r.error));
-        finishLogin(email,r.name);
+        finishLogin(email,r.name,r);
       }).catch(function(){busy(false);authErr('e_net')});
     }else{
       var users=getUsers(),u=Object.prototype.hasOwnProperty.call(users,email)?users[email]:null;
@@ -1371,9 +1633,9 @@ function submitCode(){
   if(code.length!==6)return authErr('e_code');
   authErr('');busy(true);
   if(AUTH_API){
-    api('verify',{email:p.email,code:code,name:p.name,hash:p.hash}).then(function(r){
+    api('verify',{email:p.email,code:code,name:p.name,hash:p.hash,country:p.country}).then(function(r){
       busy(false);if(!r.ok)return authErr(errKey(r.error));
-      finishLogin(p.email,r.name||p.name);
+      finishLogin(p.email,r.name||p.name,r);
     }).catch(function(){busy(false);authErr('e_net')});
   }else{busy(false);authErr('e_nomail');}
 }
@@ -1387,15 +1649,23 @@ function openReader(i){
 document.addEventListener('click',function(e){
   var t=e.target.closest('button,div.ov');if(!t)return;
   if(t.classList&&t.classList.contains('ov')&&e.target===t){closeOv();return;}
+  if(t.hasAttribute('data-auth-register')){openAuth('register');return;}
   if(t.hasAttribute('data-auth-open')){openAuth(curUserObj()?'profile':'login');return;}
   if(t.hasAttribute('data-ov-close')){closeOv();return;}
   if(t.hasAttribute('data-amode')){openAuth(t.getAttribute('data-amode'));return;}
-  if(t.hasAttribute('data-logout')){setSession(null);closeOv();renderAuth();return;}
+  if(t.hasAttribute('data-logout')){var _tk=getToken();setSession(null);setToken('');if(_tk&&AUTH_API)api('logout',{session:_tk}).catch(function(){});closeOv();renderAuth();SRV.list=null;if(view==='users')render();return;}
+  if(t.hasAttribute('data-users-refresh')){loadUsers();return;}
+  if(t.hasAttribute('data-user-del')){
+    var em=t.getAttribute('data-user-del'),nm=t.getAttribute('data-user-name');
+    if(!window.confirm(at('u_conf').replace('{n}',nm+' ('+em+')')))return;
+    t.disabled=true;
+    api('user_delete',{session:getToken(),email:em}).then(function(r){if(!r.ok)toast(at('u_err'));loadUsers();}).catch(function(){toast(at('e_net'));loadUsers();});
+    return;}
   if(t.hasAttribute('data-resend')){resendCode();return;}
   if(t.hasAttribute('data-magic')){sendMagic();return;}
   if(t.hasAttribute('data-avp')){pendAv=t.getAttribute('data-avp');refreshAv();return;}
   if(t.hasAttribute('data-avtab')){pendTab=t.getAttribute('data-avtab');refreshAv();return;}
-  if(t.hasAttribute('data-main')){pendMain=t.getAttribute('data-main');pendTab=pendMain;if(pendAv.split(':')[0]!==pendMain)pendAv=pendMain+':0';refreshAv();setAnim('pfanim',pendMain);setAnim('pgbg',pendMain);return;}
+  if(t.hasAttribute('data-main')){pendMain=t.getAttribute('data-main');pendTab=pendMain;if(pendAv.split(':')[0]!==pendMain)pendAv=pendMain+':0';refreshAv();return;}
   if(t.hasAttribute('data-setup-done')){finishSetup();return;}
   if(t.hasAttribute('data-aback')){regPending=null;openAuth('register');return;}
   if(t.hasAttribute('data-read')){readBook=+t.getAttribute('data-read');readCh=0;render();window.scrollTo(0,0);return;}
@@ -1441,6 +1711,976 @@ document.addEventListener('keydown',function(e){
   if(id)checkProblem(id);
   else if(e.target.id==='calc-in')calcEquals();
 });
+/* ===== INFASUB: cartoon avatars + animated subject backgrounds ===== */
+function avSvg(code){
+  var SKIN=['#FFDAB9','#F4C28B','#D69A62','#A8693A','#FFE3CC','#8A5230'],
+      HAIR=['#2A1A12','#5B3A24','#D9A23B','#16161D','#B8472F','#6B4FA0'];
+  var p=String(code).split(':'),sb=AVP[p[0]]!==undefined?p[0]:'inf',v=(+p[1]||0)%6,h=AVP[sb],si=AVN.indexOf(sb),id='ag'+(++avUid);
+  var skin=SKIN[(v+si*2)%6],hair=HAIR[(v*2+si)%6],shirt='hsl('+((h+v*24)%360)+',72%,52%)',shirt2='hsl('+((h+v*24)%360)+',72%,40%)';
+  var c1='hsl('+(h+v*16)+',82%,64%)',c2='hsl('+(h+50+v*16)+',72%,34%)',ac='hsl('+((h+v*24+40)%360)+',95%,62%)',dk='#2c2f48',bd='hsl('+h+',65%,34%)';
+  var s='<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><radialGradient id="'+id+'" cx=".3" cy=".2" r="1.05"><stop offset="0" stop-color="'+c1+'"/><stop offset="1" stop-color="'+c2+'"/></radialGradient></defs>'+
+    '<rect width="100" height="100" fill="url(#'+id+')"/><circle cx="84" cy="22" r="24" fill="#fff" opacity=".1"/><circle cx="12" cy="82" r="18" fill="#fff" opacity=".08"/>';
+  // hair behind head
+  if(v===1)s+='<path d="M27 46C20 68 25 84 33 88L67 88C75 84 80 68 73 46Z" fill="'+hair+'"/>';
+  if(v===2)s+='<circle cx="50" cy="14" r="9.5" fill="'+hair+'"/><circle cx="50" cy="14" r="4" fill="'+ac+'" opacity=".85"/>';
+  if(v===3)s+='<g fill="'+hair+'"><circle cx="31" cy="36" r="9"/><circle cx="40" cy="26" r="9"/><circle cx="50" cy="23" r="9"/><circle cx="60" cy="26" r="9"/><circle cx="69" cy="36" r="9"/><circle cx="28" cy="46" r="7"/><circle cx="72" cy="46" r="7"/></g>';
+  if(v===5)s+='<g fill="'+hair+'"><circle cx="24" cy="56" r="8.5"/><circle cx="76" cy="56" r="8.5"/></g><g fill="'+ac+'"><circle cx="27" cy="46" r="3"/><circle cx="73" cy="46" r="3"/></g>';
+  // neck, shirt, collar
+  s+='<rect x="43" y="56" width="14" height="22" rx="6" fill="'+skin+'"/><path d="M10 100C10 80 28 72 50 72C72 72 90 80 90 100Z" fill="'+shirt+'"/><path d="M36 74L50 90L64 74Z" fill="'+shirt2+'"/><path d="M41 73L50 85L59 73Z" fill="'+skin+'"/>';
+  // ears + head
+  s+='<circle cx="30.5" cy="47" r="4.6" fill="'+skin+'"/><circle cx="69.5" cy="47" r="4.6" fill="'+skin+'"/><ellipse cx="50" cy="45" rx="20" ry="22" fill="'+skin+'"/>'+
+     '<circle cx="37.5" cy="54" r="4" fill="#FF6F86" opacity=".32"/><circle cx="62.5" cy="54" r="4" fill="#FF6F86" opacity=".32"/>';
+  // front hair
+  var fh=['M29 44C26 24 40 16 52 17C65 18 75 26 71 44C68 36 62 31 54 30C46 33 36 33 29 44Z',
+          'M29 46C25 24 38 16 50 16C62 16 75 24 71 46C66 36 58 29 50 28C42 29 34 36 29 46Z',
+          'M30 42C30 24 42 19 50 19C58 19 70 24 70 42C64 34 58 30 50 30C42 30 36 34 30 42Z',
+          'M33 36C36 28 64 28 67 36C60 33 40 33 33 36Z',
+          'M29 44L27 26L36 31L38 16L46 26L52 13L58 26L66 16L65 31L74 26L71 44C66 35 58 31 50 31C42 31 34 35 29 44Z',
+          'M29 44C27 24 40 17 50 17C60 17 73 24 71 44C66 34 58 28 50 28C42 28 34 34 29 44Z'][v];
+  s+='<path d="'+fh+'" fill="'+hair+'"/>';
+  // face
+  s+='<path d="M37 39Q42 36 47 39M53 39Q58 36 63 39" stroke="'+hair+'" stroke-width="2" fill="none" stroke-linecap="round"/>'+
+     '<g class="avey"><ellipse cx="42" cy="46" rx="2.9" ry="3.5" fill="#1b1b2b"/><ellipse cx="58" cy="46" rx="2.9" ry="3.5" fill="#1b1b2b"/><circle cx="43" cy="44.8" r="1.1" fill="#fff"/><circle cx="59" cy="44.8" r="1.1" fill="#fff"/></g>'+
+     '<path d="M50 49Q52.5 52.5 49.5 52.5" stroke="#000" stroke-opacity=".2" stroke-width="1.4" fill="none" stroke-linecap="round"/>'+
+     (v%2===0?'<path d="M43 55.5Q50 63 57 55.5Z" fill="#8a2b3a"/><path d="M45 56.3Q50 58.5 55 56.3Z" fill="#fff"/>':'<path d="M44 55.5Q50 61 56 55.5" stroke="#8a2b3a" stroke-width="2.2" fill="none" stroke-linecap="round"/>');
+  // subject accessory
+  if(sb==='inf')s+='<path d="M29 45C27 21 73 21 71 45" stroke="'+dk+'" stroke-width="3.6" fill="none"/><rect x="23.5" y="42" width="8" height="14" rx="4" fill="#ff5d8f"/><rect x="68.5" y="42" width="8" height="14" rx="4" fill="#ff5d8f"/><path d="M26 57Q30 66 42 64" stroke="'+dk+'" stroke-width="1.6" fill="none"/><circle cx="43" cy="64" r="2" fill="'+dk+'"/>';
+  if(sb==='alg')s+='<g fill="#fff" fill-opacity=".18" stroke="'+dk+'" stroke-width="1.8"><circle cx="42" cy="46" r="6.8"/><circle cx="58" cy="46" r="6.8"/></g><path d="M48.8 46h2.4M35.3 45L30 43M64.7 45L70 43" stroke="'+dk+'" stroke-width="1.8" fill="none"/>';
+  if(sb==='geo')s+='<g fill="#fff" fill-opacity=".18" stroke="'+dk+'" stroke-width="1.8"><rect x="35" y="40.5" width="14" height="11" rx="2.5"/><rect x="51" y="40.5" width="14" height="11" rx="2.5"/></g><path d="M49 45h2M35 44L30 43M65 44L70 43" stroke="'+dk+'" stroke-width="1.8" fill="none"/>';
+  if(sb==='phy')s+='<path d="M30.5 37C40 31 60 31 69.5 37" stroke="'+ac+'" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M52 29.5L46.5 36H50.5L48 41.5L55 34.5H51Z" fill="#fff"/>';
+  if(sb==='che')s+='<path d="M30 40Q50 34 70 40" stroke="'+dk+'" stroke-width="3" fill="none"/><circle cx="42" cy="46" r="7.2" fill="#9ff3ff" fill-opacity=".38" stroke="'+dk+'" stroke-width="2"/><circle cx="58" cy="46" r="7.2" fill="#9ff3ff" fill-opacity=".38" stroke="'+dk+'" stroke-width="2"/><path d="M49 46h2" stroke="'+dk+'" stroke-width="2"/>';
+  if(sb==='bio')s+='<path d="M61 24C73 14 86 24 74 35C67 33 61 31 61 24Z" fill="#3ccf6e"/><path d="M63 25L72 32" stroke="#1d8f46" stroke-width="1.2"/><circle cx="57" cy="23" r="3" fill="#ffd34d"/>';
+  // subject badge
+  s+='<g transform="translate(-8 8)"><circle cx="86" cy="14" r="9.5" fill="#fff" opacity=".95"/>';
+  var ic={
+    inf:'<text x="86" y="17" text-anchor="middle" font-family="monospace" font-weight="700" font-size="8.5" fill="'+bd+'">&lt;/&gt;</text>',
+    alg:'<text x="86" y="18.3" text-anchor="middle" font-family="serif" font-weight="700" font-size="12" fill="'+bd+'">π</text>',
+    geo:'<path d="M86 8.5L93 19.5H79Z" fill="none" stroke="'+bd+'" stroke-width="2" stroke-linejoin="round"/>',
+    phy:'<g fill="none" stroke="'+bd+'" stroke-width="1.4"><ellipse cx="86" cy="14" rx="7" ry="2.6"/><ellipse cx="86" cy="14" rx="7" ry="2.6" transform="rotate(60 86 14)"/><ellipse cx="86" cy="14" rx="7" ry="2.6" transform="rotate(120 86 14)"/></g><circle cx="86" cy="14" r="1.6" fill="'+bd+'"/>',
+    che:'<path d="M83.5 8H88.5V13L92 19.5Q92.6 21 91 21H81Q79.4 21 80 19.5L83.5 13Z" fill="none" stroke="'+bd+'" stroke-width="1.7" stroke-linejoin="round"/><path d="M82 17H90" stroke="'+bd+'" stroke-width="1.6"/>',
+    bio:'<path d="M80 19C80 11 86 8 93 8C93 15 90 21 82 20Z" fill="'+bd+'"/><path d="M81 19L88 12" stroke="#fff" stroke-width="1.2"/>'
+  }[sb];
+  return s+ic+'</g></svg>';
+}
+
+function bgRand(seed){var s=seed%2147483647;if(s<=0)s+=2147483646;return function(){s=s*16807%2147483647;return (s-1)/2147483646;};}
+function bgAnim(sb){
+  if(!sb||AVP[sb]===undefined)return '';
+  var r=bgRand(11+AVN.indexOf(sb)*97),h='',i,k;
+  function P(a,b){return a+r()*(b-a);}
+  function N(a,b){return P(a,b).toFixed(1);}
+  function pos(){return 'left:'+N(2,92)+'%;top:'+N(4,86)+'%;';}
+  function dur(a,b){return 'animation-duration:'+N(a,b)+'s;animation-delay:-'+N(0,b)+'s;';}
+  if(sb==='inf'){
+    for(i=0;i<18;i++){var d='';for(k=0;k<16;k++)d+=(r()>.5?'1':'0')+'\n';
+      h+='<span class="bg-d" style="left:'+N(i*5.5,i*5.5+3)+'%;font-size:'+Math.round(P(11,16))+'px;'+dur(5,12)+'">'+d+'</span>';}
+  }else if(sb==='alg'){
+    var sy=['x²','√','π','∑','∫','f(x)','≠','∞','Δ','a+b','y=kx','%','≈','b²','±','θ','x=?'];
+    for(i=0;i<20;i++)h+='<span class="bg-s" style="'+pos()+'font-size:'+Math.round(P(16,40))+'px;'+dur(6,13)+'">'+sy[i%sy.length]+'</span>';
+  }else if(sb==='geo'){
+    var sh=['tri','sq','cir','hex','ring','sqr'];
+    for(i=0;i<18;i++){var z=Math.round(P(18,50));h+='<span class="bg-g '+sh[i%sh.length]+'" style="'+pos()+'width:'+z+'px;height:'+z+'px;'+dur(8,18)+'"></span>';}
+  }else if(sb==='phy'){
+    [64,116,172,232,300].forEach(function(z,j){h+='<span class="bg-o" style="width:'+z+'px;height:'+z+'px;margin:-'+z/2+'px 0 0 -'+z/2+'px;animation-duration:'+(7+j*4)+'s;animation-direction:'+(j%2?'reverse':'normal')+'"></span>';});
+    h+='<span class="bg-n"></span>';
+    for(i=0;i<14;i++)h+='<span class="bg-t" style="'+pos()+'animation-delay:-'+N(0,4)+'s;animation-duration:'+N(2,5)+'s"></span>';
+  }else if(sb==='che'){
+    for(i=0;i<16;i++){var q=Math.round(P(10,36));h+='<span class="bg-b" style="left:'+N(2,94)+'%;width:'+q+'px;height:'+q+'px;'+dur(6,14)+'"></span>';}
+    var mo=['H₂O','CO₂','NaCl','O₂','CH₄','H₂SO₄'];
+    for(i=0;i<6;i++)h+='<span class="bg-m" style="left:'+N(4,88)+'%;'+dur(9,17)+'">'+mo[i]+'</span>';
+  }else{
+    for(i=0;i<12;i++){var cz=Math.round(P(26,62));h+='<span class="bg-c" style="'+pos()+'width:'+cz+'px;height:'+cz+'px;'+dur(5,11)+'"></span>';}
+    for(i=0;i<10;i++)h+='<span class="bg-l" style="'+pos()+'transform:rotate('+Math.round(P(0,360))+'deg);'+dur(4,9)+'"></span>';
+  }
+  return '<div class="sbg sbg-'+sb+'" data-s="'+sb+'" aria-hidden="true">'+h+'</div>';
+}
+function bgHead(html,id){
+  return html.replace(/(<div class="sv-head)(" style="[^"]*">)/,function(m,a,b){return a+' hasbg'+b+bgAnim(id);});
+}
+function mainPrevHtml(){
+  var x=pendMain&&subj(pendMain),ph={ru:'Выберите предмет — под ним появится анимация',tg:'Фанро интихоб кунед — анимация пайдо мешавад',en:'Pick a subject — an animation will appear here'};
+  return '<div class="mainprev" id="mainprev" data-s="'+(pendMain||'')+'"'+(x?' style="--c:'+col(x.c)+'"':'')+'>'+(x?bgAnim(pendMain)+'<div class="mpt"><b>'+esc(tr(x.name))+'</b><span>'+esc(tr(x.desc))+'</span></div>':'<div class="mpt"><span>'+esc(ph[lang]||ph.ru)+'</span></div>')+'</div>';
+}
+function syncSubjectBg(){
+  var mp=document.getElementById('mainprev');
+  if(mp&&mp.getAttribute('data-s')!==(pendMain||''))mp.outerHTML=mainPrevHtml();
+  var cv=document.getElementById('pfcover');
+  if(cv){
+    var old=cv.querySelector('.sbg'),cur=old?old.getAttribute('data-s'):'';
+    if(cur!==(pendMain||'')){if(old)old.remove();if(pendMain)cv.insertAdjacentHTML('afterbegin',bgAnim(pendMain));}
+  }
+}
+
+/* ===== INFASUB AI: deterministic solver ===== */
+var aiL='ru';
+function aiT(r,g,e){return aiL==='ru'?r:(aiL==='tg'?g:e);}
+function aiF(v){if(!isFinite(v))return String(v);return String(Number(v.toPrecision(10)));}
+function aiR9(v){return Math.round(v*1e9)/1e9;}
+function aiSub(s){return String(s).replace(/\d/g,function(d){return '₀₁₂₃₄₅₆₇₈₉'.charAt(+d);});}
+function aiGcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){var t=a%b;a=b;b=t;}return a;}
+function aiFrac(v){
+  if(Math.abs(v-Math.round(v))<1e-9)return aiF(Math.round(v));
+  if(String(Number(v.toFixed(4)))===aiF(v))return aiF(v);
+  for(var d=2;d<=1000;d++){var p=v*d;if(Math.abs(p-Math.round(p))<1e-9*d)return Math.round(p)+'/'+d+' ≈ '+aiF(v);}
+  return aiF(v);
+}
+function aiP(v){return v<0?'('+aiF(v)+')':aiF(v);}
+function aiRt(n){ // sqrt of a non-negative number as text
+  var s=Math.sqrt(n);
+  if(Math.abs(s-Math.round(s))<1e-9)return aiF(Math.round(s));
+  return '√'+aiF(n)+' ≈ '+aiF(s);
+}
+function aiNorm(s){
+  return String(s).replace(/[−–—]/g,'-').replace(/×|·/g,'*').replace(/÷/g,'/')
+    .replace(/²/g,'^2').replace(/³/g,'^3').replace(/(\d),(\d)/g,'$1.$2')
+    .replace(/(^|[^а-яёa-z])[хХ](?![а-яёa-z])/g,'$1x');
+}
+function aiNums(t){return (t.match(/\d+(?:\.\d+)?/g)||[]).map(parseFloat);}
+var AINUM='(-?\\d+(?:\\.\\d+)?)';
+
+/* ---------- equations ---------- */
+function aiPre(s,vals){
+  var e=s;
+  for(var k in vals)e=e.replace(new RegExp(k,'g'),'('+vals[k]+')');
+  e=e.replace(/(\d|\))\s*\(/g,'$1*(').replace(/\)\s*(\d)/g,')*$1');
+  return calcEval(e);
+}
+function aiOkAt(t,p){
+  var c=t.charAt(p);
+  if(/[0-9.()+\-*\/^\s]/.test(c))return true;
+  if(c==='x'||c==='y')return !/[a-zа-яё]/.test(t.charAt(p-1))&&!/[a-zа-яё]/.test(t.charAt(p+1));
+  return false;
+}
+function aiEquations(t){
+  var res=[],i=-1;
+  while((i=t.indexOf('=',i+1))>-1){
+    var pc=t.charAt(i-1),nc=t.charAt(i+1);
+    if(pc==='<'||pc==='>'||pc==='!'||pc==='='||nc==='=')continue;
+    var a=i-1;while(a>=0&&aiOkAt(t,a))a--;
+    var b=i+1;while(b<t.length&&aiOkAt(t,b))b++;
+    var l=t.slice(a+1,i).split(/\.\s+/).pop().replace(/^[^0-9xy(\-+]+/,'').trim();
+    var r=t.slice(i+1,b).replace(/[^0-9xy)]+$/,'').trim();
+    if(l&&r)res.push({l:l,r:r});
+  }
+  return res;
+}
+function aiPoly(a,b,c,v){
+  var out='';
+  [[a,v+'²'],[b,v],[c,'']].forEach(function(p){
+    var co=p[0];if(!co)return;var ab=Math.abs(co);
+    var tx=(ab===1&&p[1])?p[1]:aiF(ab)+p[1];
+    if(!out)out=(co<0?'−':'')+tx;else out+=' '+(co<0?'−':'+')+' '+tx;
+  });
+  return out||'0';
+}
+function aiLin2(a,b){
+  var out='';
+  [[a,'x'],[b,'y']].forEach(function(p){
+    var co=p[0];if(!co)return;var ab=Math.abs(co);
+    var tx=ab===1?p[1]:aiF(ab)+p[1];
+    if(!out)out=(co<0?'−':'')+tx;else out+=' '+(co<0?'−':'+')+' '+tx;
+  });
+  return out||'0';
+}
+function aiSolveEq(t){
+  var eqs=aiEquations(t);if(!eqs.length)return null;
+  var joined=eqs.map(function(e){return e.l+e.r;}).join('');
+  var hasX=/x/.test(joined),hasY=/y/.test(joined);
+  if(!hasX&&!hasY)return null;
+  var bad=aiT('Не удалось разобрать уравнение. Запишите его, например, так: 3x - 7 = 11 или x^2 - 5x + 6 = 0.',
+              'Муодиларо фаҳмида натавонистам. Масалан, чунин нависед: 3x - 7 = 11 ё x^2 - 5x + 6 = 0.',
+              'I could not parse the equation. Write it like 3x - 7 = 11 or x^2 - 5x + 6 = 0.');
+  if(hasX&&hasY){
+    if(eqs.length<2)return aiT('Здесь две неизвестные (x и y). Нужны два уравнения, например: x + y = 5, x - y = 1.',
+      'Ду номаълум (x ва y) ҳаст. Ду муодила лозим аст, масалан: x + y = 5, x - y = 1.',
+      'There are two unknowns (x and y). I need two equations, e.g. x + y = 5, x - y = 1.');
+    try{
+      var co=[];
+      for(var k=0;k<2;k++){
+        var q=eqs[k];
+        var g=function(x,y){return aiPre(q.l,{x:x,y:y})-aiPre(q.r,{x:x,y:y});};
+        var c0=g(0,0),a1=g(1,0)-c0,b1=g(0,1)-c0;
+        var tol=function(v,w){return Math.abs(v-w)<1e-6*(1+Math.abs(w));};
+        if(!tol(g(1,1),a1+b1+c0)||!tol(g(2,-1),2*a1-b1+c0)||!tol(g(-3,2),-3*a1+2*b1+c0))return aiT(
+          'Умею решать только линейные системы (без x², xy и т. п.).','Танҳо системаҳои хаттиро ҳал карда метавонам.','I can only solve linear systems (no x², xy, etc.).');
+        co.push([aiR9(a1),aiR9(b1),aiR9(-c0)]);
+      }
+      var A1=co[0][0],B1=co[0][1],R1=co[0][2],A2=co[1][0],B2=co[1][1],R2=co[1][2];
+      var det=aiR9(A1*B2-A2*B1);
+      var L=[aiT('Система:','Система:','System:'),aiLin2(A1,B1)+' = '+aiF(R1),aiLin2(A2,B2)+' = '+aiF(R2)];
+      if(det===0)return L.join('\n')+'\n'+aiT('Δ = 0: единственного решения нет (прямые параллельны или совпадают).','Δ = 0: ҳалли ягона нест.','Δ = 0: no unique solution (the lines are parallel or coincide).');
+      var dx=aiR9(R1*B2-R2*B1),dy=aiR9(A1*R2-A2*R1);
+      var X=aiR9(dx/det),Y=aiR9(dy/det);
+      var ok=Math.abs(A1*X+B1*Y-R1)<1e-6&&Math.abs(A2*X+B2*Y-R2)<1e-6;
+      L.push(aiT('Метод Крамера:','Усули Крамер:','Cramer\'s rule:'));
+      L.push('Δ = '+aiP(A1)+'·'+aiP(B2)+' − '+aiP(A2)+'·'+aiP(B1)+' = '+aiF(det));
+      L.push('Δx = '+aiF(dx)+', Δy = '+aiF(dy));
+      L.push('x = Δx/Δ = '+aiFrac(X)+', y = Δy/Δ = '+aiFrac(Y));
+      if(ok)L.push(aiT('Проверка: подстановка в оба уравнения верна ✓','Санҷиш: ҷойгузорӣ дар ҳарду муодила дуруст ✓','Check: both equations hold ✓'));
+      L.push('**'+aiT('Ответ','Ҷавоб','Answer')+': x = '+aiF(X)+', y = '+aiF(Y)+'**');
+      return L.join('\n');
+    }catch(e){return bad;}
+  }
+  var vn=hasX?'x':'y',eq=null;
+  for(var j=0;j<eqs.length;j++){if(eqs[j].l.indexOf(vn)>-1||eqs[j].r.indexOf(vn)>-1){eq=eqs[j];break;}}
+  if(!eq)return null;
+  try{
+    var G=function(v){var o={x:0,y:0};o[vn]=v;return aiPre(eq.l,o)-aiPre(eq.r,o);};
+    var f0=G(0),f1=G(1),fm=G(-1);
+    var c=f0,a=(f1+fm)/2-c,b=(f1-fm)/2;
+    var close=function(v,w){return Math.abs(v-w)<1e-6*(1+Math.abs(w));};
+    if(!close(G(2),4*a+2*b+c)||!close(G(-2),4*a-2*b+c)||!close(G(3),9*a+3*b+c))return aiT(
+      'Уравнение не сводится к линейному или квадратному. Такие (степени выше 2, дроби с x, корни с x) я пока не решаю — не хочу выдавать неверный ответ.',
+      'Ин муодила хаттӣ ё квадратӣ нест. Чунин муодилаҳоро ҳоло ҳал намекунам, то ки ҷавоби нодуруст надиҳам.',
+      'This equation is not linear or quadratic. I do not solve those (degree above 2, x in denominators or roots) yet — I would rather not give a wrong answer.');
+    a=aiR9(a);b=aiR9(b);c=aiR9(c);
+    var Lns=[];
+    var lhsT=eq.l,rhsT=eq.r;
+    Lns.push(aiT('Переносим всё в одну часть и упрощаем:','Ҳама чизро ба як тараф мегузаронем:','Move everything to one side and simplify:'));
+    Lns.push(aiPoly(a,b,c,vn)+' = 0');
+    if(a===0){
+      if(b===0)return Lns.join('\n')+'\n'+(c===0?aiT('Верно при любом '+vn+' (бесконечно много решений).','Ба ҳар '+vn+' дуруст аст.','True for any '+vn+'.'):aiT('Решений нет.','Реша нест.','No solution.'));
+      var x=aiR9(-c/b);
+      Lns.push(vn+' = '+aiF(-c)+' / '+(b<0?'('+aiF(b)+')':aiF(b))+' = '+aiFrac(x));
+      var lv=aiPre(lhsT,{x:vn==='x'?x:0,y:vn==='y'?x:0}),rv=aiPre(rhsT,{x:vn==='x'?x:0,y:vn==='y'?x:0});
+      if(Math.abs(lv-rv)<1e-6)Lns.push(aiT('Проверка: левая часть = ','Санҷиш: тарафи чап = ','Check: left side = ')+aiF(lv)+aiT(', правая часть = ',', тарафи рост = ',', right side = ')+aiF(rv)+' ✓');
+      Lns.push('**'+aiT('Ответ','Ҷавоб','Answer')+': '+vn+' = '+aiFrac(x)+'**');
+      return Lns.join('\n');
+    }
+    var D=aiR9(b*b-4*a*c);
+    Lns.push('a = '+aiF(a)+', b = '+aiF(b)+', c = '+aiF(c));
+    Lns.push('D = b² − 4ac = '+(b<0?'('+aiF(b)+')':aiF(b))+'² − 4·'+(a<0?'('+aiF(a)+')':aiF(a))+'·'+(c<0?'('+aiF(c)+')':aiF(c))+' = '+aiF(D));
+    if(D<0){
+      Lns.push(aiT('D < 0 — действительных корней нет.','D < 0 — решаҳои ҳақиқӣ нест.','D < 0 — no real roots.'));
+      var re=aiR9(-b/(2*a)),im=aiR9(Math.sqrt(-D)/(2*Math.abs(a)));
+      Lns.push(aiT('Комплексные корни: ','Решаҳои комплексӣ: ','Complex roots: ')+vn+' = '+aiF(re)+' ± '+aiF(im)+'i');
+      Lns.push('**'+aiT('Ответ: действительных корней нет','Ҷавоб: решаи ҳақиқӣ нест','Answer: no real roots')+'**');
+      return Lns.join('\n');
+    }
+    var sq=Math.sqrt(D);
+    if(D===0){
+      var x0=aiR9(-b/(2*a));
+      Lns.push(aiT('D = 0 — один корень: ','D = 0 — як реша: ','D = 0 — one root: ')+vn+' = −b/2a = '+aiFrac(x0));
+      Lns.push('**'+aiT('Ответ','Ҷавоб','Answer')+': '+vn+' = '+aiFrac(x0)+'**');
+      return Lns.join('\n');
+    }
+    var r1=aiR9((-b-sq)/(2*a)),r2=aiR9((-b+sq)/(2*a));
+    if(r1>r2){var tmp=r1;r1=r2;r2=tmp;}
+    Lns.push(aiT('D > 0 — два корня: '+vn+' = (−b ± √D) / 2a','D > 0 — ду реша: '+vn+' = (−b ± √D) / 2a','D > 0 — two roots: '+vn+' = (−b ± √D) / 2a'));
+    if(Math.abs(sq-Math.round(sq))>1e-9&&[a,b,D].every(function(z){return z===Math.round(z);}))
+      Lns.push(vn+' = ('+aiF(-b)+' ± √'+aiF(D)+') / '+aiF(2*a));
+    Lns.push(vn+'₁ = '+aiFrac(r1)+',  '+vn+'₂ = '+aiFrac(r2));
+    if(Math.abs(G(r1))<1e-6*(1+Math.abs(c))&&Math.abs(G(r2))<1e-6*(1+Math.abs(c)))
+      Lns.push(aiT('Проверка по Виету: сумма = ','Санҷиш аз рӯи Виет: ҳосили ҷамъ = ','Vieta check: sum = ')+aiF(aiR9(r1+r2))+' = −b/a, '+aiT('произведение = ','ҳосили зарб = ','product = ')+aiF(aiR9(r1*r2))+' = c/a ✓');
+    Lns.push('**'+aiT('Ответ','Ҷавоб','Answer')+': '+vn+'₁ = '+aiF(r1)+', '+vn+'₂ = '+aiF(r2)+'**');
+    return Lns.join('\n');
+  }catch(e){return bad;}
+}
+
+/* ---------- percent ---------- */
+function aiPercent(t){
+  var P='(?:%|процент[а-яё]*|percent|фоиз)',m;
+  if((m=new RegExp(AINUM+'\\s*'+P+'\\s*(?:от|of|аз)\\s*'+AINUM).exec(t))){
+    var p=+m[1],v=+m[2],r=v*p/100;
+    return aiF(p)+'% '+aiT('от','аз','of')+' '+aiF(v)+' = '+aiF(v)+' × '+aiF(p)+' / 100 = **'+aiF(r)+'**';
+  }
+  if((m=new RegExp('(?:сколько процентов|what percent|how many percent|чанд фоиз)\\D{0,25}?'+AINUM+'\\s*(?:от|of|аз)\\s*'+AINUM).exec(t))){
+    var A=+m[1],B=+m[2];if(B===0)return null;
+    return aiF(A)+' / '+aiF(B)+' × 100% = **'+aiF(A/B*100)+'%**';
+  }
+  if((m=new RegExp('(увелич[а-яё]*|уменьш[а-яё]*|increase[a-z]*|decrease[a-z]*|reduce[a-z]*)\\D{0,15}?'+AINUM+'\\D{0,12}?'+AINUM+'\\s*'+P).exec(t))){
+    var inc=/^(увелич|increase)/.test(m[1]),n=+m[2],pp=+m[3],res=n*(1+(inc?1:-1)*pp/100);
+    return aiF(n)+(inc?' + ':' − ')+aiF(pp)+'% = '+aiF(n)+' × '+aiF(1+(inc?1:-1)*pp/100)+' = **'+aiF(res)+'**';
+  }
+  return null;
+}
+
+/* ---------- Pythagoras ---------- */
+function aiPyth(t){
+  if(!/катет|гипотенуз|hypotenuse|\blegs?\b/.test(t))return null;
+  var n=aiNums(t);
+  var hg=new RegExp('(?:гипотенуз[а-яё]*|hypotenuse)\\s*(?:равн[а-яё]*|=|-|is|equals|of)?\\s*'+AINUM).exec(t);
+  var lg=new RegExp('(?:катет[а-яё]*|\\bleg)\\s*(?:равен|=|-|is|of)?\\s*'+AINUM).exec(t);
+  var h=hg?+hg[1]:null,l=lg?+lg[1]:null;
+  if(h!==null&&l===null&&n.length===2){l=n[0]===h?n[1]:n[0];}
+  if(h!==null&&l!==null){
+    if(h<=l)return aiT('Гипотенуза должна быть больше катета.','Гипотенуза бояд аз катет калон бошад.','The hypotenuse must be longer than a leg.');
+    var b2=h*h-l*l;
+    return aiT('c² = a² + b², значит b² = c² − a²','c² = a² + b², пас b² = c² − a²','c² = a² + b², so b² = c² − a²')+'\nb = √('+aiF(h)+'² − '+aiF(l)+'²) = √('+aiF(h*h)+' − '+aiF(l*l)+') = √'+aiF(b2)+'\n**'+aiT('Ответ: второй катет','Ҷавоб: катети дуюм','Answer: other leg')+' = '+aiRt(b2)+'**';
+  }
+  if(n.length===2&&h===null){
+    var s=n[0]*n[0]+n[1]*n[1];
+    return aiT('Теорема Пифагора: c² = a² + b²','Теоремаи Пифагор: c² = a² + b²','Pythagorean theorem: c² = a² + b²')+'\nc = √('+aiF(n[0])+'² + '+aiF(n[1])+'²) = √('+aiF(n[0]*n[0])+' + '+aiF(n[1]*n[1])+') = √'+aiF(s)+'\n**'+aiT('Ответ: гипотенуза','Ҷавоб: гипотенуза','Answer: hypotenuse')+' = '+aiRt(s)+'**';
+  }
+  return null;
+}
+
+/* ---------- geometry ---------- */
+function aiGeom(t){
+  var wA=/площад|\barea\b|масоҳат|масохат/.test(t),wP=/периметр|perimeter/.test(t),wC=/длин[а-яё]* окружн|circumference|тӯли давра|дарозии давра/.test(t);
+  if(!(wA||wP||wC))return null;
+  var n=aiNums(t);if(!n.length)return null;
+  var tri=/треугольн|triangle|секунҷа/.test(t),rect=/прямоугольн|rectangle|росткунҷа/.test(t),
+      sq=/квадрат(?!н)|\bsquare\b|мураббаъ/.test(t),circ=/(?:^|[^а-яё])круг|окружност|circle|давра/.test(t);
+  var A=aiT('Площадь','Масоҳат','Area'),P=aiT('Периметр','Периметр','Perimeter');
+  if(tri){
+    if(wP&&!wA&&n.length===3)return P+' = '+n.join(' + ')+' = **'+aiF(n[0]+n[1]+n[2])+'**';
+    if(wA){
+      if(n.length===2&&/основани|высот|\bbase\b|height|асос|баландӣ/.test(t))return A+' = ½ · a · h = ½ · '+aiF(n[0])+' · '+aiF(n[1])+' = **'+aiF(n[0]*n[1]/2)+'**';
+      if(n.length===2&&/катет|\blegs?\b/.test(t))return A+' = ½ · a · b = ½ · '+aiF(n[0])+' · '+aiF(n[1])+' = **'+aiF(n[0]*n[1]/2)+'**';
+      if(n.length===3){
+        var a=n[0],b=n[1],c=n[2];
+        if(a+b<=c||a+c<=b||b+c<=a)return aiT('Треугольника с такими сторонами не существует.','Секунҷа бо чунин тарафҳо вуҷуд надорад.','No triangle exists with these sides.');
+        var p=(a+b+c)/2,S=Math.sqrt(p*(p-a)*(p-b)*(p-c));
+        return aiT('Формула Герона: p = (a+b+c)/2 = ','Формулаи Герон: p = (a+b+c)/2 = ','Heron\'s formula: p = (a+b+c)/2 = ')+aiF(p)+'\nS = √(p(p−a)(p−b)(p−c)) = √'+aiF(aiR9(p*(p-a)*(p-b)*(p-c)))+'\n**'+A+' = '+aiF(S)+'**';
+      }
+    }
+    return null;
+  }
+  if(circ&&!rect&&!sq){
+    var r=null,m;
+    if((m=new RegExp('(?:радиус[а-яё]*|radius)\\s*(?:равен|равна|=|-|is)?\\s*'+AINUM).exec(t)))r=+m[1];
+    else if((m=new RegExp('(?:диаметр[а-яё]*|diameter)\\s*(?:равен|равна|=|-|is)?\\s*'+AINUM).exec(t)))r=+m[1]/2;
+    else if(n.length===1)r=n[0];
+    if(r===null)return null;
+    var both=!wA&&!wC&&!wP;
+    var out=[];
+    if(wA||both)out.push(A+' = π r² = π · '+aiF(r)+'² ≈ **'+aiF(Math.PI*r*r)+'**');
+    if(wC||wP||both)out.push(aiT('Длина окружности','Дарозии давра','Circumference')+' = 2π r = 2 · π · '+aiF(r)+' ≈ **'+aiF(2*Math.PI*r)+'**');
+    return out.join('\n');
+  }
+  if(sq&&!rect&&n.length===1){
+    var s=n[0],o=[];
+    if(wA||!wP)o.push(A+' = a² = '+aiF(s)+'² = **'+aiF(s*s)+'**');
+    if(wP||!wA)o.push(P+' = 4a = 4 · '+aiF(s)+' = **'+aiF(4*s)+'**');
+    return o.join('\n');
+  }
+  if((rect||/параллелограмм/.test(t)===false)&&n.length===2&&(rect||sq)){
+    var x=n[0],y=n[1],o2=[];
+    if(wA||!wP)o2.push(A+' = a · b = '+aiF(x)+' · '+aiF(y)+' = **'+aiF(x*y)+'**');
+    if(wP||!wA)o2.push(P+' = 2(a + b) = 2 · ('+aiF(x)+' + '+aiF(y)+') = **'+aiF(2*(x+y))+'**');
+    return o2.join('\n');
+  }
+  return null;
+}
+
+/* ---------- physics ---------- */
+var AI_ACC=new RegExp(AINUM+'\\s*(м\\/с\\^2|м\\/с2|м\\/сек\\^2|m\\/s\\^2|m\\/s2)');
+var AI_SPD=new RegExp(AINUM+'\\s*(км\\/ч|км\\/час|km\\/h|м\\/с|м\\/сек|m\\/s)(?![а-яёa-z^\\d])');
+var AI_TIM=new RegExp(AINUM+'\\s*(секунд[а-яё]*|сек[а-яё]*|мин[а-яё]*|час[а-яё]*|ч|с|seconds?|secs?|minutes?|mins?|hours?|s|h|сония[а-яё]*|дақиқа[а-яё]*|соат[а-яё]*)(?![а-яёa-z\\/^\\d])');
+var AI_DIS=new RegExp(AINUM+'\\s*(километр[а-яё]*|км|km|kilometers?|kilometres?|метр[а-яё]*|м|m|meters?|metres?)(?![а-яёa-z\\/^\\d])');
+var AI_MAS=new RegExp(AINUM+'\\s*(кг|kg|килограмм[а-яё]*|kilograms?)(?![а-яёa-z])');
+function aiGet(t,re){var m=re.exec(t);return m?{v:parseFloat(m[1]),u:m[2]}:null;}
+function aiPhys(t,qn){
+  var acc=aiGet(t,AI_ACC),spd=aiGet(t,AI_SPD),tim=aiGet(t,AI_TIM),dis=aiGet(t,AI_DIS),mas=aiGet(t,AI_MAS);
+  var v=spd?(/^км|^km/.test(spd.u)?spd.v/3.6:spd.v):null;
+  var ts=tim?(/^(мин|min|дақ)/.test(tim.u)?tim.v*60:(/^(ч|h|соат)/.test(tim.u)?tim.v*3600:tim.v)):null;
+  var ds=dis?(/^(км|km|кило|kilo)/.test(dis.u)?dis.v*1000:dis.v):null;
+  var U=aiT('Ответ','Ҷавоб','Answer');
+  if(mas&&v!==null&&/кинетическ|kinetic|кинетикӣ/.test(t)){
+    var E=mas.v*v*v/2;
+    return 'Eк = m·v² / 2 = '+aiF(mas.v)+' · '+aiF(v)+'² / 2\n**'+U+': '+aiF(E)+' '+aiT('Дж','Ҷ','J')+'**';
+  }
+  if(mas&&ds!==null&&/потенциальн|potential|потенсиал/.test(t)){
+    var Ep=mas.v*9.8*ds;
+    return 'Eп = m·g·h = '+aiF(mas.v)+' · 9,8 · '+aiF(ds)+'\n**'+U+': '+aiF(Ep)+' '+aiT('Дж','Ҷ','J')+'** (g = 9,8 '+aiT('м/с²','м/с²','m/s²')+'; '+aiT('при g = 10 получится ','бо g = 10 ','with g = 10: ')+aiF(mas.v*10*ds)+' '+aiT('Дж','Ҷ','J')+')';
+  }
+  if(mas&&acc&&!/ом|ohm/.test(t)){
+    return aiT('Второй закон Ньютона: F = m·a','Қонуни дуюми Нютон: F = m·a','Newton\'s second law: F = m·a')+'\nF = '+aiF(mas.v)+' · '+aiF(acc.v)+'\n**'+U+': '+aiF(mas.v*acc.v)+' '+aiT('Н','Н','N')+'**';
+  }
+  // Ohm
+  if(/закон ома|ohm|напряжен|сопротивл|ампер|вольт|сила тока|силу тока|voltage|resistance|current|тоқ|шиддат|муқовимат/.test(t)){
+    var mu=new RegExp(AINUM+'\\s*(?:В|V|[Вв]ольт[а-яё]*|[Vv]olts?)(?![а-яёa-z])').exec(qn),
+        mr=new RegExp(AINUM+'\\s*(?:[Оо]м[а-яё]*|Ω|[Oo]hms?)(?![а-яёa-z])').exec(qn),
+        mi=new RegExp(AINUM+'\\s*(?:А|A|[Аа]мпер[а-яё]*|[Aa]mps?|[Aa]mperes?)(?![а-яёa-z])').exec(qn);
+    var u=mu?+mu[1]:null,r=mr?+mr[1]:null,i=mi?+mi[1]:null,cnt=(u!==null)+(r!==null)+(i!==null);
+    if(cnt===2){
+      var out=aiT('Закон Ома: I = U / R','Қонуни Ом: I = U / R','Ohm\'s law: I = U / R')+'\n';
+      if(i===null){if(r===0)return null;i=u/r;out+='I = '+aiF(u)+' / '+aiF(r);}
+      else if(u===null){u=i*r;out+='U = I · R = '+aiF(i)+' · '+aiF(r);}
+      else{if(i===0)return null;r=u/i;out+='R = U / I = '+aiF(u)+' / '+aiF(i);}
+      var line=out.split('\n')[1].charAt(0);
+      var val=line==='I'?i:(line==='U'?u:r),unit=line==='I'?aiT('А','А','A'):(line==='U'?aiT('В','В','V'):aiT('Ом','Ом','Ω'));
+      var s=out+'\n**'+U+': '+line+' = '+aiF(aiR9(val))+' '+unit+'**';
+      if(/мощност|power|иқтидор|қувва/.test(t))s+='\nP = U · I = '+aiF(aiR9(u))+' · '+aiF(aiR9(i))+' = **'+aiF(aiR9(u*i))+' '+aiT('Вт','Вт','W')+'**';
+      return s;
+    }
+  }
+  // motion s = v t
+  var kw=/скорост|путь|пути|расстоян|врем|speed|distance|time|velocity|how fast|how far|how long|тезӣ|масофа|вақт|роҳ/.test(t);
+  var cnt2=(v!==null)+(ts!==null)+(ds!==null);
+  if(cnt2===2&&(kw||v!==null)){
+    var L=[];
+    if(v!==null&&ts!==null){
+      if(spd&&/^(км|km)/.test(spd.u))L.push('v = '+aiF(spd.v)+' '+aiT('км/ч','км/соат','km/h')+' = '+aiF(aiR9(v))+' '+aiT('м/с','м/с','m/s'));
+      var s1=v*ts;L.push('s = v · t = '+aiF(aiR9(v))+' · '+aiF(ts)+' = '+aiF(aiR9(s1))+' '+aiT('м','м','m'));
+      L.push('**'+U+': s = '+aiF(aiR9(s1))+' '+aiT('м','м','m')+(s1>=1000?' = '+aiF(aiR9(s1/1000))+' '+aiT('км','км','km'):'')+'**');
+    }else if(ds!==null&&ts!==null){
+      if(ts===0)return null;var v1=ds/ts;
+      L.push('v = s / t = '+aiF(ds)+' / '+aiF(ts)+' = '+aiF(aiR9(v1))+' '+aiT('м/с','м/с','m/s'));
+      L.push('**'+U+': v = '+aiF(aiR9(v1))+' '+aiT('м/с','м/с','m/s')+' = '+aiF(aiR9(v1*3.6))+' '+aiT('км/ч','км/соат','km/h')+'**');
+    }else{
+      if(v===0)return null;var t1=ds/v;
+      L.push('t = s / v = '+aiF(ds)+' / '+aiF(aiR9(v))+' = '+aiF(aiR9(t1))+' '+aiT('с','с','s'));
+      L.push('**'+U+': t = '+aiF(aiR9(t1))+' '+aiT('с','с','s')+(t1>=60?' = '+aiF(aiR9(t1/60))+' '+aiT('мин','дақ','min'):'')+'**');
+    }
+    return L.join('\n');
+  }
+  return null;
+}
+
+/* ---------- chemistry ---------- */
+var AIEL={H:1,He:4,Li:7,Be:9,B:11,C:12,N:14,O:16,F:19,Ne:20,Na:23,Mg:24,Al:27,Si:28,P:31,S:32,Cl:35.5,Ar:40,K:39,Ca:40,Ti:48,Cr:52,Mn:55,Fe:56,Co:59,Ni:59,Cu:64,Zn:65,Br:80,Ag:108,Sn:119,I:127,Ba:137,Au:197,Hg:201,Pb:207};
+function aiParseF(f){
+  var pos=0;
+  function num(){var m=/^\d+/.exec(f.slice(pos));if(m){pos+=m[0].length;return parseInt(m[0],10);}return 1;}
+  function grp(close){
+    var c={};
+    function add(o,k){for(var e in o)c[e]=(c[e]||0)+o[e]*k;}
+    while(pos<f.length){
+      var ch=f.charAt(pos);
+      if(ch==='('||ch==='['){pos++;var inner=grp(ch==='('?')':']');if(!inner)return null;add(inner,num());}
+      else if(ch===')'||ch===']'){if(!close||close!==ch)return null;pos++;return c;}
+      else{
+        var m=/^[A-Z][a-z]?/.exec(f.slice(pos));
+        if(!m||!Object.prototype.hasOwnProperty.call(AIEL,m[0]))return null;
+        pos+=m[0].length;var o={};o[m[0]]=1;add(o,num());
+      }
+    }
+    return close?null:c;
+  }
+  var r=grp(null);return r&&Object.keys(r).length?r:null;
+}
+var AINAMES=[
+ [/(?:^|[^а-яё])вод(?:а|ы|е|у|ой)(?![а-яё])|\bwater\b/,'H2O'],
+ [/углекислый газ|углекислого газа|диоксид углерода|carbon dioxide/,'CO2'],
+ [/серн(?:ая|ой|ую) кислот|sulfuric acid|sulphuric acid/,'H2SO4'],
+ [/соляная кислот|соляной кислот|хлороводород|hydrochloric/,'HCl'],
+ [/аммиак|ammonia/,'NH3'],
+ [/метан(?![а-яё])|methane/,'CH4'],
+ [/глюкоз|glucose/,'C6H12O6'],
+ [/поваренн[а-яё]* сол|хлорид натрия|table salt|sodium chloride/,'NaCl'],
+ [/гидроксид натрия|едкий натр|sodium hydroxide/,'NaOH'],
+ [/карбонат кальция|calcium carbonate/,'CaCO3'],
+ [/азотная кислот|nitric acid/,'HNO3']
+];
+function aiFindFormula(t,qn){
+  for(var i=0;i<AINAMES.length;i++)if(AINAMES[i][0].test(t))return AINAMES[i][1];
+  var s=qn.replace(/[₀-₉]/g,function(d){return String(d.charCodeAt(0)-8320);}).replace(/(^|[^A-Za-z])M[rR]?\s*\(/g,'$1 (');
+  var cands=s.match(/[A-Z(][A-Za-z0-9()\[\]]*/g)||[],withDigit=null,single=null,stop=['I','A','In','As','He','Be','No','Is','On','At','Of','Or'];
+  for(var k=0;k<cands.length;k++){
+    var c=cands[k].replace(/[()]+$/,function(m){var o=(cands[k].match(/\(/g)||[]).length,cl=(cands[k].match(/\)/g)||[]).length;return cl>o?m.slice(0,cl-o):'';});
+    var p=aiParseF(c);if(!p)continue;
+    var els=Object.keys(p).length;
+    if(/\d/.test(c)||els>=2){if(!withDigit)withDigit=c;}
+    else if(stop.indexOf(c)<0)single=single||c;
+  }
+  return withDigit||single;
+}
+function aiMolarOf(f){
+  var p=aiParseF(f);if(!p)return null;
+  var parts=[],sum=0;
+  Object.keys(p).forEach(function(e){var m=AIEL[e]*p[e];sum+=m;parts.push((p[e]>1?p[e]+'·':'')+aiF(AIEL[e]));});
+  return {M:aiR9(sum),expl:parts.join(' + ')};
+}
+function aiChem(t,qn){
+  var bare=/^\s*[A-Z][A-Za-z0-9()\[\]₀-₉]*\s*[?.]?\s*$/.test(qn);
+  var kw=/молярн|molar|молекулярн[а-яё]* масс|относительн[а-яё]* молекулярн|\bmr\b|масса молекул|мольн|количеств[а-яё]* вещества|сколько мол|how many mol|\bmoles?\b|\bmol\b|моль|массаи молярӣ|миқдори модда/.test(t);
+  var mg=new RegExp(AINUM+'\\s*(?:г|g|грамм[а-яё]*|grams?|грам)(?![а-яёa-z])').exec(t);
+  var mn=new RegExp(AINUM+'\\s*(?:мол[а-яё]*|mol[a-z]*)(?![а-яё])').exec(t);
+  var wantV=/объ[её]м|volume|литр|litre|liter|ҳаҷм/.test(t);
+  if(!(bare||kw||((mg||mn)&&/(?:[A-Z][a-z]?\d)|вод|water|газ|кислот|аммиак|метан|глюкоз|сол|гидроксид/.test(qn+' '+t))))return null;
+  var f=aiFindFormula(t,qn);if(!f)return null;
+  var mo=aiMolarOf(f);if(!mo)return null;
+  var name=aiSub(f),M=mo.M,U=aiT('Ответ','Ҷавоб','Answer');
+  var head='M('+name+') = '+mo.expl+' = **'+aiF(M)+' '+aiT('г/моль','г/мол','g/mol')+'**';
+  var note=aiT('(атомные массы округлены: Cl = 35,5; остальные до целых)','(массаҳои атомӣ мудаввар шудаанд: Cl = 35,5)','(atomic masses rounded: Cl = 35.5, others to integers)');
+  if(mg&&(/сколько мол|количеств|how many mol|\bmoles?\b|\bmol\b|\bn\b|миқдор|чанд мол/.test(t)||!mn)&&!wantV){
+    var m=+mg[1],n=m/M;
+    return head+'\nn = m / M = '+aiF(m)+' / '+aiF(M)+' = **'+aiF(aiR9(n))+' '+aiT('моль','мол','mol')+'**\n'+note;
+  }
+  if(mn&&!wantV&&/масс|грамм|mass|grams|сколько г|чанд грам/.test(t)){
+    var n2=+mn[1];
+    return head+'\nm = n · M = '+aiF(n2)+' · '+aiF(M)+' = **'+aiF(aiR9(n2*M))+' '+aiT('г','г','g')+'**\n'+note;
+  }
+  if(wantV&&(mg||mn)){
+    var nn=mn?+mn[1]:(+mg[1])/M;
+    return head+'\nn = '+aiF(aiR9(nn))+' '+aiT('моль','мол','mol')+'\nV = n · Vm = '+aiF(aiR9(nn))+' · 22,4 = **'+aiF(aiR9(nn*22.4))+' '+aiT('л','л','L')+'** '+aiT('(при н. у., для газа)','(дар ш. м., барои газ)','(at STP, for a gas)')+'\n'+note;
+  }
+  return head+'\n'+note;
+}
+
+/* ---------- informatics ---------- */
+function aiBigFrom(str,base){var v=0n,B=BigInt(base);for(var i=0;i<str.length;i++)v=v*B+BigInt(parseInt(str.charAt(i),16));return v;}
+var AIBASES=[[2,/двоичн|binary|дуӣ|дуи/],[8,/восьмеричн|octal|ҳаштӣ/],[10,/десятичн|decimal|даҳӣ|даҳи/],[16,/шестнадцатеричн|hexadecimal|\bhex\b|ҳексадесимал/]];
+function aiBase(t,qn){
+  if(typeof BigInt==='undefined')return null;
+  var s=qn.replace(/[₀-₉]/g,function(d){return '_'+String(d.charCodeAt(0)-8320);}).replace(/_(\d)_(\d)/g,'_$1$2').replace(/_(\d)_(\d)/g,'_$1$2');
+  var toks=s.split(/[\s,;:?!]+/),tok=null,tb=null;
+  for(var i=0;i<toks.length;i++){
+    var w=toks[i].replace(/[.)]+$/,''),m;
+    if((m=/^([0-9a-fA-F]+)_(\d+)$/.exec(w))&&[2,8,10,16].indexOf(+m[2])>-1){tok=m[1];tb=+m[2];break;}
+    if((m=/^0x([0-9a-fA-F]+)$/i.exec(w))){tok=m[1];tb=16;break;}
+    if((m=/^0b([01]+)$/i.exec(w))){tok=m[1];tb=2;break;}
+  }
+  var words=[];
+  AIBASES.forEach(function(b){var m=b[1].exec(t);if(m)words.push({b:b[0],i:m.index});});
+  words.sort(function(a,b){return a.i-b.i;});
+  if(!tok){
+    if(!words.length)return null;
+    var hex=words.some(function(w){return w.b===16;});
+    for(var j=0;j<toks.length;j++){
+      var w2=toks[j].replace(/[.)]+$/,'');
+      if(/^\d+$/.test(w2)||(hex&&(/^[0-9a-f]+$/i.test(w2)&&(/\d/.test(w2)||/^[A-F]{2,}$/.test(w2))))){tok=w2;break;}
+    }
+    if(!tok)return null;
+  }
+  var src,tgt;
+  if(tb){src=tb;tgt=words.length?words[words.length-1].b:(src===10?2:10);if(tgt===src)tgt=src===10?2:10;}
+  else if(words.length>=2){src=words[0].b;tgt=words[1].b;}
+  else{
+    var w1=words[0],before=t.slice(Math.max(0,w1.i-22),w1.i),after=t.slice(w1.i,w1.i+40);
+    var isSrc=/(?:из|from|аз)\s+(?:[а-яёa-z]+\s+){0,2}$/.test(before)||/^[а-яёa-z]+\s+(?:числ|number|код|запис|рақам)/.test(after);
+    if(isSrc){src=w1.b;tgt=src===10?2:10;}else{tgt=w1.b;src=tgt===10?2:10;}
+  }
+  var ok={2:/^[01]+$/,8:/^[0-7]+$/,10:/^\d+$/,16:/^[0-9a-f]+$/i}[src];
+  if(tok.length>60)return null;
+  if(!ok.test(tok))return aiT('Число '+tok+' содержит цифры, которых нет в системе с основанием '+src+'.','Рақами '+tok+' дар низоми '+src+' вуҷуд надорад.','The number '+tok+' has digits that do not exist in base '+src+'.');
+  var val=aiBigFrom(tok,src),res=val.toString(tgt).toUpperCase();
+  var L=[];
+  if(tgt===10&&src===2&&tok.length<=24){
+    var parts=[],pw=[];
+    for(var k=0;k<tok.length;k++)if(tok.charAt(k)==='1'){var e=tok.length-1-k;parts.push(String(Math.pow(2,e)));pw.push('2^'+e);}
+    L.push(aiT('Раскладываем по степеням двойки: ','Аз рӯи дараҷаҳои 2: ','Expand in powers of two: ')+pw.join(' + '));
+    L.push(parts.join(' + ')+' = '+val.toString());
+  }
+  if(src===10&&tgt===2&&val<1048576n){
+    var n=Number(val),ps=[];
+    for(var e2=20;e2>=0;e2--)if(n&(1<<e2))ps.push(String(1<<e2));
+    if(ps.length)L.push(aiT('Разложение: ','Ҷудокунӣ: ','Decomposition: ')+val.toString()+' = '+ps.join(' + '));
+  }
+  L.push('**'+aiT('Ответ','Ҷавоб','Answer')+': '+tok.toUpperCase()+aiSub(String(src))+' = '+res+aiSub(String(tgt))+'**');
+  return L.join('\n');
+}
+function aiUnit(w){
+  w=w.toLowerCase();
+  if(/^(бит[а-яё]*|bits?)$/.test(w))return 1;
+  if(/^(байт[а-яё]*|bytes?|b|б)$/.test(w))return 8;
+  if(/^(кбайт[а-яё]*|килобайт[а-яё]*|кб|kb|kib|kilobyt[a-z]*)$/.test(w))return 8*1024;
+  if(/^(мбайт[а-яё]*|мегабайт[а-яё]*|мб|mb|mib|megabyt[a-z]*)$/.test(w))return 8*1048576;
+  if(/^(гбайт[а-яё]*|гигабайт[а-яё]*|гб|gb|gib|gigabyt[a-z]*)$/.test(w))return 8*1073741824;
+  return null;
+}
+function aiInfoUnits(t){
+  var m,n,from,to,f1,f2;
+  if((m=new RegExp('(?:сколько|how many|чанд)\\s+([a-zа-яё]+)\\s+(?:в|in|дар)\\s+'+AINUM+'\\s*([a-zа-яё]+)').exec(t))){
+    to=aiUnit(m[1]);from=aiUnit(m[3]);n=+m[2];
+    if(to&&from)return aiUnitOut(n,m[3],m[1],from,to);
+  }
+  if((m=new RegExp(AINUM+'\\s*([a-zа-яё]+)\\s*(?:в|to|in|ба|=)\\s*([a-zа-яё]+)').exec(t))){
+    from=aiUnit(m[2]);to=aiUnit(m[3]);n=+m[1];
+    if(from&&to)return aiUnitOut(n,m[2],m[3],from,to);
+  }
+  return null;
+}
+function aiUnitOut(n,fu,tu,f,to){
+  var r=n*f/to;
+  return aiF(n)+' '+fu+' = '+aiF(n)+' · '+aiF(f/to)+' = **'+aiF(r)+' '+tu+'**\n'+aiT('(1 байт = 8 бит, 1 Кбайт = 1024 байта)','(1 байт = 8 бит, 1 Кбайт = 1024 байт)','(1 byte = 8 bits, 1 KB = 1024 bytes)');
+}
+
+/* ---------- number theory ---------- */
+function aiNT(t){
+  var ints=(t.match(/\d+/g)||[]).map(Number).filter(function(x){return x<=1e12;});
+  var m;
+  if((m=/(\d+)\s*!/.exec(t)||/(?:факториал[а-яё]*|factorial)\s*(?:от|of)?\s*(\d+)/.exec(t))&&typeof BigInt!=='undefined'){
+    var n=+m[1];if(n>100)return aiT('Слишком большое число (до 100).','Рақам хеле калон аст (то 100).','Number too large (up to 100).');
+    var f=1n;for(var i=2;i<=n;i++)f*=BigInt(i);return n+'! = **'+f.toString()+'**';
+  }
+  if(/(?:^|[^а-яё])(нод|нок)(?![а-яё])|\bgcd\b|\blcm\b|наибольш[а-яё]* общ[а-яё]* делител|наименьш[а-яё]* общ[а-яё]* кратн|бузургтарин бахшёбандаи умумӣ/.test(t)&&ints.length>=2){
+    var g=ints[0],l=ints[0];
+    for(var k=1;k<ints.length;k++){g=aiGcd(g,ints[k]);l=l/aiGcd(l,ints[k])*ints[k];}
+    var isL=/нок|lcm|наименьш/.test(t)&&!/нод|gcd|наибольш/.test(t);
+    return (isL?aiT('НОК','ХКУ','LCM'):aiT('НОД','БУБ','GCD'))+'('+ints.join(', ')+') = **'+(isL?l:g)+'**'+(isL?'':'\n'+aiT('НОК','ХКУ','LCM')+' = '+l);
+  }
+  if(ints.length>=1&&/разлож[а-яё]* на (?:простые )?множител|factori[sz]e|prime factors|ба зарбкунандаҳои оддӣ/.test(t)){
+    var x=ints[0],orig=x;if(x<2)return null;var fs={},p=2;
+    while(p*p<=x){while(x%p===0){fs[p]=(fs[p]||0)+1;x/=p;}p++;}
+    if(x>1)fs[x]=(fs[x]||0)+1;
+    return orig+' = **'+Object.keys(fs).map(function(q){return fs[q]>1?q+'^'+fs[q]:q;}).join(' · ')+'**';
+  }
+  if(ints.length>=1&&/прост[а-яё]* ли|простое число|является ли.*простым|is\s+\d+\s+(?:a\s+)?prime|prime number|оддӣ аст|содда/.test(t)){
+    var y=ints[0];if(y<2)return y+' '+aiT('не является простым числом.','содда нест.','is not prime.');
+    for(var d=2;d*d<=y;d++)if(y%d===0)return y+' = '+d+' · '+(y/d)+' → **'+aiT('составное число (не простое)','мураккаб (содда нест)','composite (not prime)')+'**';
+    return y+' → **'+aiT('простое число','рақами содда','prime')+'** ('+aiT('нет делителей до √'+y,'тақсимкунандаҳо то √'+y+' нест','no divisors up to √'+y)+')';
+  }
+  return null;
+}
+
+/* ---------- arithmetic ---------- */
+function aiArith(t){
+  var s=t.replace(/(?:квадратный )?корень (?:из )?|sqrt\s*/g,'√').replace(/\bpi\b|\bпи\b/g,'π');
+  var ms=s.match(/(?:-\s*)?[\d√π(][\d\s+\-*\/^().√π]*/g);if(!ms)return null;
+  var best='';ms.forEach(function(x){x=x.trim();if(x.length>best.length)best=x;});
+  if(!/[+\-*\/^√π]/.test(best))return null;
+  best=best.replace(/[+\-*\/^\s.]+$/,'');
+  if(!/[+\-*\/^√π]/.test(best))return null;
+  var open=(best.match(/\(/g)||[]).length,cl=(best.match(/\)/g)||[]).length;
+  while(cl<open){best+=')';cl++;}
+  try{
+    var v=calcEval(best);
+    return best.replace(/\s+/g,'').replace(/([+\-*\/])/g,' $1 ').trim().replace(/\*/g,'×').replace(/\//g,'÷').replace(/\s+/g,' ').replace(/\(\s+/g,'(')+' = **'+aiF(v)+'**'+(!Number.isInteger(v)&&aiF(v).length>=11?aiT('\n(округлено до 10 значащих цифр)','\n(то 10 рақами муҳим мудаввар шуд)','\n(rounded to 10 significant digits)'):'');
+  }catch(e){return null;}
+}
+
+/* ---------- site knowledge ---------- */
+function aiKnow(t){
+  if(typeof FORMULAS==='undefined'||typeof SUBJECTS==='undefined')return null;
+  var langs=['ru','tg','en'],wantF=/формул|formula|фурмул/.test(t);
+  var sub=null;
+  SUBJECTS.forEach(function(s){
+    langs.forEach(function(l){
+      var nm=(s.name[l]||'').toLowerCase();
+      if(nm.length>=4&&t.indexOf(nm.slice(0,Math.max(4,nm.length-2)))>-1)sub=sub||s;
+    });
+  });
+  if(sub&&wantF&&FORMULAS[sub.id]){
+    return '**'+aiT('Формулы','Формулаҳо','Formulas')+' — '+sub.name[aiL]+':**\n'+FORMULAS[sub.id].map(function(it){return '• '+it.l[aiL]+': '+it.f;}).join('\n');
+  }
+  var hits=[],bs=0;
+  Object.keys(FORMULAS).forEach(function(id){FORMULAS[id].forEach(function(it){
+    var sc=0;
+    langs.forEach(function(l){(it.l[l]||'').toLowerCase().split(/[\s,.()\-–—\/]+/).forEach(function(w){
+      if(w.length<3||['закон','закона','закони','формул','формула','law','the','что','как','для','при','and'].indexOf(w)>-1)return;
+      var st=w.slice(0,w.length>=7?w.length-2:w.length);
+      if(w.length>=5?t.indexOf(st)>-1:new RegExp('(?:^|[^а-яёa-z])'+st.replace(/[^а-яёa-z0-9]/g,'')).test(t))sc++;});});
+    if(sc>bs){bs=sc;hits=[it];}else if(sc===bs&&sc>0)hits.push(it);
+  });});
+  if(hits.length===1)return '**'+hits[0].l[aiL]+':** '+hits[0].f;
+  if(hits.length>1)return hits.map(function(it){return '• **'+it.l[aiL]+':** '+it.f;}).join('\n');
+  if(sub)return '**'+sub.name[aiL]+'** — '+sub.desc[aiL]+'\n'+aiT('Могу показать формулы этого предмета: напишите «формулы '+sub.name.ru.toLowerCase()+'».','Формулаҳои ин фанро нишон дода метавонам.','I can show this subject\'s formulas: ask for "formulas".');
+  return null;
+}
+
+/* ---------- main ---------- */
+function aiHelpText(){
+  return aiT('Я INFASUB AI. Решаю и показываю решение по шагам:\n• примеры: 2+2*3, (15-3)^2/4, корень из 144, 20% от 350\n• уравнения: 3x-7=11, x^2-5x+6=0, системы x+y=5, x-y=1\n• геометрия: площадь, периметр, окружность, теорема Пифагора\n• физика: путь/скорость/время, сила, энергия, закон Ома\n• химия: молярная масса (H2O), количество вещества\n• информатика: перевод систем счисления, байты и Кбайты\n• НОД/НОК, простые числа, факториал, формулы с сайта',
+    'Ман INFASUB AI. Масъалаҳоро қадам ба қадам ҳал мекунам:\n• мисолҳо: 2+2*3, 20% аз 350\n• муодилаҳо: 3x-7=11, x^2-5x+6=0, системаҳо\n• геометрия: масоҳат, периметр, теоремаи Пифагор\n• физика: роҳ/суръат/вақт, қувва, қонуни Ом\n• химия: массаи молярӣ (H2O)\n• информатика: низомҳои ҳисоб, байт ва Кбайт\n• ЧБУ/ХКУ, рақамҳои содда, формулаҳои сайт',
+    'I am INFASUB AI. I solve and show step-by-step solutions:\n• arithmetic: 2+2*3, (15-3)^2/4, sqrt 144, 20% of 350\n• equations: 3x-7=11, x^2-5x+6=0, systems x+y=5, x-y=1\n• geometry: area, perimeter, circle, Pythagorean theorem\n• physics: distance/speed/time, force, energy, Ohm\'s law\n• chemistry: molar mass (H2O), amount of substance\n• informatics: number-base conversion, bytes and KB\n• GCD/LCM, primes, factorial, formulas from this site');
+}
+function aiFallback(){
+  try{var _k=aiKnow(aiLastQ);if(_k)return _k;}catch(e){}
+  return aiT('Эту задачу я решить не смог. Я не выдумываю ответ наугад — отвечаю только там, где могу посчитать точно. Попробуйте записать условие короче с числами и единицами, например: «катеты 6 и 8, найди гипотенузу» или «x^2-5x+6=0». Напишите «что ты умеешь», чтобы увидеть полный список.',
+    'Ин масъаларо ҳал карда натавонистам. Ман ҷавобро тахминӣ намедиҳам. Шартро кӯтоҳтар бо рақамҳо нависед, масалан: «катетҳо 6 ва 8, гипотенузаро ёб» ё «x^2-5x+6=0». «Чӣ кор карда метавонӣ» нависед.',
+    'I could not solve this one. I do not guess — I only answer when I can compute it exactly. Try a shorter statement with numbers and units, e.g. "legs 6 and 8, find the hypotenuse" or "x^2-5x+6=0". Type "what can you do" for the full list.');
+}
+function aiSolve(q,L){
+  aiL=L||'ru';
+  q=String(q||'').trim().slice(0,400);
+  if(!q)return '';
+  var qn=aiNorm(q),t=qn.toLowerCase();
+  if(!/\d/.test(t)){
+    if(/^(привет|здравствуй[а-яё]*|добрый [а-яё]+|салом|ассалому алайкум|hello|hi|hey)[\s!.]*$/.test(t))return aiT('Привет! Я INFASUB AI. Пришлите пример, уравнение или задачу — решу и покажу ход решения.','Салом! Ман INFASUB AI. Мисол, муодила ё масъала фиристед — ҳал мекунам.','Hi! I am INFASUB AI. Send me a problem or equation and I will solve it step by step.');
+    if(/^(спасибо|благодарю|рахмат|раҳмат|thanks|thank you)/.test(t))return aiT('Пожалуйста! Присылайте следующую задачу.','Марҳамат! Масъалаи навбатиро фиристед.','You are welcome! Send the next one.');
+    if(/что ты умеешь|что умеешь|что можешь|\bhelp\b|помощь|what can you|чӣ кор карда|кӯмак/.test(t))return aiHelpText();
+    if(/кто ты|как тебя зовут|who are you|ту кӣ|номат чист/.test(t))return aiT('Я INFASUB AI — помощник этого сайта. Считаю по точным формулам и алгоритмам, поэтому не «додумываю» ответы. Это не языковая модель: вне моих тем скажу честно, что не знаю.','Ман INFASUB AI — ёвари ин сайт. Бо формулаҳои дақиқ ҳисоб мекунам.','I am INFASUB AI, this site\'s helper. I compute with exact formulas and algorithms, so I do not make answers up. I am not a language model: outside my topics I will say so.');
+  }
+  var steps=[aiSolveEq,aiPercent,aiPyth,aiGeom,aiPhys,aiChem,aiBase,aiInfoUnits,aiNT,aiArith,aiKnow];
+  for(var i=0;i<steps.length;i++){
+    var r=null;
+    try{r=steps[i](t,qn);}catch(e){r=null;}
+    if(r)return r;
+  }
+  if(/что ты умеешь|что умеешь|\bhelp\b|what can you|чӣ кор карда/.test(t))return aiHelpText();
+  return aiFallback();
+}
+
+/* ===== online status (presence): a logged-in user with a visible tab pings every 20 s; online = seen within 50 s ===== */
+var PRT={
+ru:{on:'В сети',off:'Не в сети',now:'только что',ago:'был(а) {t} назад',u:['мин','ч','дн'],cnt:'Сейчас в сети'},
+tg:{on:'Дар шабака',off:'Дар шабака нест',now:'ҳозир',ago:'{t} пеш буд',u:['дақ','соат','рӯз'],cnt:'Ҳоло дар шабака'},
+en:{on:'Online',off:'Offline',now:'just now',ago:'last seen {t} ago',u:['min','h','d'],cnt:'Online now'}
+};
+function PR(){return PRT[lang]||PRT.ru}
+function presAll(){try{var o=JSON.parse(localStorage.getItem('infasub-presence')||'{}');return o&&typeof o==='object'?o:{}}catch(e){return {}}}
+function presBeat(off){
+  var me=sessionLogin();if(!me||!getUsers()[me])return;
+  if(!off&&document.hidden)return;
+  if(!off&&AUTH_API&&getToken())api('ping',{session:getToken()}).catch(function(){});
+  var o=presAll();o[me]=off?Date.now()-120000:Date.now();
+  try{localStorage.setItem('infasub-presence',JSON.stringify(o))}catch(e){}
+}
+function isOnline(l){var t=presAll()[l];return !!t&&Date.now()-t<50000}
+function presText(l){
+  var T=PR();if(isOnline(l))return T.on;
+  var t=presAll()[l];if(!t)return T.off;
+  var m=Math.floor((Date.now()-t)/60000),v;
+  if(m<1)v=T.now;else if(m<60)v=m+' '+T.u[0];else if(m<1440)v=Math.floor(m/60)+' '+T.u[1];else v=Math.floor(m/1440)+' '+T.u[2];
+  return m<1?T.off:T.ago.replace('{t}',v);
+}
+function presRefreshUsers(){
+  if(view!=='users')return;
+  if(AUTH_API){loadUsers();return;}
+  var b=document.getElementById('ubox');if(!b||typeof userRows!=='function')return;
+  var r=userRows();b.innerHTML=r.html;var c=document.getElementById('uonline');if(c)c.textContent=r.on;
+}
+presBeat();
+setInterval(function(){presBeat();presRefreshUsers();},20000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden){presBeat();presRefreshUsers();}});
+window.addEventListener('pagehide',function(){presBeat(true)});
+window.addEventListener('storage',function(e){if(e.key==='infasub-presence')presRefreshUsers();});
+
+/* ===== daily streak (flame, like Duolingo): a day counts when a problem is solved or a book chapter is read ===== */
+var STT={
+ru:{days:['день','дня','дней'],title:'Серия',hint_on:'Отлично! Сегодня вы уже занимались. Возвращайтесь завтра, чтобы продолжить серию.',hint_off:'Решите задачу или прочитайте главу книги сегодня, чтобы продолжить серию.',start:'Начните серию: решите задачу или прочитайте главу.',best:'Лучшая серия',total:'Всего дней занятий',wd:['Пн','Вт','Ср','Чт','Пт','Сб','Вс'],toast:'🔥 Серия: {n}'},
+tg:{days:['рӯз','рӯз','рӯз'],title:'Силсила',hint_on:'Аъло! Имрӯз шумо омӯхтед. Фардо баргардед, то силсила идома ёбад.',hint_off:'Барои идомаи силсила имрӯз масъала ҳал кунед ё боби китобро хонед.',start:'Силсиларо оғоз кунед: масъала ҳал кунед ё боб хонед.',best:'Беҳтарин силсила',total:'Ҳамагӣ рӯзҳои машғулият',wd:['Дш','Сш','Чш','Пш','Ҷм','Шн','Яш'],toast:'🔥 Силсила: {n}'},
+en:{days:['day','days','days'],title:'Streak',hint_on:'Great! You studied today. Come back tomorrow to keep the streak going.',hint_off:'Solve a problem or read a book chapter today to keep your streak.',start:'Start a streak: solve a problem or read a chapter.',best:'Best streak',total:'Total study days',wd:['Mo','Tu','We','Th','Fr','Sa','Su'],toast:'🔥 Streak: {n}'}
+};
+function ST(){return STT[lang]||STT.ru}
+function stPlural(n){var t=ST().days;if(lang==='en')return n===1?t[0]:t[1];var a=n%10,b=n%100;if(a===1&&b!==11)return t[0];if(a>=2&&a<=4&&(b<10||b>=20))return t[1];return t[2]}
+function pad2(n){return n<10?'0'+n:''+n}
+function dkey(d){return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate())}
+function stAll(){try{var o=JSON.parse(localStorage.getItem('infasub-streak')||'{}');return o&&typeof o==='object'?o:{}}catch(e){return {}}}
+function stKey(){return sessionLogin()||'guest'}
+function stDays(){var a=stAll()[stKey()];return Array.isArray(a)?a:[]}
+function stCalc(){
+  var days=stDays(),set={};days.forEach(function(d){set[d]=1});
+  var d=new Date(),today=dkey(d),done=!!set[today],cur=0;
+  if(!done)d.setDate(d.getDate()-1);
+  while(set[dkey(d)]){cur++;d.setDate(d.getDate()-1);}
+  var sorted=days.slice().sort(),best=0,run=0,prev=null;
+  sorted.forEach(function(k){var p=k.split('-'),t=new Date(+p[0],+p[1]-1,+p[2]).getTime();run=(prev!==null&&Math.round((t-prev)/864e5)===1)?run+1:1;prev=t;if(run>best)best=run;});
+  return {cur:cur,done:done,best:best,total:days.length,set:set};
+}
+function streakHit(){
+  var o=stAll(),k=stKey(),a=Array.isArray(o[k])?o[k]:[],t=dkey(new Date());
+  if(a.indexOf(t)>-1)return;
+  a.push(t);o[k]=a.slice(-400);
+  try{localStorage.setItem('infasub-streak',JSON.stringify(o))}catch(e){return}
+  var c=stCalc();streakDraw();toast(ST().toast.replace('{n}',c.cur+' '+stPlural(c.cur)));
+}
+var stBtn=document.getElementById('streak'),stPop=document.createElement('div');
+stPop.className='stp';stPop.id='st-pop';stPop.setAttribute('role','dialog');document.body.appendChild(stPop);
+var FLAME='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c.6 3.6 5.2 6 5.2 11.2A5.2 5.2 0 0 1 12 18.4a5.2 5.2 0 0 1-5.2-5.2c0-2.1 1-3.6 2.2-4.8.1 1.9.9 3 2 3 .2-3-1.1-5.6 1-9.4z"/></svg>';
+function streakDraw(){
+  var T=ST(),c=stCalc();
+  if(stBtn){stBtn.className='streakb'+(c.done?' on':'');stBtn.innerHTML=FLAME+'<b>'+c.cur+'</b>';stBtn.title=T.title+': '+c.cur+' '+stPlural(c.cur);}
+  var d=new Date(),cells='';
+  for(var i=6;i>=0;i--){var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()-i),wd=(x.getDay()+6)%7,on=!!c.set[dkey(x)];
+    cells+='<div class="stc'+(on?' on':'')+(i===0?' today':'')+'"><span>'+T.wd[wd]+'</span><i>'+(on?FLAME:'')+'</i></div>';}
+  stPop.innerHTML='<div class="stbig'+(c.cur?' on':'')+'">'+FLAME+'<div><b>'+c.cur+' '+esc(stPlural(c.cur))+'</b><small>'+esc(T.title)+'</small></div></div><div class="stweek">'+cells+'</div><p>'+esc(c.cur===0&&c.total===0?T.start:(c.done?T.hint_on:T.hint_off))+'</p><div class="stmeta"><span>'+esc(T.best)+': <b>'+c.best+'</b></span><span>'+esc(T.total)+': <b>'+c.total+'</b></span></div>';
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('#streak'):null;
+  if(t){var o=!stPop.classList.contains('open');stPop.classList.toggle('open',o);stBtn.setAttribute('aria-expanded',String(o));return;}
+  if(stPop.classList.contains('open')&&!(e.target.closest&&e.target.closest('#st-pop'))){stPop.classList.remove('open');if(stBtn)stBtn.setAttribute('aria-expanded','false');}
+});
+streakDraw();
+
+/* ===== messages between users (stored in this browser) ===== */
+var MST_={
+ru:{btn:'Сообщение',title:'Написать сообщение',to:'Кому',choose:'Выберите получателя',ph:'Напишите сообщение…',send:'Отправить',sent:'Сообщение отправлено ✓',need:'Чтобы писать другим пользователям, войдите или зарегистрируйтесь.',nousers:'Пока нет других пользователей, которым можно написать.',mymsgs:'Мои сообщения',empty:'Сообщений пока нет.',reply:'Ответить',newm:'У вас новых сообщений: {n}',sentl:'Отправленные',tol:'Кому',e_text:'Введите текст сообщения.',e_to:'Выберите получателя.',login:'Войти',reg:'Регистрация',inbox:'Мои сообщения',note:'Сообщения хранятся в этом браузере.',close:'Закрыть'},
+tg:{btn:'Паём',title:'Навиштани паём',to:'Ба кӣ',choose:'Гирандаро интихоб кунед',ph:'Паёмро нависед…',send:'Фиристодан',sent:'Паём фиристода шуд ✓',need:'Барои навиштан ба дигар корбарон ворид шавед ё сабти ном кунед.',nousers:'Ҳоло корбари дигаре нест, ки ба ӯ навиштан мумкин бошад.',mymsgs:'Паёмҳои ман',empty:'Ҳоло паём нест.',reply:'Ҷавоб додан',newm:'Шумо паёмҳои нав доред: {n}',sentl:'Фиристодашуда',tol:'Ба кӣ',e_text:'Матни паёмро ворид кунед.',e_to:'Гирандаро интихоб кунед.',login:'Ворид шудан',reg:'Сабти ном',inbox:'Паёмҳои ман',note:'Паёмҳо дар ҳамин браузер нигоҳ дошта мешаванд.',close:'Пӯшидан'},
+en:{btn:'Message',title:'Write a message',to:'To',choose:'Choose a recipient',ph:'Write a message…',send:'Send',sent:'Message sent ✓',need:'Log in or register to write to other users.',nousers:'There are no other users to write to yet.',mymsgs:'My messages',empty:'No messages yet.',reply:'Reply',newm:'You have new messages: {n}',sentl:'Sent',tol:'To',e_text:'Enter the message text.',e_to:'Choose a recipient.',login:'Log in',reg:'Register',inbox:'My messages',note:'Messages are stored in this browser.',close:'Close'}
+};
+function MS(){return MST_[lang]||MST_.ru}
+function getMsgs(){try{var a=JSON.parse(localStorage.getItem('infasub-msgs')||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
+function putMsgs(a){try{localStorage.setItem('infasub-msgs',JSON.stringify(a.slice(-2000)));return true}catch(e){return false}}
+function msUnread(l){if(!l)return 0;var n=0;getMsgs().forEach(function(m){if(m.to===l&&!m.read)n++});return n}
+var msTo='',msLastLang='',msLastUser='',msPrevUnread=-1;
+var msBtn=document.createElement('button');msBtn.type='button';msBtn.className='msgb';msBtn.id='ms-btn';msBtn.setAttribute('data-msopen','');msBtn.setAttribute('aria-expanded','false');
+var msPanel=document.createElement('div');msPanel.className='msp';msPanel.id='ms-panel';msPanel.setAttribute('role','dialog');
+document.body.appendChild(msBtn);document.body.appendChild(msPanel);
+function msSetOpen(o){
+  if(o){msRender();if(typeof aiSetOpen==='function'&&typeof aiPanel!=='undefined'&&aiPanel)aiSetOpen(false);}
+  msPanel.classList.toggle('open',o);msBtn.setAttribute('aria-expanded',String(o));
+}
+function msRender(){
+  var T=MS(),me=sessionLogin(),us=getUsers(),h='';
+  msLastLang=lang;msLastUser=me||'';
+  h+='<div class="msh"><b>'+esc(T.title)+'</b><button type="button" class="msx" data-msclose aria-label="'+esc(T.close)+'">✕</button></div><div class="msbody">';
+  if(!me||!us[me]){
+    h+='<p>'+esc(T.need)+'</p><div class="msrow"><button type="button" class="pbtn" data-auth-open>'+esc(T.login)+'</button><button type="button" class="pbtn" data-auth-register>'+esc(T.reg)+'</button></div>';
+  }else{
+    var opts=Object.keys(us).filter(function(k){return k!==me}).sort(function(a,b){return (isOnline(b)?1:0)-(isOnline(a)?1:0)||String(us[a].name||a).localeCompare(String(us[b].name||b))});
+    if(!opts.length)h+='<p>'+esc(T.nousers)+'</p>';
+    else{
+      h+='<form id="ms-form" novalidate><label>'+esc(T.to)+'<select class="fld" id="ms-to"><option value="">'+esc(T.choose)+'</option>'+opts.map(function(k){return '<option value="'+esc(k)+'"'+(k===msTo?' selected':'')+'>'+esc((isOnline(k)?'🟢 ':'⚪ ')+(us[k].name||k)+' ('+k+')')+'</option>'}).join('')+'</select></label>'+
+        '<label><textarea class="fld" id="ms-text" maxlength="500" rows="5" placeholder="'+esc(T.ph)+'"></textarea></label><div class="aerr" id="ms-err" role="alert"></div><button type="submit" class="pbtn">'+esc(T.send)+'</button></form>';
+    }
+    var n=msUnread(me);
+    h+='<button type="button" class="pbtn sec" data-auth-open>'+esc(T.inbox)+(n?' ('+n+')':'')+'</button>';
+  }
+  h+='<p class="msnote">'+esc(T.note)+'</p></div>';
+  msPanel.innerHTML=h;
+}
+function msBadge(){
+  var T=MS(),me=sessionLogin(),n=msUnread(me);
+  msBtn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span>'+esc(T.btn)+'</span>'+(n?'<i class="nbadge">'+n+'</i>':'');
+  var sb=document.getElementById('signin');
+  if(sb){var o=sb.querySelector('.nbadge');if(o)o.remove();if(n){var i=document.createElement('i');i.className='nbadge';i.textContent=n;sb.appendChild(i);}}
+  if(msLastLang!==lang||msLastUser!==(me||'')){if(msPanel.classList.contains('open')||msLastLang==='')msRender();else{msLastLang=lang;msLastUser=me||'';}}
+  if(msPrevUnread>=0&&n>msPrevUnread)toast(T.newm.replace('{n}',n));
+  msPrevUnread=n;
+}
+function msInbox(u){
+  var T=MS(),all=getMsgs(),us=getUsers();
+  function nm(l){return us[l]&&us[l].name?us[l].name:l}
+  function dt(t){try{return new Date(t).toLocaleString(lang==='tg'?'tg-TJ':lang==='en'?'en-GB':'ru-RU',{dateStyle:'short',timeStyle:'short'})}catch(e){return ''}}
+  var inc=all.filter(function(m){return m.to===u.login}).sort(function(a,b){return b.t-a.t});
+  var out=all.filter(function(m){return m.from===u.login}).sort(function(a,b){return b.t-a.t}).slice(0,10);
+  var un=inc.filter(function(m){return !m.read}).length;
+  var h='<h3>'+esc(T.mymsgs)+(un?' <span class="msn">'+un+'</span>':'')+'</h3>';
+  if(!inc.length)h+='<p class="msempty">'+esc(T.empty)+'</p>';
+  else h+='<div class="msl">'+inc.map(function(m){return '<div class="msi'+(m.read?'':' new')+'"><div class="msit"><b>'+esc(nm(m.from))+'</b><span>'+esc(dt(m.t))+'</span></div><p>'+esc(m.text)+'</p><button type="button" class="msreply" data-msreply="'+esc(m.from)+'">'+esc(T.reply)+'</button></div>'}).join('')+'</div>';
+  if(out.length)h+='<h4 class="mssh">'+esc(T.sentl)+'</h4><div class="msl">'+out.map(function(m){return '<div class="msi"><div class="msit"><b>'+esc(T.tol)+': '+esc(nm(m.to))+'</b><span>'+esc(dt(m.t))+'</span></div><p>'+esc(m.text)+'</p></div>'}).join('')+'</div>';
+  var ch=false;all.forEach(function(m){if(m.to===u.login&&!m.read){m.read=true;ch=true}});
+  if(ch){putMsgs(all);setTimeout(msBadge,0);}
+  return h;
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('[data-msopen],[data-msclose],[data-msreply],#ai-btn,[data-auth-open],[data-auth-register]'):null;if(!t)return;
+  if(t.hasAttribute('data-msopen')){msSetOpen(!msPanel.classList.contains('open'));return;}
+  if(t.hasAttribute('data-msclose')){msSetOpen(false);return;}
+  if(t.hasAttribute('data-msreply')){var to=t.getAttribute('data-msreply');closeOv();msTo=to;msSetOpen(true);return;}
+  if(t.id==='ai-btn'){msSetOpen(false);return;}
+  if(msPanel.classList.contains('open'))msSetOpen(false);
+});
+document.addEventListener('submit',function(e){
+  if(!e.target||e.target.id!=='ms-form')return;e.preventDefault();
+  var T=MS(),me=sessionLogin(),to=(document.getElementById('ms-to').value||''),tx=(document.getElementById('ms-text').value||'').trim(),er=document.getElementById('ms-err');
+  function bad(k){er.style.color='';er.textContent=T[k]}
+  if(!me||!getUsers()[me])return;
+  if(!to||!getUsers()[to])return bad('e_to');
+  if(!tx)return bad('e_text');
+  var a=getMsgs();a.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),from:me,to:to,text:tx.slice(0,500),t:Date.now(),read:false});
+  if(!putMsgs(a))return bad('e_text');
+  msTo=to;document.getElementById('ms-text').value='';er.style.color='var(--ok)';er.textContent=T.sent;toast(T.sent);
+});
+window.addEventListener('storage',function(e){if(e.key==='infasub-msgs'||e.key==='infasub-session'||e.key==='infasub-users'){msBadge();var o=document.getElementById('pf-inbox');if(o&&sessionLogin()){var u=curUserObj();if(u)o.innerHTML=msInbox(u);}}});
+msBadge();
+setTimeout(function(){var n=msUnread(sessionLogin());if(n)toast(MS().newm.replace('{n}',n));},900);
+
+/* ===== INFASUB AI: knowledge search over the site's own content (books, formulas, subjects, languages, how-to) ===== */
+var aiLastQ='',aiIdx=null;
+var AI_STOP={ru:'что это как какой какая какие какое для или при про над под так его она они чем кто где когда почему зачем есть быть можно нужно мне меня тебе расскажи объясни скажи покажи такое',tg:'чи ин ва ки бо барои аз ба дар чӣ чист гуй бигӯ нишон деҳ',en:'what is the are how does for and with about tell explain show give please can you me'};
+function aiDetect(q){if(/[ғӣқӯҳҷҒӢҚӮҲҶ]/.test(q))return 'tg';if(/[а-яё]{2}/i.test(q))return 'ru';if(/[a-z]{3}/i.test(q)&&!/^[\sxy0-9a-z+\-*/^=().,√²]*$/i.test(q.replace(/\b(what|how|who|tell|explain|about|bit|byte|python|binary|search|algorithm|computer)\b/ig,'')))return 'en';if(/\b(what|how|who|tell|explain|about)\b/i.test(q))return 'en';return lang}
+function aiToks(s){
+  var out=[];(String(s).toLowerCase().match(/[\p{L}\p{N}]+/gu)||[]).forEach(function(w){
+    if(w.length<2)return;if((' '+AI_STOP.ru+' '+AI_STOP.tg+' '+AI_STOP.en+' ').indexOf(' '+w+' ')>-1)return;
+    out.push(w.length>5?w.slice(0,5):(w.length>4?w.slice(0,4):w));
+  });return out;
+}
+function aiBuild(){
+  if(aiIdx)return aiIdx;var ix=[];
+  function add(src,title,texts,kind){ix.push({src:src,title:title,t:texts,toks:aiToks((title.ru||'')+' '+(title.tg||'')+' '+(title.en||'')+' '+(texts.ru||'')+' '+(texts.tg||'')+' '+(texts.en||'')),tt:aiToks((title.ru||'')+' '+(title.tg||'')+' '+(title.en||'')),kind:kind});}
+  try{BOOKS.forEach(function(b){b.ch.forEach(function(c,ci){
+    var title={ru:b.t[0]+' — '+c.t[0],tg:b.t[1]+' — '+c.t[1],en:b.t[2]+' — '+c.t[2]};
+    var n=Math.max(c.p[0].length,1);
+    for(var k=0;k<n;k++)add('📖',title,{ru:c.p[0][k]||'',tg:c.p[1][k]||'',en:c.p[2][k]||''},'book');
+  });});}catch(e){}
+  try{Object.keys(FORMULAS).forEach(function(id){var sb=subj(id);FORMULAS[id].forEach(function(f){add('∑',{ru:sb.name.ru+': '+f.l.ru,tg:sb.name.tg+': '+f.l.tg,en:sb.name.en+': '+f.l.en},{ru:f.f,tg:f.f,en:f.f},'formula');});});}catch(e){}
+  try{SUBJECTS.forEach(function(sb){var tp=function(l){return (sb.topics&&sb.topics[l]||[]).join('; ')};add('🎓',sb.name,{ru:sb.desc.ru+(tp('ru')?' '+tp('ru'):''),tg:sb.desc.tg+(tp('tg')?' '+tp('tg'):''),en:sb.desc.en+(tp('en')?' '+tp('en'):'')},'subject');});}catch(e){}
+  try{INF_PARTS.forEach(function(p){add('💻',p.t,p.d,'inf');});}catch(e){}
+  try{PL.forEach(function(p){var nm={ru:p.name,tg:p.name,en:p.name};add('⌨️',nm,{ru:p.about.ru+'\n'+p.hello,tg:p.about.tg+'\n'+p.hello,en:p.about.en+'\n'+p.hello},'lang');});}catch(e){}
+  [
+   [['сообщен','паём','messag','написат','навишт'],{ru:'Нажмите кнопку «Сообщение» над кнопкой AI, выберите пользователя, напишите текст и отправьте. Получатель увидит красную цифру-уведомление, а все сообщения лежат в его профиле в блоке «Мои сообщения».',tg:'Тугмаи «Паём»-ро аз болои тугмаи AI пахш кунед, корбарро интихоб карда, матн нависед ва фиристед. Гиранда рақами сурхи огоҳӣ мебинад ва ҳамаи паёмҳо дар профили ӯ, дар қисмати «Паёмҳои ман» ҳастанд.',en:'Press the “Message” button above the AI button, choose a user, write the text and send it. The recipient gets a red notification number and all messages are in their profile under “My messages”.'}],
+   [['серия','силсил','streak','огонёк','огонек','flame','🔥'],{ru:'Огонёк в шапке сайта считает, сколько дней подряд вы решали задачи или читали главы книг. Один день засчитывается, если вы правильно решили хотя бы одну задачу или открыли главу. Пропустите день — серия начнётся заново.',tg:'Оташча дар сарлавҳа шумораи рӯзҳои пай дарпайро ҳисоб мекунад, ки шумо масъала ҳал кардед ё бобҳои китобро хондед. Як рӯз ҳисоб мешавад, агар ақаллан як масъаларо дуруст ҳал кунед ё як бобро кушоед. Рӯзро гузаронед — силсила аз нав оғоз мешавад.',en:'The flame in the header counts how many days in a row you solved problems or read book chapters. A day counts when you solve at least one problem correctly or open a chapter. Miss a day and the streak starts over.'}],
+   [['регистр','зарегистр','сабти','register','sign','войти','вход','аккаунт','account','профил','profile'],{ru:'Нажмите «Войти» в правом верхнем углу, откройте вкладку «Регистрация», введите имя, почту и пароль. После входа можно заполнить профиль: школа, страна, город, о себе и главный предмет.',tg:'Дар кунҷи рости боло «Ворид шудан»-ро пахш кунед, ҷадвали «Сабти ном»-ро кушоед ва ном, почта ва рамзро ворид намоед. Баъд профилро пур кардан мумкин аст: мактаб, кишвар, шаҳр ва фанни асосӣ.',en:'Press “Sign in” at the top right, open the “Register” tab and enter your name, email and password. Afterwards you can fill in your profile: school, country, city, about you and main subject.'}],
+   [['в сети','онлайн','online','статус','дар шабака','offline'],{ru:'Зелёная точка на аватарке в разделе «Пользователи» значит, что человек сейчас в сети. Серая точка — не в сети, рядом написано, когда он был в последний раз.',tg:'Нуқтаи сабз дар аватар дар бахши «Корбарон» маънои онро дорад, ки шахс ҳозир дар шабака аст. Нуқтаи хокистарӣ — дар шабака нест, дар паҳлӯ вақти охирин буданаш навишта шудааст.',en:'A green dot on an avatar in the “Users” section means the person is online now. A grey dot means offline, with the time they were last seen next to it.'}],
+   [['пользовател','корбар','users','участник'],{ru:'Раздел «Пользователи» в меню слева показывает всех зарегистрированных: аватар, имя, почту, главный предмет, школу, страну, город, дату регистрации и статус в сети. Там же работает поиск.',tg:'Бахши «Корбарон» дар меню ҳамаи сабтшудагонро нишон медиҳад: аватар, ном, почта, фанни асосӣ, мактаб, кишвар, шаҳр, санаи сабти ном ва ҳолати шабака. Ҷустуҷӯ низ ҳаст.',en:'The “Users” section in the left menu lists everyone registered: avatar, name, email, main subject, school, country, city, registration date and online status. There is also a search box.'}]
+  ].forEach(function(f){ix.push({src:'ℹ️',title:{ru:'INFASUB',tg:'INFASUB',en:'INFASUB'},t:f[1],toks:aiToks(f[0].join(' ')),tt:aiToks(f[0].join(' ')),kind:'faq',boost:2});});
+  aiIdx=ix;return ix;
+}
+function aiKnow(q){
+  var L=aiDetect(q),qt=aiToks(q);if(!qt.length)return null;
+  var ix=aiBuild(),best=[];
+  ix.forEach(function(c){
+    var hit=0,th=0;qt.forEach(function(w){if(c.toks.indexOf(w)>-1)hit++;if(c.tt.indexOf(w)>-1)th++;});
+    if(!hit)return;var sc=hit+th*1.5+(c.boost||0)*(hit?1:0);
+    best.push({c:c,s:sc,hit:hit});
+  });
+  if(!best.length)return null;
+  best.sort(function(a,b){return b.s-a.s});
+  var need=qt.length>=3?2:1;if(best[0].hit<need)return null;
+  var top=best[0].c,res=[],seen={};
+  best.slice(0,6).forEach(function(b){if(res.length>=2||b.hit<need||b.s<best[0].s*0.6)return;var k=(b.c.title[L]||'')+'|'+(b.c.t[L]||'').slice(0,40);if(seen[k])return;seen[k]=1;res.push(b.c)});
+  var hd={ru:'Нашёл на сайте:',tg:'Дар сайт ёфтам:',en:'Found on this site:'},tail={ru:'Хотите подробнее — откройте раздел «Электронные книги» или нужный предмет в меню.',tg:'Агар муфассалтар хоҳед — бахши «Китобҳои электронӣ» ё фанни лозимиро дар меню кушоед.',en:'For more, open “E-books” or the subject in the menu.'};
+  var out=[hd[L]];
+  res.forEach(function(c){
+    var txt=c.t[L]||c.t.ru||'';if(c.kind==='faq')out.push(txt);
+    else out.push(c.src+' **'+(c.title[L]||c.title.ru)+'**\n'+txt);
+  });
+  if(res.some(function(c){return c.kind==='book'}))out.push(tail[L]);
+  return out.join('\n\n');
+}
+
+/* ===== INFASUB AI: chat UI ===== */
+var AIUI={
+ ru:{sub:'Решает задачи по предметам',ph:'Введите задачу…',send:'Отправить',clear:'Очистить',close:'Закрыть',
+  hello:'Привет! Я **INFASUB AI**. Решаю примеры, уравнения, задачи по геометрии, физике, химии и информатике и показываю решение по шагам. Считаю по точным формулам, поэтому не выдумываю ответы. Что решим?',
+  chips:['2+2*3','x^2-5x+6=0','Катеты 6 и 8, найди гипотенузу','101101₂ в десятичную','Молярная масса H2O','90 км/ч, 10 с — какой путь?']},
+ tg:{sub:'Масъалаҳоро ҳал мекунад',ph:'Масъаларо нависед…',send:'Фиристодан',clear:'Тоза',close:'Пӯшидан',
+  hello:'Салом! Ман **INFASUB AI**. Мисолҳо, муодилаҳо ва масъалаҳои геометрия, физика, химия ва информатикаро қадам ба қадам ҳал мекунам. Бо формулаҳои дақиқ ҳисоб мекунам. Чиро ҳал мекунем?',
+  chips:['2+2*3','x^2-5x+6=0','Катетҳо 6 ва 8, гипотенуза','101101₂ ба даҳӣ','Массаи молярии H2O','90 км/соат, 10 с — роҳ?']},
+ en:{sub:'Solves school problems',ph:'Type a problem…',send:'Send',clear:'Clear',close:'Close',
+  hello:'Hi! I am **INFASUB AI**. I solve arithmetic, equations, geometry, physics, chemistry and informatics problems and show the steps. I compute with exact formulas, so I do not make answers up. What shall we solve?',
+  chips:['2+2*3','x^2-5x+6=0','Legs 6 and 8, find the hypotenuse','101101₂ to decimal','Molar mass of H2O','90 km/h, 10 s — distance?']}
+};
+var aiMsgs=[{r:'a',hello:1}],aiAsked=false;
+var aiBtn=document.createElement('button');aiBtn.type='button';aiBtn.className='aib';aiBtn.id='ai-btn';
+aiBtn.setAttribute('aria-expanded','false');aiBtn.setAttribute('aria-controls','ai-panel');
+aiBtn.innerHTML='<svg viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="lg2" cx=".38" cy=".3" r=".85"><stop offset="0" stop-color="#C6FF6A"/><stop offset=".45" stop-color="#3FBF2F"/><stop offset="1" stop-color="#1B7A2A"/></radialGradient></defs><circle cx="32" cy="32" r="29" fill="url(#lg2)" stroke="#fff" stroke-width="3"/><path d="M32 15v34M15 32h34" stroke="#fff" stroke-width="10" stroke-linecap="round"/><ellipse cx="25" cy="17" rx="13" ry="6" fill="#fff" opacity=".28" transform="rotate(-25 25 17)"/></svg><span>AI</span>';
+var aiPanel=document.createElement('div');aiPanel.className='aip';aiPanel.id='ai-panel';aiPanel.setAttribute('role','dialog');aiPanel.setAttribute('aria-label','INFASUB AI');
+aiPanel.innerHTML='<div class="aih"><div class="ai-logo"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="lg3" cx=".38" cy=".3" r=".85"><stop offset="0" stop-color="#C6FF6A"/><stop offset=".45" stop-color="#3FBF2F"/><stop offset="1" stop-color="#1B7A2A"/></radialGradient></defs><circle cx="32" cy="32" r="29" fill="url(#lg3)" stroke="#fff" stroke-width="3"/><path d="M32 15v34M15 32h34" stroke="#fff" stroke-width="10" stroke-linecap="round"/><ellipse cx="25" cy="17" rx="13" ry="6" fill="#fff" opacity=".28" transform="rotate(-25 25 17)"/></svg></div><div><div class="aiT">INFASUB AI</div><div class="aiS" id="ai-sub"></div></div><span class="sp"></span><button type="button" class="aic" id="ai-clear"></button><button type="button" class="aic" id="ai-x" aria-label="Close">✕</button></div>'+
+ '<div class="aim" id="ai-msgs" aria-live="polite"></div><div class="aiq" id="ai-chips"></div>'+
+ '<form class="aif" id="ai-form" autocomplete="off"><input id="ai-in" type="text" maxlength="400" aria-label="INFASUB AI"><button type="submit" id="ai-send"></button></form>';
+document.body.appendChild(aiBtn);document.body.appendChild(aiPanel);
+function aiFmt(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');}
+function aiDraw(){
+  var box=document.getElementById('ai-msgs');if(!box)return;var h='';
+  aiMsgs.forEach(function(m){
+    if(m.r==='u')h+='<div class="aiu">'+esc(m.t)+'</div>';
+    else h+='<div class="aia">'+(m.typing?'<span class="aid"><i></i><i></i><i></i></span>':aiFmt(m.hello?AIUI[lang].hello:m.t))+'</div>';
+  });
+  box.innerHTML=h;box.scrollTop=box.scrollHeight;
+}
+function aiChips(){
+  var c=document.getElementById('ai-chips');if(!c)return;
+  c.innerHTML=aiAsked?'':AIUI[lang].chips.map(function(x){return '<button type="button" data-aiq="'+esc(x)+'">'+esc(x)+'</button>';}).join('');
+}
+function aiLang(){
+  var L=AIUI[lang]||AIUI.ru;
+  document.getElementById('ai-sub').textContent=L.sub;
+  document.getElementById('ai-in').placeholder=L.ph;
+  document.getElementById('ai-send').textContent=L.send;
+  document.getElementById('ai-clear').textContent=L.clear;
+  document.getElementById('ai-x').setAttribute('aria-label',L.close);
+  aiChips();aiDraw();
+}
+function aiSetOpen(o){
+  aiPanel.classList.toggle('open',o);aiBtn.setAttribute('aria-expanded',String(o));
+  if(o){setTimeout(function(){var i=document.getElementById('ai-in');if(i)i.focus();},30);}
+}
+function aiAsk(q){
+  q=String(q||'').trim();if(!q)return;
+  aiAsked=true;aiMsgs.push({r:'u',t:q});var ty={r:'a',typing:1};aiMsgs.push(ty);
+  if(aiMsgs.length>60)aiMsgs.splice(1,aiMsgs.length-60);
+  aiChips();aiDraw();
+  setTimeout(function(){
+    var a;aiLastQ=q;try{a=aiSolve(q,aiDetect(q));}catch(e){a=aiFallback();}
+    var ix=aiMsgs.indexOf(ty);if(ix>-1)aiMsgs.splice(ix,1,{r:'a',t:a});aiDraw();
+  },260);
+}
+aiBtn.addEventListener('click',function(){aiSetOpen(!aiPanel.classList.contains('open'));});
+document.getElementById('ai-x').addEventListener('click',function(){aiSetOpen(false);aiBtn.focus();});
+document.getElementById('ai-clear').addEventListener('click',function(){aiMsgs=[{r:'a',hello:1}];aiAsked=false;aiChips();aiDraw();});
+document.getElementById('ai-form').addEventListener('submit',function(e){e.preventDefault();var i=document.getElementById('ai-in');var q=i.value;i.value='';aiAsk(q);});
+document.getElementById('ai-chips').addEventListener('click',function(e){var b=e.target.closest('button');if(b&&b.hasAttribute('data-aiq'))aiAsk(b.getAttribute('data-aiq'));});
+aiPanel.addEventListener('keydown',function(e){if(e.key==='Escape'){aiSetOpen(false);aiBtn.focus();}});
+var aiOrigRender=render;
+render=function(){aiOrigRender.apply(this,arguments);aiLang();};
+aiLang();
+
 window.addEventListener('hashchange',route);
 route();
 handleMagic();
