@@ -228,7 +228,7 @@ function actUsers(token) {
     return o;
   });
   list.sort((a, b) => (b.admin - a.admin) || (b.created - a.created));
-  return { ok: true, me: { admin }, users: list };
+  return { ok: true, me: { admin }, persistent: REMOTE && remoteReady, users: list };
 }
 
 function actDelete(token, email) {
