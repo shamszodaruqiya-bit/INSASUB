@@ -1037,12 +1037,12 @@ tg:{signin:'Ворид шудан',tab_login:'Воридшавӣ',tab_reg:'Са�
 en:{signin:'Sign in',tab_login:'Log in',tab_reg:'Register',name:'Name',login:'Username',pass:'Password',pass2:'Repeat password',btn_login:'Log in',btn_reg:'Create account',hint:'Data is stored only in this browser.',e_fill:'Fill in all fields.',e_name:'Name: at least 2 characters.',e_login:'Username: 3+ characters, Latin letters, digits and . _ - @',e_pass:'Password: at least 6 characters.',e_match:'Passwords do not match.',e_exists:'This username is already taken.',e_bad:'Wrong username or password.',as:'Signed in as',logout:'Log out',close:'Close',read:'Read here',newtab:'Open in a new tab',nofit:'If the book does not load, the author’s site does not allow showing it inside other sites. Open it in a new tab.',loading:'Loading…'}
 };
 
-var AUTH_API=''; /* <-- сюда вставьте URL веб-приложения Google Apps Script (см. README) */
+var AUTH_API='https://infasub-api.onrender.com'; /* <-- сюда вставьте URL веб-приложения Google Apps Script (см. README) */
 (function(){
 var X={
-ru:{login:'Эл. почта (Gmail)',tab_reg:'Регистрация',hint:'Мы отправим код подтверждения на вашу почту.',e_login:'Введите корректный адрес эл. почты.',e_email:'Введите корректный адрес эл. почты.',e_exists:'Эта почта уже зарегистрирована.',e_bad:'Неверная почта или пароль.',e_code:'Неверный код.',e_expired:'Код устарел. Запросите новый.',e_tries:'Слишком много попыток. Запросите новый код.',e_wait:'Подождите минуту перед повторной отправкой.',e_locked:'Слишком много попыток входа. Попробуйте позже.',e_quota:'Лимит отправки писем исчерпан. Попробуйте завтра.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',code_t:'Подтверждение почты',code_sent:'Мы отправили 6-значный код на',code:'Код из письма',btn_verify:'Подтвердить',resend:'Отправить код снова',back:'Назад',test_mode:'Тестовый режим (почта не подключена), ваш код'},
-tg:{login:'Почтаи электронӣ (Gmail)',hint:'Рамзи тасдиқро ба почтаи шумо мефиристем.',e_login:'Суроғаи дурусти почтаро ворид кунед.',e_email:'Суроғаи дурусти почтаро ворид кунед.',e_exists:'Ин почта аллакай сабт шудааст.',e_bad:'Почта ё рамз нодуруст аст.',e_code:'Рамзи тасдиқ нодуруст аст.',e_expired:'Рамз кӯҳна шуд. Рамзи нав талаб кунед.',e_tries:'Кӯшишҳо хеле зиёданд. Рамзи нав талаб кунед.',e_wait:'Пеш аз фиристодани дубора як дақиқа интизор шавед.',e_locked:'Кӯшишҳои вуруд хеле зиёданд. Баъдтар кӯшиш кунед.',e_quota:'Лимити мактубҳо тамом шуд. Пагоҳ кӯшиш кунед.',e_net:'Бо сервер алоқа нест. Боз кӯшиш кунед.',code_t:'Тасдиқи почта',code_sent:'Рамзи 6-рақамаро фиристодем ба',code:'Рамз аз мактуб',btn_verify:'Тасдиқ кардан',resend:'Рамзро дубора фиристодан',back:'Бозгашт',test_mode:'Реҷаи озмоишӣ (почта пайваст нашудааст), рамзи шумо'},
-en:{login:'Email (Gmail)',hint:'We will email you a confirmation code.',e_login:'Enter a valid email address.',e_email:'Enter a valid email address.',e_exists:'This email is already registered.',e_bad:'Wrong email or password.',e_code:'Wrong code.',e_expired:'The code has expired. Request a new one.',e_tries:'Too many attempts. Request a new code.',e_wait:'Please wait a minute before resending.',e_locked:'Too many login attempts. Try again later.',e_quota:'Daily email limit reached. Try tomorrow.',e_net:'Cannot reach the server. Try again.',code_t:'Confirm your email',code_sent:'We sent a 6-digit code to',code:'Code from the email',btn_verify:'Confirm',resend:'Resend code',back:'Back',test_mode:'Test mode (email not connected), your code'}
+ru:{login:'Эл. почта (Gmail)',tab_reg:'Регистрация',hint:'Мы отправим код подтверждения на вашу почту.',e_login:'Введите адрес Gmail (name@gmail.com).',e_email:'Введите адрес Gmail (name@gmail.com).',e_exists:'Эта почта уже зарегистрирована.',e_bad:'Неверная почта или пароль.',e_code:'Неверный код.',e_expired:'Код устарел. Запросите новый.',e_tries:'Слишком много попыток. Запросите новый код.',e_wait:'Подождите минуту перед повторной отправкой.',e_locked:'Слишком много попыток входа. Попробуйте позже.',e_quota:'Лимит отправки писем исчерпан. Попробуйте завтра.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',code_t:'Подтверждение почты',code_sent:'Мы отправили 6-значный код на',code:'Код из письма',btn_verify:'Подтвердить',resend:'Отправить код снова',back:'Назад',test_mode:'Тестовый режим (почта не подключена), ваш код'},
+tg:{login:'Почтаи электронӣ (Gmail)',hint:'Рамзи тасдиқро ба почтаи шумо мефиристем.',e_login:'Суроғаи Gmail-ро ворид кунед (name@gmail.com).',e_email:'Суроғаи Gmail-ро ворид кунед (name@gmail.com).',e_exists:'Ин почта аллакай сабт шудааст.',e_bad:'Почта ё рамз нодуруст аст.',e_code:'Рамзи тасдиқ нодуруст аст.',e_expired:'Рамз кӯҳна шуд. Рамзи нав талаб кунед.',e_tries:'Кӯшишҳо хеле зиёданд. Рамзи нав талаб кунед.',e_wait:'Пеш аз фиристодани дубора як дақиқа интизор шавед.',e_locked:'Кӯшишҳои вуруд хеле зиёданд. Баъдтар кӯшиш кунед.',e_quota:'Лимити мактубҳо тамом шуд. Пагоҳ кӯшиш кунед.',e_net:'Бо сервер алоқа нест. Боз кӯшиш кунед.',code_t:'Тасдиқи почта',code_sent:'Рамзи 6-рақамаро фиристодем ба',code:'Рамз аз мактуб',btn_verify:'Тасдиқ кардан',resend:'Рамзро дубора фиристодан',back:'Бозгашт',test_mode:'Реҷаи озмоишӣ (почта пайваст нашудааст), рамзи шумо'},
+en:{login:'Email (Gmail)',hint:'We will email you a confirmation code.',e_login:'Enter a Gmail address (name@gmail.com).',e_email:'Enter a Gmail address (name@gmail.com).',e_exists:'This email is already registered.',e_bad:'Wrong email or password.',e_code:'Wrong code.',e_expired:'The code has expired. Request a new one.',e_tries:'Too many attempts. Request a new code.',e_wait:'Please wait a minute before resending.',e_locked:'Too many login attempts. Try again later.',e_quota:'Daily email limit reached. Try tomorrow.',e_net:'Cannot reach the server. Try again.',code_t:'Confirm your email',code_sent:'We sent a 6-digit code to',code:'Code from the email',btn_verify:'Confirm',resend:'Resend code',back:'Back',test_mode:'Test mode (email not connected), your code'}
 };
 for(var l in X)for(var k in X[l])AUTH[l][k]=X[l][k];
 })();
@@ -1227,7 +1227,7 @@ function pfBg(i){return 'linear-gradient(135deg,hsl('+(i*30)+',68%,40%),hsl('+(i
 function sendMagic(){
   var el=document.getElementById('a-login'),email=((el&&el.value)||'').trim().toLowerCase();
   if(!email)return authErr('e_fill');
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return authErr('e_email');
+  if(!/^[^\s@]+@gmail\.com$/.test(email))return authErr('e_email');
   if(!AUTH_API)return authErr('e_nomail');
   authErr('');
   api('magic_send',{email:email}).then(function(r){
@@ -1302,7 +1302,7 @@ function openAuth(mode){
     var reg=authMode==='register';
     h+='<h2>'+esc(reg?at('tab_reg'):at('tab_login'))+'</h2><div class="atabs"><button type="button" data-amode="login" aria-pressed="'+!reg+'">'+esc(at('tab_login'))+'</button><button type="button" data-amode="register" aria-pressed="'+reg+'">'+esc(at('tab_reg'))+'</button></div>'+
     '<form id="authform" novalidate>'+(reg?'<label>'+esc(at('name'))+'<input class="fld" id="a-name" autocomplete="name" maxlength="60"></label>':'')+
-    '<label>'+esc(at('login'))+'<input class="fld" id="a-login" type="email" inputmode="email" autocomplete="email" maxlength="80" autocapitalize="none" spellcheck="false"></label>'+
+    '<label>'+esc(at('login'))+'<input class="fld" id="a-login" placeholder="name@gmail.com" type="email" inputmode="email" autocomplete="email" maxlength="80" autocapitalize="none" spellcheck="false"></label>'+
     '<label>'+esc(at('pass'))+'<input class="fld" id="a-pass" type="password" autocomplete="'+(reg?'new-password':'current-password')+'" maxlength="100"></label>'+
     (reg?'<label>'+esc(at('pass2'))+'<input class="fld" id="a-pass2" type="password" autocomplete="new-password" maxlength="100"></label>':'')+
     '<div class="aerr" id="a-err" role="alert"></div><button type="submit" class="pbtn">'+esc(reg?at('btn_reg'):at('btn_login'))+'</button></form><p class="ahint">'+esc(reg?at('hint'):'')+'</p>'+(reg?'':'<div class="ahint" style="text-align:center;margin:12px 0 6px">'+esc(at('or_l'))+'</div><button type="button" class="pbtn sec" data-magic>✉️ '+esc(at('magic_btn'))+'</button>');
@@ -1332,7 +1332,7 @@ function resendCode(){
 function submitAuth(){
   if(authMode==='code')return submitCode();
   var reg=authMode==='register',email=(document.getElementById('a-login').value||'').trim().toLowerCase(),pw=document.getElementById('a-pass').value||'';
-  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var EMAIL=/^[^\s@]+@gmail\.com$/;
   if(reg){
     var name=(document.getElementById('a-name').value||'').trim(),pw2=document.getElementById('a-pass2').value||'';
     if(!name||!email||!pw||!pw2)return authErr('e_fill');
