@@ -69,6 +69,30 @@
 
 .aib svg{width:26px;height:26px}
 .aih .ai-logo{background:transparent}.aih .ai-logo svg{width:34px;height:34px}
+
+.tcard{cursor:pointer;border-left:4px solid var(--c,var(--line));transition:transform .15s,box-shadow .15s}
+.tcard:hover,.tcard:focus-visible{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(0,0,0,.4);outline:none}
+.tcard:focus-visible{outline:2px solid var(--c,var(--accent));outline-offset:2px}
+.tgo{margin-top:auto;font-weight:700;font-size:.85rem;color:var(--c,var(--accent))}
+.tpv{position:fixed;inset:0;z-index:62;background:rgba(10,12,24,.6);display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(3px)}
+.tpd{background:var(--surface);color:var(--fg);border:1px solid var(--line);border-top:5px solid var(--c,var(--accent));border-radius:16px;width:min(640px,100%);max-height:90vh;overflow:auto;padding:22px 24px;box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.tph{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.tpc{font-family:var(--font-mono);font-size:.75rem;color:var(--c,var(--accent));font-weight:700}
+.tpx{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:1.1rem;padding:4px 8px;border-radius:8px}
+.tpd h2{margin:8px 0 12px;font-size:1.6rem}
+.tpb p{margin:0 0 12px;line-height:1.65;font-size:1.02rem}
+.tpn{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px;flex-wrap:wrap}
+.ghint{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:70;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:99px;padding:8px 18px;font-weight:700;font-size:.9rem;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);max-width:94vw;text-align:center}
+.gstrip{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:70;width:min(94vw,760px);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:0 14px 40px -12px rgba(0,0,0,.5)}
+.gst{font-size:.85rem;color:var(--muted);margin-bottom:8px}.gst b{color:var(--fg)}
+.gav{display:flex;gap:12px;overflow-x:auto;padding-bottom:2px}
+.gu{display:flex;flex-direction:column;align-items:center;gap:3px;flex:none;width:58px}
+.gu em{font-style:normal;font-size:.7rem;max-width:58px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--muted)}
+.gated .ov [data-ov-close]{display:none}
+body.gated{overflow:hidden}
+body.gated>*:not(.ov):not(#gstrip):not(#ghint):not(script):not(style):not(.toast){filter:blur(10px) brightness(.85);pointer-events:none;user-select:none}
+.gated .ov{padding:64px 16px 150px}
+.gated .ov .dlg{max-height:calc(100vh - 220px)}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20%3E%3Cdefs%3E%3CradialGradient%20id=%22fg%22%20cx=%22.38%22%20cy=%22.3%22%20r=%22.85%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23C6FF6A%22/%3E%3Cstop%20offset=%22.45%22%20stop-color=%22%233FBF2F%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%231B7A2A%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2229%22%20fill=%22url%28%23fg%29%22%20stroke=%22%232F8F2A%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M32%2015v34M15%2032h34%22%20stroke=%22%23fff%22%20stroke-width=%2210%22%20stroke-linecap=%22round%22/%3E%3Cellipse%20cx=%2225%22%20cy=%2217%22%20rx=%2213%22%20ry=%226%22%20fill=%22%23fff%22%20opacity=%22.28%22%20transform=%22rotate%28-25%2025%2017%29%22/%3E%3C/svg%3E"><meta name="theme-color" content="#3FBF2F"></head><body>
 <title>INFASUB</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -554,12 +578,6 @@ button,a,.chip,.pbtn{-webkit-tap-highlight-color:transparent;touch-action:manipu
   .toast{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
 }
 @media (max-width:360px){.aiu,.aia{max-width:96%}.avgrid{gap:6px}}
-.ubadge{display:inline-block;font-family:var(--font-mono);font-size:.68rem;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);vertical-align:middle}
-.ubadge.adm{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.ucard .ui .udel{align-self:flex-start;margin-top:6px;color:var(--bad,#E5233D);border-color:var(--bad,#E5233D)}
-.ucard .ui .ue{overflow-wrap:anywhere}
-.ahint{color:var(--muted);font-size:.85rem;margin:0 0 12px}
-.ahint.warn{color:var(--bad,#E5233D);font-weight:600}
 </style>
 
 <header class="top">
@@ -590,7 +608,7 @@ button,a,.chip,.pbtn{-webkit-tap-highlight-color:transparent;touch-action:manipu
 (function(){
 var LANGS=['ru','tg','en'];
 var UI={
-ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
+ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_note2:'Список общий: здесь все, кто зарегистрировался на сайте, с любых устройств.',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
  lead:'Справочник по школьным предметам на трёх языках: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.',
  cta1:'Решать задачи',cta2:'Языки программирования',
  term1:'предметов: 6',term2:'языков интерфейса: 3 (ru · tg · en)',term3:'языков программирования: 5',term_ready:'Выберите модуль ниже',
@@ -607,7 +625,7 @@ ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инстру�
  ex_ok:'Цель достигнута! Команд: {n}.',ex_wall:'Робот упёрся в стену.',ex_miss:'Цель не достигнута. Измените программу.',ex_empty:'Добавьте команды.',
  about_t:'Сведения о программе',auth_t:'Авторы (исполнители)',goal_t:'Наша цель',goal:'Развитие цифрового образования, повышение интереса молодёжи к информационным технологиям и точным наукам, а также создание доступных возможностей для самостоятельного обучения и подготовки к олимпиадам.',auth_l:'Проект INFASUB создали два автора:',authors:[{n:'Шамсзода Рукия Муким',r:'Автор · 11 класс',d:'Призёр многих олимпиад по информатике.'},{n:'Шамсзода Муким Нарзулло',r:'Второй автор · преподаватель информатики',d:'Преподаватель информатики с 15-летним педагогическим стажем. За годы профессиональной деятельности подготовил множество учеников, добившихся высоких результатов на предметных олимпиадах и ставших их призёрами.'}],
  about:['INFASUB (Information about subjects) — справочник по школьным предметам.','Предметы: информатика, алгебра, геометрия, физика, химия, биология.','Языки интерфейса: русский, таджикский, английский.','Внутри: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.']},
-tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
+tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_note2:'Рӯйхат умумӣ аст: ин ҷо ҳамаи касоне, ки дар сайт сабти ном кардаанд, аз ҳама дастгоҳҳо.',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
  lead:'Маълумотнома оид ба фанҳои мактабӣ ба се забон: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.',
  cta1:'Масъалаҳо ҳал кунед',cta2:'Забонҳои барномасозӣ',
  term1:'фанҳо: 6',term2:'забонҳои интерфейс: 3 (ru · tg · en)',term3:'забонҳои барномасозӣ: 5',term_ready:'Дар поён модулро интихоб кунед',
@@ -624,7 +642,7 @@ tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books
  ex_ok:'Ҳадаф ба даст омад! Фармонҳо: {n}.',ex_wall:'Робот ба девор бархурд.',ex_miss:'Ба ҳадаф нарасид. Барномаро тағйир диҳед.',ex_empty:'Фармонҳо илова кунед.',
  about_t:'Маълумот дар бораи барнома',auth_t:'Муаллифон (иҷрокунандагон)',goal_t:'Мақсади мо',goal:'Рушди таълими рақамӣ, баланд бардоштани таваҷҷӯҳи ҷавонон ба технологияҳои иттилоотӣ ва илмҳои дақиқ, инчунин фароҳам овардани имкониятҳои дастрас барои худомӯзӣ ва омодагӣ ба олимпиадаҳо.',auth_l:'Лоиҳаи INFASUB-ро ду муаллиф таҳия кардаанд:',authors:[{n:'Шамсзода Руқия Муқим',r:'Муаллиф · синфи 11',d:'Ғолиби ҷоизадори бисёр олимпиадаҳои информатика.'},{n:'Шамсзода Муқим Нарзулло',r:'Муаллифи дуюм · омӯзгори информатика',d:'Омӯзгори информатика бо 15 соли собиқаи педагогӣ. Дар тӯли фаъолияти касбӣ шумораи зиёди хонандагонро омода кардааст, ки дар олимпиадаҳои фаннӣ ба натиҷаҳои баланд расида, ғолибони ҷоизадор шудаанд.'}],
  about:['INFASUB (Information about subjects) — маълумотнома оид ба фанҳои мактабӣ.','Фанҳо: информатика, алгебра, геометрия, физика, химия, биология.','Забонҳои интерфейс: русӣ, тоҷикӣ, англисӣ.','Дарун: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.']},
-en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_nf:'Nothing found.',t_about:'Information about the program',
+en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_note2:'The list is shared: everyone who registered on the site, from any device.',users_nf:'Nothing found.',t_about:'Information about the program',
  lead:'A reference for school subjects in three languages: topics and formulas, e-books, problems with answer checking, a calculator and five programming languages.',
  cta1:'Solve problems',cta2:'Programming languages',
  term1:'subjects: 6',term2:'interface languages: 3 (ru · tg · en)',term3:'programming languages: 5',term_ready:'Choose a module below',
@@ -688,6 +706,7 @@ var INF_PARTS=[
 {t:{ru:'Дополнительные устройства',tg:'Қисмҳои иловагии компютер',en:'Peripheral devices'},d:{ru:'Принтер, сканер, камера, колонки и другие устройства ввода и вывода.',tg:'Принтер, сканер, камера, баландгӯякҳо ва дигар дастгоҳҳои воридкунӣ ва баровардан.',en:'Printer, scanner, webcam, speakers and other input and output devices.'}},
 {t:{ru:'История ЭВМ',tg:'Таърихи МЭҲ',en:'History of computers'},d:{ru:'От счётных машин и ламповых компьютеров до современных процессоров.',tg:'Аз мошинҳои ҳисобкунӣ ва компютерҳои лампагӣ то протсессорҳои муосир.',en:'From calculating machines and vacuum-tube computers to modern processors.'}},
 {t:{ru:'Интернет',tg:'Интернет',en:'Internet'},d:{ru:'Как устроена сеть: адреса, серверы, браузеры и безопасность.',tg:'Шабака чӣ тавр сохта шудааст: суроғаҳо, серверҳо, браузерҳо ва бехатарӣ.',en:'How the network works: addresses, servers, browsers and safety.'}},
+{t:{ru:'Системы счисления',tg:'Низомҳои ҳисоб',en:'Number systems'},d:{ru:'Двоичная, восьмеричная, шестнадцатеричная системы и перевод чисел.',tg:'Низомҳои дуӣ, ҳаштӣ, шонздаҳӣ ва табдили рақамҳо.',en:'Binary, octal and hexadecimal systems and converting numbers.'}},
 {t:{ru:'Программирование',tg:'Барномасозӣ',en:'Programming'},d:{ru:'Алгоритмы, переменные, циклы и первые программы. Пять языков в разделе языков.',tg:'Алгоритмҳо, тағйирёбандаҳо, даврҳо ва барномаҳои аввал. Панҷ забон дар бахши забонҳо.',en:'Algorithms, variables, loops and first programs. Five languages are in the languages section.'}}
 ];
 
@@ -910,96 +929,42 @@ function showEl(z){
   var all=document.querySelectorAll('.ptc');for(var i=0;i<all.length;i++)all[i].setAttribute('aria-pressed',String(+all[i].getAttribute('data-el')===z));
   b.scrollIntoView({block:'nearest',behavior:'smooth'});
 }
-
-var TOPIC_INFO={
-alg:{
-ru:['Линейное уравнение имеет вид ax + b = 0. Чтобы его решить, переносим слагаемые и делим на коэффициент: x = −b / a. Проверка: подставьте найденное x обратно в уравнение.','Уравнение ax² + bx + c = 0 решают через дискриминант D = b² − 4ac. Если D > 0 — два корня, D = 0 — один, D < 0 — действительных корней нет.','Функция сопоставляет каждому x ровно одно значение y. График линейной функции y = kx + b — прямая: k задаёт наклон, b — точку пересечения с осью y.','Решение неравенства — множество значений x, при которых оно верно. При умножении или делении на отрицательное число знак неравенства меняется на противоположный.','В арифметической прогрессии каждый член больше предыдущего на разность d, в геометрической — умножается на знаменатель q. Для них есть формулы n-го члена и суммы.'],
-tg:['Муодилаи хатӣ намуди ax + b = 0 дорад. Барои ҳал кардан ҷамъшавандаҳоро мегузаронем ва ба коэффитсиент тақсим мекунем: x = −b / a. Санҷиш: x-и ёфташударо ба муодила гузоред.','Муодилаи ax² + bx + c = 0 тавассути дискриминант D = b² − 4ac ҳал мешавад. Агар D > 0 — ду реша, D = 0 — як реша, D < 0 — решаи ҳақиқӣ нест.','Функсия ба ҳар як x танҳо як қимати y мегузорад. Графики функсияи хатии y = kx + b хати рост аст: k моилиро, b нуқтаи буриши меҳвари y-ро муайян мекунад.','Ҳалли нобаробарӣ маҷмӯи қиматҳои x аст, ки нобаробарӣ барои онҳо дуруст аст. Ҳангоми зарб ё тақсим ба адади манфӣ аломати нобаробарӣ ба муқобил иваз мешавад.','Дар прогрессияи арифметикӣ ҳар аъзо аз пешинааш ба фарқият d зиёд аст, дар прогрессияи геометрӣ ба махраҷ q зарб мешавад. Барои онҳо формулаҳои аъзои n-ум ва ҷамъ мавҷуданд.'],
-en:['A linear equation has the form ax + b = 0. Move terms across and divide by the coefficient: x = −b / a. Check the answer by substituting x back into the equation.','ax² + bx + c = 0 is solved with the discriminant D = b² − 4ac. If D > 0 there are two roots, D = 0 one root, D < 0 no real roots.','A function assigns exactly one y to every x. The graph of y = kx + b is a straight line: k sets the slope and b is where it crosses the y-axis.','Solving an inequality means finding all x for which it is true. Multiplying or dividing by a negative number flips the inequality sign.','In an arithmetic sequence each term grows by a constant difference d; in a geometric sequence it is multiplied by a ratio q. Both have formulas for the n-th term and the sum.']},
-geo:{
-ru:['Сумма углов треугольника равна 180°. Треугольники бывают остроугольные, прямоугольные и тупоугольные; в прямоугольном работает теорема Пифагора a² + b² = c².','Окружность — множество точек, равноудалённых от центра. Длина окружности C = 2πr, диаметр вдвое больше радиуса, а вписанный угол вдвое меньше центрального, опирающегося на ту же дугу.','Площадь измеряется в квадратных единицах. Прямоугольник: S = a · b, треугольник: S = ½ · a · h, круг: S = πr², параллелограмм: S = a · h.','Вектор — направленный отрезок: у него есть длина и направление. Векторы можно складывать, вычитать и умножать на число; в координатах длина вектора (x; y) равна √(x² + y²).','Объём показывает, сколько места занимает тело. Куб: V = a³, параллелепипед: V = a · b · c, цилиндр: V = πr²h, шар: V = (4/3)πr³.'],
-tg:['Ҷамъи кунҷҳои секунҷа ба 180° баробар аст. Секунҷаҳо тезкунҷа, росткунҷа ва кундкунҷа мешаванд; дар росткунҷа теоремаи Пифагор a² + b² = c² амал мекунад.','Давра маҷмӯи нуқтаҳоест, ки аз марказ яксон дур мебошанд. Дарозии давра C = 2πr, диаметр ду баробари радиус аст, кунҷи даруни давра нисфи кунҷи марказӣ мебошад, ки ба ҳамон камон такя мекунад.','Масоҳат бо воҳидҳои мураббаъ чен карда мешавад. Росткунҷа: S = a · b, секунҷа: S = ½ · a · h, давра: S = πr², параллелограмм: S = a · h.','Вектор — порчаи самтдор: он дарозӣ ва самт дорад. Векторҳоро ҷамъ, тарҳ ва ба адад зарб кардан мумкин; дар координатаҳо дарозии вектори (x; y) ба √(x² + y²) баробар аст.','Ҳаҷм нишон медиҳад, ки ҷисм чӣ қадар ҷой мегирад. Куб: V = a³, параллелепипед: V = a · b · c, силиндр: V = πr²h, кура: V = (4/3)πr³.'],
-en:['The angles of a triangle add up to 180°. Triangles can be acute, right or obtuse; in a right triangle the Pythagorean theorem a² + b² = c² applies.','A circle is the set of points at the same distance from the centre. Its circumference is C = 2πr, the diameter is twice the radius, and an inscribed angle is half the central angle on the same arc.','Area is measured in square units. Rectangle: S = a · b, triangle: S = ½ · a · h, circle: S = πr², parallelogram: S = a · h.','A vector is a directed segment with a length and a direction. Vectors can be added, subtracted and multiplied by a number; in coordinates the length of (x; y) is √(x² + y²).','Volume shows how much space a solid takes. Cube: V = a³, box: V = a · b · c, cylinder: V = πr²h, sphere: V = (4/3)πr³.']},
-phy:{
-ru:['Механика изучает движение тел и силы. Три закона Ньютона связывают силу, массу и ускорение: если сила не действует, скорость тела не меняется, а при действии силы F = m · a.','Тепло — это энергия хаотичного движения частиц. Количество теплоты для нагрева тела Q = c · m · Δt; тепло переходит от более нагретого тела к менее нагретому.','Электрический ток — упорядоченное движение зарядов. Закон Ома: I = U / R. Мощность тока P = U · I, а сопротивление проводника растёт с его длиной.','Колебания повторяются во времени, волны переносят энергию. Частота ν = 1 / T измеряется в герцах, а скорость волны v = λ · ν, где λ — длина волны.','Оптика изучает свет. Свет распространяется прямолинейно, отражается (угол падения равен углу отражения) и преломляется; на этом работают линзы, очки и микроскопы.'],
-tg:['Механика ҳаракати ҷисмҳо ва қувваҳоро меомӯзад. Се қонуни Нютон қувва, масса ва шитобро мепайвандад: агар қувва амал накунад, суръат тағйир намеёбад, бо амали қувва F = m · a.','Гармӣ энергияи ҳаракати бетартиби зарраҳост. Миқдори гармӣ барои гарм кардани ҷисм Q = c · m · Δt; гармӣ аз ҷисми гармтар ба ҷисми камгарм мегузарад.','Ҷараёни барқ ҳаракати мунтазами зарядҳост. Қонуни Ом: I = U / R. Қуввати ҷараён P = U · I, муқовимати наққол бо дарозиаш меафзояд.','Ларзишҳо бо мурури вақт такрор мешаванд, мавҷҳо энергияро интиқол медиҳанд. Басомад ν = 1 / T бо герс чен мешавад, суръати мавҷ v = λ · ν, ки λ дарозии мавҷ аст.','Оптика рӯшноиро меомӯзад. Рӯшноӣ рост паҳн мешавад, инъикос мешавад (кунҷи фуровардан ба кунҷи инъикос баробар аст) ва шикаста мешавад; линзаҳо, айнак ва микроскопҳо ба ҳамин асос кор мекунанд.'],
-en:['Mechanics studies the motion of bodies and forces. Newton’s three laws link force, mass and acceleration: with no force the velocity stays constant, and with a force F = m · a.','Heat is the energy of random motion of particles. The heat needed to warm a body is Q = c · m · Δt; heat flows from the hotter body to the colder one.','Electric current is the ordered motion of charges. Ohm’s law: I = U / R. Power is P = U · I, and a conductor’s resistance grows with its length.','Oscillations repeat in time and waves carry energy. Frequency ν = 1 / T is measured in hertz, and wave speed is v = λ · ν, where λ is the wavelength.','Optics studies light. Light travels in straight lines, reflects (the angle of incidence equals the angle of reflection) and refracts; lenses, glasses and microscopes work this way.']},
-che:{
-ru:['Атом состоит из ядра (протоны и нейтроны) и электронов. Номер элемента в периодической таблице равен числу протонов; элементы в одном столбце похожи по свойствам.','Атомы соединяются химическими связями: ионной (передача электронов, как в NaCl), ковалентной (общие электронные пары, как в H₂O) и металлической.','В уравнении реакции число атомов каждого элемента слева и справа одинаково — это закон сохранения массы. Коэффициенты подбирают так, чтобы уравнять атомы.','Раствор — однородная смесь растворителя и растворённого вещества. Концентрацию выражают массовой долей ω = m(вещества) / m(раствора) или молярностью.','Органическая химия изучает соединения углерода: углеводороды, спирты, кислоты. Углерод образует длинные цепи, поэтому органических веществ очень много.'],
-tg:['Атом аз ядро (протонҳо ва нейтронҳо) ва электронҳо иборат аст. Рақами элемент дар ҷадвали даврӣ ба шумораи протонҳо баробар аст; элементҳои як сутун хосиятҳои монанд доранд.','Атомҳо бо пайвастагиҳои химиявӣ мепайванданд: ионӣ (додани электронҳо, чун дар NaCl), ковалентӣ (ҷуфтҳои умумии электронӣ, чун дар H₂O) ва металлӣ.','Дар муодилаи реаксия шумораи атомҳои ҳар як элемент дар тарафи чап ва рост яксон аст — ин қонуни бақои масса мебошад. Коэффитсиентҳоро барои баробар кардани атомҳо интихоб мекунанд.','Маҳлул омехтаи якҷинсаи ҳалкунанда ва моддаи ҳалшуда аст. Консентратсияро бо ҳиссаи массавӣ ω = m(модда) / m(маҳлул) ё молярӣ ифода мекунанд.','Химияи органикӣ пайвастагиҳои карбонро меомӯзад: гидрокарбонҳо, спиртҳо, кислотаҳо. Карбон занҷирҳои дароз месозад, барои ҳамин моддаҳои органикӣ хеле зиёданд.'],
-en:['An atom consists of a nucleus (protons and neutrons) and electrons. An element’s number in the periodic table equals its protons; elements in one column have similar properties.','Atoms join through chemical bonds: ionic (electrons transfer, as in NaCl), covalent (shared electron pairs, as in H₂O) and metallic.','In a reaction equation each element has the same number of atoms on both sides — the law of conservation of mass. Coefficients are chosen to balance the atoms.','A solution is a uniform mixture of a solvent and a dissolved substance. Concentration is given as mass fraction ω = m(substance) / m(solution) or as molarity.','Organic chemistry studies carbon compounds: hydrocarbons, alcohols, acids. Carbon forms long chains, which is why there are so many organic substances.']},
-bio:{
-ru:['Клетка — основная единица жизни. В клетках растений и животных есть ядро с ДНК, митохондрии (энергия) и мембрана; только у растений есть хлоропласты и клеточная стенка.','Генетика изучает наследственность. Признаки определяют гены в ДНК; от каждого родителя потомок получает по одному аллелю, а доминантный признак проявляется сильнее рецессивного.','Тело человека состоит из систем органов: кровеносной, дыхательной, пищеварительной, нервной и других. Вместе они поддерживают постоянство внутренней среды.','Эволюция — историческое развитие живой природы. По теории Дарвина её двигают изменчивость, наследственность и естественный отбор: выживают наиболее приспособленные.','Экология изучает связи организмов со средой. В экосистеме есть продуценты, консументы и редуценты; энергия передаётся по пищевым цепям, а на каждом звене теряется около 90 %.'],
-tg:['Ҳуҷайра воҳиди асосии ҳаёт аст. Дар ҳуҷайраҳои набототу ҳайвонот ядро бо ДНК, митохондрияҳо (энергия) ва мембрана ҳаст; хлоропластҳо ва девораи ҳуҷайравӣ танҳо дар наботот мебошанд.','Генетика ирсиятро меомӯзад. Аломатҳоро генҳои ДНК муайян мекунанд; насл аз ҳар падару модар як аллел мегирад, аломати доминантӣ аз рецессивӣ қавитар зоҳир мешавад.','Бадани одам аз низомҳои узвҳо иборат аст: гардиши хун, нафас, ҳозима, асаб ва дигарон. Онҳо якҷоя доимии муҳити дохилиро нигоҳ медоранд.','Эволютсия инкишофи таърихии табиати зинда аст. Тибқи назарияи Дарвин онро тағйирёбандагӣ, ирсият ва интихоби табиӣ пеш мебаранд: мутобиқтаринҳо зинда мемонанд.','Экология алоқаи организмҳоро бо муҳит меомӯзад. Дар экосистема продуцентҳо, консументҳо ва редуцентҳо ҳастанд; энергия аз рӯи занҷирҳои ғизоӣ мегузарад ва дар ҳар ҳалқа тақрибан 90 % гум мешавад.'],
-en:['The cell is the basic unit of life. Plant and animal cells have a nucleus with DNA, mitochondria (energy) and a membrane; only plants have chloroplasts and a cell wall.','Genetics studies heredity. Traits are determined by genes in DNA; an offspring gets one allele from each parent, and a dominant trait shows over a recessive one.','The human body is made of organ systems: circulatory, respiratory, digestive, nervous and others. Together they keep the internal environment stable.','Evolution is the historical development of living nature. In Darwin’s theory it is driven by variation, heredity and natural selection: the best adapted survive.','Ecology studies how organisms relate to their environment. An ecosystem has producers, consumers and decomposers; energy moves along food chains and about 90 % is lost at each link.']}
-};
-var FACTS={
-inf:{ru:['Первый в мире программист — Ада Лавлейс: в 1843 году она написала алгоритм для механической машины Бэббиджа.','Один символ в кодировке Unicode (UTF-8) может занимать до 4 байт — так в тексте помещаются и буквы, и эмодзи.'],tg:['Аввалин барномасози ҷаҳон — Ада Лавлейс: соли 1843 ӯ барои мошини механикии Бэббидж алгоритм навишт.','Як аломат дар рамзгузории Unicode (UTF-8) то 4 байт ҷой мегирад — барои ҳамин дар матн ҳам ҳарфҳо, ҳам эмоҷиҳо ҷо мешаванд.'],en:['The world’s first programmer is Ada Lovelace: in 1843 she wrote an algorithm for Babbage’s mechanical machine.','One character in Unicode (UTF-8) can take up to 4 bytes, which is how a text holds both letters and emoji.']},
-alg:{ru:['Слово «алгебра» происходит от труда аль-Хорезми «аль-джебр» (IX век) — учёного из Средней Азии.','Квадратные уравнения умели решать ещё в Вавилоне около 4000 лет назад.'],tg:['Калимаи «алгебра» аз асари ал-Хоразмӣ «ал-ҷабр» (асри IX) — олими Осиёи Марказӣ — пайдо шудааст.','Муодилаҳои квадратиро ҳанӯз дар Бобил тақрибан 4000 сол пеш ҳал карда метавонистанд.'],en:['The word “algebra” comes from al-Khwarizmi’s book “al-jabr” (9th century), a scholar from Central Asia.','People solved quadratic equations in Babylon about 4,000 years ago.']},
-geo:{ru:['Теорема Пифагора была известна вавилонянам и индийцам задолго до Пифагора.','Сумма углов треугольника равна 180° только на плоской поверхности; на сфере она больше.'],tg:['Теоремаи Пифагорро бобилиён ва ҳиндуҳо хеле пеш аз Пифагор медонистанд.','Ҷамъи кунҷҳои секунҷа танҳо дар сатҳи ҳамвор ба 180° баробар аст; дар кура аз ин зиёд мебошад.'],en:['The Pythagorean theorem was known to the Babylonians and Indians long before Pythagoras.','A triangle’s angles add up to 180° only on a flat surface; on a sphere the sum is larger.']},
-phy:{ru:['Свет Солнца идёт до Земли около 8 минут 20 секунд.','Скорость света в вакууме — примерно 300 000 км/с: ничто не движется быстрее.'],tg:['Рӯшноии Офтоб то Замин тақрибан 8 дақиқа ва 20 сония мерасад.','Суръати рӯшноӣ дар хало тақрибан 300 000 км/с аст: ҳеҷ чиз аз он тезтар ҳаракат намекунад.'],en:['Sunlight takes about 8 minutes 20 seconds to reach the Earth.','The speed of light in a vacuum is about 300,000 km/s: nothing moves faster.']},
-che:{ru:['Периодическую систему элементов Менделеев составил в 1869 году и предсказал свойства ещё не открытых элементов.','Вода — одно из немногих веществ, которое в твёрдом виде (лёд) легче, чем в жидком.'],tg:['Ҷадвали даврии элементҳоро Менделеев соли 1869 тартиб дод ва хосиятҳои элементҳои ҳанӯз кашфнашударо пешгӯӣ кард.','Об аз он моддаҳои камшумор аст, ки дар ҳолати сахт (ях) аз моеъ сабуктар мебошад.'],en:['Mendeleev compiled the periodic table in 1869 and predicted the properties of elements not yet discovered.','Water is one of the few substances that is lighter as a solid (ice) than as a liquid.']},
-bio:{ru:['В теле взрослого человека около 30 триллионов клеток.','ДНК одной клетки, если её растянуть, имела бы длину около двух метров.'],tg:['Дар бадани одами калонсол тақрибан 30 триллион ҳуҷайра ҳаст.','ДНК-и як ҳуҷайра, агар дароз карда шавад, тақрибан ду метр дарозӣ дошта мебошад.'],en:['An adult human body has about 30 trillion cells.','The DNA of a single cell, stretched out, would be about two metres long.']}
-};
-INF_PARTS.push(
-{t:{ru:'Системы счисления',tg:'Низомҳои ҳисоб',en:'Number systems'},d:{ru:'Двоичная, восьмеричная, десятичная и шестнадцатеричная системы и перевод чисел между ними.',tg:'Низомҳои дуӣ, ҳаштӣ, даҳӣ ва шонздаҳӣ ва табдили ададҳо байни онҳо.',en:'Binary, octal, decimal and hexadecimal systems and converting numbers between them.'}},
-{t:{ru:'Кодирование информации',tg:'Рамзгузории иттилоот',en:'Encoding information'},d:{ru:'Как текст, цвета, звук и видео превращаются в нули и единицы: ASCII, Unicode, пиксели.',tg:'Матн, рангҳо, садо ва видео чӣ тавр ба сифр ва якҳо табдил меёбанд: ASCII, Unicode, пикселҳо.',en:'How text, colours, sound and video become zeros and ones: ASCII, Unicode, pixels.'}},
-{t:{ru:'Алгоритмы',tg:'Алгоритмҳо',en:'Algorithms'},d:{ru:'Линейные, ветвящиеся и циклические алгоритмы, блок-схемы и поиск ошибок.',tg:'Алгоритмҳои хатӣ, шохадор ва даврӣ, блок-схемаҳо ва ёфтани хатогиҳо.',en:'Linear, branching and looping algorithms, flowcharts and finding bugs.'}},
-{t:{ru:'Безопасность в сети',tg:'Бехатарӣ дар шабака',en:'Online safety'},d:{ru:'Надёжные пароли, фишинг, двухфакторная защита и осторожность с личными данными.',tg:'Рамзҳои боэътимод, фишинг, ҳимояи дуомила ва эҳтиёт бо маълумоти шахсӣ.',en:'Strong passwords, phishing, two-factor protection and care with personal data.'}}
-);
-FORMULAS.inf.push(
-{l:{ru:'Перевод в двоичную',tg:'Ба дуӣ табдил додан',en:'To binary'},f:'13₁₀ = 8 + 4 + 1 = 1101₂'},
-{l:{ru:'Скорость передачи',tg:'Суръати интиқол',en:'Transfer speed'},f:'t = I / v'},
-{l:{ru:'Количество вариантов',tg:'Шумораи вариантҳо',en:'Number of options'},f:'N = 2ⁱ'},
-{l:{ru:'Объём изображения',tg:'Ҳаҷми тасвир',en:'Image size'},f:'I = W · H · i'});
-FORMULAS.alg.push(
-{l:{ru:'Сумма арифметической прогрессии',tg:'Ҷамъи прогрессияи арифметикӣ',en:'Sum of an arithmetic sequence'},f:'Sₙ = (a₁ + aₙ) · n / 2'},
-{l:{ru:'Геометрическая прогрессия',tg:'Прогрессияи геометрӣ',en:'Geometric sequence'},f:'bₙ = b₁ · qⁿ⁻¹'},
-{l:{ru:'Квадрат суммы',tg:'Квадрати ҷамъ',en:'Square of a sum'},f:'(a + b)² = a² + 2ab + b²'},
-{l:{ru:'Линейная функция',tg:'Функсияи хатӣ',en:'Linear function'},f:'y = kx + b'});
-FORMULAS.geo.push(
-{l:{ru:'Площадь прямоугольника',tg:'Масоҳати росткунҷа',en:'Rectangle area'},f:'S = a · b'},
-{l:{ru:'Объём шара',tg:'Ҳаҷми кура',en:'Sphere volume'},f:'V = (4/3)πr³'},
-{l:{ru:'Теорема косинусов',tg:'Теоремаи косинусҳо',en:'Law of cosines'},f:'c² = a² + b² − 2ab · cos γ'},
-{l:{ru:'Длина вектора',tg:'Дарозии вектор',en:'Vector length'},f:'|a| = √(x² + y²)'});
-FORMULAS.phy.push(
-{l:{ru:'Давление',tg:'Фишор',en:'Pressure'},f:'p = F / S'},
-{l:{ru:'Плотность',tg:'Зичӣ',en:'Density'},f:'ρ = m / V'},
-{l:{ru:'Работа',tg:'Кор',en:'Work'},f:'A = F · s'},
-{l:{ru:'Мощность тока',tg:'Қуввати ҷараён',en:'Electric power'},f:'P = U · I'});
-FORMULAS.che.push(
-{l:{ru:'Массовая доля',tg:'Ҳиссаи массавӣ',en:'Mass fraction'},f:'ω = m(в-ва) / m(р-ра) · 100 %'},
-{l:{ru:'Молярный объём',tg:'Ҳаҷми молярӣ',en:'Molar volume'},f:'V = n · 22,4 л (н. у.)'},
-{l:{ru:'Горение метана',tg:'Сӯхтани метан',en:'Burning methane'},f:'CH₄ + 2O₂ → CO₂ + 2H₂O'},
-{l:{ru:'Нейтрализация',tg:'Безараркунӣ',en:'Neutralisation'},f:'HCl + NaOH → NaCl + H₂O'});
-FORMULAS.bio.push(
-{l:{ru:'Расщепление Менделя',tg:'Тақсимоти Мендел',en:'Mendel’s ratio'},f:'Aa × Aa → 1 AA : 2 Aa : 1 aa'},
-{l:{ru:'Поток энергии',tg:'Ҷараёни энергия',en:'Energy flow'},f:'100 % → 10 % → 1 %'},
-{l:{ru:'Центральная догма',tg:'Догмаи марказӣ',en:'Central dogma'},f:'DNA → RNA → protein'},
-{l:{ru:'Плотность популяции',tg:'Зичии популятсия',en:'Population density'},f:'D = N / S'});
-(function(){
-var Z={
-ru:{facts_h:'Знаете ли вы?',users_load:'Загрузка… Бесплатный сервер может просыпаться до минуты.',users_expired:'Сессия закончилась (сервер перезапускался). Войдите снова, чтобы увидеть список.',users_relogin:'Вы вошли раньше, до обновления сайта. Войдите в аккаунт ещё раз, чтобы увидеть список.',users_relogin_btn:'Войти заново',users_warn:'⚠ Постоянное хранилище не подключено: пользователи пропадут при перезапуске сервера. Подключите Upstash (см. README).'},
-tg:{facts_h:'Оё медонед?',users_load:'Бор шуда истодааст… Сервери ройгон то як дақиқа бедор мешавад.',users_expired:'Ҷаласа ба охир расид (сервер аз нав оғоз шуд). Барои дидани рӯйхат аз нав ворид шавед.',users_relogin:'Шумо пеш аз навсозии сайт ворид шуда будед. Барои дидани рӯйхат боз ба аккаунт ворид шавед.',users_relogin_btn:'Аз нав ворид шудан',users_warn:'⚠ Нигоҳдории доимӣ пайваст нест: корбарон ҳангоми аз нав оғоз шудани сервер нест мешаванд. Upstash-ро пайваст кунед (README-ро бинед).'},
-en:{facts_h:'Did you know?',users_load:'Loading… The free server can take up to a minute to wake up.',users_expired:'Your session ended (the server restarted). Sign in again to see the list.',users_relogin:'You signed in before the site update. Sign in once more to see the list.',users_relogin_btn:'Sign in again',users_warn:'⚠ Persistent storage is not connected: users will be lost when the server restarts. Connect Upstash (see README).'}
-};
-for(var l in Z)for(var k in Z[l])UI[l][k]=Z[l][k];
-})();
+var TOPIC_INFO={"inf": [["Компьютер — устройство для хранения и обработки информации. Главные части: процессор выполняет команды, оперативная память временно хранит данные работающих программ, накопитель (SSD или жёсткий диск) хранит файлы постоянно, а монитор показывает результат.\nВсе части соединяет материнская плата. Процессор измеряют по числу ядер и частоте в гигагерцах, память и накопитель — в байтах: 1 КБ = 1024 байта, 1 МБ = 1024 КБ, 1 ГБ = 1024 МБ.", "Компютер — дастгоҳест барои нигоҳ доштан ва коркарди маълумот. Қисмҳои асосӣ: протсессор фармонҳоро иҷро мекунад, хотираи оперативӣ маълумоти барномаҳои фаъолро муваққатан нигоҳ медорад, нигаҳдорандаи маълумот (SSD ё диски сахт) файлҳоро доимо нигоҳ медорад ва монитор натиҷаро нишон медиҳад.\nҲамаи қисмҳоро плотаи модарӣ мепайвандад. Протсессорро аз рӯи шумораи ядроҳо ва басомад бо гигагерс, хотира ва нигаҳдорандаро бо байт мепаймоянд: 1 КБ = 1024 байт, 1 МБ = 1024 КБ, 1 ГБ = 1024 МБ.", "A computer is a device that stores and processes information. Its main parts: the processor executes instructions, RAM temporarily holds the data of running programs, the storage drive (SSD or hard disk) keeps files permanently, and the display shows the result.\nThe motherboard connects all parts. A processor is described by its number of cores and its speed in gigahertz; memory and storage are measured in bytes: 1 KB = 1024 bytes, 1 MB = 1024 KB, 1 GB = 1024 MB."], ["Устройства ввода передают информацию в компьютер: клавиатура, мышь, сканер, микрофон, веб-камера. Устройства вывода показывают результат: монитор, принтер, колонки, наушники.\nНекоторые устройства работают в обе стороны, например сенсорный экран и флешка. Их подключают через порты (USB, HDMI) или по беспроводной связи (Bluetooth, Wi-Fi). Для работы многих устройств нужны драйверы — небольшие программы-посредники.", "Дастгоҳҳои воридкунӣ маълумотро ба компютер мефиристанд: клавиатура, муш, сканер, микрофон, веб-камера. Дастгоҳҳои баровардан натиҷаро нишон медиҳанд: монитор, принтер, баландгӯякҳо, гӯшмонакҳо.\nБаъзе дастгоҳҳо ду тарафа кор мекунанд, масалан экрани ламсӣ ва флешка. Онҳоро тавассути портҳо (USB, HDMI) ё бо алоқаи бесим (Bluetooth, Wi-Fi) мепайванданд. Барои кори бисёр дастгоҳҳо драйверҳо лозиманд — барномаҳои хурди миёнарав.", "Input devices send information to the computer: keyboard, mouse, scanner, microphone, webcam. Output devices show the result: monitor, printer, speakers, headphones.\nSome devices work both ways, for example a touchscreen or a flash drive. They connect through ports (USB, HDMI) or wirelessly (Bluetooth, Wi-Fi). Many devices need drivers — small programs that let the system talk to them."], ["Первыми помощниками в счёте были счёты и арифмометр. В XIX веке Чарльз Бэббидж придумал программируемую машину, а Ада Лавлейс написала для неё первую в истории программу. Первые электронные ЭВМ 1940-х годов работали на лампах (ENIAC) и занимали целые комнаты.\nТранзисторы, а затем микросхемы сделали компьютеры меньше и дешевле. В 1970-х появились микропроцессоры и персональные компьютеры, позже — смартфоны и интернет. Сегодня в одном чипе миллиарды транзисторов.", "Аввалин ёрдамчиҳо дар ҳисоб чӯбҳисоб ва арифмометр буданд. Дар асри XIX Чарлз Беббидж мошини барномавӣ ихтироъ кард ва Ада Лавлейс барои он аввалин барномаро навишт. Аввалин МЭҲ-ҳои электронии солҳои 1940 бо лампаҳо кор мекарданд (ENIAC) ва тамоми утоқҳоро ишғол менамуданд.\nТранзисторҳо ва баъд микросхемаҳо компютерҳоро хурдтар ва арзонтар карданд. Дар солҳои 1970 микропротсессорҳо ва компютерҳои шахсӣ пайдо шуданд, баъдтар — смартфонҳо ва интернет. Имрӯз дар як чип миллиардҳо транзистор ҳаст.", "The first helpers for counting were the abacus and the mechanical calculator. In the 19th century Charles Babbage designed a programmable machine, and Ada Lovelace wrote the first program for it. The first electronic computers of the 1940s used vacuum tubes (ENIAC) and filled whole rooms.\nTransistors, and later integrated circuits, made computers smaller and cheaper. Microprocessors and personal computers appeared in the 1970s, then smartphones and the internet. Today a single chip holds billions of transistors."], ["Интернет — объединение миллионов сетей. У каждого устройства есть IP-адрес, а удобные имена сайтов (например, example.com) превращает в адреса система DNS. Страницы хранятся на серверах, браузер запрашивает их по протоколу HTTP или HTTPS и показывает вам.\nБезопасность: используйте длинные уникальные пароли, никому не сообщайте коды из сообщений, проверяйте, что адрес начинается с https, и не открывайте подозрительные ссылки и вложения.", "Интернет — иттиҳоди миллионҳо шабака аст. Ҳар дастгоҳ IP-суроға дорад ва номҳои қулайи сайтҳоро (масалан, example.com) системаи DNS ба суроға табдил медиҳад. Саҳифаҳо дар серверҳо нигоҳ дошта мешаванд, браузер онҳоро тавассути протоколи HTTP ё HTTPS талаб мекунад ва ба шумо нишон медиҳад.\nБехатарӣ: рамзҳои дароз ва ягонаро истифода баред, рамзҳои паёмҳоро ба касе нагӯед, санҷед, ки суроға бо https оғоз мешавад ва истинодҳо ва замимаҳои шубҳанокро накушоед.", "The internet is a union of millions of networks. Every device has an IP address, and the DNS system turns friendly site names (such as example.com) into addresses. Pages are stored on servers; the browser requests them over HTTP or HTTPS and shows them to you.\nStaying safe: use long unique passwords, never share codes from messages, check that the address starts with https, and do not open suspicious links or attachments."], ["Система счисления — способ записи чисел. В десятичной десять цифр, в двоичной — две (0 и 1), в восьмеричной — восемь, в шестнадцатеричной — шестнадцать (0–9 и A–F). Компьютер использует двоичную, потому что её просто реализовать: есть ток или нет тока.\nПеревод в десятичную: умножайте каждую цифру на степень основания. Например, 101101₂ = 32 + 8 + 4 + 1 = 45. Обратно — делите число на 2 и записывайте остатки снизу вверх.", "Низоми ҳисоб — тарзи навиштани рақамҳо. Дар даҳӣ даҳ рақам аст, дар дуӣ — ду (0 ва 1), дар ҳаштӣ — ҳашт, дар шонздаҳӣ — шонздаҳ (0–9 ва A–F). Компютер низоми дуиро истифода мебарад, зеро татбиқи он осон аст: ё ҷараён ҳаст, ё нест.\nБаргардонидан ба даҳӣ: ҳар рақамро ба дараҷаи асос зарб кунед. Масалан, 101101₂ = 32 + 8 + 4 + 1 = 45. Баръакс — рақамро ба 2 тақсим карда, бақияҳоро аз поён ба боло нависед.", "A number system is a way of writing numbers. Decimal has ten digits, binary has two (0 and 1), octal has eight, hexadecimal has sixteen (0–9 and A–F). A computer uses binary because it is easy to build: there is current or there is none.\nTo convert to decimal, multiply each digit by a power of the base. For example, 101101₂ = 32 + 8 + 4 + 1 = 45. To go back, divide by 2 and write the remainders from bottom to top."], ["Алгоритм — точная последовательность шагов для решения задачи. Программа записывает алгоритм на языке программирования. Основные идеи: переменные хранят значения, условия (if) выбирают путь, циклы (for, while) повторяют действия, функции собирают код в удобные блоки.\nНачните с простой программы, которая выводит текст, затем научитесь считать, проверять условия и повторять действия. Пять языков с примерами смотрите в разделе «Языки программирования».", "Алгоритм — пайдарпайии дақиқи қадамҳо барои ҳал кардани масъала. Барнома алгоритмро бо забони барномасозӣ менависад. Ғояҳои асосӣ: тағйирёбандаҳо қиматҳоро нигоҳ медоранд, шартҳо (if) роҳро интихоб мекунанд, давриҳо (for, while) амалро такрор мекунанд, функсияҳо рамзро ба блокҳои қулай ҷамъ мекунанд.\nАз барномаи оддие оғоз кунед, ки матнро мебарорад, баъд ҳисоб кардан, санҷидани шартҳо ва такрор кардани амалро омӯзед. Панҷ забонро бо мисолҳо дар бахши «Забонҳои барномасозӣ» бинед.", "An algorithm is an exact sequence of steps that solves a task. A program writes an algorithm in a programming language. The main ideas: variables store values, conditions (if) choose a path, loops (for, while) repeat actions, and functions group code into handy blocks.\nStart with a simple program that prints text, then learn to calculate, check conditions and repeat actions. See five languages with examples in the “Programming languages” section."]], "alg": [["Линейное уравнение имеет вид ax + b = 0 (a ≠ 0). Чтобы решить его, переносят слагаемые с x в одну сторону, числа — в другую, меняя знак, и делят на коэффициент: x = −b / a.\nПример: 3x − 6 = 0 → 3x = 6 → x = 2. Проверьте ответ, подставив его в исходное уравнение. Если a = 0, решений либо нет, либо их бесконечно много.", "Муодилаи хатӣ намуди ax + b = 0 (a ≠ 0) дорад. Барои ҳал кардан, ҷамъшавандаҳои дорои x-ро ба як тараф, рақамҳоро ба тарафи дигар бо тағйири аломат мекӯчонанд ва ба коэффисиент тақсим мекунанд: x = −b / a.\nМисол: 3x − 6 = 0 → 3x = 6 → x = 2. Ҷавобро бо гузоштан ба муодилаи аввала санҷед. Агар a = 0 бошад, ё ҳал нест, ё беохир зиёд аст.", "A linear equation has the form ax + b = 0 (a ≠ 0). To solve it, move the terms with x to one side and the numbers to the other, changing the sign, then divide by the coefficient: x = −b / a.\nExample: 3x − 6 = 0 → 3x = 6 → x = 2. Check the answer by substituting it into the original equation. If a = 0, there is either no solution or infinitely many."], ["Квадратное уравнение: ax² + bx + c = 0 (a ≠ 0). Дискриминант D = b² − 4ac. Если D > 0, два корня x = (−b ± √D) / 2a; если D = 0, один корень x = −b / 2a; если D < 0, действительных корней нет.\nПример: x² − 5x + 6 = 0, D = 25 − 24 = 1, x = (5 ± 1) / 2, то есть 2 и 3. По теореме Виета сумма корней равна −b/a, а произведение равно c/a.", "Муодилаи квадратӣ: ax² + bx + c = 0 (a ≠ 0). Дискриминант D = b² − 4ac. Агар D > 0 бошад, ду реша x = (−b ± √D) / 2a; агар D = 0 бошад, як реша x = −b / 2a; агар D < 0 бошад, решаи ҳақиқӣ нест.\nМисол: x² − 5x + 6 = 0, D = 25 − 24 = 1, x = (5 ± 1) / 2, яъне 2 ва 3. Тибқи теоремаи Виет суммаи решаҳо −b/a ва ҳосили зарби онҳо c/a аст.", "A quadratic equation: ax² + bx + c = 0 (a ≠ 0). The discriminant is D = b² − 4ac. If D > 0 there are two roots x = (−b ± √D) / 2a; if D = 0 there is one root x = −b / 2a; if D < 0 there are no real roots.\nExample: x² − 5x + 6 = 0, D = 25 − 24 = 1, x = (5 ± 1) / 2, so 2 and 3. By Vieta’s theorem the sum of the roots is −b/a and the product is c/a."], ["Функция сопоставляет каждому значению x одно значение y. Линейная функция y = kx + b — прямая: k задаёт наклон, b — точку пересечения с осью y. Парабола y = ax² + bx + c имеет вершину в точке x = −b / 2a.\nЧтобы построить график, составьте таблицу значений, отметьте точки и соедините их линией. Область определения — допустимые x, область значений — получающиеся y.", "Функсия ба ҳар қимати x як қимати y муқобил мегузорад. Функсияи хатӣ y = kx + b — хати рост: k моилиро, b нуқтаи буриши меҳвари y-ро муайян мекунад. Параболаи y = ax² + bx + c қуллаашро дар нуқтаи x = −b / 2a дорад.\nБарои сохтани график ҷадвали қиматҳо созед, нуқтаҳоро қайд карда, бо хат пайваст кунед. Соҳаи муайянӣ — x-ҳои мумкин, соҳаи қиматҳо — y-ҳои ҳосилшаванда.", "A function assigns exactly one value y to each value x. A linear function y = kx + b is a straight line: k sets the slope and b is where it crosses the y-axis. The parabola y = ax² + bx + c has its vertex at x = −b / 2a.\nTo draw a graph, make a table of values, mark the points and join them with a line. The domain is the allowed x values, the range is the resulting y values."], ["Неравенство сравнивает выражения знаками <, >, ≤, ≥. Решают его почти как уравнение, но при умножении или делении на отрицательное число знак неравенства меняется на противоположный.\nПример: −2x < 6 → x > −3. Ответ записывают промежутком: (−3; +∞). Для квадратных неравенств находят корни и смотрят знак выражения на числовой оси.", "Нобаробарӣ ифодаҳоро бо аломатҳои <, >, ≤, ≥ муқоиса мекунад. Онро қариб мисли муодила ҳал мекунанд, аммо ҳангоми зарб ё тақсим ба адади манфӣ аломати нобаробарӣ баръакс мешавад.\nМисол: −2x < 6 → x > −3. Ҷавобро бо фосила менависанд: (−3; +∞). Барои нобаробарии квадратӣ решаҳоро ёфта, аломати ифодаро дар меҳвари ададӣ мебинанд.", "An inequality compares expressions with the signs <, >, ≤, ≥. It is solved almost like an equation, but when you multiply or divide by a negative number the sign of the inequality flips.\nExample: −2x < 6 → x > −3. The answer is written as an interval: (−3; +∞). For quadratic inequalities, find the roots and check the sign of the expression on the number line."], ["Арифметическая прогрессия: каждый член больше предыдущего на разность d. aₙ = a₁ + (n − 1)d, сумма Sₙ = (a₁ + aₙ)·n / 2.\nГеометрическая прогрессия: каждый член умножается на знаменатель q. bₙ = b₁·qⁿ⁻¹, сумма Sₙ = b₁(qⁿ − 1) / (q − 1). Пример: 2, 4, 8, 16 — геометрическая прогрессия с q = 2.", "Прогрессияи арифметикӣ: ҳар аъзо аз аъзои пешина ба фарқи d калон аст. aₙ = a₁ + (n − 1)d, сумма Sₙ = (a₁ + aₙ)·n / 2.\nПрогрессияи геометрӣ: ҳар аъзо ба махраҷи q зарб мешавад. bₙ = b₁·qⁿ⁻¹, сумма Sₙ = b₁(qⁿ − 1) / (q − 1). Мисол: 2, 4, 8, 16 — прогрессияи геометрӣ бо q = 2.", "In an arithmetic sequence each term is greater than the previous one by a common difference d. aₙ = a₁ + (n − 1)d, and the sum is Sₙ = (a₁ + aₙ)·n / 2.\nIn a geometric sequence each term is multiplied by a ratio q. bₙ = b₁·qⁿ⁻¹, and the sum is Sₙ = b₁(qⁿ − 1) / (q − 1). Example: 2, 4, 8, 16 is geometric with q = 2."]], "geo": [["Сумма углов треугольника равна 180°. Виды: остроугольный, прямоугольный, тупоугольный; а по сторонам — равносторонний, равнобедренный, разносторонний. Площадь S = ½·a·h.\nВ прямоугольном треугольнике работает теорема Пифагора: c² = a² + b². Пример: катеты 3 и 4 дают гипотенузу 5. Треугольники подобны, если их углы равны, тогда стороны пропорциональны.", "Суммаи кунҷҳои секунҷа ба 180° баробар аст. Намудҳо: тезкунҷа, росткунҷа, кундкунҷа; аз рӯи паҳлӯҳо — баробарпаҳлӯ, баробарпоя, гуногунпаҳлӯ. Масоҳат S = ½·a·h.\nДар секунҷаи росткунҷа теоремаи Пифагор амал мекунад: c² = a² + b². Мисол: катетҳои 3 ва 4 гипотенузаи 5-ро медиҳанд. Секунҷаҳо монанданд, агар кунҷҳояшон баробар бошанд, он гоҳ паҳлӯҳо мутаносибанд.", "The angles of a triangle add up to 180°. Types: acute, right, obtuse; and by sides — equilateral, isosceles, scalene. The area is S = ½·a·h.\nIn a right triangle the Pythagorean theorem holds: c² = a² + b². Example: legs 3 and 4 give a hypotenuse of 5. Triangles are similar if their angles are equal, and then their sides are proportional."], ["Окружность — все точки на одинаковом расстоянии r (радиус) от центра. Диаметр d = 2r, длина окружности C = 2πr, площадь круга S = πr².\nХорда соединяет две точки окружности, а касательная перпендикулярна радиусу в точке касания. Вписанный угол равен половине центрального угла, опирающегося на ту же дугу.", "Давра — ҳамаи нуқтаҳое, ки аз марказ дар масофаи якхелаи r (радиус) ҷойгиранд. Диаметр d = 2r, дарозии давра C = 2πr, масоҳати доира S = πr².\nВатар ду нуқтаи давраро мепайвандад, тамос бошад, ба радиус дар нуқтаи тамос перпендикуляр аст. Кунҷи дарунсохт ба нисфи кунҷи марказие баробар аст, ки ба ҳамон камон такя мекунад.", "A circle is all points at the same distance r (the radius) from the centre. Diameter d = 2r, circumference C = 2πr, area of the disc S = πr².\nA chord joins two points of the circle, and a tangent is perpendicular to the radius at the point of contact. An inscribed angle equals half the central angle that subtends the same arc."], ["Прямоугольник: S = ab. Параллелограмм: S = a·h. Треугольник: S = ½·a·h. Трапеция: S = (a + b) / 2 · h. Круг: S = πr².\nПлощадь измеряют в квадратных единицах (см², м²). Сложную фигуру разбивают на простые, считают их площади и складывают.", "Росткунҷа: S = ab. Параллелограмм: S = a·h. Секунҷа: S = ½·a·h. Трапесия: S = (a + b) / 2 · h. Доира: S = πr².\nМасоҳатро бо воҳидҳои мураббаъ (см², м²) мепаймоянд. Шакли мураккабро ба шаклҳои оддӣ ҷудо карда, масоҳатҳояшонро ҳисоб мекунанд ва ҷамъ мебанданд.", "Rectangle: S = ab. Parallelogram: S = a·h. Triangle: S = ½·a·h. Trapezoid: S = (a + b) / 2 · h. Circle: S = πr².\nArea is measured in square units (cm², m²). Split a complex figure into simple ones, find their areas and add them up."], ["Вектор — отрезок с направлением: у него есть длина и направление. В координатах a = (x; y), длина |a| = √(x² + y²). Векторы складывают покоординатно.\nСкалярное произведение a·b = x₁x₂ + y₁y₂ = |a|·|b|·cos φ. Если оно равно нулю, векторы перпендикулярны.", "Вектор — порчаест, ки самт дорад: дарозӣ ва самт дорад. Дар координатаҳо a = (x; y), дарозӣ |a| = √(x² + y²). Векторҳоро координатавӣ ҷамъ мекунанд.\nЗарби скалярӣ a·b = x₁x₂ + y₁y₂ = |a|·|b|·cos φ. Агар он ба сифр баробар бошад, векторҳо перпендикуляранд.", "A vector is a segment with a direction: it has a length and a direction. In coordinates a = (x; y), the length is |a| = √(x² + y²). Vectors are added coordinate by coordinate.\nThe dot product is a·b = x₁x₂ + y₁y₂ = |a|·|b|·cos φ. If it equals zero, the vectors are perpendicular."], ["Куб: V = a³. Параллелепипед: V = abc. Призма и цилиндр: V = S·h, для цилиндра V = πr²h. Пирамида и конус: V = ⅓·S·h. Шар: V = 4/3·πr³.\nОбъём измеряют в кубических единицах (см³, м³); 1 л = 1000 см³. Площадь поверхности — сумма площадей всех граней.", "Куб: V = a³. Параллелепипед: V = abc. Призма ва силиндр: V = S·h, барои силиндр V = πr²h. Пирамида ва конус: V = ⅓·S·h. Курра: V = 4/3·πr³.\nҲаҷмро бо воҳидҳои куб (см³, м³) мепаймоянд; 1 л = 1000 см³. Масоҳати сатҳ — суммаи масоҳати ҳамаи рӯяҳост.", "Cube: V = a³. Cuboid: V = abc. Prism and cylinder: V = S·h, and for a cylinder V = πr²h. Pyramid and cone: V = ⅓·S·h. Sphere: V = 4/3·πr³.\nVolume is measured in cubic units (cm³, m³); 1 L = 1000 cm³. Surface area is the sum of the areas of all faces."]], "phy": [["Механика изучает движение. Скорость v = s / t, ускорение a = Δv / t. Второй закон Ньютона: F = m·a. Сила тяжести F = m·g, где g ≈ 9,8 м/с².\nИмпульс p = m·v сохраняется при взаимодействии тел. Работа A = F·s, мощность P = A / t, кинетическая энергия E = mv² / 2.", "Механика ҳаракатро меомӯзад. Суръат v = s / t, шитоб a = Δv / t. Қонуни дуюми Нютон: F = m·a. Қувваи вазнинӣ F = m·g, ки дар он g ≈ 9,8 м/с².\nИмпулс p = m·v ҳангоми таъсири мутақобилаи ҷисмҳо нигоҳ дошта мешавад. Кор A = F·s, иқтидор P = A / t, энергияи кинетикӣ E = mv² / 2.", "Mechanics studies motion. Speed v = s / t, acceleration a = Δv / t. Newton’s second law: F = m·a. The force of gravity is F = m·g, where g ≈ 9.8 m/s².\nMomentum p = m·v is conserved when bodies interact. Work A = F·s, power P = A / t, kinetic energy E = mv² / 2."], ["Температура показывает среднюю энергию движения частиц. Количество теплоты Q = c·m·Δt, где c — удельная теплоёмкость. Плавление, кипение и испарение требуют энергии.\nТепло передаётся тремя способами: теплопроводностью, конвекцией и излучением. Энергия не исчезает, а переходит из одного вида в другой — это закон сохранения энергии.", "Ҳарорат энергияи миёнаи ҳаракати зарраҳоро нишон медиҳад. Миқдори гармӣ Q = c·m·Δt, ки дар он c — гармигунҷоиши хос. Гудозиш, ҷӯшиш ва бухоршавӣ энергия талаб мекунанд.\nГармӣ бо се роҳ интиқол меёбад: гармигузаронӣ, конвексия ва шуоъафканӣ. Энергия гум намешавад, балки аз як намуд ба намуди дигар мегузарад — ин қонуни бақои энергия аст.", "Temperature shows the average energy of particle motion. The amount of heat is Q = c·m·Δt, where c is specific heat capacity. Melting, boiling and evaporation need energy.\nHeat travels in three ways: conduction, convection and radiation. Energy is not lost but changes from one form to another — this is the law of conservation of energy."], ["Закон Ома: I = U / R (ток равен напряжению, делённому на сопротивление). Мощность P = U·I, работа тока A = U·I·t.\nПри последовательном соединении R = R₁ + R₂, при параллельном 1/R = 1/R₁ + 1/R₂. Соблюдайте безопасность: не трогайте оголённые провода и не включайте приборы мокрыми руками.", "Қонуни Ом: I = U / R (ҷараён ба шиддат тақсим бар муқовимат баробар аст). Иқтидор P = U·I, кори ҷараён A = U·I·t.\nДар пайвасти пайдарпай R = R₁ + R₂, дар пайвасти мувозӣ 1/R = 1/R₁ + 1/R₂. Бехатариро риоя кунед: ба симҳои луч даст нарасонед ва асбобҳоро бо дасти тар ба барқ напайвандед.", "Ohm’s law: I = U / R (current equals voltage divided by resistance). Power P = U·I, work of current A = U·I·t.\nIn series R = R₁ + R₂, in parallel 1/R = 1/R₁ + 1/R₂. Stay safe: never touch bare wires and never plug in devices with wet hands."], ["Колебание — повторяющееся движение, например качание маятника. Период T — время одного колебания, частота ν = 1 / T измеряется в герцах. Длина волны λ = v·T, скорость волны v = λ·ν.\nЗвук — продольная волна, которой нужна среда (воздух, вода). Свет — электромагнитная волна и может распространяться в пустоте.", "Ларзиш — ҳаракати такроршаванда, масалан ҷунбиши маятник. Давр T — вақти як ларзиш, басомад ν = 1 / T бо герс чен карда мешавад. Дарозии мавҷ λ = v·T, суръати мавҷ v = λ·ν.\nСадо — мавҷи тулӣ аст, ки муҳит (ҳаво, об) талаб мекунад. Рӯшноӣ мавҷи электромагнитӣ аст ва дар холигоҳ низ паҳн мешавад.", "An oscillation is a repeating motion, such as the swing of a pendulum. The period T is the time of one oscillation, and the frequency ν = 1 / T is measured in hertz. Wavelength λ = v·T, wave speed v = λ·ν.\nSound is a longitudinal wave that needs a medium (air, water). Light is an electromagnetic wave and can travel through a vacuum."], ["Свет в однородной среде идёт по прямой. Закон отражения: угол падения равен углу отражения. При переходе в другую среду луч преломляется.\nСобирающая линза даёт изображение по формуле 1/F = 1/d + 1/f, оптическая сила D = 1/F измеряется в диоптриях. Белый свет раскладывается в спектр — радугу.", "Рӯшноӣ дар муҳити яксон ба хати рост меравад. Қонуни инъикос: кунҷи афтиш ба кунҷи инъикос баробар аст. Ҳангоми гузариш ба муҳити дигар шуоъ шикаста мешавад.\nЛинзаи ҷамъкунанда тасвирро бо формулаи 1/F = 1/d + 1/f медиҳад, қувваи оптикӣ D = 1/F бо диоптрия чен карда мешавад. Рӯшноии сафед ба спектр — рангинкамон ҷудо мешавад.", "Light travels in a straight line in a uniform medium. Law of reflection: the angle of incidence equals the angle of reflection. When a ray enters another medium, it refracts.\nA converging lens forms an image by 1/F = 1/d + 1/f, and optical power D = 1/F is measured in dioptres. White light splits into a spectrum — a rainbow."]], "che": [["Атом состоит из ядра (протоны и нейтроны) и электронов вокруг него. Номер элемента в периодической таблице равен числу протонов. Атомы одного элемента с разным числом нейтронов называют изотопами.\nВ таблице Менделеева элементы расположены по возрастанию заряда ядра: в периоде свойства меняются от металлов к неметаллам, а в группе — схожи.", "Атом аз ядро (протонҳо ва нейтронҳо) ва электронҳои гирди он иборат аст. Рақами унсур дар ҷадвали даврӣ ба шумораи протонҳо баробар аст. Атомҳои як унсур бо шумораи гуногуни нейтронҳо изотоп номида мешаванд.\nДар ҷадвали Менделеев унсурҳо аз рӯи афзоиши заряди ядро ҷойгиранд: дар давр хосиятҳо аз металлҳо ба ғайриметаллҳо тағйир меёбанд, дар гурӯҳ — монанданд.", "An atom consists of a nucleus (protons and neutrons) and electrons around it. The atomic number in the periodic table equals the number of protons. Atoms of one element with different numbers of neutrons are called isotopes.\nIn the periodic table elements are arranged by increasing nuclear charge: across a period properties change from metals to non-metals, while down a group they are similar."], ["Атомы соединяются, чтобы получить устойчивую оболочку из электронов. Ионная связь — переход электрона от металла к неметаллу (NaCl). Ковалентная — общие электронные пары (H₂O, CO₂). Металлическая — свободные электроны в металлах.\nТип связи определяет свойства вещества: температуру плавления, растворимость, электропроводность.", "Атомҳо мепайванданд, то қабати устувори электронӣ ба даст оранд. Пайванди ионӣ — гузариши электрон аз металл ба ғайриметалл (NaCl). Ковалентӣ — ҷуфтҳои умумии электронӣ (H₂O, CO₂). Металлӣ — электронҳои озод дар металлҳо.\nНамуди пайванд хосиятҳои моддаро муайян мекунад: ҳарорати гудозиш, ҳалшавандагӣ, барқгузаронӣ.", "Atoms join to obtain a stable shell of electrons. An ionic bond is the transfer of an electron from a metal to a non-metal (NaCl). A covalent bond shares electron pairs (H₂O, CO₂). A metallic bond uses free electrons in metals.\nThe type of bond determines a substance’s properties: melting point, solubility, electrical conductivity."], ["В химической реакции одни вещества превращаются в другие. Уравнение нужно уравнять: число атомов каждого элемента до и после реакции одинаково. Пример: 2H₂ + O₂ → 2H₂O.\nТипы реакций: соединение, разложение, замещение, обмен. Масса веществ сохраняется — это закон сохранения массы. Признаки реакции: выделение газа, осадок, изменение цвета, тепло.", "Дар реаксияи химиявӣ як моддаҳо ба моддаҳои дигар табдил меёбанд. Муодиларо бояд баробар кард: шумораи атомҳои ҳар унсур пеш аз реаксия ва баъд аз он якхела аст. Мисол: 2H₂ + O₂ → 2H₂O.\nНамудҳои реаксия: пайвастшавӣ, таҷзия, ҷойивазкунӣ, мубодила. Массаи моддаҳо нигоҳ дошта мешавад — ин қонуни бақои масса аст. Нишонаҳои реаксия: ҷудошавии газ, таҳшин, тағйири ранг, гармӣ.", "In a chemical reaction some substances turn into others. The equation must be balanced: the number of atoms of each element is the same before and after. Example: 2H₂ + O₂ → 2H₂O.\nTypes of reactions: combination, decomposition, substitution, exchange. Mass is conserved — the law of conservation of mass. Signs of a reaction: gas, precipitate, colour change, heat."], ["Раствор — однородная смесь растворителя и растворённого вещества. Массовая доля ω = m(вещества) / m(раствора) · 100%. Пример: 20 г соли в 180 г воды дают 200 г раствора, ω = 10%.\nКислоты, щёлочи и соли в воде распадаются на ионы. Кислотность измеряют показателем pH: меньше 7 — кислая среда, 7 — нейтральная, больше 7 — щелочная.", "Маҳлул — омехтаи яксони ҳалкунанда ва моддаи ҳалшуда. Ҳиссаи массавӣ ω = m(модда) / m(маҳлул) · 100%. Мисол: 20 г намак дар 180 г об 200 г маҳлул медиҳад, ω = 10%.\nКислотаҳо, шилтаҳо ва намакҳо дар об ба ионҳо ҷудо мешаванд. Кислотагиро бо нишондиҳандаи pH мепаймоянд: аз 7 кам — муҳити туруш, 7 — бетараф, аз 7 зиёд — шилтагӣ.", "A solution is a uniform mixture of a solvent and a dissolved substance. Mass fraction ω = m(substance) / m(solution) · 100%. Example: 20 g of salt in 180 g of water makes 200 g of solution, ω = 10%.\nAcids, alkalis and salts break into ions in water. Acidity is measured by pH: below 7 is acidic, 7 is neutral, above 7 is alkaline."], ["Органическая химия изучает соединения углерода. Углерод образует цепи и кольца, поэтому таких веществ очень много. Простейшие из них — углеводороды: метан CH₄, этан C₂H₆.\nВажные классы: спирты, кислоты, жиры, белки, углеводы. Многие органические вещества горят, а при полном горении образуют CO₂ и воду.", "Химияи органикӣ пайвастагиҳои карбонро меомӯзад. Карбон занҷирҳо ва ҳалқаҳо месозад, бинобар ин чунин моддаҳо бисёранд. Оддитарини онҳо — карбогидрогенҳо: метан CH₄, этан C₂H₆.\nСинфҳои муҳим: спиртҳо, кислотаҳо, равғанҳо, сафедаҳо, карбогидратҳо. Бисёр моддаҳои органикӣ месузанд ва ҳангоми сӯзиши пурра CO₂ ва об ҳосил мекунанд.", "Organic chemistry studies carbon compounds. Carbon forms chains and rings, so there are very many such substances. The simplest are hydrocarbons: methane CH₄, ethane C₂H₆.\nImportant classes: alcohols, acids, fats, proteins, carbohydrates. Many organic substances burn, and complete combustion gives CO₂ and water."]], "bio": [["Клетка — основная единица жизни. Бактерии — клетки без ядра, а у растений, животных и грибов ядро есть. Ядро хранит ДНК, митохондрии дают энергию, рибосомы строят белки, мембрана отделяет клетку от среды.\nУ растений есть клеточная стенка и хлоропласты для фотосинтеза: на свету углекислый газ и вода превращаются в глюкозу и кислород. Клетки делятся — так организм растёт.", "Ҳуҷайра — воҳиди асосии ҳаёт. Бактерияҳо ҳуҷайраҳои бе ядро ҳастанд, дар растаниҳо, ҳайвонот ва занбӯруғҳо ядро ҳаст. Ядро ДНК-ро нигоҳ медорад, митохондрияҳо энергия медиҳанд, рибосомаҳо сафедаҳо месозанд, мембрана ҳуҷайраро аз муҳит ҷудо мекунад.\nРастаниҳо девори ҳуҷайравӣ ва хлоропластҳо барои фотосинтез доранд: дар рӯшноӣ гази карбон ва об ба глюкоза ва оксиген табдил меёбанд. Ҳуҷайраҳо тақсим мешаванд — ҷисм ҳамин тавр калон мешавад.", "The cell is the basic unit of life. Bacteria are cells without a nucleus, while plants, animals and fungi have one. The nucleus stores DNA, mitochondria supply energy, ribosomes build proteins, and the membrane separates the cell from its surroundings.\nPlants also have a cell wall and chloroplasts for photosynthesis: in light, carbon dioxide and water become glucose and oxygen. Cells divide, and that is how an organism grows."], ["Гены записаны в ДНК и определяют признаки. Каждый ребёнок получает набор хромосом от обоих родителей. Аллели бывают доминантными (A) и рецессивными (a).\nЗаконы Менделя: при скрещивании Aa × Aa получается 25% AA, 50% Aa и 25% aa; рецессивный признак проявляется только у aa. Мутации — случайные изменения ДНК.", "Генҳо дар ДНК сабт шудаанд ва аломатҳоро муайян мекунанд. Ҳар кӯдак маҷмӯи хромосомаҳоро аз ҳарду падару модар мегирад. Аллелҳо доминантӣ (A) ва ресессивӣ (a) мешаванд.\nҚонунҳои Мендел: ҳангоми чатишдиҳии Aa × Aa 25% AA, 50% Aa ва 25% aa ҳосил мешавад; аломати ресессивӣ танҳо дар aa падид меояд. Мутатсияҳо — тағйироти тасодуфии ДНК.", "Genes are written in DNA and determine traits. Each child gets a set of chromosomes from both parents. Alleles can be dominant (A) or recessive (a).\nMendel’s laws: crossing Aa × Aa gives 25% AA, 50% Aa and 25% aa; a recessive trait shows only in aa. Mutations are random changes in DNA."], ["Организм человека состоит из систем органов: пищеварительной, дыхательной, кровеносной, нервной, опорно-двигательной и других. Сердце гонит кровь по сосудам, лёгкие обмениваются газами с воздухом.\nЗдоровье поддерживают сон, движение, разнообразное питание и гигиена. Иммунная система защищает от инфекций, а прививки её тренируют.", "Ҷисми инсон аз системаҳои узвҳо иборат аст: ҳозима, нафас, гардиши хун, асаб, ҳаракат ва дигарҳо. Дил хунро тавассути рагҳо меронад, шуш бо ҳаво газ мубодила мекунад.\nСаломатиро хоб, ҳаракат, ғизои гуногун ва тозагӣ нигоҳ медоранд. Системаи масуният аз сироятҳо ҳимоя мекунад ва ваксинаҳо онро омӯзонида мешавад.", "The human body consists of organ systems: digestive, respiratory, circulatory, nervous, musculoskeletal and others. The heart pumps blood through vessels and the lungs exchange gases with the air.\nHealth is supported by sleep, movement, varied food and hygiene. The immune system protects against infections, and vaccines train it."], ["Эволюция — длительное изменение видов. Чарльз Дарвин объяснил её естественным отбором: особи с полезными признаками чаще выживают и оставляют потомство. Материал для отбора даёт изменчивость.\nДоказательства эволюции: ископаемые остатки, сходство строения (крыло птицы и рука человека), родство ДНК. Новые виды возникают, когда популяции долго живут в разных условиях.", "Эволютсия — тағйирёбии дарозмуддати намудҳо. Чарлз Дарвин онро бо интихоби табиӣ шарҳ дод: ҷонварони дорои аломатҳои муфид бештар зинда мемонанд ва насл мегузоранд. Масолеҳи интихобро тағйирпазирӣ медиҳад.\nИсботҳои эволютсия: боқимондаҳои истихроҷӣ, шабоҳати сохт (болҳои парранда ва дасти инсон), хешии ДНК. Намудҳои нав вақте пайдо мешаванд, ки популятсияҳо муддати дароз дар шароити гуногун зиндагӣ кунанд.", "Evolution is the long-term change of species. Charles Darwin explained it by natural selection: individuals with useful traits survive more often and leave offspring. Variation provides the material for selection.\nEvidence for evolution: fossils, similar structure (a bird’s wing and a human arm), and DNA kinship. New species appear when populations live for a long time in different conditions."], ["Экология изучает связи организмов со средой. Цепь питания: продуценты (растения) → консументы (травоядные, хищники) → редуценты (грибы, бактерии). Энергия по цепи теряется, поэтому хищников мало.\nЧеловек влияет на природу: загрязнение, вырубка лесов, изменение климата. Помогают экономия ресурсов, сортировка и переработка отходов, охрана природы.", "Экология алоқаи организмҳоро бо муҳит меомӯзад. Занҷири ғизо: продуссентҳо (растаниҳо) → консументҳо (алафхӯрон, даррандаҳо) → редуссентҳо (занбӯруғҳо, бактерияҳо). Энергия дар занҷир кам мешавад, бинобар ин даррандаҳо кам ҳастанд.\nИнсон ба табиат таъсир мекунад: ифлосшавӣ, буридани ҷангалҳо, тағйирёбии иқлим. Сарфаи захираҳо, ҷудо кардан ва коркарди партовҳо, ҳифзи табиат кӯмак мекунанд.", "Ecology studies how organisms relate to their environment. A food chain: producers (plants) → consumers (herbivores, predators) → decomposers (fungi, bacteria). Energy is lost along the chain, so predators are few.\nPeople affect nature: pollution, deforestation, climate change. Saving resources, sorting and recycling waste, and protecting nature all help."]]};
+var TPT={ru:{open:'Читать',close:'Закрыть',prev:'← Назад',next:'Далее →',solve:'Решать задачи'},tg:{open:'Хондан',close:'Пӯшидан',prev:'← Қафо',next:'Пеш →',solve:'Ҳал кардани масъалаҳо'},en:{open:'Read',close:'Close',prev:'← Previous',next:'Next →',solve:'Solve problems'}};
+function TP(){return TPT[lang]||TPT.ru}
+function topicCount(id){return id==='inf'?INF_PARTS.length:subj(id).topics.ru.length}
+function topicTitle(id,i){return id==='inf'?tr(INF_PARTS[i].t):tr(subj(id).topics)[i]}
+function topicText(id,i){var a=TOPIC_INFO[id]&&TOPIC_INFO[id][i];if(!a)return '';return a[lang==='tg'?1:lang==='en'?2:0]||a[0]}
+function firstSentence(t){var p=String(t).split('\n')[0],m=p.match(/^[^.!?]*[.!?]/),r=m?m[0]:p;return r.length>130?r.slice(0,127)+'…':r}
+function closeTopic(){var o=document.getElementById('tpv');if(o){o.remove();document.body.style.overflow='';}}
+function openTopic(id,i){
+  closeTopic();var sb=subj(id),n=topicCount(id);i=Math.max(0,Math.min(n-1,i));
+  var o=document.createElement('div');o.className='tpv';o.id='tpv';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
+  var paras=topicText(id,i).split('\n').map(function(p){return '<p>'+esc(p)+'</p>'}).join('');
+  o.innerHTML='<div class="tpd" style="--c:'+col(sb.c)+'"><div class="tph"><span class="tpc">'+esc(sb.code)+' · '+esc(tr(sb.name))+' · '+(i+1)+'/'+n+'</span><button type="button" class="tpx" data-tpclose aria-label="'+esc(TP().close)+'">✕</button></div><h2>'+esc(topicTitle(id,i))+'</h2><div class="tpb">'+paras+'</div><div class="tpn">'+(i>0?'<button type="button" class="rdbtn" data-topic="'+id+':'+(i-1)+'">'+esc(TP().prev)+'</button>':'<span></span>')+'<button type="button" class="btn" data-goprob="'+id+'">'+esc(TP().solve)+'</button>'+(i<n-1?'<button type="button" class="rdbtn" data-topic="'+id+':'+(i+1)+'">'+esc(TP().next)+'</button>':'<span></span>')+'</div></div>';
+  document.body.appendChild(o);document.body.style.overflow='hidden';
+  var x=o.querySelector('.tpx');if(x)x.focus();
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('[data-topic],[data-tpclose],#tpv'):null;if(!t)return;
+  if(t.hasAttribute('data-topic')){var p=t.getAttribute('data-topic').split(':');openTopic(p[0],+p[1]);return;}
+  if(t.hasAttribute('data-tpclose')||(t.id==='tpv'&&e.target===t)){closeTopic();}
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape')closeTopic();
+  if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.classList&&e.target.classList.contains('tcard')){e.preventDefault();var p=e.target.getAttribute('data-topic').split(':');openTopic(p[0],+p[1]);}
+});
+window.addEventListener('hashchange',closeTopic);
 function viewSubject(id){
   var s=subj(id),out=bgHead(head(tr(s.name),tr(s.desc),s.code,s.c),id);
   out+='<h2 class="cm" style="margin-top:0">'+esc(ui('topics_h'))+'</h2>';
-  if(id==='inf'){
-    out+='<div class="parts">'+INF_PARTS.map(function(p){return '<div class="part"><h3>'+esc(tr(p.t))+'</h3><p>'+esc(tr(p.d))+'</p></div>'}).join('')+'</div>';
-  }else{
-    var ti=TOPIC_INFO[id]&&TOPIC_INFO[id][lang];
-    if(ti)out+='<div class="parts">'+tr(s.topics).map(function(x,i){return '<div class="part"><h3>'+esc(x)+'</h3><p>'+esc(ti[i]||'')+'</p></div>'}).join('')+'</div>';
-    else out+='<ul class="md" style="--c:'+col(s.c)+'">'+tr(s.topics).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>';
-  }
+  out+='<div class="parts">'+Array.apply(null,{length:topicCount(id)}).map(function(_,i){
+    var d=id==='inf'?tr(INF_PARTS[i].d):firstSentence(topicText(id,i));
+    return '<div class="part tcard" role="button" tabindex="0" data-topic="'+id+':'+i+'" style="--c:'+col(s.c)+'"><h3>'+esc(topicTitle(id,i))+'</h3><p>'+esc(d)+'</p><span class="tgo">'+esc(TP().open)+' →</span></div>';
+  }).join('')+'</div>';
   if(id==='che')out+=ptView();
   out+='<h2 class="cm">'+esc(ui('formulas_h'))+'</h2><div class="fgrid" style="--c:'+col(s.c)+'">'+
     FORMULAS[id].map(function(f){return '<div class="fcard"><small>'+esc(tr(f.l))+'</small><code>'+esc(f.f)+'</code></div>'}).join('')+'</div>';
-  var fc=FACTS[id]&&FACTS[id][lang];
-  if(fc)out+='<h2 class="cm">'+esc(ui('facts_h'))+'</h2><div class="parts">'+fc.map(function(f){return '<div class="part"><p>💡 '+esc(f)+'</p></div>'}).join('')+'</div>';
   out+='<div class="cta" style="margin-top:28px"><button type="button" class="btn" data-goprob="'+id+'">'+esc(ui('solve'))+'</button>'+
     (id==='inf'?'<a class="btn ghost" href="#languages">'+esc(ui('tolang'))+'</a>':'')+'</div>';
   return out;
@@ -1235,85 +1200,27 @@ function exRun(){
 
 var userQ='';
 function fmtDate(t){if(!t)return '—';try{return new Date(t).toLocaleDateString(lang==='tg'?'tg-TJ':lang==='en'?'en-GB':'ru-RU')}catch(e){return '—'}}
-function userRowsLocal(){
-  var us=getUsers(),me=sessionLogin(),q=userQ.trim().toLowerCase();
-  var arr=Object.keys(us).map(function(k){var u=us[k]||{};return {login:k,name:u.name||k,av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});
-  arr.sort(function(a,b){return b.created-a.created});
+function userRows(){
+  var me=srvOn()?SRV.me:sessionLogin(),q=userQ.trim().toLowerCase(),arr;
+  var LST=srvList();
+  if(LST)arr=LST.map(function(u){return {login:u.id,sub:u.em,name:u.name||u.em,av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});
+  else{var us=getUsers();arr=Object.keys(us).map(function(k){var u=us[k]||{};return {login:k,sub:k,name:u.name||k,av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});}
   var all=arr.length,on=arr.filter(function(u){return isOnline(u.login)}).length;
   arr.sort(function(a,b){return (isOnline(b.login)?1:0)-(isOnline(a.login)?1:0)||b.created-a.created});
-  if(q)arr=arr.filter(function(u){return (u.name+' '+u.login+' '+u.school+' '+u.city+' '+u.country).toLowerCase().indexOf(q)>-1});
+  if(q)arr=arr.filter(function(u){return (u.name+' '+u.sub+' '+u.school+' '+u.city+' '+u.country).toLowerCase().indexOf(q)>-1});
   if(!arr.length)return {all:all,on:on,html:'<div class="readme"><p>'+esc(ui(all?'users_nf':'users_none'))+'</p></div>'};
   return {all:all,on:on,html:'<div class="ulist">'+arr.map(function(u){
     var sb=u.main&&subj(u.main)?subj(u.main):null,meta=[];
     if(sb)meta.push(ui('users_main')+': '+tr(sb.name));
     if(u.school)meta.push(u.school);if(u.city)meta.push(u.city);if(u.country)meta.push(u.country);
     meta.push(ui('users_since')+': '+fmtDate(u.created));
-    return '<div class="ucard"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(isOnline(u.login)?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ue">'+esc(u.login)+'</span><span class="ust'+(isOnline(u.login)?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
+    var on=isOnline(u.login);
+    return '<div class="ucard"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(on?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ue">'+esc(u.sub)+'</span><span class="ust'+(on?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
   }).join('')+'</div>'};
-}
-var SRV={list:null,at:0,admin:false,err:false,expired:false,persistent:true};
-function srvAgo(u){return u.ago==null?null:u.ago+(Date.now()-SRV.at)}
-function srvOnline(u){var a=srvAgo(u);return a!==null&&a<50000}
-function srvPres(u){
-  var T=PR(),a=srvAgo(u);if(a===null)return T.off;if(a<50000)return T.on;
-  var m=Math.floor(a/60000),v;if(m<1)return T.off;
-  if(m<60)v=m+' '+T.u[0];else if(m<1440)v=Math.floor(m/60)+' '+T.u[1];else v=Math.floor(m/1440)+' '+T.u[2];
-  return T.ago.replace('{t}',v);
-}
-function userRows(){
-  if(!AUTH_API)return userRowsLocal();
-  var L=SRV.list;
-  if(!L)return {all:0,on:0,html:'<div class="readme"><p>'+esc(ui(SRV.err?'users_err':'users_load'))+'</p>'+(SRV.err?'<button type="button" class="btn ghost sm" data-users-refresh>'+esc(ui('users_refresh'))+'</button>':'')+'</div>'};
-  var q=userQ.trim().toLowerCase(),admin=SRV.admin;
-  var arr=L.slice();
-  var all=arr.length,on=arr.filter(srvOnline).length;
-  arr.sort(function(a,b){return (b.admin-a.admin)||((srvOnline(b)?1:0)-(srvOnline(a)?1:0))||b.created-a.created});
-  if(q)arr=arr.filter(function(u){return (u.name+' '+(u.email||'')+' '+u.school+' '+u.city+' '+cname(u.country)).toLowerCase().indexOf(q)>-1});
-  var top=(admin&&SRV.persistent===false?'<p class="ahint warn">'+esc(ui('users_warn'))+'</p>':'')+(admin?'<p class="ahint">'+esc(ui('users_adm_note'))+'</p>':'');
-  if(!arr.length)return {all:all,on:on,html:top+'<div class="readme"><p>'+esc(ui(all?'users_nf':'users_none'))+'</p></div>'};
-  return {all:all,on:on,html:top+'<div class="ulist">'+arr.map(function(u){
-    var sb=u.main&&subj(u.main)?subj(u.main):null,meta=[];
-    if(sb)meta.push(ui('users_main')+': '+tr(sb.name));
-    if(u.school)meta.push(u.school);if(u.city)meta.push(u.city);
-    meta.push(ui('users_since')+': '+fmtDate(u.created));
-    var on1=srvOnline(u);
-    return '<div class="ucard"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml({av:u.av,main:u.main,login:'u'+u.id},true)+'<i class="dot'+(on1?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+
-      (u.admin?' <span class="ubadge adm">'+esc(ui('users_admin'))+'</span>':'')+(u.you?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b>'+
-      '<span class="ue">🌍 '+esc(cname(u.country))+'</span>'+(u.email?'<span class="ue">'+esc(u.email)+'</span>':'')+
-      '<span class="ust'+(on1?' on':'')+'">'+esc(srvPres(u))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span>'+
-      (admin&&!u.admin&&u.email?'<button type="button" class="btn ghost sm udel" data-user-del="'+esc(u.email)+'" data-user-name="'+esc(u.name)+'">'+esc(ui('users_del'))+'</button>':'')+'</div></div>';
-  }).join('')+'</div>'};
-}
-function refreshUsersBox(){
-  if(view!=='users')return;var b=document.getElementById('ubox');if(!b)return;
-  var r=userRows();b.innerHTML=r.html;
-  var c=document.getElementById('ucount');if(c)c.textContent=r.all;var o=document.getElementById('uonline');if(o)o.textContent=r.on;
-}
-function loadUsers(){
-  if(!AUTH_API)return;
-  var tok=getToken();if(!tok||!sessionLogin())return;
-  api('users',{session:tok}).then(function(r){
-    if(!r.ok){
-      if(r.error==='auth'){SRV.expired=true;setSession(null);setToken('');SRV.list=null;renderAuth();if(view==='users')render();return;}
-      SRV.err=true;refreshUsersBox();return;
-    }
-    SRV.list=r.users;SRV.admin=!!(r.me&&r.me.admin);SRV.persistent=r.persistent;SRV.at=Date.now();SRV.err=false;refreshUsersBox();
-  }).catch(function(){if(!SRV.list)SRV.err=true;refreshUsersBox();});
-}
-function syncProfile(){
-  if(!AUTH_API)return;var tok=getToken(),u=curUserObj();if(!tok||!u)return;
-  api('profile',{session:tok,av:u.av||'',main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||''}).catch(function(){});
 }
 function viewUsers(){
-  if(AUTH_API){
-    var _li=!!sessionLogin(),_tk=!!getToken();
-    if(!_li||!_tk){
-      var _m=!_li?(SRV.expired?'users_expired':'users_need'):'users_relogin';
-      return head(ui('t_users'),ui('users_note'),'USERS','cyan')+'<div class="readme"><p>'+esc(ui(_m))+'</p><button type="button" class="btn" data-users-login>'+esc(ui(_li?'users_relogin_btn':'users_login'))+'</button></div>';
-    }
-  }
   var r=userRows();
-  return head(ui('t_users'),ui('users_note'),'USERS','cyan')+
+  return head(ui('t_users'),ui(srvList()?'users_note2':'users_note'),'USERS','cyan')+
     '<div class="utop"><span class="utot">'+esc(ui('users_total'))+': <b id="ucount">'+r.all+'</b></span><span class="utot">'+esc(PR().cnt)+': <b id="uonline">'+r.on+'</b></span><input type="search" id="usearch" class="usearch" placeholder="'+esc(ui('users_search'))+'" value="'+esc(userQ)+'" autocomplete="off"></div><div id="ubox">'+r.html+'</div>';
 }
 document.addEventListener('input',function(e){
@@ -1340,7 +1247,6 @@ function render(){
   if(v==='languages')renderLangList();
   if(v==='calculator'){renderHist();updateCalc();}
   if(v==='quizzes'){exReset();refreshExec();}
-  if(v==='users')loadUsers();
 }
 function route(){
   var h=location.hash.slice(1);
@@ -1355,12 +1261,12 @@ tg:{signin:'Ворид шудан',tab_login:'Воридшавӣ',tab_reg:'Са�
 en:{signin:'Sign in',tab_login:'Log in',tab_reg:'Register',name:'Name',login:'Username',pass:'Password',pass2:'Repeat password',btn_login:'Log in',btn_reg:'Create account',hint:'Data is stored only in this browser.',e_fill:'Fill in all fields.',e_name:'Name: at least 2 characters.',e_login:'Username: 3+ characters, Latin letters, digits and . _ - @',e_pass:'Password: at least 6 characters.',e_match:'Passwords do not match.',e_exists:'This username is already taken.',e_bad:'Wrong username or password.',as:'Signed in as',logout:'Log out',close:'Close',read:'Read here',newtab:'Open in a new tab',nofit:'If the book does not load, the author’s site does not allow showing it inside other sites. Open it in a new tab.',loading:'Loading…'}
 };
 
-var AUTH_API='https://infasub-api.onrender.com'; /* адрес сервера входа на Render (папка server) */
+var AUTH_API='https://infasub-api.onrender.com'; /* <-- сюда вставьте URL веб-приложения Google Apps Script (см. README) */
 (function(){
 var X={
-ru:{login:'Эл. почта (Gmail)',tab_reg:'Регистрация',hint:'Мы отправим код подтверждения на вашу почту.',e_login:'Введите адрес Gmail (name@gmail.com).',e_email:'Введите адрес Gmail (name@gmail.com).',e_exists:'Эта почта уже зарегистрирована.',e_bad:'Неверная почта или пароль.',e_code:'Неверный код.',e_expired:'Код устарел. Запросите новый.',e_tries:'Слишком много попыток. Запросите новый код.',e_wait:'Подождите минуту перед повторной отправкой.',e_locked:'Слишком много попыток входа. Попробуйте позже.',e_quota:'Лимит отправки писем исчерпан. Попробуйте завтра.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',code_t:'Подтверждение почты',code_sent:'Мы отправили 6-значный код на',code:'Код из письма',btn_verify:'Подтвердить',resend:'Отправить код снова',back:'Назад',test_mode:'Тестовый режим (почта не подключена), ваш код'},
-tg:{login:'Почтаи электронӣ (Gmail)',hint:'Рамзи тасдиқро ба почтаи шумо мефиристем.',e_login:'Суроғаи Gmail-ро ворид кунед (name@gmail.com).',e_email:'Суроғаи Gmail-ро ворид кунед (name@gmail.com).',e_exists:'Ин почта аллакай сабт шудааст.',e_bad:'Почта ё рамз нодуруст аст.',e_code:'Рамзи тасдиқ нодуруст аст.',e_expired:'Рамз кӯҳна шуд. Рамзи нав талаб кунед.',e_tries:'Кӯшишҳо хеле зиёданд. Рамзи нав талаб кунед.',e_wait:'Пеш аз фиристодани дубора як дақиқа интизор шавед.',e_locked:'Кӯшишҳои вуруд хеле зиёданд. Баъдтар кӯшиш кунед.',e_quota:'Лимити мактубҳо тамом шуд. Пагоҳ кӯшиш кунед.',e_net:'Бо сервер алоқа нест. Боз кӯшиш кунед.',code_t:'Тасдиқи почта',code_sent:'Рамзи 6-рақамаро фиристодем ба',code:'Рамз аз мактуб',btn_verify:'Тасдиқ кардан',resend:'Рамзро дубора фиристодан',back:'Бозгашт',test_mode:'Реҷаи озмоишӣ (почта пайваст нашудааст), рамзи шумо'},
-en:{login:'Email (Gmail)',hint:'We will email you a confirmation code.',e_login:'Enter a Gmail address (name@gmail.com).',e_email:'Enter a Gmail address (name@gmail.com).',e_exists:'This email is already registered.',e_bad:'Wrong email or password.',e_code:'Wrong code.',e_expired:'The code has expired. Request a new one.',e_tries:'Too many attempts. Request a new code.',e_wait:'Please wait a minute before resending.',e_locked:'Too many login attempts. Try again later.',e_quota:'Daily email limit reached. Try tomorrow.',e_net:'Cannot reach the server. Try again.',code_t:'Confirm your email',code_sent:'We sent a 6-digit code to',code:'Code from the email',btn_verify:'Confirm',resend:'Resend code',back:'Back',test_mode:'Test mode (email not connected), your code'}
+ru:{login:'Эл. почта (Gmail)',tab_reg:'Регистрация',hint:'Мы отправим код подтверждения на вашу почту.',e_login:'Введите корректный адрес эл. почты.',e_email:'Введите корректный адрес эл. почты.',e_exists:'Эта почта уже зарегистрирована.',e_bad:'Неверная почта или пароль.',e_code:'Неверный код.',e_expired:'Код устарел. Запросите новый.',e_tries:'Слишком много попыток. Запросите новый код.',e_wait:'Подождите минуту перед повторной отправкой.',e_locked:'Слишком много попыток входа. Попробуйте позже.',e_quota:'Лимит отправки писем исчерпан. Попробуйте завтра.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',code_t:'Подтверждение почты',code_sent:'Мы отправили 6-значный код на',code:'Код из письма',btn_verify:'Подтвердить',resend:'Отправить код снова',back:'Назад',test_mode:'Тестовый режим (почта не подключена), ваш код'},
+tg:{login:'Почтаи электронӣ (Gmail)',hint:'Рамзи тасдиқро ба почтаи шумо мефиристем.',e_login:'Суроғаи дурусти почтаро ворид кунед.',e_email:'Суроғаи дурусти почтаро ворид кунед.',e_exists:'Ин почта аллакай сабт шудааст.',e_bad:'Почта ё рамз нодуруст аст.',e_code:'Рамзи тасдиқ нодуруст аст.',e_expired:'Рамз кӯҳна шуд. Рамзи нав талаб кунед.',e_tries:'Кӯшишҳо хеле зиёданд. Рамзи нав талаб кунед.',e_wait:'Пеш аз фиристодани дубора як дақиқа интизор шавед.',e_locked:'Кӯшишҳои вуруд хеле зиёданд. Баъдтар кӯшиш кунед.',e_quota:'Лимити мактубҳо тамом шуд. Пагоҳ кӯшиш кунед.',e_net:'Бо сервер алоқа нест. Боз кӯшиш кунед.',code_t:'Тасдиқи почта',code_sent:'Рамзи 6-рақамаро фиристодем ба',code:'Рамз аз мактуб',btn_verify:'Тасдиқ кардан',resend:'Рамзро дубора фиристодан',back:'Бозгашт',test_mode:'Реҷаи озмоишӣ (почта пайваст нашудааст), рамзи шумо'},
+en:{login:'Email (Gmail)',hint:'We will email you a confirmation code.',e_login:'Enter a valid email address.',e_email:'Enter a valid email address.',e_exists:'This email is already registered.',e_bad:'Wrong email or password.',e_code:'Wrong code.',e_expired:'The code has expired. Request a new one.',e_tries:'Too many attempts. Request a new code.',e_wait:'Please wait a minute before resending.',e_locked:'Too many login attempts. Try again later.',e_quota:'Daily email limit reached. Try tomorrow.',e_net:'Cannot reach the server. Try again.',code_t:'Confirm your email',code_sent:'We sent a 6-digit code to',code:'Code from the email',btn_verify:'Confirm',resend:'Resend code',back:'Back',test_mode:'Test mode (email not connected), your code'}
 };
 for(var l in X)for(var k in X[l])AUTH[l][k]=X[l][k];
 })();
@@ -1409,43 +1315,11 @@ en:{setup_t:'Welcome',setup_s:'Choose your main subject and an avatar.',main_l:'
 };
 for(var l in Q)for(var k in Q[l])AUTH[l][k]=Q[l][k];
 })();
-(function(){
-var X={
-ru:{country_ph:'Выберите страну',e_country:'Выберите страну.',u_conf:'Удалить пользователя {n}? Это нельзя отменить.',u_err:'Не удалось выполнить действие. Попробуйте ещё раз.'},
-tg:{country_ph:'Кишварро интихоб кунед',e_country:'Кишварро интихоб кунед.',u_conf:'Корбар {n} нест карда шавад? Инро бозгардонидан мумкин нест.',u_err:'Амал иҷро нашуд. Боз кӯшиш кунед.'},
-en:{country_ph:'Select a country',e_country:'Select a country.',u_conf:'Delete user {n}? This cannot be undone.',u_err:'The action failed. Please try again.'}
-};
-for(var l in X)for(var k in X[l])AUTH[l][k]=X[l][k];
-var Y={
-ru:{users_note:'Все, кто зарегистрировался на INFASUB. Список виден после входа в аккаунт.',users_need:'Список пользователей виден после входа в аккаунт.',users_login:'Войти',users_load:'Загрузка…',users_err:'Не удалось загрузить список. Попробуйте ещё раз.',users_refresh:'Обновить',users_admin:'админ',users_del:'Удалить',users_adm_note:'Вы администратор: вам видны почты и доступно удаление пользователей.'},
-tg:{users_note:'Ҳамаи онҳое, ки дар INFASUB сабти ном шудаанд. Рӯйхат пас аз ворид шудан намоён мешавад.',users_need:'Рӯйхати корбарон пас аз ворид шудан намоён мешавад.',users_login:'Ворид шудан',users_load:'Бор шуда истодааст…',users_err:'Рӯйхат бор нашуд. Боз кӯшиш кунед.',users_refresh:'Навсозӣ',users_admin:'админ',users_del:'Нест кардан',users_adm_note:'Шумо администратор ҳастед: почтаҳо намоён ва нест кардани корбарон дастрас аст.'},
-en:{users_note:'Everyone who has registered on INFASUB. The list is visible after you sign in.',users_need:'The list of users is visible after you sign in.',users_login:'Sign in',users_load:'Loading…',users_err:'Could not load the list. Please try again.',users_refresh:'Refresh',users_admin:'admin',users_del:'Delete',users_adm_note:'You are the admin: you can see emails and delete users.'}
-};
-for(var l2 in Y)for(var k2 in Y[l2])UI[l2][k2]=Y[l2][k2];
-})();
-var CC='AF AL DZ AD AO AG AR AM AU AT AZ BS BH BD BB BY BE BZ BJ BT BO BA BW BR BN BG BF BI KH CM CA CV CF TD CL CN CO KM CG CD CR CI HR CU CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI FR GA GM GE DE GH GR GD GT GN GW GY HT HN HU IS IN ID IR IQ IE IL IT JM JP JO KZ KE KI KP KR KW KG LA LV LB LS LR LY LI LT LU MG MW MY MV ML MT MH MR MU MX FM MD MC MN ME MA MZ MM NA NR NP NL NZ NI NE NG MK NO OM PK PW PS PA PG PY PE PH PL PT QA RO RU RW KN LC VC WS SM ST SA SN RS SC SL SG SK SI SB SO ZA SS ES LK SD SR SE CH SY TW TJ TZ TH TL TG TO TT TN TR TM TV UG UA AE GB US UY UZ VU VA VE VN YE ZM ZW'.split(' ');
-var _dn={};
-function cname(c){
-  if(!c)return '—';
-  if(CC.indexOf(c)<0)return c;
-  try{
-    if(!window.Intl||!Intl.DisplayNames)return c;
-    if(!_dn[lang]){var ok=Intl.DisplayNames.supportedLocalesOf([lang]).length>0;_dn[lang]=new Intl.DisplayNames([ok?lang:'ru'],{type:'region'});}
-    return _dn[lang].of(c)||c;
-  }catch(e){return c}
-}
-function countryOptions(sel){
-  var arr=CC.map(function(c){return {c:c,n:cname(c)}});
-  arr.sort(function(a,b){return a.n.localeCompare(b.n,lang==='tg'?'ru':lang)});
-  return '<option value="">'+esc(at('country_ph'))+'</option>'+arr.map(function(o){return '<option value="'+o.c+'"'+(o.c===sel?' selected':'')+'>'+esc(o.n)+'</option>'}).join('');
-}
-function getToken(){try{return localStorage.getItem('infasub-token')||''}catch(e){return ''}}
-function setToken(v){try{if(v)localStorage.setItem('infasub-token',v);else localStorage.removeItem('infasub-token')}catch(e){}}
 function at(k){return (AUTH[lang]||AUTH.ru)[k]}
 function getUsers(){try{return JSON.parse(localStorage.getItem('infasub-users')||'{}')||{}}catch(e){return {}}}
 function putUsers(u){try{localStorage.setItem('infasub-users',JSON.stringify(u));return true}catch(e){return false}}
 function sessionLogin(){try{return localStorage.getItem('infasub-session')}catch(e){return null}}
-function setSession(l){try{if(l)localStorage.setItem('infasub-session',l);else localStorage.removeItem('infasub-session')}catch(e){}}
+function setSession(l){try{if(l)localStorage.setItem('infasub-session',l);else localStorage.removeItem('infasub-session')}catch(e){}if(!l){tokSet('');srvReset();}}
 var avUid=0,AVP={inf:215,alg:275,geo:180,phy:25,che:330,bio:130},AVN=['inf','alg','geo','phy','che','bio'];
 function avEyes(a,b,y,c){c=c||'#10162f';return '<circle cx="'+a+'" cy="'+y+'" r="3.2" fill="'+c+'"/><circle cx="'+b+'" cy="'+y+'" r="3.2" fill="'+c+'"/>'}
 function avMotif(sb,ac){
@@ -1493,7 +1367,7 @@ function refreshAv(){
 }
 function finishSetup(){
   if(!pendMain)return;var l=sessionLogin(),us=getUsers(),u=us[l];if(!u)return;
-  u.main=pendMain;u.av=pendAv;putUsers(us);syncProfile();renderAuth();closeOv();toast(at('setup_ok'));
+  u.main=pendMain;u.av=pendAv;putUsers(us);srvPush();renderAuth();closeOv();toast(at('setup_ok'));
 }
 function hex(a){return Array.prototype.map.call(a,function(x){return ('0'+x.toString(16)).slice(-2)}).join('')}
 function sha(str){
@@ -1501,6 +1375,34 @@ function sha(str){
   var h=5381;for(var i=0;i<str.length;i++)h=((h<<5)+h+str.charCodeAt(i))|0;return Promise.resolve('f'+(h>>>0).toString(16));
 }
 function rnd(){var a=new Uint8Array(8);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else for(var i=0;i<8;i++)a[i]=Math.floor(Math.random()*256);return hex(a)}
+
+/* ===== gate: the site opens only after registration / sign-in ===== */
+var GTT={ru:{members:'Участники',online:'В сети',hint:'Сначала зарегистрируйтесь или войдите — потом откроется сайт'},tg:{members:'Иштирокчиён',online:'Дар шабака',hint:'Аввал сабти ном кунед ё ворид шавед — баъд сайт кушода мешавад'},en:{members:'Members',online:'Online',hint:'Register or sign in first — then the site opens'}};
+function GT(){return GTT[lang]||GTT.ru}
+function gateStrip(){
+  var el=document.getElementById('gstrip');
+  if(curUserObj()){if(el)el.remove();return;}
+  var arr=[];
+  if(SRV.pub)arr=SRV.pub.map(function(u){return {login:u.id,name:u.name||u.em,av:u.av}});
+  else if(!AUTH_API){var us=getUsers();arr=Object.keys(us).map(function(k){return {login:k,name:us[k].name||k,av:us[k].av}});}
+  if(!arr.length){if(el)el.remove();return;}
+  if(!el){el=document.createElement('div');el.id='gstrip';el.className='gstrip';document.body.appendChild(el);}
+  arr.sort(function(a,b){return (isOnline(b.login)?1:0)-(isOnline(a.login)?1:0)});
+  var on=arr.filter(function(u){return isOnline(u.login)}).length;
+  el.innerHTML='<div class="gst"><b>'+esc(GT().members)+': '+arr.length+'</b> · '+esc(GT().online)+': '+on+'</div><div class="gav">'+arr.slice(0,14).map(function(u){return '<span class="gu" title="'+esc(u.name)+'"><span class="uav">'+avHtml(u,false)+'<i class="dot'+(isOnline(u.login)?' on':'')+'"></i></span><em>'+esc(u.name)+'</em></span>'}).join('')+'</div>';
+}
+function gateCheck(){
+  var need=!curUserObj(),ch=document.body.children,i;
+  document.body.classList.toggle('gated',need);
+  for(i=0;i<ch.length;i++){var c=ch[i];if(c.tagName==='SCRIPT'||c.tagName==='STYLE'||c.id==='ov'||c.id==='gstrip'||c.id==='ghint'||c.classList.contains('toast'))continue;if(need)c.setAttribute('inert','');else c.removeAttribute('inert');}
+  var h=document.getElementById('ghint');
+  if(need){
+    if(!h){h=document.createElement('div');h.id='ghint';h.className='ghint';document.body.appendChild(h);}
+    h.textContent='👋 '+GT().hint;
+    if(!document.getElementById('ov'))openAuth(regPending?'code':'register');
+    gateStrip();
+  }else{if(h)h.remove();var st=document.getElementById('gstrip');if(st)st.remove();}
+}
 function renderAuth(){
   var b=document.getElementById('signin');if(!b)return;var u=curUserObj();
   var rb=document.querySelectorAll('[data-auth-register]');for(var ri=0;ri<rb.length;ri++){rb[ri].style.display=u?'none':'';rb[ri].textContent=at('tab_reg');}
@@ -1509,6 +1411,7 @@ function renderAuth(){
   if(typeof msBadge==='function'&&typeof msPanel!=='undefined')msBadge();
   if(typeof streakDraw==='function'&&typeof stPop!=='undefined')streakDraw();
   if(typeof presBeat==='function')presBeat();
+  gateCheck();
 }
 var authMode='login',lastFocus=null;
 function closeOv(){var o=document.getElementById('ov');if(o)o.remove();var r=document.getElementById('reader');if(r)r.remove();document.body.style.overflow='';if(lastFocus&&lastFocus.focus)try{lastFocus.focus()}catch(e){}}
@@ -1562,7 +1465,7 @@ function statsHtml(){
 function sendMagic(){
   var el=document.getElementById('a-login'),email=((el&&el.value)||'').trim().toLowerCase();
   if(!email)return authErr('e_fill');
-  if(!/^[^\s@]+@gmail\.com$/.test(email))return authErr('e_email');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email))return authErr('e_email');
   if(!AUTH_API)return authErr('e_nomail');
   authErr('');
   api('magic_send',{email:email}).then(function(r){
@@ -1577,7 +1480,7 @@ function handleMagic(){
   try{history.replaceState(null,'',location.pathname+location.hash)}catch(x){}
   if(!AUTH_API||!e)return;
   api('magic',{token:t,email:e}).then(function(r){
-    if(r.ok){finishLogin(e,r.name,r);toast(at('magic_ok'));}
+    if(r.ok){finishLogin(e,r.name);toast(at('magic_ok'));}
     else{openAuth('login');authErr('e_link');}
   }).catch(function(){openAuth('login');authErr('e_net')});
 }
@@ -1586,21 +1489,20 @@ function saveProfile(){
   var n=(document.getElementById('p-name').value||'').trim(),m=document.getElementById('p-msg');
   if(n.length<2){m.style.color='';m.textContent=at('e_name');return}
   u.name=n;u.av=pendAv;u.main=pendMain||u.main||'';u.school=(document.getElementById('p-school').value||'').trim();u.city=(document.getElementById('p-city').value||'').trim();u.country=(document.getElementById('p-country').value||'').trim();u.about=(document.getElementById('p-about').value||'').trim();
-  putUsers(users);syncProfile();renderAuth();openAuth('profile');var m2=document.getElementById('p-msg');if(m2){m2.style.color='var(--ok)';m2.textContent=at('saved');}
+  putUsers(users);srvPush();renderAuth();openAuth('profile');var m2=document.getElementById('p-msg');if(m2){m2.style.color='var(--ok)';m2.textContent=at('saved');}
 }
 function api(action,data){
   data=data||{};data.action=action;data.lang=lang;
-  return fetch(AUTH_API,{method:'POST',body:JSON.stringify(data)}).then(function(r){return r.json()});
+  return fetch(AUTH_API,{method:'POST',body:JSON.stringify(data)}).then(function(r){return r.json()}).then(function(j){if(j&&j.ok&&j.token&&action!=='sync')tokSet(j.token);return j});
 }
 function pwHash(email,pw){return sha('infasub:'+email+':'+pw)}
-function errKey(c){return ({nomail:'e_nomail',no_user:'e_nouser',bad_link:'e_link',exists:'e_exists',wait:'e_wait',bad_code:'e_code',expired:'e_expired',tries:'e_tries',bad_login:'e_bad',locked:'e_locked',quota:'e_quota',invalid:'e_email',country:'e_country'})[c]||'e_net'}
+function errKey(c){return ({nomail:'e_nomail',no_user:'e_nouser',bad_link:'e_link',exists:'e_exists',wait:'e_wait',bad_code:'e_code',expired:'e_expired',tries:'e_tries',bad_login:'e_bad',locked:'e_locked',quota:'e_quota',invalid:'e_email'})[c]||'e_net'}
 function rnd6(){var a=new Uint32Array(1);if(window.crypto&&crypto.getRandomValues)crypto.getRandomValues(a);else a[0]=Math.floor(Math.random()*4294967295);return String(100000+a[0]%900000)}
 function busy(on){var b=document.querySelector('#authform button[type=submit]');if(b){b.disabled=on}}
 function authErr(k){var e=document.getElementById('a-err');if(e){e.style.color='';e.textContent=k?at(k):''}}
-function finishLogin(email,name,r){
+function finishLogin(email,name){
   var users=getUsers();if(!users[email])users[email]={name:name,created:Date.now()};else{users[email].name=name;if(!users[email].created)users[email].created=Date.now()}
-  if(r){var lu=users[email];if(r.token)setToken(r.token);if(r.country)lu.country=r.country;var pr=r.profile||{};['av','main','school','city'].forEach(function(k){if(pr[k]&&!lu[k])lu[k]=pr[k]});if(pr.country&&!lu.country)lu.country=pr.country;}
-  putUsers(users);setSession(email);regPending=null;closeOv();renderAuth();SRV.list=null;SRV.expired=false;if(view==='users')render();syncProfile();var uo=curUserObj();if(uo&&!uo.main)setTimeout(function(){openAuth('setup')},250);
+  putUsers(users);setSession(email);srvReset();srvSync();regPending=null;closeOv();renderAuth();var uo=curUserObj();if(uo&&!uo.main){if(AUTH_API&&tokGet()){api('sync',{token:tokGet()}).then(function(r){if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();srvReconcile();}}).catch(function(){}).then(function(){var u2=curUserObj();if(u2&&!u2.main&&!document.getElementById('ov'))openAuth('setup')});}else setTimeout(function(){openAuth('setup')},250);}
 }
 function openAuth(mode){
   closeOv();lastFocus=document.activeElement;authMode=mode||'login';var u=curUserObj();
@@ -1625,7 +1527,7 @@ function openAuth(mode){
       '<label>'+esc(at('name'))+'<input class="fld" id="p-name" maxlength="60" value="'+esc(u.name)+'"></label>'+
       '<label>'+esc(at('email_l'))+'<input class="fld" value="'+esc(u.login)+'" readonly></label>'+
       '<label>'+esc(at('school_l'))+'<input class="fld" id="p-school" maxlength="60" value="'+esc(u.school)+'"></label>'+
-      '<label>'+esc(at('country_l'))+'<select class="fld" id="p-country">'+countryOptions(u.country)+'</select></label>'+
+      '<label>'+esc(at('country_l'))+'<input class="fld" id="p-country" maxlength="40" value="'+esc(u.country)+'"></label>'+
       '<label>'+esc(at('city_l'))+'<input class="fld" id="p-city" maxlength="40" value="'+esc(u.city)+'"></label>'+
       '<label>'+esc(at('about_l'))+'<textarea class="fld" id="p-about" maxlength="200" rows="3">'+esc(u.about)+'</textarea></label>'+
       '<div class="aerr" id="p-msg" role="status"></div><button type="submit" class="pbtn">'+esc(at('save'))+'</button></form>'+
@@ -1638,8 +1540,8 @@ function openAuth(mode){
   }else{
     var reg=authMode==='register';
     h+='<h2>'+esc(reg?at('tab_reg'):at('tab_login'))+'</h2><div class="atabs"><button type="button" data-amode="login" aria-pressed="'+!reg+'">'+esc(at('tab_login'))+'</button><button type="button" data-amode="register" aria-pressed="'+reg+'">'+esc(at('tab_reg'))+'</button></div>'+
-    '<form id="authform" novalidate>'+(reg?'<label>'+esc(at('name'))+'<input class="fld" id="a-name" autocomplete="name" maxlength="60"></label><label>'+esc(at('country_l'))+'<select class="fld" id="a-country">'+countryOptions('')+'</select></label>':'')+
-    '<label>'+esc(at('login'))+'<input class="fld" id="a-login" placeholder="name@gmail.com" type="email" inputmode="email" autocomplete="email" maxlength="80" autocapitalize="none" spellcheck="false"></label>'+
+    '<form id="authform" novalidate>'+(reg?'<label>'+esc(at('name'))+'<input class="fld" id="a-name" autocomplete="name" maxlength="60"></label>':'')+
+    '<label>'+esc(at('login'))+'<input class="fld" id="a-login" type="email" inputmode="email" autocomplete="email" maxlength="80" autocapitalize="none" spellcheck="false"></label>'+
     '<label>'+esc(at('pass'))+'<input class="fld" id="a-pass" type="password" autocomplete="'+(reg?'new-password':'current-password')+'" maxlength="100"></label>'+
     (reg?'<label>'+esc(at('pass2'))+'<input class="fld" id="a-pass2" type="password" autocomplete="new-password" maxlength="100"></label>':'')+
     '<div class="aerr" id="a-err" role="alert"></div><button type="submit" class="pbtn">'+esc(reg?at('btn_reg'):at('btn_login'))+'</button></form><p class="ahint">'+esc(reg?at('hint'):'')+'</p>'+((reg||!AUTH_API)?'':'<div class="ahint" style="text-align:center;margin:12px 0 6px">'+esc(at('or_l'))+'</div><button type="button" class="pbtn sec" data-magic>✉️ '+esc(at('magic_btn'))+'</button>');
@@ -1669,12 +1571,11 @@ function resendCode(){
 function submitAuth(){
   if(authMode==='code')return submitCode();
   var reg=authMode==='register',email=(document.getElementById('a-login').value||'').trim().toLowerCase(),pw=document.getElementById('a-pass').value||'';
-  var EMAIL=/^[^\s@]+@gmail\.com$/;
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   if(reg){
-    var name=(document.getElementById('a-name').value||'').trim(),pw2=document.getElementById('a-pass2').value||'',country=(document.getElementById('a-country').value||'');
+    var name=(document.getElementById('a-name').value||'').trim(),pw2=document.getElementById('a-pass2').value||'';
     if(!name||!email||!pw||!pw2)return authErr('e_fill');
     if(name.length<2)return authErr('e_name');
-    if(!country)return authErr('e_country');
     if(!EMAIL.test(email))return authErr('e_email');
     if(pw.length<6)return authErr('e_pass');
     if(pw!==pw2)return authErr('e_match');
@@ -1691,7 +1592,7 @@ function submitAuth(){
       return;
     }
     pwHash(email,pw).then(function(hh){
-      regPending={name:name,email:email,hash:hh,country:country};
+      regPending={name:name,email:email,hash:hh};
       return sendCode();
     }).then(function(r){
       busy(false);
@@ -1704,7 +1605,7 @@ function submitAuth(){
     if(AUTH_API){
       pwHash(email,pw).then(function(hh){return api('login',{email:email,hash:hh})}).then(function(r){
         busy(false);if(!r.ok)return authErr(errKey(r.error==='bad_login'?'bad_login':r.error));
-        finishLogin(email,r.name,r);
+        finishLogin(email,r.name);
       }).catch(function(){busy(false);authErr('e_net')});
     }else{
       var users=getUsers(),u=Object.prototype.hasOwnProperty.call(users,email)?users[email]:null;
@@ -1719,9 +1620,9 @@ function submitCode(){
   if(code.length!==6)return authErr('e_code');
   authErr('');busy(true);
   if(AUTH_API){
-    api('verify',{email:p.email,code:code,name:p.name,hash:p.hash,country:p.country}).then(function(r){
+    api('verify',{email:p.email,code:code,name:p.name,hash:p.hash}).then(function(r){
       busy(false);if(!r.ok)return authErr(errKey(r.error));
-      finishLogin(p.email,r.name||p.name,r);
+      finishLogin(p.email,r.name||p.name);
     }).catch(function(){busy(false);authErr('e_net')});
   }else{busy(false);authErr('e_nomail');}
 }
@@ -1734,20 +1635,12 @@ function openReader(i){
 }
 document.addEventListener('click',function(e){
   var t=e.target.closest('button,div.ov');if(!t)return;
-  if(t.classList&&t.classList.contains('ov')&&e.target===t){closeOv();return;}
+  if(t.classList&&t.classList.contains('ov')&&e.target===t){if(!document.body.classList.contains('gated'))closeOv();return;}
   if(t.hasAttribute('data-auth-register')){openAuth('register');return;}
   if(t.hasAttribute('data-auth-open')){openAuth(curUserObj()?'profile':'login');return;}
-  if(t.hasAttribute('data-ov-close')){closeOv();return;}
+  if(t.hasAttribute('data-ov-close')){if(!document.body.classList.contains('gated'))closeOv();return;}
   if(t.hasAttribute('data-amode')){openAuth(t.getAttribute('data-amode'));return;}
-  if(t.hasAttribute('data-logout')){var _tk=getToken();setSession(null);setToken('');if(_tk&&AUTH_API)api('logout',{session:_tk}).catch(function(){});closeOv();renderAuth();SRV.list=null;if(view==='users')render();return;}
-  if(t.hasAttribute('data-users-refresh')){loadUsers();return;}
-  if(t.hasAttribute('data-users-login')){setSession(null);setToken('');renderAuth();openAuth('login');return;}
-  if(t.hasAttribute('data-user-del')){
-    var em=t.getAttribute('data-user-del'),nm=t.getAttribute('data-user-name');
-    if(!window.confirm(at('u_conf').replace('{n}',nm+' ('+em+')')))return;
-    t.disabled=true;
-    api('user_delete',{session:getToken(),email:em}).then(function(r){if(!r.ok)toast(at('u_err'));loadUsers();}).catch(function(){toast(at('e_net'));loadUsers();});
-    return;}
+  if(t.hasAttribute('data-logout')){setSession(null);closeOv();renderAuth();return;}
   if(t.hasAttribute('data-resend')){resendCode();return;}
   if(t.hasAttribute('data-magic')){sendMagic();return;}
   if(t.hasAttribute('data-avp')){pendAv=t.getAttribute('data-avp');refreshAv();return;}
@@ -1760,7 +1653,7 @@ document.addEventListener('click',function(e){
   if(t.hasAttribute('data-bk-back')){readBook=-1;render();window.scrollTo(0,0);return;}
 });
 document.addEventListener('submit',function(e){if(e.target&&e.target.id==='authform'){e.preventDefault();submitAuth();}if(e.target&&e.target.id==='profform'){e.preventDefault();saveProfile();}});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOv()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!document.body.classList.contains('gated'))closeOv()});
 
 document.addEventListener('click',function(e){
   var t=e.target.closest('button');if(!t)return;
@@ -2492,26 +2385,66 @@ function presAll(){try{var o=JSON.parse(localStorage.getItem('infasub-presence')
 function presBeat(off){
   var me=sessionLogin();if(!me||!getUsers()[me])return;
   if(!off&&document.hidden)return;
-  if(!off&&AUTH_API&&getToken())api('ping',{session:getToken()}).catch(function(){});
   var o=presAll();o[me]=off?Date.now()-120000:Date.now();
   try{localStorage.setItem('infasub-presence',JSON.stringify(o))}catch(e){}
 }
-function isOnline(l){var t=presAll()[l];return !!t&&Date.now()-t<50000}
+function isOnline(l){var a=presAge(l);return a!==null&&a<50}
+function presAge(l){
+  var us=srvList();if(us){var base=srvOn()?SRV.at:SRV.pubAt;for(var i=0;i<us.length;i++){if(us[i].id===l)return us[i].ago===null?null:us[i].ago+(Date.now()-base)/1000;}return null;}
+  var t=presAll()[l];return t?(Date.now()-t)/1000:null;
+}
 function presText(l){
   var T=PR();if(isOnline(l))return T.on;
-  var t=presAll()[l];if(!t)return T.off;
-  var m=Math.floor((Date.now()-t)/60000),v;
+  var a=presAge(l);if(a===null)return T.off;
+  var m=Math.floor(a/60),v;
   if(m<1)v=T.now;else if(m<60)v=m+' '+T.u[0];else if(m<1440)v=Math.floor(m/60)+' '+T.u[1];else v=Math.floor(m/1440)+' '+T.u[2];
   return m<1?T.off:T.ago.replace('{t}',v);
 }
 function presRefreshUsers(){
   if(view!=='users')return;
-  if(AUTH_API){loadUsers();return;}
   var b=document.getElementById('ubox');if(!b||typeof userRows!=='function')return;
   var r=userRows();b.innerHTML=r.html;var c=document.getElementById('uonline');if(c)c.textContent=r.on;
 }
+
+/* ===== shared data through the server (AUTH_API): users, profiles, messages, online status ===== */
+var SRV={me:'',users:null,msgs:null,at:0,busy:false,pushed:false,pub:null,pubAt:0};
+function srvList(){return srvOn()?SRV.users:SRV.pub}
+function pubFetch(){if(!AUTH_API)return;api('public_users',{}).then(function(r){if(r&&r.ok){SRV.pub=r.users;SRV.pubAt=Date.now();gateStrip();presRefreshUsers();}}).catch(function(){})}
+function tokGet(){try{return localStorage.getItem('infasub-tok')||''}catch(e){return ''}}
+function tokSet(t){try{if(t)localStorage.setItem('infasub-tok',t);else localStorage.removeItem('infasub-tok')}catch(e){}}
+function srvOn(){return !!AUTH_API&&!!SRV.users&&!!sessionLogin()&&!!tokGet()}
+function srvReset(){SRV.users=null;SRV.msgs=null;SRV.me='';SRV.pushed=false;SRV.busy=false}
+function srvPush(){
+  var tk=tokGet();if(!AUTH_API||!tk)return;var u=curUserObj();if(!u)return;
+  api('profile_save',{token:tk,profile:{name:u.name,main:u.main,av:u.av||'',school:u.school,country:u.country,city:u.city,about:u.about}}).then(function(){SRV.busy=false;srvSync(true)}).catch(function(){});
+}
+function srvReconcile(){
+  var mine=null;(SRV.users||[]).forEach(function(u){if(u.id===SRV.me)mine=u});if(!mine)return;
+  var us=getUsers(),u=us[sessionLogin()];if(!u)return;
+  var F=['main','av','school','country','city','about'],srvHas=F.some(function(k){return mine[k]}),locHas=F.some(function(k){return u[k]});
+  if(!srvHas&&locHas&&!SRV.pushed){SRV.pushed=true;srvPush();return;}
+  if(srvHas){var ch=false;F.forEach(function(k){if(!u[k]&&mine[k]){u[k]=mine[k];ch=true}});if(mine.name&&u.name!==mine.name){u.name=mine.name;ch=true}if(ch){putUsers(us);renderAuth();}}
+}
+function srvSync(force){
+  if(!AUTH_API||SRV.busy)return;var tk=tokGet();
+  if(!tk||!sessionLogin()){srvReset();return;}
+  if(document.hidden&&SRV.users&&!force)return;
+  SRV.busy=true;
+  api('sync',{token:tk}).then(function(r){
+    SRV.busy=false;
+    if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();srvReconcile();msBadge();presRefreshUsers();msRefreshInbox();if(msPanel.classList.contains('open')&&document.activeElement!==document.getElementById('ms-text'))msRender();}
+    else if(r&&r.error==='auth'){tokSet('');srvReset();msBadge();presRefreshUsers();}
+  }).catch(function(){SRV.busy=false});
+}
+function msRefreshInbox(){var o=document.getElementById('pf-inbox');if(o){var u=curUserObj();if(u)o.innerHTML=msInbox(u);}}
+setInterval(function(){srvSync()},15000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)srvSync(true)});
+
 presBeat();
 setInterval(function(){presBeat();presRefreshUsers();},20000);
+setTimeout(function(){srvSync(true)},300);
+pubFetch();
+setInterval(function(){if(!srvOn())pubFetch()},20000);
 document.addEventListener('visibilitychange',function(){if(!document.hidden){presBeat();presRefreshUsers();}});
 window.addEventListener('pagehide',function(){presBeat(true)});
 window.addEventListener('storage',function(e){if(e.key==='infasub-presence')presRefreshUsers();});
@@ -2565,14 +2498,16 @@ streakDraw();
 
 /* ===== messages between users (stored in this browser) ===== */
 var MST_={
-ru:{btn:'Сообщение',title:'Написать сообщение',to:'Кому',choose:'Выберите получателя',ph:'Напишите сообщение…',send:'Отправить',sent:'Сообщение отправлено ✓',need:'Чтобы писать другим пользователям, войдите или зарегистрируйтесь.',nousers:'Пока нет других пользователей, которым можно написать.',mymsgs:'Мои сообщения',empty:'Сообщений пока нет.',reply:'Ответить',newm:'У вас новых сообщений: {n}',sentl:'Отправленные',tol:'Кому',e_text:'Введите текст сообщения.',e_to:'Выберите получателя.',login:'Войти',reg:'Регистрация',inbox:'Мои сообщения',note:'Сообщения хранятся в этом браузере.',close:'Закрыть'},
-tg:{btn:'Паём',title:'Навиштани паём',to:'Ба кӣ',choose:'Гирандаро интихоб кунед',ph:'Паёмро нависед…',send:'Фиристодан',sent:'Паём фиристода шуд ✓',need:'Барои навиштан ба дигар корбарон ворид шавед ё сабти ном кунед.',nousers:'Ҳоло корбари дигаре нест, ки ба ӯ навиштан мумкин бошад.',mymsgs:'Паёмҳои ман',empty:'Ҳоло паём нест.',reply:'Ҷавоб додан',newm:'Шумо паёмҳои нав доред: {n}',sentl:'Фиристодашуда',tol:'Ба кӣ',e_text:'Матни паёмро ворид кунед.',e_to:'Гирандаро интихоб кунед.',login:'Ворид шудан',reg:'Сабти ном',inbox:'Паёмҳои ман',note:'Паёмҳо дар ҳамин браузер нигоҳ дошта мешаванд.',close:'Пӯшидан'},
-en:{btn:'Message',title:'Write a message',to:'To',choose:'Choose a recipient',ph:'Write a message…',send:'Send',sent:'Message sent ✓',need:'Log in or register to write to other users.',nousers:'There are no other users to write to yet.',mymsgs:'My messages',empty:'No messages yet.',reply:'Reply',newm:'You have new messages: {n}',sentl:'Sent',tol:'To',e_text:'Enter the message text.',e_to:'Choose a recipient.',login:'Log in',reg:'Register',inbox:'My messages',note:'Messages are stored in this browser.',close:'Close'}
+ru:{btn:'Сообщение',title:'Написать сообщение',to:'Кому',choose:'Выберите получателя',ph:'Напишите сообщение…',send:'Отправить',sent:'Сообщение отправлено ✓',need:'Чтобы писать другим пользователям, войдите или зарегистрируйтесь.',nousers:'Пока нет других пользователей, которым можно написать.',mymsgs:'Мои сообщения',empty:'Сообщений пока нет.',reply:'Ответить',newm:'У вас новых сообщений: {n}',sentl:'Отправленные',tol:'Кому',e_text:'Введите текст сообщения.',e_to:'Выберите получателя.',login:'Войти',reg:'Регистрация',inbox:'Мои сообщения',note2:'Сообщения хранятся на сервере и приходят с любых устройств.',e_wait:'Слишком часто. Подождите минуту.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',note:'Сообщения хранятся в этом браузере.',close:'Закрыть'},
+tg:{btn:'Паём',title:'Навиштани паём',to:'Ба кӣ',choose:'Гирандаро интихоб кунед',ph:'Паёмро нависед…',send:'Фиристодан',sent:'Паём фиристода шуд ✓',need:'Барои навиштан ба дигар корбарон ворид шавед ё сабти ном кунед.',nousers:'Ҳоло корбари дигаре нест, ки ба ӯ навиштан мумкин бошад.',mymsgs:'Паёмҳои ман',empty:'Ҳоло паём нест.',reply:'Ҷавоб додан',newm:'Шумо паёмҳои нав доред: {n}',sentl:'Фиристодашуда',tol:'Ба кӣ',e_text:'Матни паёмро ворид кунед.',e_to:'Гирандаро интихоб кунед.',login:'Ворид шудан',reg:'Сабти ном',inbox:'Паёмҳои ман',note2:'Паёмҳо дар сервер нигоҳ дошта мешаванд ва аз ҳама дастгоҳҳо мерасанд.',e_wait:'Хеле зуд-зуд. Як дақиқа интизор шавед.',e_net:'Бо сервер алоқа нест. Боз кӯшиш кунед.',note:'Паёмҳо дар ҳамин браузер нигоҳ дошта мешаванд.',close:'Пӯшидан'},
+en:{btn:'Message',title:'Write a message',to:'To',choose:'Choose a recipient',ph:'Write a message…',send:'Send',sent:'Message sent ✓',need:'Log in or register to write to other users.',nousers:'There are no other users to write to yet.',mymsgs:'My messages',empty:'No messages yet.',reply:'Reply',newm:'You have new messages: {n}',sentl:'Sent',tol:'To',e_text:'Enter the message text.',e_to:'Choose a recipient.',login:'Log in',reg:'Register',inbox:'My messages',note2:'Messages are stored on the server and arrive on any device.',e_wait:'Too fast. Please wait a minute.',e_net:'Cannot reach the server. Try again.',note:'Messages are stored in this browser.',close:'Close'}
 };
 function MS(){return MST_[lang]||MST_.ru}
 function getMsgs(){try{var a=JSON.parse(localStorage.getItem('infasub-msgs')||'[]');return Array.isArray(a)?a:[]}catch(e){return []}}
 function putMsgs(a){try{localStorage.setItem('infasub-msgs',JSON.stringify(a.slice(-2000)));return true}catch(e){return false}}
-function msUnread(l){if(!l)return 0;var n=0;getMsgs().forEach(function(m){if(m.to===l&&!m.read)n++});return n}
+function msAll(){return srvOn()?(SRV.msgs||[]):getMsgs()}
+function msMe(){return srvOn()?SRV.me:sessionLogin()}
+function msUnread(l){var me=msMe();if(!l||!me)return 0;var n=0;msAll().forEach(function(m){if(m.to===me&&!m.read)n++});return n}
 var msTo='',msLastLang='',msLastUser='',msPrevUnread=-1;
 var msBtn=document.createElement('button');msBtn.type='button';msBtn.className='msgb';msBtn.id='ms-btn';msBtn.setAttribute('data-msopen','');msBtn.setAttribute('aria-expanded','false');
 var msPanel=document.createElement('div');msPanel.className='msp';msPanel.id='ms-panel';msPanel.setAttribute('role','dialog');
@@ -2581,23 +2516,29 @@ function msSetOpen(o){
   if(o){msRender();if(typeof aiSetOpen==='function'&&typeof aiPanel!=='undefined'&&aiPanel)aiSetOpen(false);}
   msPanel.classList.toggle('open',o);msBtn.setAttribute('aria-expanded',String(o));
 }
+function msPeople(){
+  var me=msMe();
+  if(srvOn())return SRV.users.filter(function(u){return u.id!==me}).map(function(u){return {id:u.id,name:u.name||u.em,label:(u.name||u.em)+' ('+u.em+')'}});
+  var us=getUsers();return Object.keys(us).filter(function(k){return k!==me}).map(function(k){return {id:k,name:us[k].name||k,label:(us[k].name||k)+' ('+k+')'}});
+}
 function msRender(){
-  var T=MS(),me=sessionLogin(),us=getUsers(),h='';
+  var T=MS(),me=sessionLogin(),h='';
   msLastLang=lang;msLastUser=me||'';
+  var logged=!!me&&(srvOn()||!!getUsers()[me]);
   h+='<div class="msh"><b>'+esc(T.title)+'</b><button type="button" class="msx" data-msclose aria-label="'+esc(T.close)+'">✕</button></div><div class="msbody">';
-  if(!me||!us[me]){
+  if(!logged){
     h+='<p>'+esc(T.need)+'</p><div class="msrow"><button type="button" class="pbtn" data-auth-open>'+esc(T.login)+'</button><button type="button" class="pbtn" data-auth-register>'+esc(T.reg)+'</button></div>';
   }else{
-    var opts=Object.keys(us).filter(function(k){return k!==me}).sort(function(a,b){return (isOnline(b)?1:0)-(isOnline(a)?1:0)||String(us[a].name||a).localeCompare(String(us[b].name||b))});
+    var opts=msPeople().sort(function(a,b){return (isOnline(b.id)?1:0)-(isOnline(a.id)?1:0)||String(a.name).localeCompare(String(b.name))});
     if(!opts.length)h+='<p>'+esc(T.nousers)+'</p>';
     else{
-      h+='<form id="ms-form" novalidate><label>'+esc(T.to)+'<select class="fld" id="ms-to"><option value="">'+esc(T.choose)+'</option>'+opts.map(function(k){return '<option value="'+esc(k)+'"'+(k===msTo?' selected':'')+'>'+esc((isOnline(k)?'🟢 ':'⚪ ')+(us[k].name||k)+' ('+k+')')+'</option>'}).join('')+'</select></label>'+
+      h+='<form id="ms-form" novalidate><label>'+esc(T.to)+'<select class="fld" id="ms-to"><option value="">'+esc(T.choose)+'</option>'+opts.map(function(k){return '<option value="'+esc(k.id)+'"'+(k.id===msTo?' selected':'')+'>'+esc((isOnline(k.id)?'🟢 ':'⚪ ')+k.label)+'</option>'}).join('')+'</select></label>'+
         '<label><textarea class="fld" id="ms-text" maxlength="500" rows="5" placeholder="'+esc(T.ph)+'"></textarea></label><div class="aerr" id="ms-err" role="alert"></div><button type="submit" class="pbtn">'+esc(T.send)+'</button></form>';
     }
     var n=msUnread(me);
     h+='<button type="button" class="pbtn sec" data-auth-open>'+esc(T.inbox)+(n?' ('+n+')':'')+'</button>';
   }
-  h+='<p class="msnote">'+esc(T.note)+'</p></div>';
+  h+='<p class="msnote">'+esc(srvOn()?T.note2:T.note)+'</p></div>';
   msPanel.innerHTML=h;
 }
 function msBadge(){
@@ -2610,18 +2551,20 @@ function msBadge(){
   msPrevUnread=n;
 }
 function msInbox(u){
-  var T=MS(),all=getMsgs(),us=getUsers();
-  function nm(l){return us[l]&&us[l].name?us[l].name:l}
+  var T=MS(),all=msAll(),me=msMe(),srv=srvOn(),us=srv?null:getUsers();
+  function nm(m,w){if(srv)return (w==='f'?m.fromName:m.toName)||'?';var l=w==='f'?m.from:m.to;return us[l]&&us[l].name?us[l].name:l}
   function dt(t){try{return new Date(t).toLocaleString(lang==='tg'?'tg-TJ':lang==='en'?'en-GB':'ru-RU',{dateStyle:'short',timeStyle:'short'})}catch(e){return ''}}
-  var inc=all.filter(function(m){return m.to===u.login}).sort(function(a,b){return b.t-a.t});
-  var out=all.filter(function(m){return m.from===u.login}).sort(function(a,b){return b.t-a.t}).slice(0,10);
+  var inc=all.filter(function(m){return m.to===me}).sort(function(a,b){return b.t-a.t});
+  var out=all.filter(function(m){return m.from===me}).sort(function(a,b){return b.t-a.t}).slice(0,10);
   var un=inc.filter(function(m){return !m.read}).length;
   var h='<h3>'+esc(T.mymsgs)+(un?' <span class="msn">'+un+'</span>':'')+'</h3>';
   if(!inc.length)h+='<p class="msempty">'+esc(T.empty)+'</p>';
-  else h+='<div class="msl">'+inc.map(function(m){return '<div class="msi'+(m.read?'':' new')+'"><div class="msit"><b>'+esc(nm(m.from))+'</b><span>'+esc(dt(m.t))+'</span></div><p>'+esc(m.text)+'</p><button type="button" class="msreply" data-msreply="'+esc(m.from)+'">'+esc(T.reply)+'</button></div>'}).join('')+'</div>';
-  if(out.length)h+='<h4 class="mssh">'+esc(T.sentl)+'</h4><div class="msl">'+out.map(function(m){return '<div class="msi"><div class="msit"><b>'+esc(T.tol)+': '+esc(nm(m.to))+'</b><span>'+esc(dt(m.t))+'</span></div><p>'+esc(m.text)+'</p></div>'}).join('')+'</div>';
-  var ch=false;all.forEach(function(m){if(m.to===u.login&&!m.read){m.read=true;ch=true}});
-  if(ch){putMsgs(all);setTimeout(msBadge,0);}
+  else h+='<div class="msl">'+inc.map(function(m){return '<div class="msi'+(m.read?'':' new')+'"><div class="msit"><b>'+esc(nm(m,'f'))+'</b><span>'+esc(dt(m.t))+'</span></div><p>'+esc(m.text)+'</p><button type="button" class="msreply" data-msreply="'+esc(m.from)+'">'+esc(T.reply)+'</button></div>'}).join('')+'</div>';
+  if(out.length)h+='<h4 class="mssh">'+esc(T.sentl)+'</h4><div class="msl">'+out.map(function(m){return '<div class="msi"><div class="msit"><b>'+esc(T.tol)+': '+esc(nm(m,'t'))+'</b><span>'+esc(dt(m.t))+'</span></div><p>'+esc(m.text)+'</p></div>'}).join('')+'</div>';
+  if(un){
+    if(srv){inc.forEach(function(m){m.read=true});api('msg_read',{token:tokGet()}).catch(function(){});setTimeout(msBadge,0);}
+    else{var raw=getMsgs();raw.forEach(function(m){if(m.to===me&&!m.read)m.read=true});putMsgs(raw);setTimeout(msBadge,0);}
+  }
   return h;
 }
 document.addEventListener('click',function(e){
@@ -2636,12 +2579,23 @@ document.addEventListener('submit',function(e){
   if(!e.target||e.target.id!=='ms-form')return;e.preventDefault();
   var T=MS(),me=sessionLogin(),to=(document.getElementById('ms-to').value||''),tx=(document.getElementById('ms-text').value||'').trim(),er=document.getElementById('ms-err');
   function bad(k){er.style.color='';er.textContent=T[k]}
-  if(!me||!getUsers()[me])return;
-  if(!to||!getUsers()[to])return bad('e_to');
+  function ok(){msTo=to;var t=document.getElementById('ms-text');if(t)t.value='';er.style.color='var(--ok)';er.textContent=T.sent;toast(T.sent);}
+  if(!me)return;
+  var known=msPeople().some(function(p){return p.id===to});
+  if(!to||!known)return bad('e_to');
   if(!tx)return bad('e_text');
+  if(srvOn()){
+    var btn=e.target.querySelector('button[type=submit]');if(btn)btn.disabled=true;
+    api('msg_send',{token:tokGet(),to:to,text:tx}).then(function(r){
+      if(btn)btn.disabled=false;
+      if(r&&r.ok){(SRV.msgs=SRV.msgs||[]).push(r.msg);ok();}
+      else bad(r&&r.error==='wait'?'e_wait':'e_net');
+    }).catch(function(){if(btn)btn.disabled=false;bad('e_net')});
+    return;
+  }
   var a=getMsgs();a.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),from:me,to:to,text:tx.slice(0,500),t:Date.now(),read:false});
   if(!putMsgs(a))return bad('e_text');
-  msTo=to;document.getElementById('ms-text').value='';er.style.color='var(--ok)';er.textContent=T.sent;toast(T.sent);
+  ok();
 });
 window.addEventListener('storage',function(e){if(e.key==='infasub-msgs'||e.key==='infasub-session'||e.key==='infasub-users'){msBadge();var o=document.getElementById('pf-inbox');if(o&&sessionLogin()){var u=curUserObj();if(u)o.innerHTML=msInbox(u);}}});
 msBadge();
@@ -2668,6 +2622,7 @@ function aiBuild(){
   try{Object.keys(FORMULAS).forEach(function(id){var sb=subj(id);FORMULAS[id].forEach(function(f){add('∑',{ru:sb.name.ru+': '+f.l.ru,tg:sb.name.tg+': '+f.l.tg,en:sb.name.en+': '+f.l.en},{ru:f.f,tg:f.f,en:f.f},'formula');});});}catch(e){}
   try{SUBJECTS.forEach(function(sb){var tp=function(l){return (sb.topics&&sb.topics[l]||[]).join('; ')};add('🎓',sb.name,{ru:sb.desc.ru+(tp('ru')?' '+tp('ru'):''),tg:sb.desc.tg+(tp('tg')?' '+tp('tg'):''),en:sb.desc.en+(tp('en')?' '+tp('en'):'')},'subject');});}catch(e){}
   try{INF_PARTS.forEach(function(p){add('💻',p.t,p.d,'inf');});}catch(e){}
+  try{Object.keys(TOPIC_INFO).forEach(function(id){var sb=subj(id);TOPIC_INFO[id].forEach(function(a,i){var tt=id==='inf'?INF_PARTS[i].t:{ru:sb.topics.ru[i],tg:sb.topics.tg[i],en:sb.topics.en[i]};add('📚',tt,{ru:a[0],tg:a[1],en:a[2]},'topic');});});}catch(e){}
   try{PL.forEach(function(p){var nm={ru:p.name,tg:p.name,en:p.name};add('⌨️',nm,{ru:p.about.ru+'\n'+p.hello,tg:p.about.tg+'\n'+p.hello,en:p.about.en+'\n'+p.hello},'lang');});}catch(e){}
   [
    [['сообщен','паём','messag','написат','навишт'],{ru:'Нажмите кнопку «Сообщение» над кнопкой AI, выберите пользователя, напишите текст и отправьте. Получатель увидит красную цифру-уведомление, а все сообщения лежат в его профиле в блоке «Мои сообщения».',tg:'Тугмаи «Паём»-ро аз болои тугмаи AI пахш кунед, корбарро интихоб карда, матн нависед ва фиристед. Гиранда рақами сурхи огоҳӣ мебинад ва ҳамаи паёмҳо дар профили ӯ, дар қисмати «Паёмҳои ман» ҳастанд.',en:'Press the “Message” button above the AI button, choose a user, write the text and send it. The recipient gets a red notification number and all messages are in their profile under “My messages”.'}],
