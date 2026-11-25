@@ -108,6 +108,61 @@ body.gated>*:not(.ov):not(#gstrip):not(#ghint):not(script):not(style):not(.toast
 .tcnt{font-size:.75rem;opacity:.75;font-weight:700;margin-left:4px}
 .prob .sol{background:var(--soft,rgba(128,128,128,.12));border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px;margin:8px 0 0;line-height:1.6}
 .prob .hint{margin:6px 0 0;font-size:.85rem;color:var(--muted)}
+
+.lbwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.lbt{width:100%;border-collapse:collapse;min-width:420px}
+.lbt th{text-align:left;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--line)}
+.lbt td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.lbt tr:last-child td{border-bottom:0}.lbt tr.me{background:rgba(255,122,0,.1)}
+.lbr{font-weight:800;width:48px;font-size:1.05rem}.lbn{font-weight:700;font-variant-numeric:tabular-nums}.lbn.on{color:#FF7A00;font-size:1.1rem}
+.lbw{display:flex;align-items:center;gap:10px}.lbw small{display:block;color:var(--muted);font-size:.75rem}
+.lbtabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}.lbnote{color:var(--muted);font-size:.85rem;margin:0 0 12px}
+.olyrules,.olyjoin{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 16px}
+.olyrules h3,.olyjoin h3{margin:0 0 6px}.olyrules p{margin:0;line-height:1.6}
+.olysubs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.olychip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-weight:700;font-size:.85rem}
+.olychip i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.olyjoin label{display:block;max-width:200px;margin:0 0 14px;color:var(--muted);font-size:.85rem}
+.olyok{font-weight:700;margin:0 0 6px}.olysh{margin:22px 0 10px}
+.olygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.olycard{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.olycard h4{margin:0;font-size:1.05rem}.olycard p{margin:0;color:var(--muted);font-size:.9rem}.olycard.done{opacity:.95}
+.olybar{position:sticky;top:60px;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--c);border-radius:12px;padding:10px 16px;margin:0 0 14px;box-shadow:0 8px 20px -14px rgba(0,0,0,.5)}
+.oltm{font-family:var(--font-mono);font-size:1.2rem}.oltm.low{color:#E5233D}
+.olyq{display:flex;flex-direction:column;gap:12px}
+.olyi .prob-row input{max-width:260px}
+.olyi.okc{border-left:4px solid #22C55E}.olyi.badc{border-left:4px solid #E5233D}
+.olya{margin:6px 0 0}.olyres{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--c);border-radius:14px;padding:16px 20px;margin:0 0 16px}
+.olybig{display:flex;align-items:baseline;gap:8px}.olybig b{font-size:2.6rem;color:var(--c)}.olyres p{margin:0;color:var(--muted)}
+
+.ucard[data-uprof],.lbw[data-uprof]{cursor:pointer}
+.ucard[data-uprof]:hover{transform:translateY(-2px);box-shadow:0 10px 24px -14px rgba(0,0,0,.45)}
+.ucard[data-uprof]:focus-visible,.lbw[data-uprof]:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:10px}
+.ppd{width:min(460px,100%)}
+.ppt{display:flex;align-items:center;gap:16px;margin:6px 0 10px}.ppt h2{margin:0 0 2px}
+.ppt .uav .dot{width:18px;height:18px}
+.pfs{margin:0 0 10px;color:var(--muted)}.pfs b{color:#FF7A00}
+.pfd{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0 0 12px}.pfd dt{color:var(--muted);font-size:.85rem}.pfd dd{margin:0;font-weight:600}
+
+.asave{position:fixed;left:16px;bottom:44px;z-index:35;display:flex;align-items:center;gap:8px;max-width:calc(100vw - 32px);padding:7px 14px;border-radius:99px;background:var(--surface);color:var(--muted);border:1px solid var(--line);font-size:.78rem;font-weight:600;box-shadow:0 8px 22px -12px rgba(0,0,0,.45);pointer-events:none}
+.asave .asi{font-size:1rem;line-height:1;color:var(--accent)}
+.asave.ok .asi{color:#16A34A}.asave.err{color:#B45309;border-color:#F59E0B}.asave.err .asi{color:#F59E0B}
+.asave.saving .asi{display:inline-block;animation:asspin 1s linear infinite}
+@keyframes asspin{to{transform:rotate(360deg)}}
+body.gated .asave{display:none!important}
+@media(max-width:560px){.asave{left:8px;bottom:40px;font-size:.72rem;padding:6px 10px}}
+@media(prefers-reduced-motion:reduce){.asave.saving .asi{animation:none}}
+
+.pdfbar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.pdfbar a.rdbtn{text-decoration:none;display:inline-flex;align-items:center}
+.pdfhint{color:var(--muted);font-size:.88rem;margin:0 0 12px}
+.pdfbox iframe{width:100%;height:calc(100vh - 150px);min-height:520px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.pdfm{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:10px}
+.pdfst{margin:8px;color:var(--muted)}
+.pdfc{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px}
+.pdfc input{width:64px;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit;text-align:center}
+.pdfcv{overflow:auto;-webkit-overflow-scrolling:touch}.pdfcv canvas{display:block;margin:0 auto;max-width:none;border:1px solid var(--line)}
+.pdfbook{border-left:4px solid #E5233D}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20%3E%3Cdefs%3E%3CradialGradient%20id=%22fg%22%20cx=%22.38%22%20cy=%22.3%22%20r=%22.85%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23C6FF6A%22/%3E%3Cstop%20offset=%22.45%22%20stop-color=%22%233FBF2F%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%231B7A2A%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2229%22%20fill=%22url%28%23fg%29%22%20stroke=%22%232F8F2A%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M32%2015v34M15%2032h34%22%20stroke=%22%23fff%22%20stroke-width=%2210%22%20stroke-linecap=%22round%22/%3E%3Cellipse%20cx=%2225%22%20cy=%2217%22%20rx=%2213%22%20ry=%226%22%20fill=%22%23fff%22%20opacity=%22.28%22%20transform=%22rotate%28-25%2025%2017%29%22/%3E%3C/svg%3E"><meta name="theme-color" content="#3FBF2F"></head><body>
 <title>INFASUB</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -623,7 +678,7 @@ button,a,.chip,.pbtn{-webkit-tap-highlight-color:transparent;touch-action:manipu
 (function(){
 var LANGS=['ru','tg','en'];
 var UI={
-ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_note2:'Список общий: здесь все, кто зарегистрировался на сайте, с любых устройств.',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
+ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_note2:'Список общий: здесь все, кто зарегистрировался на сайте, с любых устройств.',t_olymp:'Олимпиада',t_leaders:'Лидеры',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
  lead:'Справочник по школьным предметам на трёх языках: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.',
  cta1:'Решать задачи',cta2:'Языки программирования',
  term1:'предметов: 6',term2:'языков интерфейса: 3 (ru · tg · en)',term3:'языков программирования: 5',term_ready:'Выберите модуль ниже',
@@ -640,7 +695,7 @@ ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инстру�
  ex_ok:'Цель достигнута! Команд: {n}.',ex_wall:'Робот упёрся в стену.',ex_miss:'Цель не достигнута. Измените программу.',ex_empty:'Добавьте команды.',
  about_t:'Сведения о программе',auth_t:'Авторы (исполнители)',goal_t:'Наша цель',goal:'Развитие цифрового образования, повышение интереса молодёжи к информационным технологиям и точным наукам, а также создание доступных возможностей для самостоятельного обучения и подготовки к олимпиадам.',auth_l:'Проект INFASUB создали два автора:',authors:[{n:'Шамсзода Рукия Муким',r:'Автор · 11 класс',d:'Призёр многих олимпиад по информатике.'},{n:'Шамсзода Муким Нарзулло',r:'Второй автор · преподаватель информатики',d:'Преподаватель информатики с 15-летним педагогическим стажем. За годы профессиональной деятельности подготовил множество учеников, добившихся высоких результатов на предметных олимпиадах и ставших их призёрами.'}],
  about:['INFASUB (Information about subjects) — справочник по школьным предметам.','Предметы: информатика, алгебра, геометрия, физика, химия, биология.','Языки интерфейса: русский, таджикский, английский.','Внутри: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.']},
-tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_note2:'Рӯйхат умумӣ аст: ин ҷо ҳамаи касоне, ки дар сайт сабти ном кардаанд, аз ҳама дастгоҳҳо.',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
+tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_note2:'Рӯйхат умумӣ аст: ин ҷо ҳамаи касоне, ки дар сайт сабти ном кардаанд, аз ҳама дастгоҳҳо.',t_olymp:'Олимпиада',t_leaders:'Пешсафон',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
  lead:'Маълумотнома оид ба фанҳои мактабӣ ба се забон: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.',
  cta1:'Масъалаҳо ҳал кунед',cta2:'Забонҳои барномасозӣ',
  term1:'фанҳо: 6',term2:'забонҳои интерфейс: 3 (ru · tg · en)',term3:'забонҳои барномасозӣ: 5',term_ready:'Дар поён модулро интихоб кунед',
@@ -657,7 +712,7 @@ tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books
  ex_ok:'Ҳадаф ба даст омад! Фармонҳо: {n}.',ex_wall:'Робот ба девор бархурд.',ex_miss:'Ба ҳадаф нарасид. Барномаро тағйир диҳед.',ex_empty:'Фармонҳо илова кунед.',
  about_t:'Маълумот дар бораи барнома',auth_t:'Муаллифон (иҷрокунандагон)',goal_t:'Мақсади мо',goal:'Рушди таълими рақамӣ, баланд бардоштани таваҷҷӯҳи ҷавонон ба технологияҳои иттилоотӣ ва илмҳои дақиқ, инчунин фароҳам овардани имкониятҳои дастрас барои худомӯзӣ ва омодагӣ ба олимпиадаҳо.',auth_l:'Лоиҳаи INFASUB-ро ду муаллиф таҳия кардаанд:',authors:[{n:'Шамсзода Руқия Муқим',r:'Муаллиф · синфи 11',d:'Ғолиби ҷоизадори бисёр олимпиадаҳои информатика.'},{n:'Шамсзода Муқим Нарзулло',r:'Муаллифи дуюм · омӯзгори информатика',d:'Омӯзгори информатика бо 15 соли собиқаи педагогӣ. Дар тӯли фаъолияти касбӣ шумораи зиёди хонандагонро омода кардааст, ки дар олимпиадаҳои фаннӣ ба натиҷаҳои баланд расида, ғолибони ҷоизадор шудаанд.'}],
  about:['INFASUB (Information about subjects) — маълумотнома оид ба фанҳои мактабӣ.','Фанҳо: информатика, алгебра, геометрия, физика, химия, биология.','Забонҳои интерфейс: русӣ, тоҷикӣ, англисӣ.','Дарун: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.']},
-en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_note2:'The list is shared: everyone who registered on the site, from any device.',users_nf:'Nothing found.',t_about:'Information about the program',
+en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_note2:'The list is shared: everyone who registered on the site, from any device.',t_olymp:'Olympiad',t_leaders:'Leaders',users_nf:'Nothing found.',t_about:'Information about the program',
  lead:'A reference for school subjects in three languages: topics and formulas, e-books, problems with answer checking, a calculator and five programming languages.',
  cta1:'Solve problems',cta2:'Programming languages',
  term1:'subjects: 6',term2:'interface languages: 3 (ru · tg · en)',term3:'programming languages: 5',term_ready:'Choose a module below',
@@ -712,6 +767,8 @@ var TOOLS=[
 {id:'languages',code:'CODE',c:'violet',key:'t_langs',snip:'Python · JS · C++ · Java · C#',file:'languages.md'},
 {id:'calculator',code:'CALC',c:'cyan',key:'t_calc',snip:'2 + 2 × 3 = 8',file:'tools/calc.js'},
 {id:'quizzes',code:'QUIZ',c:'pink',key:'t_quiz',snip:'play(); score++;',file:'quizzes.js'},
+{id:'olymp',code:'OLY',c:'yellow',key:'t_olymp',snip:'olympiad.join()',file:'olympiad.js'},
+{id:'leaders',code:'TOP',c:'orange',key:'t_leaders',snip:'streak.top()',file:'leaders.json'},
 {id:'users',code:'USERS',c:'cyan',key:'t_users',snip:'users.length',file:'users.json'}
 ];
 var VIEWS=['home'].concat(SUBJECTS.map(function(s){return s.id}),TOOLS.map(function(t){return t.id}));
@@ -920,7 +977,7 @@ var lang='ru',view='home',curSub='inf',curBook='all',curPl='py';
 var vals={},fb={},solved={};
 var calcExpr='',calcHist=[];
 var exLevel=0,progs=[[],[],[]],exSt=null,exTimer=null,exRunning=false,exActive=-1,exMsg='',exMsgCls='';
-try{var s0=localStorage.getItem('infasub-solved');if(s0)solved=JSON.parse(s0)||{};}catch(e){}
+loadSolved();
 try{var sl=localStorage.getItem('infasub-lang');if(sl&&LANGS.indexOf(sl)>-1)lang=sl;else{var nl=(navigator.language||'').slice(0,2);if(nl==='tg')lang='tg';else if(nl==='en')lang='en';}}catch(e){}
 try{var th=localStorage.getItem('infasub-theme');if(th==='light'||th==='dark'||th==='brown')document.documentElement.setAttribute('data-theme',th);}catch(e){}
 function setThemeIcon(){var el=document.getElementById('theme');if(!el)return;var c=document.documentElement.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');el.textContent=c==='light'?'☀️':(c==='dark'?'🌙':'☕');el.title=c;}
@@ -1116,8 +1173,70 @@ tg:{back:'← Ба рӯйхати китобҳо',chs:'Бобҳо',prev:'← Қ�
 en:{back:'← Back to books',chs:'Chapters',prev:'← Previous',next:'Next →',read:'Read',of:'Chapter',by:'INFASUB',chn:'chapters',lead:'Read the books right on the site: choose a book, then a chapter.'}
 };
 function bk(k){return (BK[lang]||BK.ru)[k]}
+
+/* ===== PDF books (open inside the site, Tajik section) ===== */
+var PDF_BOOKS=[{id:'abramyan',file:'books/abramyan.pdf',author:'Абрамян',pages:216,langs:['tg'],
+  t:{ru:'Задачник по программированию (C++, Python)',tg:'Маҷмӯаи масъалаҳо оид ба барномасозӣ (C++, Python)',en:'Programming problem book (C++, Python)'},
+  d:{ru:'Задачи с примерами и ответами на C++ и Python.',tg:'Масъалаҳо бо мисолҳо ва ҷавобҳо дар C++ ва Python.',en:'Problems with examples and answers in C++ and Python.'}}];
+var PBT={ru:{read:'Читать',back:'← К книгам',newtab:'Открыть в новой вкладке',dl:'Скачать PDF',pg:'стр.',by:'Автор',prev:'← Назад',next:'Далее →',load:'Загрузка книги…',fail:'Не удалось открыть книгу здесь. Откройте её в новой вкладке.',hint:'Книга открыта прямо на сайте. Если окно пустое, нажмите «Открыть в новой вкладке».'},
+tg:{read:'Хондан',back:'← Ба китобҳо',newtab:'Дар ҳамлаи нав кушодан',dl:'Зеркашии PDF',pg:'сах.',by:'Муаллиф',prev:'← Қафо',next:'Пеш →',load:'Китоб бор мешавад…',fail:'Китобро дар ин ҷо кушодан муяссар нашуд. Онро дар ҳамлаи нав кушоед.',hint:'Китоб бевосита дар сайт кушода шудааст. Агар равзана холӣ бошад, «Дар ҳамлаи нав кушодан»-ро пахш кунед.'},
+en:{read:'Read',back:'← Back to books',newtab:'Open in a new tab',dl:'Download PDF',pg:'p.',by:'Author',prev:'← Prev',next:'Next →',load:'Loading book…',fail:'Could not open the book here. Open it in a new tab.',hint:'The book opens right on the site. If the frame is empty, press “Open in a new tab”.'}};
+PBT.tg.newtab='Дар ҷадвали нав кушодан';PBT.tg.hint='Китоб бевосита дар сайт кушода шудааст. Агар равзана холӣ бошад, «Дар ҷадвали нав кушодан»-ро пахш кунед.';PBT.tg.fail='Китобро дар ин ҷо кушодан муяссар нашуд. Онро дар ҷадвали нав кушоед.';
+function PB(){return PBT[lang]||PBT.ru}
+var readPdf='';
+function pdfBookById(id){for(var i=0;i<PDF_BOOKS.length;i++)if(PDF_BOOKS[i].id===id)return PDF_BOOKS[i];return null}
+function pdfCards(){
+  return PDF_BOOKS.filter(function(b){return b.langs.indexOf(lang)>-1}).map(function(b){
+    return '<div class="book pdfbook"><div><h3>'+esc(b.author)+' — '+esc(b.t[lang]||b.t.ru)+'</h3><small>'+esc(PB().by)+': '+esc(b.author)+' · C++, Python · PDF · '+b.pages+' '+esc(PB().pg)+'</small></div><p>'+esc(b.d[lang]||b.d.ru)+'</p><span class="lvl">PDF</span><div class="bact"><button type="button" class="rdbtn" data-pdfread="'+b.id+'">'+esc(PB().read)+'</button></div></div>';
+  }).join('');
+}
+function isMobileUA(){return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')}
+function pdfReaderHtml(b){
+  var T=PB(),url=encodeURI(b.file);
+  var head2='<p class="pdfbar"><button type="button" class="rdbtn" data-pdf-back>'+esc(T.back)+'</button> <a class="rdbtn" href="'+url+'" target="_blank" rel="noopener">'+esc(T.newtab)+'</a> <a class="rdbtn" href="'+url+'" download>'+esc(T.dl)+'</a></p>'+
+    '<h2 class="bktitle">'+esc(b.author)+' — '+esc(b.t[lang]||b.t.ru)+'</h2><p class="pdfhint">'+esc(T.by)+': <b>'+esc(b.author)+'</b> · '+b.pages+' '+esc(T.pg)+'. '+esc(T.hint)+'</p>';
+  if(isMobileUA())return head2+'<div class="pdfm" id="pdfm" data-file="'+esc(url)+'" data-id="'+b.id+'"><p class="pdfst">'+esc(T.load)+'</p></div>';
+  return head2+'<div class="pdfbox"><iframe src="'+url+'#view=FitH" title="'+esc(b.t[lang]||b.t.ru)+'" loading="lazy"></iframe></div>';
+}
+function pdfMobileInit(){
+  var box=document.getElementById('pdfm');if(!box)return;
+  var file=box.getAttribute('data-file'),id=box.getAttribute('data-id'),T=PB(),pdfDoc=null,pg=1,zoom=1,busy=false,pend=0,done=false;
+  try{pg=parseInt(localStorage.getItem('infasub-pdfpage:'+id)||'1',10)||1}catch(e){}
+  function fail(){if(done)return;done=true;box.innerHTML='<p class="pdfst">'+esc(T.fail)+'</p>'}
+  var tm=setTimeout(fail,12000);
+  function ui2(){box.innerHTML='<div class="pdfc"><button type="button" class="rdbtn" data-pm="-1">'+esc(T.prev)+'</button><span><input type="number" id="pdf-pg" min="1" max="'+pdfDoc.numPages+'" value="'+pg+'"> / '+pdfDoc.numPages+'</span><button type="button" class="rdbtn" data-pm="1">'+esc(T.next)+'</button><button type="button" class="rdbtn" data-pz="-1">−</button><button type="button" class="rdbtn" data-pz="1">+</button></div><div class="pdfcv"><canvas id="pdf-cv"></canvas></div>';}
+  function draw(){
+    if(busy){pend=1;return}busy=true;pg=Math.max(1,Math.min(pdfDoc.numPages,pg));
+    pdfDoc.getPage(pg).then(function(p){
+      var cv=document.getElementById('pdf-cv');if(!cv){busy=false;return}
+      var v1=p.getViewport({scale:1}),w=Math.max(260,box.clientWidth-4),css=w*zoom/v1.width,dpr=Math.min(2,window.devicePixelRatio||1),v=p.getViewport({scale:css*dpr});
+      cv.width=v.width;cv.height=v.height;cv.style.width=(v.width/dpr)+'px';
+      var inp=document.getElementById('pdf-pg');if(inp)inp.value=pg;
+      try{localStorage.setItem('infasub-pdfpage:'+id,String(pg))}catch(e){}
+      return p.render({canvasContext:cv.getContext('2d'),viewport:v}).promise;
+    }).then(function(){busy=false;if(pend){pend=0;draw()}}).catch(function(){busy=false});
+  }
+  box.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-pm],[data-pz]');if(!b||!pdfDoc)return;
+    if(b.hasAttribute('data-pm')){pg+=+b.getAttribute('data-pm');window.scrollTo(0,box.offsetTop);}else{zoom=Math.max(.6,Math.min(3,zoom+(+b.getAttribute('data-pz'))*.25));}
+    draw();
+  });
+  box.addEventListener('change',function(e){if(e.target&&e.target.id==='pdf-pg'&&pdfDoc){pg=parseInt(e.target.value,10)||1;draw();}});
+  var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onerror=fail;
+  s.onload=function(){
+    try{window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      window.pdfjsLib.getDocument(file).promise.then(function(d){clearTimeout(tm);if(done)return;done=true;pdfDoc=d;ui2();draw();}).catch(fail);}catch(e){fail()}
+  };
+  document.head.appendChild(s);
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('[data-pdfread],[data-pdf-back]'):null;if(!t)return;
+  if(t.hasAttribute('data-pdfread')){readPdf=t.getAttribute('data-pdfread');readBook=-1;render();window.scrollTo(0,0);try{streakHit()}catch(x){}return;}
+  readPdf='';render();window.scrollTo(0,0);
+});
 function viewBooks(){
   var h=head(ui('books_t'),bk('lead'),'LIB','yellow');
+  if(readPdf){var pb=pdfBookById(readPdf);if(pb&&pb.langs.indexOf(lang)>-1)return h+pdfReaderHtml(pb);readPdf='';}
   if(readBook>=0&&BOOKS[readBook]){
     var b=BOOKS[readBook],c=b.ch[readCh];
     var toc=b.ch.map(function(x,i){return '<button type="button" class="chip" data-ch="'+i+'" aria-pressed="'+(i===readCh)+'">'+(i+1)+'. '+esc(bl(x.t))+'</button>'}).join('');
@@ -1137,7 +1256,8 @@ function renderBookList(){
   if(!chips.some(function(c){return c[0]===curBook}))curBook='all';
   $('#book-chips').innerHTML=chips.map(function(c){return '<button type="button" class="chip" data-bf="'+c[0]+'" aria-pressed="'+(c[0]===curBook)+'">'+esc(c[1])+'</button>'}).join('');
   var lv={1:ui('lvl1'),2:ui('lvl2'),3:ui('lvl3')};
-  $('#books-body').innerHTML=BOOKS.filter(function(b){return curBook==='all'||b.pl===curBook}).map(function(b){
+  var pdfH=(curBook==='all'||curBook==='cpp'||curBook==='py')?pdfCards():'';
+  $('#books-body').innerHTML=pdfH+BOOKS.filter(function(b){return curBook==='all'||b.pl===curBook}).map(function(b){
     return '<div class="book"><div><h3>'+esc(bl(b.t))+'</h3><small>'+esc(bk('by'))+' · '+esc(plNames[b.pl]||ui('fgen'))+' · '+b.ch.length+' '+esc(bk('chn'))+'</small></div>'+
       '<p>'+esc(bl(b.d))+'</p><span class="lvl">'+lv[b.lv]+'</span>'+
       '<div class="bact"><button type="button" class="rdbtn" data-read="'+BOOKS.indexOf(b)+'">'+esc(bk('read'))+'</button></div></div>';
@@ -1164,10 +1284,9 @@ function renderProblemList(){
     return '<article class="prob"><div class="prob-q"><span class="pn">'+(i+1)+'</span><p>'+esc(tr(p.q))+'</p></div>'+
       '<div class="prob-row"><label class="sr" for="in-'+p.id+'">'+ui('answer')+'</label>'+
       '<input id="in-'+p.id+'" data-pid="'+p.id+'" inputmode="decimal" autocomplete="off" placeholder="'+ui('answer')+'" value="'+esc(vals[p.id]||'')+'">'+
-      '<button type="button" class="btn sm" data-check="'+p.id+'">'+ui('check')+'</button>'+
-      '<button type="button" class="btn ghost sm" data-sol="'+p.id+'" aria-expanded="false">'+ui('sol')+'</button></div>'+
+      '<button type="button" class="btn sm" data-check="'+p.id+'">'+ui('check')+'</button></div>'+
       '<p class="fb '+st+'" id="fb-'+p.id+'" role="status">'+fbText(p.id)+'</p>'+
-      '<p class="sol" id="sol-'+p.id+'" hidden><b>'+esc(SOLW())+': '+esc(ansFmt(p.ans))+'.</b> '+esc(tr(p.sol))+'</p><p class="hint" id="hint-'+p.id+'" hidden>'+esc(SOLW2())+'</p></article>';
+      '</article>';
   }).join('');
   updateProgress();
 }
@@ -1182,8 +1301,7 @@ function checkProblem(id){
   var v=parseFloat(String(vals[id]||'').replace(',','.'));
   var good=!isNaN(v)&&Math.abs(v-p.ans)<1e-9;
   fb[id]=good?'ok':'bad';track('p',id,good);
-  if(!good){tries[id]=(tries[id]||0)+1;var hn=$('#hint-'+id);if(hn)hn.hidden=false;if(tries[id]>=2)openSol(id);}else{var hn2=$('#hint-'+id);if(hn2)hn2.hidden=true;}
-  if(good){solved[id]=1;try{localStorage.setItem('infasub-solved',JSON.stringify(solved))}catch(e){}streakHit();}
+  if(good){solved[id]=1;solvedSave();streakHit();}
   var el=$('#fb-'+id);
   if(el){el.className='fb '+fb[id];el.textContent=fbText(id);}
   updateProgress();
@@ -1363,7 +1481,7 @@ function userRows(){
     if(u.school)meta.push(u.school);if(u.city)meta.push(u.city);if(u.country)meta.push(u.country);
     meta.push(ui('users_since')+': '+fmtDate(u.created));
     var on=isOnline(u.login);
-    return '<div class="ucard"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(on?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ue">'+esc(u.sub)+'</span><span class="ust'+(on?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
+    return '<div class="ucard" role="button" tabindex="0" data-uprof="'+esc(u.login)+'"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(on?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ue">'+esc(u.sub)+'</span><span class="ust'+(on?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
   }).join('')+'</div>'};
 }
 function viewUsers(){
@@ -1374,8 +1492,249 @@ function viewUsers(){
 document.addEventListener('input',function(e){
   if(e.target&&e.target.id==='usearch'){userQ=e.target.value;var b=document.getElementById('ubox');if(b)b.innerHTML=userRows().html;}
 });
+
+
+/* ===== profile card of a person (with "send message") ===== */
+var PFT={ru:{msg:'Отправить сообщение',you:'Это вы',country:'Страна',city:'Город',school:'Школа',main:'Основной предмет',since:'Регистрация',about:'О себе',streak:'Серия',best:'лучшая',d:'дн.',mine:'Открыть мой профиль'},
+tg:{msg:'Фиристодани паём',you:'Ин шумо',country:'Кишвар',city:'Шаҳр',school:'Мактаб',main:'Фанни асосӣ',since:'Сабти ном',about:'Дар бораи худ',streak:'Силсила',best:'беҳтарин',d:'рӯз',mine:'Кушодани профили ман'},
+en:{msg:'Send message',you:'You',country:'Country',city:'City',school:'School',main:'Main subject',since:'Registered',about:'About',streak:'Streak',best:'best',d:'d',mine:'Open my profile'}};
+function PF(){return PFT[lang]||PFT.ru}
+function profData(id){
+  var L=srvList(),i;
+  if(L){for(i=0;i<L.length;i++)if(L[i].id===id){var u=L[i];return {id:id,name:u.name||u.em,av:u.av,country:u.country,city:u.city,school:u.school,main:u.main,about:u.about,created:u.created}}}
+  var us=getUsers(),x=us[id];if(x)return {id:id,name:x.name||id,av:x.av,country:x.country,city:x.city,school:x.school,main:x.main,about:x.about,created:x.created};
+  return null;
+}
+function openProfile(id){
+  var d=profData(id);if(!d)return;closeTopic();
+  var me=lbMe()===id,sb=d.main&&subj(d.main)?subj(d.main):null,st=null,T=PF();
+  lbStreakRows().forEach(function(r){if(r.id===id)st=r});
+  var rows=[[T.country,d.country],[T.city,d.city],[T.school,d.school],[T.main,sb?tr(sb.name):''],[T.since,d.created?fmtDate(d.created):'']].filter(function(r){return r[1]});
+  var o=document.createElement('div');o.className='tpv';o.id='tpv';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
+  o.innerHTML='<div class="tpd ppd" style="--c:'+(sb?col(sb.c):'var(--accent)')+'"><div class="tph"><span class="tpc">'+esc(me?T.you:'')+'</span><button type="button" class="tpx" data-tpclose aria-label="'+esc(TP().close)+'">✕</button></div>'+
+    '<div class="ppt"><span class="uav">'+avHtml({login:id,av:d.av},true)+'<i class="dot'+(isOnline(id)?' on':'')+'"></i></span><div><h2>'+esc(d.name)+'</h2><span class="ust'+(isOnline(id)?' on':'')+'">'+esc(presText(id))+'</span></div></div>'+
+    (st?'<p class="pfs">🔥 '+esc(T.streak)+': <b>'+st.cur+'</b> · '+esc(T.best)+': <b>'+st.best+'</b> '+esc(T.d)+'</p>':'')+
+    (rows.length?'<dl class="pfd">'+rows.map(function(r){return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>'}).join('')+'</dl>':'')+
+    (d.about?'<div class="tps"><h4>'+esc(T.about)+'</h4><p>'+esc(d.about)+'</p></div>':'')+
+    '<div class="tpn"><span></span>'+(me?'<button type="button" class="btn" data-auth-open data-tpclose>'+esc(T.mine)+'</button>':'<button type="button" class="btn" data-msto="'+esc(id)+'">✉ '+esc(T.msg)+'</button>')+'<span></span></div></div>';
+  document.body.appendChild(o);document.body.style.overflow='hidden';
+  var x=o.querySelector('.tpx');if(x)x.focus();
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('[data-uprof],[data-msto]'):null;if(!t)return;
+  if(t.hasAttribute('data-msto')){var to=t.getAttribute('data-msto');closeTopic();msTo=to;msSetOpen(true);return;}
+  openProfile(t.getAttribute('data-uprof'));
+});
+document.addEventListener('keydown',function(e){
+  if((e.key==='Enter'||e.key===' ')&&e.target&&e.target.hasAttribute&&e.target.hasAttribute('data-uprof')){e.preventDefault();openProfile(e.target.getAttribute('data-uprof'));}
+});
+
+
+/* ===== autosave: every minute progress is saved (server when signed in, always on this device); status pill in the corner ===== */
+var AS_MS=60000,AS={state:'idle',last:0,next:Date.now()+AS_MS,busy:false};
+var AST={ru:{saving:'Сохранение…',saved:'Сохранено',local:'Сохранено на устройстве',err:'Нет связи, повторю через минуту',auto:'Автосохранение раз в минуту',in:'через',s:'с'},
+tg:{saving:'Нигоҳдорӣ…',saved:'Нигоҳ дошта шуд',local:'Дар дастгоҳ нигоҳ дошта шуд',err:'Алоқа нест, баъди як дақиқа такрор мекунам',auto:'Худнигоҳдорӣ ҳар дақиқа',in:'баъд аз',s:'сон'},
+en:{saving:'Saving…',saved:'Saved',local:'Saved on this device',err:'No connection, will retry in a minute',auto:'Autosave every minute',in:'in',s:'s'}};
+function AT(){return AST[lang]||AST.ru}
+var asEl=document.createElement('div');asEl.id='autosave';asEl.className='asave';asEl.setAttribute('role','status');asEl.setAttribute('aria-live','polite');document.body.appendChild(asEl);
+function asHM(t){var d=new Date(t),p=function(n){return n<10?'0'+n:''+n};return p(d.getHours())+':'+p(d.getMinutes())}
+function asDraw(){
+  var me=sessionLogin();if(!me){asEl.style.display='none';return;}asEl.style.display='';
+  var T=AT(),left=Math.max(0,Math.ceil((AS.next-Date.now())/1000)),ic='☁',txt;
+  if(AS.state==='saving'){ic='⟳';txt=T.saving;}
+  else if(AS.state==='ok'){txt=(AUTH_API&&tokGet()?T.saved:T.local)+' '+asHM(AS.last)+' · '+T.in+' '+left+' '+T.s;}
+  else if(AS.state==='err'){ic='⚠';txt=T.err;}
+  else txt=T.auto+' · '+T.in+' '+left+' '+T.s;
+  asEl.className='asave '+AS.state;asEl.innerHTML='<span class="asi">'+ic+'</span><span>'+esc(txt)+'</span>';asEl.title=T.auto;
+}
+function asLocal(){
+  var l=sessionLogin();if(!l)return;
+  try{localStorage.setItem(solvedKey(),JSON.stringify(solved));localStorage.setItem('infasub-vals:'+l,JSON.stringify(vals));}catch(e){}
+}
+function autoSave(){
+  if(AS.busy||!sessionLogin())return;
+  AS.busy=true;AS.state='saving';asDraw();asLocal();
+  var tk=tokGet();
+  if(!AUTH_API||!tk){AS.busy=false;AS.state='ok';AS.last=Date.now();AS.next=Date.now()+AS_MS;asDraw();return;}
+  Promise.all([
+    api('progress_save',{token:tk,solved:Object.keys(solved)}),
+    api('streak_save',{token:tk,days:stDays()})
+  ]).then(function(rs){
+    var bad=rs.some(function(r){return !(r&&r.ok)});
+    AS.busy=false;AS.state=bad?'err':'ok';AS.last=Date.now();AS.next=Date.now()+AS_MS;asDraw();
+    if(!bad)srvSync(true);
+    else if(rs.some(function(r){return r&&r.error==='auth'})){tokSet('');}
+  }).catch(function(){AS.busy=false;AS.state='err';AS.next=Date.now()+AS_MS;asDraw();});
+}
+setInterval(function(){if(!sessionLogin()){asDraw();return;}if(Date.now()>=AS.next&&!document.hidden)autoSave();else asDraw();},1000);
+document.addEventListener('visibilitychange',function(){if(document.hidden){asLocal();if(sessionLogin())autoSave();}});
+window.addEventListener('pagehide',asLocal);
+document.addEventListener('input',function(e){var el=e.target;if(el&&el.getAttribute&&el.getAttribute('data-pid')){vals[el.getAttribute('data-pid')]=el.value;}});
+setTimeout(function(){if(sessionLogin())autoSave();},4000);
+
+/* ===== leaders (flame leaderboard) and subject olympiad ===== */
+var LBT={
+ru:{l_t:'Таблица лидеров',l_s:'Кто занимается каждый день: серия дней подряд — «огонёк».',flame:'Огонёк',oly:'Олимпиада',rank:'Место',who:'Участник',cur:'Серия',best:'Лучшая',days:'Дней',you:'Это вы',empty:'Пока нет данных. Решите задачу или прочитайте главу, чтобы попасть в таблицу.',note_loc:'Таблица показывает участников этого браузера.',note_srv:'Общая таблица всех участников сайта.',
+o_s:'Шесть предметов, по 20 задач в каждом. Зарегистрируйтесь на олимпиаду и проходите испытания.',rules_h:'Правила',rules:'На каждый предмет даётся 30 минут и одна попытка. За каждый верный ответ — 1 балл (максимум 20 за предмет). Места определяются суммой баллов, при равенстве — меньшим временем. Решения и верные ответы откроются сразу после завершения предмета.',join_h:'Регистрация на олимпиаду',cls:'Класс',other:'Другое',join:'Участвовать в олимпиаде',joined:'Вы зарегистрированы на олимпиаду',start:'Начать',cont:'Продолжить',res:'Результат',todo:'Не пройдено',going:'Идёт',pts:'баллов',of:'из',time:'Время',left:'Осталось',finish:'Завершить предмет',confirm:'Завершить предмет? Исправить ответы после этого будет нельзя.',timeup:'Время вышло — ответы отправлены.',busy:'Сначала завершите начатый предмет.',your:'Ваш результат',ans:'Ваш ответ',right:'Верный ответ',noans:'нет ответа',back:'← К олимпиаде',board:'Таблица участников',all:'Общий зачёт',total:'Всего',empty_o:'Пока никто не прошёл испытания.',e_net:'Нет связи с сервером. Попробуйте ещё раз.',subjects:'Предметы',qh:'Вопрос',ph:'Ответ'},
+tg:{l_t:'Ҷадвали пешсафон',l_s:'Кӣ ҳар рӯз машғул мешавад: силсилаи рӯзҳои пай дарпай — «оташча».',flame:'Оташча',oly:'Олимпиада',rank:'Ҷой',who:'Иштирокчӣ',cur:'Силсила',best:'Беҳтарин',days:'Рӯз',you:'Ин шумо',empty:'Ҳоло маълумот нест. Масъала ҳал кунед ё боб хонед, то ба ҷадвал дароед.',note_loc:'Ҷадвал иштирокчиёни ҳамин браузерро нишон медиҳад.',note_srv:'Ҷадвали умумии ҳамаи иштирокчиёни сайт.',
+o_s:'Шаш фан, дар ҳар кадом 20 масъала. Ба олимпиада номнавис шавед ва озмунҳоро гузаред.',rules_h:'Қоидаҳо',rules:'Барои ҳар фан 30 дақиқа ва як кӯшиш дода мешавад. Барои ҳар ҷавоби дуруст — 1 хол (дар як фан ҳадди аксар 20). Ҷойҳо аз рӯи суммаи холҳо муайян мешаванд, дар баробарӣ — аз рӯи вақти камтар. Ҳалҳо ва ҷавобҳои дуруст дарҳол баъди анҷоми фан кушода мешаванд.',join_h:'Номнависӣ ба олимпиада',cls:'Синф',other:'Дигар',join:'Иштирок дар олимпиада',joined:'Шумо ба олимпиада номнавис шудаед',start:'Оғоз',cont:'Идома',res:'Натиља',todo:'Нагузаштааст',going:'Ҷараён дорад',pts:'хол',of:'аз',time:'Вақт',left:'Мондааст',finish:'Анҷом додани фан',confirm:'Фанро анҷом медиҳед? Баъд ҷавобҳоро тағйир додан мумкин нест.',timeup:'Вақт тамом шуд — ҷавобҳо фиристода шуданд.',busy:'Аввал фанни оғозшударо анҷом диҳед.',your:'Натиҷаи шумо',ans:'Ҷавоби шумо',right:'Ҷавоби дуруст',noans:'ҷавоб нест',back:'← Ба олимпиада',board:'Ҷадвали иштирокчиён',all:'Ҳисоби умумӣ',total:'Ҳамагӣ',empty_o:'Ҳоло касе озмунҳоро нагузаштааст.',e_net:'Бо сервер алоқа нест. Боз кӯшиш кунед.',subjects:'Фанҳо',qh:'Савол',ph:'Ҷавоб'},
+en:{l_t:'Leaderboard',l_s:'Who studies every day: the number of days in a row, the “flame”.',flame:'Flame',oly:'Olympiad',rank:'Rank',who:'Participant',cur:'Streak',best:'Best',days:'Days',you:'You',empty:'No data yet. Solve a problem or read a chapter to appear in the table.',note_loc:'The table shows participants of this browser.',note_srv:'Shared table of all participants of the site.',
+o_s:'Six subjects, 20 problems each. Register for the olympiad and take the challenges.',rules_h:'Rules',rules:'Each subject gives you 30 minutes and one attempt. Every correct answer is 1 point (up to 20 per subject). Places are decided by the total points, and by less time when tied. Solutions and correct answers open right after you finish a subject.',join_h:'Olympiad registration',cls:'Grade',other:'Other',join:'Join the olympiad',joined:'You are registered for the olympiad',start:'Start',cont:'Continue',res:'Result',todo:'Not taken',going:'In progress',pts:'points',of:'of',time:'Time',left:'Time left',finish:'Finish subject',confirm:'Finish the subject? You cannot change answers afterwards.',timeup:'Time is up — answers were submitted.',busy:'Finish the subject you started first.',your:'Your result',ans:'Your answer',right:'Correct answer',noans:'no answer',back:'← Back to olympiad',board:'Participants table',all:'Overall',total:'Total',empty_o:'Nobody has taken the challenges yet.',e_net:'Cannot reach the server. Try again.',subjects:'Subjects',qh:'Question',ph:'Answer'}
+};
+LBT.tg.res='Натиља';LBT.tg.res='Натиҷа';
+function LT(k){var d=LBT[lang]||LBT.ru;return d[k]!==undefined?d[k]:LBT.ru[k]}
+var LB={streak:null,olymp:null,busy:false,tab:'flame',oSub:'all'};
+var OLY_SEC=1800,olyTimer=null,olyReview=null;
+function fmtMS(n){n=Math.max(0,Math.round(n));var m=Math.floor(n/60),s=n%60;return m+':'+(s<10?'0':'')+s}
+function lbFetch(){if(!AUTH_API||LB.busy)return;LB.busy=true;api('leaderboard',{}).then(function(r){LB.busy=false;if(r&&r.ok){LB.streak=r.streak;LB.olymp=r.olymp;lbRefresh();}}).catch(function(){LB.busy=false})}
+function lbRefresh(){var a=document.getElementById('lbbox');if(a&&view==='leaders')a.innerHTML=lbBody();var b=document.getElementById('olyboard');if(b&&(view==='olymp'||view==='leaders'))b.innerHTML=olyBoardHtml();}
+function streakPush(){var tk=tokGet();if(!AUTH_API||!tk||!sessionLogin())return;api('streak_save',{token:tk,days:stDays()}).then(function(){lbFetch()}).catch(function(){})}
+function streakMerge(days){
+  if(!Array.isArray(days))return;
+  var o=stAll(),k=stKey(),a=Array.isArray(o[k])?o[k]:[],set={};
+  a.concat(days).forEach(function(d){if(typeof d==='string')set[d]=1});
+  var m=Object.keys(set).sort().slice(-400);
+  if(m.length!==a.length){o[k]=m;try{localStorage.setItem('infasub-streak',JSON.stringify(o))}catch(e){}streakDraw();}
+  if(m.length>days.length&&!SRV.streakPushed){SRV.streakPushed=true;streakPush();}
+}
+function stStatsJS(days){
+  var set={};days.forEach(function(d){var p=d.split('-');set[Math.round(Date.UTC(+p[0],+p[1]-1,+p[2])/864e5)]=1});
+  var arr=Object.keys(set).map(Number).sort(function(a,b){return a-b}),best=0,run=0,prev=null;
+  arr.forEach(function(n){run=(prev!==null&&n-prev===1)?run+1:1;prev=n;if(run>best)best=run});
+  var d=new Date(),today=Math.round(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5),cur=0;
+  if(arr.length){var last=arr[arr.length-1];if(last>=today-1){cur=1;var n=last;while(set[n-1]){cur++;n--}}}
+  return {cur:cur,best:best,total:arr.length};
+}
+function lbMe(){return srvOn()?SRV.me:sessionLogin()}
+function lbStreakRows(){
+  if(AUTH_API&&LB.streak)return LB.streak;
+  var us=getUsers(),all=stAll(),rows=[];
+  Object.keys(us).forEach(function(k){var st=stStatsJS(all[k]||[]);if(st.total)rows.push({id:k,name:us[k].name||k,av:us[k].av,country:us[k].country||'',cur:st.cur,best:st.best,total:st.total})});
+  rows.sort(function(a,b){return b.cur-a.cur||b.best-a.best||b.total-a.total});return rows;
+}
+function medal(i){return i===0?'🥇':i===1?'🥈':i===2?'🥉':String(i+1)}
+function who(u,me){return '<div class="lbw" role="button" tabindex="0" data-uprof="'+esc(u.id)+'"><span class="uav">'+avHtml({login:u.id,av:u.av},false)+'</span><div><b>'+esc(u.name)+'</b>'+(u.id===me?' <span class="uyou">'+esc(LT('you'))+'</span>':'')+(u.country?'<small>'+esc(u.country)+'</small>':'')+'</div></div>'}
+function lbBody(){
+  var me=lbMe(),h='';
+  if(LB.tab==='oly')return '<div id="olyboard">'+olyBoardHtml()+'</div>';
+  var rows=lbStreakRows();
+  if(!rows.length)return '<div class="readme"><p>'+esc(LT('empty'))+'</p></div>';
+  h+='<div class="lbwrap"><table class="lbt"><thead><tr><th>#</th><th>'+esc(LT('who'))+'</th><th>🔥 '+esc(LT('cur'))+'</th><th>'+esc(LT('best'))+'</th><th>'+esc(LT('days'))+'</th></tr></thead><tbody>';
+  rows.forEach(function(u,i){h+='<tr'+(u.id===me?' class="me"':'')+'><td class="lbr">'+medal(i)+'</td><td>'+who(u,me)+'</td><td class="lbn on">'+u.cur+'</td><td class="lbn">'+u.best+'</td><td class="lbn">'+u.total+'</td></tr>'});
+  return h+'</tbody></table></div>';
+}
+function viewLeaders(){
+  return head(LT('l_t'),LT('l_s'),'TOP','orange')+
+    '<div class="chips lbtabs"><button type="button" class="tab" data-lbtab="flame" aria-pressed="'+(LB.tab==='flame')+'">🔥 '+esc(LT('flame'))+'</button><button type="button" class="tab" data-lbtab="oly" aria-pressed="'+(LB.tab==='oly')+'">🏆 '+esc(LT('oly'))+'</button></div><p class="lbnote">'+esc(LT(AUTH_API&&LB.streak?'note_srv':'note_loc'))+'</p><div id="lbbox">'+lbBody()+'</div>';
+}
+
+/* ---- olympiad ---- */
+function olyAll(){try{return JSON.parse(localStorage.getItem('infasub-olymp')||'{}')||{}}catch(e){return {}}}
+function olyPut(o){try{localStorage.setItem('infasub-olymp',JSON.stringify(o))}catch(e){}}
+function olyMe(){return srvOn()?SRV.olymp:(olyAll()[sessionLogin()]||null)}
+function olyRun(){try{var r=JSON.parse(localStorage.getItem('infasub-olyrun')||'null');return r&&r.login===sessionLogin()?r:null}catch(e){return null}}
+function olyRunSet(r){try{if(r)localStorage.setItem('infasub-olyrun',JSON.stringify(r));else localStorage.removeItem('infasub-olyrun')}catch(e){}}
+function olyProbs(sid){return PROBLEMS.filter(function(p){return p.s===sid})}
+function olyPend(){try{return JSON.parse(localStorage.getItem('infasub-olypend')||'[]')||[]}catch(e){return []}}
+function olyPendSet(a){try{localStorage.setItem('infasub-olypend',JSON.stringify(a))}catch(e){}}
+function olyFlush(){
+  if(!srvOn())return;var a=olyPend().filter(function(x){return x.login===sessionLogin()});if(!a.length)return;
+  var x=a[0];api('olymp_submit',{token:tokGet(),subj:x.subj,score:x.score,secs:x.secs}).then(function(r){if(r&&r.ok){SRV.olymp=r.olymp;olyPendSet(olyPend().filter(function(y){return !(y.login===x.login&&y.subj===x.subj)}));lbFetch();if(view==='olymp')render();}}).catch(function(){});
+}
+function olyJoin(cls){
+  if(srvOn()){api('olymp_join',{token:tokGet(),cls:cls}).then(function(r){if(r&&r.ok){SRV.olymp=r.olymp;render();lbFetch();}else toast(LT('e_net'))}).catch(function(){toast(LT('e_net'))});return;}
+  var o=olyAll(),l=sessionLogin();o[l]=o[l]||{joined:Date.now(),cls:cls,res:{}};olyPut(o);render();
+}
+function olyStart(sid){
+  var me=olyMe();if(!me||(me.res&&me.res[sid]))return;
+  var r=olyRun();if(r&&r.subj!==sid){toast(LT('busy'));return;}
+  if(!r)olyRunSet({login:sessionLogin(),subj:sid,start:Date.now(),vals:{}});
+  olyReview=null;render();window.scrollTo(0,0);
+}
+function olyFinish(auto){
+  var r=olyRun();if(!r)return;
+  var ps=olyProbs(r.subj),score=0;
+  ps.forEach(function(p){var v=parseFloat(String(r.vals[p.id]||'').replace(',','.'));if(!isNaN(v)&&Math.abs(v-p.ans)<1e-9)score++});
+  var secs=Math.min(OLY_SEC,Math.max(score*4,1,Math.round((Date.now()-r.start)/1000)));
+  olyRunSet(null);clearInterval(olyTimer);
+  olyReview={subj:r.subj,vals:r.vals,score:score,secs:secs};
+  if(srvOn()){
+    api('olymp_submit',{token:tokGet(),subj:r.subj,score:score,secs:secs}).then(function(x){if(x&&x.ok){SRV.olymp=x.olymp;lbFetch();}else throw 0;render();}).catch(function(){var a=olyPend();a.push({login:sessionLogin(),subj:r.subj,score:score,secs:secs});olyPendSet(a);toast(LT('e_net'));render();});
+  }else{var o=olyAll(),l=sessionLogin();o[l]=o[l]||{joined:Date.now(),cls:'',res:{}};o[l].res[r.subj]={score:score,secs:secs,t:Date.now()};olyPut(o);render();}
+  if(auto)toast(LT('timeup'));
+}
+function olyTick(){
+  clearInterval(olyTimer);var r=olyRun();if(!r)return;
+  function t(){var left=OLY_SEC-Math.floor((Date.now()-r.start)/1000);if(left<=0){olyFinish(true);return}var el=document.getElementById('oly-timer');if(el){el.textContent=fmtMS(left);el.classList.toggle('low',left<=120)}}
+  t();olyTimer=setInterval(t,1000);
+}
+function olyRows(){
+  if(AUTH_API&&LB.olymp)return LB.olymp;
+  var us=getUsers(),all=olyAll(),rows=[];
+  Object.keys(all).forEach(function(k){if(!us[k])return;var o=all[k],t=0,sc=0;Object.keys(o.res||{}).forEach(function(s){t+=o.res[s].score;sc+=o.res[s].secs});rows.push({id:k,name:us[k].name||k,av:us[k].av,country:us[k].country||'',cls:o.cls||'',res:o.res||{},total:t,secs:sc})});
+  return rows;
+}
+function olyBoardHtml(){
+  var me=lbMe(),f=LB.oSub,rows=olyRows().map(function(u){var r=f==='all'?{score:u.total,secs:u.secs,has:Object.keys(u.res||{}).length>0}:{score:(u.res[f]||{}).score||0,secs:(u.res[f]||{}).secs||0,has:!!u.res[f]};return {u:u,p:r.score,t:r.secs,has:r.has}}).filter(function(x){return x.has});
+  rows.sort(function(a,b){return b.p-a.p||a.t-b.t});
+  var chips='<div class="chips lbtabs"><button type="button" class="tab" data-oboard="all" aria-pressed="'+(f==='all')+'">'+esc(LT('all'))+'</button>'+SUBJECTS.map(function(s){return '<button type="button" class="tab" data-oboard="'+s.id+'" aria-pressed="'+(f===s.id)+'" style="--c:'+col(s.c)+'"><i></i>'+esc(tr(s.name))+'</button>'}).join('')+'</div>';
+  if(!rows.length)return chips+'<div class="readme"><p>'+esc(LT('empty_o'))+'</p></div>';
+  var h=chips+'<div class="lbwrap"><table class="lbt"><thead><tr><th>#</th><th>'+esc(LT('who'))+'</th><th>'+esc(LT('cls'))+'</th><th>'+esc(LT('pts'))+'</th><th>'+esc(LT('time'))+'</th></tr></thead><tbody>';
+  rows.forEach(function(x,i){h+='<tr'+(x.u.id===me?' class="me"':'')+'><td class="lbr">'+medal(i)+'</td><td>'+who(x.u,me)+'</td><td class="lbn">'+esc(x.u.cls||'—')+'</td><td class="lbn on">'+x.p+'</td><td class="lbn">'+fmtMS(x.t)+'</td></tr>'});
+  return h+'</tbody></table></div>';
+}
+function olyReviewHtml(){
+  var rv=olyReview,sb=subj(rv.subj),ps=olyProbs(rv.subj);
+  var h='<div class="olyres" style="--c:'+col(sb.c)+'"><div class="olybig"><b>'+rv.score+'</b><span>'+esc(LT('of'))+' '+ps.length+' '+esc(LT('pts'))+'</span></div><p>'+esc(tr(sb.name))+' · '+esc(LT('time'))+': '+fmtMS(rv.secs)+'</p></div><div class="olyq">';
+  ps.forEach(function(p,i){
+    var v=parseFloat(String(rv.vals[p.id]||'').replace(',','.')),ok=!isNaN(v)&&Math.abs(v-p.ans)<1e-9,mine=String(rv.vals[p.id]||'').trim();
+    h+='<article class="prob olyi '+(ok?'okc':'badc')+'"><div class="prob-q"><span class="pn">'+(i+1)+'</span><p>'+esc(tr(p.q))+'</p></div><p class="olya">'+(ok?'✓ ':'✗ ')+esc(LT('ans'))+': <b>'+esc(mine||LT('noans'))+'</b> · '+esc(LT('right'))+': <b>'+esc(ansFmt(p.ans))+'</b></p></article>';
+  });
+  return h+'</div><p><button type="button" class="btn" data-oly-back>'+esc(LT('back'))+'</button></p>';
+}
+function olyTestHtml(r){
+  var sb=subj(r.subj),ps=olyProbs(r.subj);
+  return '<div class="olybar" style="--c:'+col(sb.c)+'"><b>'+esc(tr(sb.name))+'</b><span>'+esc(LT('left'))+': <b id="oly-timer" class="oltm">'+fmtMS(OLY_SEC)+'</b></span><button type="button" class="btn" data-oly-finish>'+esc(LT('finish'))+'</button></div><div class="olyq">'+
+    ps.map(function(p,i){return '<article class="prob olyi"><div class="prob-q"><span class="pn">'+(i+1)+'</span><p>'+esc(tr(p.q))+'</p></div><div class="prob-row"><input data-oid="'+p.id+'" inputmode="decimal" autocomplete="off" placeholder="'+esc(LT('ph'))+'" value="'+esc(r.vals[p.id]||'')+'"></div></article>'}).join('')+
+    '</div><p><button type="button" class="btn" data-oly-finish>'+esc(LT('finish'))+'</button></p>';
+}
+function viewOlymp(){
+  var h=head(ui('t_olymp'),LT('o_s'),'OLY','yellow'),me=olyMe(),run=olyRun();
+  if(AUTH_API&&tokGet()&&!SRV.synced)return h+'<p class="lbnote">'+esc(at('loading'))+'</p>';
+  if(olyReview&&olyReview.subj)return h+olyReviewHtml();
+  if(me&&run)return h+olyTestHtml(run);
+  h+='<div class="olyrules"><h3>'+esc(LT('rules_h'))+'</h3><p>'+esc(LT('rules'))+'</p></div>';
+  if(!me){
+    h+='<div class="olyjoin"><h3>'+esc(LT('join_h'))+'</h3><div class="olysubs">'+SUBJECTS.map(function(s){return '<span class="olychip" style="--c:'+col(s.c)+'"><i></i>'+esc(tr(s.name))+'</span>'}).join('')+'</div><label>'+esc(LT('cls'))+'<select class="fld" id="oly-cls">'+[5,6,7,8,9,10,11].map(function(n){return '<option value="'+n+'">'+n+'</option>'}).join('')+'<option value="—">'+esc(LT('other'))+'</option></select></label><button type="button" class="btn" data-oly-join>'+esc(LT('join'))+'</button></div>';
+  }else{
+    h+='<p class="olyok">✅ '+esc(LT('joined'))+(me.cls&&me.cls!=='—'?' · '+esc(LT('cls'))+' '+esc(me.cls):'')+'</p><h3 class="olysh">'+esc(LT('subjects'))+'</h3><div class="olygrid">'+
+      SUBJECTS.map(function(s){
+        var r=(me.res||{})[s.id],going=run&&run.subj===s.id,n=olyProbs(s.id).length;
+        var st=r?'<b>'+r.score+'/'+n+'</b> · '+esc(LT('time'))+' '+fmtMS(r.secs):(going?esc(LT('going')):esc(LT('todo')));
+        var bt=r?'':'<button type="button" class="btn" data-oly-start="'+s.id+'">'+esc(going?LT('cont'):LT('start'))+'</button>';
+        return '<div class="olycard'+(r?' done':'')+'" style="--c:'+col(s.c)+'"><h4>'+esc(tr(s.name))+'</h4><p>'+st+'</p>'+bt+'</div>';
+      }).join('')+'</div>';
+  }
+  return h+'<h3 class="olysh">'+esc(LT('board'))+'</h3><div id="olyboard">'+olyBoardHtml()+'</div>';
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('[data-oly-join],[data-oly-start],[data-oly-finish],[data-oly-back],[data-oboard],[data-lbtab]'):null;if(!t)return;
+  if(t.hasAttribute('data-oly-join')){var c=document.getElementById('oly-cls');olyJoin(c?c.value:'');return;}
+  if(t.hasAttribute('data-oly-start')){olyStart(t.getAttribute('data-oly-start'));return;}
+  if(t.hasAttribute('data-oly-finish')){if(window.confirm(LT('confirm')))olyFinish(false);return;}
+  if(t.hasAttribute('data-oly-back')){olyReview=null;render();window.scrollTo(0,0);return;}
+  if(t.hasAttribute('data-oboard')){LB.oSub=t.getAttribute('data-oboard');var b=document.getElementById('olyboard');if(b)b.innerHTML=olyBoardHtml();return;}
+  if(t.hasAttribute('data-lbtab')){LB.tab=t.getAttribute('data-lbtab');render();return;}
+});
+document.addEventListener('input',function(e){
+  var el=e.target;if(!el||!el.getAttribute)return;var id=el.getAttribute('data-oid');if(!id)return;
+  var r=olyRun();if(r){r.vals[id]=el.value;olyRunSet(r);}
+});
+setInterval(function(){if(view==='leaders'||view==='olymp')lbFetch()},30000);
 function render(){
   var v=view,h;
+  if(v!=='olymp')clearInterval(olyTimer);
+  if(v!=='books')readPdf='';
   if(v==='home')h=viewHome();
   else if(subj(v))h=viewSubject(v);
   else if(v==='books')h=viewBooks();
@@ -1383,6 +1742,8 @@ function render(){
   else if(v==='languages')h=viewLangs();
   else if(v==='calculator')h=viewCalc();
   else if(v==='users')h=viewUsers();
+  else if(v==='leaders')h=viewLeaders();
+  else if(v==='olymp')h=viewOlymp();
   else if(v==='quizzes')h=viewQuiz();
   else h=viewHome();
   $('#view').innerHTML=h;
@@ -1395,6 +1756,9 @@ function render(){
   if(v==='languages')renderLangList();
   if(v==='calculator'){renderHist();updateCalc();}
   if(v==='quizzes'){exReset();refreshExec();}
+  if(v==='books'&&readPdf)pdfMobileInit();
+  if(v==='leaders')lbFetch();
+  if(v==='olymp'){lbFetch();olyTick();}
 }
 function route(){
   var h=location.hash.slice(1);
@@ -1467,7 +1831,22 @@ function at(k){return (AUTH[lang]||AUTH.ru)[k]}
 function getUsers(){try{return JSON.parse(localStorage.getItem('infasub-users')||'{}')||{}}catch(e){return {}}}
 function putUsers(u){try{localStorage.setItem('infasub-users',JSON.stringify(u));return true}catch(e){return false}}
 function sessionLogin(){try{return localStorage.getItem('infasub-session')}catch(e){return null}}
-function setSession(l){try{if(l)localStorage.setItem('infasub-session',l);else localStorage.removeItem('infasub-session')}catch(e){}if(!l){tokSet('');srvReset();}}
+function solvedKey(){var l='';try{l=localStorage.getItem('infasub-session')||''}catch(e){}return 'infasub-solved:'+l}
+function loadSolved(){
+  var k=solvedKey(),v=null;
+  try{v=localStorage.getItem(k);if(v===null&&k!=='infasub-solved:'){var old=localStorage.getItem('infasub-solved');if(old){v=old;localStorage.setItem(k,old);}}}catch(e){}
+  try{solved=v?(JSON.parse(v)||{}):{};}catch(e){solved={};}
+  try{var vv=localStorage.getItem('infasub-vals:'+(localStorage.getItem('infasub-session')||''));vals=vv?(JSON.parse(vv)||{}):{};}catch(e){vals={};}
+}
+function solvedSave(){try{localStorage.setItem(solvedKey(),JSON.stringify(solved))}catch(e){}progPush();}
+function progPush(){var tk=tokGet();if(!AUTH_API||!tk||!sessionLogin())return;api('progress_save',{token:tk,solved:Object.keys(solved)}).catch(function(){})}
+function progMerge(list){
+  if(!Array.isArray(list))return;var add=0;
+  list.forEach(function(id){if(typeof id==='string'&&!solved[id]){solved[id]=1;add++}});
+  if(add){try{localStorage.setItem(solvedKey(),JSON.stringify(solved))}catch(e){}updateProgress();if(view==='problems')renderProblemList();}
+  if(Object.keys(solved).length>list.length&&!SRV.progPushed){SRV.progPushed=true;progPush();}
+}
+function setSession(l){try{if(l)localStorage.setItem('infasub-session',l);else localStorage.removeItem('infasub-session')}catch(e){}if(!l){tokSet('');srvReset();}loadSolved();if(typeof updateProgress==='function'){try{updateProgress()}catch(e){}}}
 var avUid=0,AVP={inf:215,alg:275,geo:180,phy:25,che:330,bio:130},AVN=['inf','alg','geo','phy','che','bio'];
 function avEyes(a,b,y,c){c=c||'#10162f';return '<circle cx="'+a+'" cy="'+y+'" r="3.2" fill="'+c+'"/><circle cx="'+b+'" cy="'+y+'" r="3.2" fill="'+c+'"/>'}
 function avMotif(sb,ac){
@@ -1653,7 +2032,7 @@ function COUNTRIES(){return COUNTRIES_[lang]||COUNTRIES_.ru}
 function finishLogin(email,name){
   var users=getUsers();if(!users[email])users[email]={name:name,created:Date.now()};else{users[email].name=name;if(!users[email].created)users[email].created=Date.now()}
   var _pc=pendCountry;pendCountry='';if(_pc&&!users[email].country)users[email].country=_pc;
-  putUsers(users);setSession(email);srvReset();if(_pc)srvPush();srvSync();regPending=null;closeOv();renderAuth();var uo=curUserObj();if(uo&&!uo.main){if(AUTH_API&&tokGet()){api('sync',{token:tokGet()}).then(function(r){if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();srvReconcile();}}).catch(function(){}).then(function(){var u2=curUserObj();if(u2&&!u2.main&&!document.getElementById('ov'))openAuth('setup')});}else setTimeout(function(){openAuth('setup')},250);}
+  putUsers(users);setSession(email);srvReset();if(_pc)srvPush();srvSync();regPending=null;closeOv();renderAuth();var uo=curUserObj();if(uo&&!uo.main){if(AUTH_API&&tokGet()){api('sync',{token:tokGet()}).then(function(r){if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();var _op=JSON.stringify(SRV.olymp),_fs=!SRV.synced;SRV.olymp=r.olymp||null;SRV.synced=true;streakMerge(r.days);progMerge(r.solved);srvReconcile();if(view==='olymp'&&(_fs||_op!==JSON.stringify(SRV.olymp)))render();}}).catch(function(){}).then(function(){var u2=curUserObj();if(u2&&!u2.main&&!document.getElementById('ov'))openAuth('setup')});}else setTimeout(function(){openAuth('setup')},250);}
 }
 function openAuth(mode){
   closeOv();lastFocus=document.activeElement;authMode=mode||'login';var u=curUserObj();
@@ -2569,13 +2948,13 @@ function presRefreshUsers(){
 }
 
 /* ===== shared data through the server (AUTH_API): users, profiles, messages, online status ===== */
-var SRV={me:'',users:null,msgs:null,at:0,busy:false,pushed:false,pub:null,pubAt:0};
+var SRV={me:'',users:null,msgs:null,at:0,busy:false,pushed:false,pub:null,pubAt:0,olymp:null,streakPushed:false,synced:false,progPushed:false};
 function srvList(){return srvOn()?SRV.users:SRV.pub}
 function pubFetch(){if(!AUTH_API)return;api('public_users',{}).then(function(r){if(r&&r.ok){SRV.pub=r.users;SRV.pubAt=Date.now();gateStrip();presRefreshUsers();}}).catch(function(){})}
 function tokGet(){try{return localStorage.getItem('infasub-tok')||''}catch(e){return ''}}
 function tokSet(t){try{if(t)localStorage.setItem('infasub-tok',t);else localStorage.removeItem('infasub-tok')}catch(e){}}
 function srvOn(){return !!AUTH_API&&!!SRV.users&&!!sessionLogin()&&!!tokGet()}
-function srvReset(){SRV.users=null;SRV.msgs=null;SRV.me='';SRV.pushed=false;SRV.busy=false}
+function srvReset(){SRV.users=null;SRV.msgs=null;SRV.me='';SRV.pushed=false;SRV.busy=false;SRV.olymp=null;SRV.streakPushed=false;SRV.synced=false;SRV.progPushed=false}
 function srvPush(){
   var tk=tokGet();if(!AUTH_API||!tk)return;var u=curUserObj();if(!u)return;
   api('profile_save',{token:tk,profile:{name:u.name,main:u.main,av:u.av||'',school:u.school,country:u.country,city:u.city,about:u.about}}).then(function(){SRV.busy=false;srvSync(true)}).catch(function(){});
@@ -2594,7 +2973,7 @@ function srvSync(force){
   SRV.busy=true;
   api('sync',{token:tk}).then(function(r){
     SRV.busy=false;
-    if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();srvReconcile();msBadge();presRefreshUsers();msRefreshInbox();if(msPanel.classList.contains('open')&&document.activeElement!==document.getElementById('ms-text'))msRender();}
+    if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();var _op=JSON.stringify(SRV.olymp),_fs=!SRV.synced;SRV.olymp=r.olymp||null;SRV.synced=true;streakMerge(r.days);progMerge(r.solved);srvReconcile();if(view==='olymp'&&(_fs||_op!==JSON.stringify(SRV.olymp)))render();olyFlush();msBadge();presRefreshUsers();msRefreshInbox();if(msPanel.classList.contains('open')&&document.activeElement!==document.getElementById('ms-text'))msRender();}
     else if(r&&r.error==='auth'){tokSet('');srvReset();msBadge();presRefreshUsers();}
   }).catch(function(){SRV.busy=false});
 }
@@ -2638,7 +3017,7 @@ function streakHit(){
   if(a.indexOf(t)>-1)return;
   a.push(t);o[k]=a.slice(-400);
   try{localStorage.setItem('infasub-streak',JSON.stringify(o))}catch(e){return}
-  var c=stCalc();streakDraw();toast(ST().toast.replace('{n}',c.cur+' '+stPlural(c.cur)));
+  streakPush();var c=stCalc();streakDraw();toast(ST().toast.replace('{n}',c.cur+' '+stPlural(c.cur)));
 }
 var stBtn=document.getElementById('streak'),stPop=document.createElement('div');
 stPop.className='stp';stPop.id='st-pop';stPop.setAttribute('role','dialog');document.body.appendChild(stPop);
