@@ -8,7 +8,7 @@
  *
  * UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN — (рекомендуется) постоянное хранилище, чтобы данные не пропадали при обновлении.
  *
- * ADMIN_EMAILS — Gmail-адреса администраторов через запятую (им открывается раздел «Админ»).
+ * ADMIN_EMAIL     — (необязательно) почта администратора, по умолчанию shamszodaruqiya@gmail.com.
  *
  * Дополнительно сервер хранит профили, сообщения между пользователями и статус «в сети».
  */
@@ -22,6 +22,8 @@ const SENDER_EMAIL = process.env.SENDER_EMAIL || '';
 const SENDER_NAME = process.env.SENDER_NAME || 'INFASUB';
 const SITE_URL = process.env.SITE_URL || '';
 const DB_FILE = process.env.DB_FILE || './data.json';
+const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || 'shamszodaruqiya@gmail.com').trim().toLowerCase();
+const isAdmin = (e) => e === ADMIN_EMAIL;
 
 const CODE_TTL = 10 * 60 * 1000;
 const LINK_TTL = 15 * 60 * 1000;
@@ -60,13 +62,12 @@ const REST_URL = (process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_
 const REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || '';
 const USE_REST = !!(REST_URL && REST_TOKEN);
 const PREFIX = process.env.DB_PREFIX || 'infasub:';
-const SHARDS = ['users', 'codes', 'magic', 'fails', 'ms', 'sess', 'msgs', 'streak', 'olymp', 'prog'];
-let db = { users: {}, codes: {}, magic: {}, fails: {}, ms: {}, sess: {}, msgs: [], streak: {}, olymp: {}, prog: {} };
+const SHARDS = ['users', 'codes', 'magic', 'fails', 'ms', 'sess', 'msgs', 'streak', 'olymp', 'prog', 'ep'];
+let db = { users: {}, codes: {}, magic: {}, fails: {}, ms: {}, sess: {}, msgs: [], streak: {}, olymp: {}, prog: {}, ep: {} };
 const seen = {}; /* email -> время последней активности (в памяти) */
 const SESS_TTL = 60 * 24 * 3600 * 1000;
 const lastSaved = {};
 let loaded = false, dirty = false, flushing = false, flushTimer = null;
-const ADMINS = new Set(String(process.env.ADMIN_EMAILS || '').toLowerCase().split(/[\s,;]+/).filter(Boolean));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function rest(path, body) {
@@ -221,6 +222,7 @@ function actMagic(token, email) {
 
 /* ---------- сессии, профили, сообщения, статус «в сети» ---------- */
 const uid = (email) => crypto.createHash('sha256').update('infasub:' + email).digest('hex').slice(0, 12);
+const maskEmail = (e) => { const [a, d] = e.split('@'); return a.slice(0, 2) + '***@' + d; };
 const MAINS = ['inf', 'alg', 'geo', 'phy', 'che', 'bio'];
 function newToken(email) {
   const t = crypto.randomBytes(24).toString('hex');
@@ -250,16 +252,17 @@ function actSync(d) {
   const now = Date.now();
   seen[me] = now;
   const ids = idMap(), myId = uid(me);
+  const adminView = isAdmin(me);
   const users = Object.keys(db.users).map((e) => {
     const u = db.users[e], p = u.p || {};
     return {
-      id: uid(e), name: u.name, main: p.main || '', av: p.av || '', school: p.school || '',
-      country: p.country || '', city: p.city || '', about: p.about || '', created: u.created || 0,
+      id: uid(e), name: u.name, em: adminView ? e : maskEmail(e), main: p.main || '', av: p.av || '', school: p.school || '',
+      country: p.country || '', city: p.city || '', about: p.about || '', created: u.created || 0, adm: isAdmin(e), aed: u.aed || 0,
       ago: seen[e] ? Math.round((now - seen[e]) / 1000) : null
     };
   });
   const msgs = db.msgs.filter((m) => m.to === myId || m.from === myId).slice(-300).map((m) => outMsg(m, ids));
-  return { ok: true, me: myId, users, msgs, now, days: db.streak[me] || [], olymp: db.olymp[me] || null, solved: db.prog[me] || [], admin: ADMINS.has(me) };
+  return { ok: true, me: myId, admin: adminView, ep: db.ep[me] || 0, users, msgs, now, days: db.streak[me] || [], olymp: db.olymp[me] || null, solved: db.prog[me] || [] };
 }
 
 
@@ -284,6 +287,7 @@ const OL_SUBJ = ['inf', 'alg', 'geo', 'phy', 'che', 'bio'];
 function actStreakSave(d) {
   const me = authTok(d);
   if (!me) return { ok: false, error: 'auth' };
+  if ((Number(d.ep) || 0) < (db.ep[me] || 0)) return { ok: false, error: 'stale' }; /* данные устарели: администратор сбросил прогресс */
   const today = Math.floor(Date.now() / 86400000);
   const minDay = Math.floor((db.users[me].created || Date.now()) / 86400000) - 1; /* нельзя «нарисовать» дни до регистрации */
   const incoming = (Array.isArray(d.days) ? d.days : []).filter((k) => typeof k === 'string' && DAY_RE.test(k) && dayNum(k) >= minDay && dayNum(k) <= today + 1);
@@ -296,6 +300,7 @@ function actStreakSave(d) {
 function actProgressSave(d) {
   const me = authTok(d);
   if (!me) return { ok: false, error: 'auth' };
+  if ((Number(d.ep) || 0) < (db.ep[me] || 0)) return { ok: false, error: 'stale' };
   const ids = (Array.isArray(d.solved) ? d.solved : []).filter((x) => typeof x === 'string' && /^[a-z]\d{1,3}$/.test(x));
   const set = new Set([...(db.prog[me] || []), ...ids]);
   db.prog[me] = [...set].slice(0, 400);
@@ -342,87 +347,13 @@ function actLeaderboard() {
   return { ok: true, streak, olymp, now: Date.now() };
 }
 
-/* ---------- администратор (ADMIN_EMAILS) ---------- */
-function adminTok(d) {
-  const me = authTok(d);
-  return me && ADMINS.has(me) ? me : null;
-}
-function cleanProfile(p, old) {
-  const cut = (v, n) => String(v || '').trim().slice(0, n);
-  return {
-    main: MAINS.includes(p.main) ? p.main : '',
-    av: /^[a-z]+:\d$/.test(String(p.av || old.av || '')) ? String(p.av || old.av || '') : '',
-    school: cut(p.school, 60), country: cut(p.country, 40), city: cut(p.city, 40), about: cut(p.about, 200)
-  };
-}
-function actAdminUsers(d) {
-  const me = adminTok(d);
-  if (!me) return { ok: false, error: 'admin' };
-  const now = Date.now();
-  const users = Object.keys(db.users).map((e) => {
-    const u = db.users[e], p = u.p || {}, o = db.olymp[e];
-    let pts = 0, cnt = 0;
-    if (o) Object.keys(o.res || {}).forEach((k) => { pts += o.res[k].score; cnt++; });
-    const st = streakStats(db.streak[e] || []);
-    return {
-      id: uid(e), email: e, name: u.name, adm: ADMINS.has(e), av: p.av || '', main: p.main || '', school: p.school || '',
-      country: p.country || '', city: p.city || '', about: p.about || '', created: u.created || 0,
-      ago: seen[e] ? Math.round((now - seen[e]) / 1000) : null,
-      olymp: o ? { joined: true, pts, cnt, cls: o.cls || '' } : null, streak: st.cur, days: st.total, solved: (db.prog[e] || []).length
-    };
-  });
-  return { ok: true, users, now };
-}
-function adminTarget(d) {
-  const ids = idMap(), e = ids[String(d.target || '')];
-  return e && db.users[e] ? e : null;
-}
-function actAdminUpdate(d) {
-  const me = adminTok(d);
-  if (!me) return { ok: false, error: 'admin' };
-  const e = adminTarget(d);
-  if (!e) return { ok: false, error: 'invalid' };
-  const p = d.profile || {}, u = db.users[e];
-  const nm = String(p.name || '').trim().slice(0, 60);
-  if (nm.length >= 2) u.name = nm;
-  u.p = cleanProfile(p, u.p || {});
-  save();
-  return { ok: true };
-}
-function actAdminDelete(d) {
-  const me = adminTok(d);
-  if (!me) return { ok: false, error: 'admin' };
-  const e = adminTarget(d);
-  if (!e) return { ok: false, error: 'invalid' };
-  if (e === me) return { ok: false, error: 'self' };
-  const id = uid(e);
-  delete db.users[e]; delete db.streak[e]; delete db.olymp[e]; delete db.prog[e]; delete seen[e];
-  for (const k in db.sess) if (db.sess[k].email === e) delete db.sess[k];
-  db.msgs = db.msgs.filter((m) => m.from !== id && m.to !== id);
-  save();
-  return { ok: true };
-}
-function actAdminReset(d) {
-  const me = adminTok(d);
-  if (!me) return { ok: false, error: 'admin' };
-  const e = adminTarget(d);
-  if (!e) return { ok: false, error: 'invalid' };
-  const kind = String(d.kind || '');
-  if (kind === 'olymp') delete db.olymp[e];
-  else if (kind === 'streak') delete db.streak[e];
-  else if (kind === 'progress') delete db.prog[e];
-  else return { ok: false, error: 'invalid' };
-  save();
-  return { ok: true };
-}
-
 function actPublicUsers() {
   const now = Date.now();
   const users = Object.keys(db.users).map((e) => {
     const u = db.users[e], p = u.p || {};
     return {
-      id: uid(e), name: u.name, main: p.main || '', av: p.av || '', school: p.school || '',
-      country: p.country || '', city: p.city || '', created: u.created || 0,
+      id: uid(e), name: u.name, em: maskEmail(e), main: p.main || '', av: p.av || '', school: p.school || '',
+      country: p.country || '', city: p.city || '', created: u.created || 0, adm: isAdmin(e),
       ago: seen[e] ? Math.round((now - seen[e]) / 1000) : null
     };
   });
@@ -469,6 +400,52 @@ function actMsgRead(d) {
   return { ok: true };
 }
 
+
+/* ---------- администратор ---------- */
+function adminOf(d) { const me = authTok(d); return me && isAdmin(me) ? me : null; }
+function targetOf(d) { const e = idMap()[String(d.id || '')]; return e && db.users[e] ? e : null; }
+
+function actAdminEdit(d) {
+  if (!adminOf(d)) return { ok: false, error: 'forbidden' };
+  const e = targetOf(d);
+  if (!e) return { ok: false, error: 'no_user' };
+  const p = d.profile || {}, cut = (v, n) => String(v || '').trim().slice(0, n);
+  const u = db.users[e], old = u.p || {};
+  const nm = cut(p.name, 60);
+  if (nm.length >= 2) u.name = nm;
+  u.p = { main: MAINS.includes(p.main) ? p.main : '', av: old.av || '', school: cut(p.school, 60), country: cut(p.country, 40), city: cut(p.city, 40), about: cut(p.about, 200) };
+  u.aed = Date.now(); /* метка: клиент участника подхватит правку администратора */
+  save();
+  return { ok: true };
+}
+
+function actAdminDelete(d) {
+  if (!adminOf(d)) return { ok: false, error: 'forbidden' };
+  const e = targetOf(d);
+  if (!e || isAdmin(e)) return { ok: false, error: 'forbidden' };
+  const id = uid(e);
+  delete db.users[e]; delete db.streak[e]; delete db.olymp[e]; delete db.prog[e]; delete db.ep[e]; delete db.fails[e]; delete db.ms[e]; delete seen[e];
+  for (const k in db.sess) if (db.sess[k].email === e) delete db.sess[k];
+  db.msgs = db.msgs.filter((m) => m.from !== id && m.to !== id);
+  save();
+  return { ok: true };
+}
+
+function actAdminReset(d) {
+  if (!adminOf(d)) return { ok: false, error: 'forbidden' };
+  const e = targetOf(d);
+  if (!e) return { ok: false, error: 'no_user' };
+  const what = String(d.what || '');
+  if (what === 'olymp') {
+    const o = db.olymp[e], sub = String(d.subj || 'all');
+    if (o && o.res) { if (sub === 'all') o.res = {}; else if (OL_SUBJ.includes(sub)) delete o.res[sub]; }
+  } else if (what === 'streak') { delete db.streak[e]; db.ep[e] = (db.ep[e] || 0) + 1; }
+  else if (what === 'prog') { delete db.prog[e]; db.ep[e] = (db.ep[e] || 0) + 1; }
+  else return { ok: false, error: 'invalid' };
+  save();
+  return { ok: true };
+}
+
 /* ---------- HTTP ---------- */
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -505,16 +482,15 @@ const server = http.createServer((req, res) => {
         case 'public_users': out = actPublicUsers(); break;
         case 'streak_save': out = actStreakSave(d); break;
         case 'progress_save': out = actProgressSave(d); break;
-        case 'admin_users': out = actAdminUsers(d); break;
-        case 'admin_update': out = actAdminUpdate(d); break;
-        case 'admin_delete': out = actAdminDelete(d); break;
-        case 'admin_reset': out = actAdminReset(d); break;
         case 'leaderboard': out = actLeaderboard(); break;
         case 'olymp_join': out = actOlympJoin(d); break;
         case 'olymp_submit': out = actOlympSubmit(d); break;
         case 'profile_save': out = actProfile(d); break;
         case 'msg_send':   out = actMsgSend(d); break;
         case 'msg_read':   out = actMsgRead(d); break;
+        case 'admin_edit': out = actAdminEdit(d); break;
+        case 'admin_delete': out = actAdminDelete(d); break;
+        case 'admin_reset': out = actAdminReset(d); break;
         default:           out = { ok: false, error: 'invalid' };
       }
     } catch (e) { console.error(e); out = { ok: false, error: 'net' }; }

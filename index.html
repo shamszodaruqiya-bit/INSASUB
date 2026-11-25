@@ -144,13 +144,13 @@ body.gated>*:not(.ov):not(#gstrip):not(#ghint):not(script):not(style):not(.toast
 .pfs{margin:0 0 10px;color:var(--muted)}.pfs b{color:#FF7A00}
 .pfd{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0 0 12px}.pfd dt{color:var(--muted);font-size:.85rem}.pfd dd{margin:0;font-weight:600}
 
-.asave{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:99px;background:var(--surface);color:var(--muted);border:1px solid var(--line);font-size:.72rem;font-weight:700;line-height:1.4;cursor:default;font-variant-numeric:tabular-nums}
-.asave .asi{font-size:.9rem;line-height:1;color:var(--accent)}
+.asave{position:fixed;left:16px;bottom:44px;z-index:35;display:flex;align-items:center;gap:8px;max-width:calc(100vw - 32px);padding:7px 14px;border-radius:99px;background:var(--surface);color:var(--muted);border:1px solid var(--line);font-size:.78rem;font-weight:600;box-shadow:0 8px 22px -12px rgba(0,0,0,.45);pointer-events:none}
+.asave .asi{font-size:1rem;line-height:1;color:var(--accent)}
 .asave.ok .asi{color:#16A34A}.asave.err{color:#B45309;border-color:#F59E0B}.asave.err .asi{color:#F59E0B}
 .asave.saving .asi{display:inline-block;animation:asspin 1s linear infinite}
 @keyframes asspin{to{transform:rotate(360deg)}}
 body.gated .asave{display:none!important}
-@media(max-width:560px){.asave{padding:2px 6px;font-size:.66rem}}
+@media(max-width:560px){.asave{left:8px;bottom:40px;font-size:.72rem;padding:6px 10px}}
 @media(prefers-reduced-motion:reduce){.asave.saving .asi{animation:none}}
 
 .pdfbar{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
@@ -163,24 +163,6 @@ body.gated .asave{display:none!important}
 .pdfc input{width:64px;padding:6px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit;text-align:center}
 .pdfcv{overflow:auto;-webkit-overflow-scrolling:touch}.pdfcv canvas{display:block;margin:0 auto;max-width:none;border:1px solid var(--line)}
 .pdfbook{border-left:4px solid #E5233D}
-
-.adt td{font-size:.88rem}.adem{font-family:var(--font-mono);font-size:.78rem!important;overflow-wrap:anywhere}.adst{white-space:nowrap}
-.ada{white-space:nowrap}.abtn{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;width:32px;height:32px;margin-right:4px;cursor:pointer;font-size:.95rem}
-.abtn:hover{background:var(--soft,rgba(128,128,128,.14))}.abtn.danger:hover{background:#FEE2E2;border-color:#E5233D}
-.adl{display:block;margin:0 0 10px;color:var(--muted);font-size:.85rem}.adl .fld{display:block;width:100%;margin-top:4px}
-.adt{min-width:860px}
-
-.pfull{position:fixed;inset:0;z-index:63;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch}
-.pvin{max-width:760px;margin:0 auto;padding:0 18px 48px;border-top:5px solid var(--c,var(--accent));min-height:100%}
-.pftop{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 0;background:var(--bg);border-bottom:1px solid var(--line);margin-bottom:12px}
-.pfhero{margin:10px 0 12px}.pfhero .uav .avm{width:84px;height:84px}
-.pfchips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}.pfchip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:4px 12px;font-size:.85rem}.pfchip b{color:#FF7A00}
-.pfchat{margin-top:18px;border-top:1px solid var(--line);padding-top:12px}.pfchat h4{margin:0 0 8px;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c,var(--accent))}
-.pfthread{display:flex;flex-direction:column;gap:8px;max-height:42vh;overflow-y:auto;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:12px}
-.pfm{max-width:82%;padding:8px 12px;border-radius:14px;line-height:1.5;overflow-wrap:anywhere}.pfm p{margin:0;white-space:pre-wrap}.pfm small{display:block;opacity:.65;font-size:.7rem;margin-top:3px}
-.pfm.mine{align-self:flex-end;background:var(--accent);color:var(--on-accent,#fff);border-bottom-right-radius:4px}.pfm.their{align-self:flex-start;background:var(--soft,rgba(128,128,128,.16));border-bottom-left-radius:4px}
-.pfempty{color:var(--muted);margin:4px 0}
-#pf-form .fld{display:block;width:100%;margin-bottom:8px}
 </style><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%20%3E%3Cdefs%3E%3CradialGradient%20id=%22fg%22%20cx=%22.38%22%20cy=%22.3%22%20r=%22.85%22%3E%3Cstop%20offset=%220%22%20stop-color=%22%23C6FF6A%22/%3E%3Cstop%20offset=%22.45%22%20stop-color=%22%233FBF2F%22/%3E%3Cstop%20offset=%221%22%20stop-color=%22%231B7A2A%22/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx=%2232%22%20cy=%2232%22%20r=%2229%22%20fill=%22url%28%23fg%29%22%20stroke=%22%232F8F2A%22%20stroke-width=%222%22/%3E%3Cpath%20d=%22M32%2015v34M15%2032h34%22%20stroke=%22%23fff%22%20stroke-width=%2210%22%20stroke-linecap=%22round%22/%3E%3Cellipse%20cx=%2225%22%20cy=%2217%22%20rx=%2213%22%20ry=%226%22%20fill=%22%23fff%22%20opacity=%22.28%22%20transform=%22rotate%28-25%2025%2017%29%22/%3E%3C/svg%3E"><meta name="theme-color" content="#3FBF2F"></head><body>
 <title>INFASUB</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -666,6 +648,20 @@ button,a,.chip,.pbtn{-webkit-tap-highlight-color:transparent;touch-action:manipu
   .toast{bottom:calc(70px + env(safe-area-inset-bottom,0px))}
 }
 @media (max-width:360px){.aiu,.aia{max-width:96%}.avgrid{gap:6px}}
+.asave{position:static;display:inline-flex;align-items:center;gap:4px;padding:5px 9px;border-radius:99px;background:var(--surface);color:var(--muted);border:1px solid var(--line);font-size:.74rem;font-weight:700;box-shadow:none;pointer-events:auto;cursor:default;flex:none;line-height:1}
+.asave .asi{font-size:.9rem}
+.asave .ast{font-family:var(--font-mono)}
+@media(max-width:700px){.asave .ast{display:none}.asave{padding:5px 8px}}
+.ubadge{display:inline-block;font-family:var(--font-mono);font-size:.68rem;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);vertical-align:middle}
+.ubadge.adm{background:var(--accent);color:var(--on-accent,#fff);border-color:var(--accent)}
+.admb{margin:14px 0 0;padding:12px 14px;border:1px dashed var(--accent);border-radius:12px;display:grid;gap:8px;background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.admb h4{margin:0;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.admb label{display:grid;gap:3px;font-size:.8rem;color:var(--muted)}
+.admb .fld{width:100%;font-size:.9rem}
+.adme{margin:0;font-size:.85rem;overflow-wrap:anywhere}
+.admr{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.admr .fld{width:auto;flex:1;min-width:120px}
+.admdel{color:var(--bad,#E5233D)!important;border-color:var(--bad,#E5233D)!important}
 </style>
 
 <header class="top">
@@ -696,7 +692,7 @@ button,a,.chip,.pbtn{-webkit-tap-highlight-color:transparent;touch-action:manipu
 (function(){
 var LANGS=['ru','tg','en'];
 var UI={
-ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_note2:'Список общий: здесь все, кто зарегистрировался на сайте, с любых устройств.',t_olymp:'Олимпиада',t_leaders:'Лидеры',t_admin:'Админ',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
+ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инструменты',t_books:'Электронные книги',t_tasks:'Задачи и тесты',t_langs:'5 языков программирования',t_calc:'Калькулятор',t_exec:'Исполнитель',t_quiz:'Викторины',quiz_s:'Игры и викторины: составьте программу для робота, чтобы он дошёл до цели.',t_users:'Пользователи',users_t:'Зарегистрированные пользователи',users_total:'Всего зарегистрировано',users_none:'Пока никто не зарегистрировался.',users_main:'Основной предмет',users_since:'Дата регистрации',users_you:'Это вы',users_note:'Список хранится в этом браузере: здесь видны аккаунты, созданные на этом устройстве.',users_search:'Поиск по имени или почте',users_note2:'Список общий: здесь все, кто зарегистрировался на сайте, с любых устройств.',t_olymp:'Олимпиада',t_leaders:'Лидеры',users_nf:'Ничего не найдено.',t_about:'Сведения о программе',
  lead:'Справочник по школьным предметам на трёх языках: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.',
  cta1:'Решать задачи',cta2:'Языки программирования',
  term1:'предметов: 6',term2:'языков интерфейса: 3 (ru · tg · en)',term3:'языков программирования: 5',term_ready:'Выберите модуль ниже',
@@ -713,7 +709,7 @@ ru:{t_home:'Главная',g_subjects:'Предметы',g_tools:'Инстру�
  ex_ok:'Цель достигнута! Команд: {n}.',ex_wall:'Робот упёрся в стену.',ex_miss:'Цель не достигнута. Измените программу.',ex_empty:'Добавьте команды.',
  about_t:'Сведения о программе',auth_t:'Авторы (исполнители)',goal_t:'Наша цель',goal:'Развитие цифрового образования, повышение интереса молодёжи к информационным технологиям и точным наукам, а также создание доступных возможностей для самостоятельного обучения и подготовки к олимпиадам.',auth_l:'Проект INFASUB создали два автора:',authors:[{n:'Шамсзода Рукия Муким',r:'Автор · 11 класс',d:'Призёр многих олимпиад по информатике.'},{n:'Шамсзода Муким Нарзулло',r:'Второй автор · преподаватель информатики',d:'Преподаватель информатики с 15-летним педагогическим стажем. За годы профессиональной деятельности подготовил множество учеников, добившихся высоких результатов на предметных олимпиадах и ставших их призёрами.'}],
  about:['INFASUB (Information about subjects) — справочник по школьным предметам.','Предметы: информатика, алгебра, геометрия, физика, химия, биология.','Языки интерфейса: русский, таджикский, английский.','Внутри: темы и формулы, электронные книги, задачи с проверкой, калькулятор и пять языков программирования.']},
-tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_note2:'Рӯйхат умумӣ аст: ин ҷо ҳамаи касоне, ки дар сайт сабти ном кардаанд, аз ҳама дастгоҳҳо.',t_olymp:'Олимпиада',t_leaders:'Пешсафон',t_admin:'Админ',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
+tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books:'Китобҳои электронӣ',t_tasks:'Масъалаҳо ва тестҳо',t_langs:'5 забони барномасозӣ',t_calc:'Калкулятор',t_exec:'Тартибдиҳанда',t_quiz:'Викторинаҳо',quiz_s:'Бозиҳо ва викторинаҳо: барои робот барнома тартиб диҳед, то ӯ ба ҳадаф расад.',t_users:'Корбарон',users_t:'Корбарони сабтшуда',users_total:'Ҳамагӣ сабт шудаанд',users_none:'Ҳоло касе сабти ном накардааст.',users_main:'Фанни асосӣ',users_since:'Санаи сабти ном',users_you:'Ин шумо',users_note:'Рӯйхат дар ҳамин браузер нигоҳ дошта мешавад: ин ҷо аккаунтҳои дар ин дастгоҳ сохташуда намоён аст.',users_search:'Ҷустуҷӯ аз рӯи ном ё почта',users_note2:'Рӯйхат умумӣ аст: ин ҷо ҳамаи касоне, ки дар сайт сабти ном кардаанд, аз ҳама дастгоҳҳо.',t_olymp:'Олимпиада',t_leaders:'Пешсафон',users_nf:'Чизе ёфт нашуд.',t_about:'Маълумот дар бораи барнома',
  lead:'Маълумотнома оид ба фанҳои мактабӣ ба се забон: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.',
  cta1:'Масъалаҳо ҳал кунед',cta2:'Забонҳои барномасозӣ',
  term1:'фанҳо: 6',term2:'забонҳои интерфейс: 3 (ru · tg · en)',term3:'забонҳои барномасозӣ: 5',term_ready:'Дар поён модулро интихоб кунед',
@@ -730,7 +726,7 @@ tg:{t_home:'Асосӣ',g_subjects:'Фанҳо',g_tools:'Абзорҳо',t_books
  ex_ok:'Ҳадаф ба даст омад! Фармонҳо: {n}.',ex_wall:'Робот ба девор бархурд.',ex_miss:'Ба ҳадаф нарасид. Барномаро тағйир диҳед.',ex_empty:'Фармонҳо илова кунед.',
  about_t:'Маълумот дар бораи барнома',auth_t:'Муаллифон (иҷрокунандагон)',goal_t:'Мақсади мо',goal:'Рушди таълими рақамӣ, баланд бардоштани таваҷҷӯҳи ҷавонон ба технологияҳои иттилоотӣ ва илмҳои дақиқ, инчунин фароҳам овардани имкониятҳои дастрас барои худомӯзӣ ва омодагӣ ба олимпиадаҳо.',auth_l:'Лоиҳаи INFASUB-ро ду муаллиф таҳия кардаанд:',authors:[{n:'Шамсзода Руқия Муқим',r:'Муаллиф · синфи 11',d:'Ғолиби ҷоизадори бисёр олимпиадаҳои информатика.'},{n:'Шамсзода Муқим Нарзулло',r:'Муаллифи дуюм · омӯзгори информатика',d:'Омӯзгори информатика бо 15 соли собиқаи педагогӣ. Дар тӯли фаъолияти касбӣ шумораи зиёди хонандагонро омода кардааст, ки дар олимпиадаҳои фаннӣ ба натиҷаҳои баланд расида, ғолибони ҷоизадор шудаанд.'}],
  about:['INFASUB (Information about subjects) — маълумотнома оид ба фанҳои мактабӣ.','Фанҳо: информатика, алгебра, геометрия, физика, химия, биология.','Забонҳои интерфейс: русӣ, тоҷикӣ, англисӣ.','Дарун: мавзӯъҳо ва формулаҳо, китобҳои электронӣ, масъалаҳо бо санҷиш, калкулятор ва панҷ забони барномасозӣ.']},
-en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_note2:'The list is shared: everyone who registered on the site, from any device.',t_olymp:'Olympiad',t_leaders:'Leaders',t_admin:'Admin',users_nf:'Nothing found.',t_about:'Information about the program',
+en:{t_home:'Home',g_subjects:'Subjects',g_tools:'Tools',t_books:'E-books',t_tasks:'Problems and tests',t_langs:'5 programming languages',t_calc:'Calculator',t_exec:'Executor',t_quiz:'Quizzes',quiz_s:'Games and quizzes: write a program so the robot reaches the target.',t_users:'Users',users_t:'Registered users',users_total:'Total registered',users_none:'Nobody has registered yet.',users_main:'Main subject',users_since:'Registered',users_you:'You',users_note:'The list is stored in this browser: it shows accounts created on this device.',users_search:'Search by name or email',users_note2:'The list is shared: everyone who registered on the site, from any device.',t_olymp:'Olympiad',t_leaders:'Leaders',users_nf:'Nothing found.',t_about:'Information about the program',
  lead:'A reference for school subjects in three languages: topics and formulas, e-books, problems with answer checking, a calculator and five programming languages.',
  cta1:'Solve problems',cta2:'Programming languages',
  term1:'subjects: 6',term2:'interface languages: 3 (ru · tg · en)',term3:'programming languages: 5',term_ready:'Choose a module below',
@@ -787,8 +783,7 @@ var TOOLS=[
 {id:'quizzes',code:'QUIZ',c:'pink',key:'t_quiz',snip:'play(); score++;',file:'quizzes.js'},
 {id:'olymp',code:'OLY',c:'yellow',key:'t_olymp',snip:'olympiad.join()',file:'olympiad.js'},
 {id:'leaders',code:'TOP',c:'orange',key:'t_leaders',snip:'streak.top()',file:'leaders.json'},
-{id:'users',code:'USERS',c:'cyan',key:'t_users',snip:'users.length',file:'users.json'},
-{id:'admin',code:'ADM',c:'red',key:'t_admin',snip:'admin.panel()',file:'admin.json',admin:true}
+{id:'users',code:'USERS',c:'cyan',key:'t_users',snip:'users.length',file:'users.json'}
 ];
 var VIEWS=['home'].concat(SUBJECTS.map(function(s){return s.id}),TOOLS.map(function(t){return t.id}));
 
@@ -1044,7 +1039,7 @@ function renderChrome(){
   nav+='<div class="ng">'+esc(ui('g_subjects'))+'</div>';
   SUBJECTS.forEach(function(s){nav+='<a class="nv" href="#'+s.id+'" style="--c:'+col(s.c)+'" '+(view===s.id?'aria-current="page"':'')+'><i></i>'+esc(tr(s.name))+'</a>';});
   nav+='<div class="ng">'+esc(ui('g_tools'))+'</div>';
-  TOOLS.forEach(function(t){if(t.admin&&!isAdmin())return;nav+='<a class="nv" href="#'+t.id+'" style="--c:'+col(t.c)+'" '+(view===t.id?'aria-current="page"':'')+'><i></i>'+esc(ui(t.key))+'</a>';});
+  TOOLS.forEach(function(t){nav+='<a class="nv" href="#'+t.id+'" style="--c:'+col(t.c)+'" '+(view===t.id?'aria-current="page"':'')+'><i></i>'+esc(ui(t.key))+'</a>';});
   $('#nav').innerHTML=nav;
   renderStatus();
 }
@@ -1061,7 +1056,7 @@ function viewHome(){
   var tiles=SUBJECTS.map(function(s){
     return '<a class="tile" href="#'+s.id+'" style="--c:'+col(s.c)+'"><div class="tile-top"><span class="code">'+s.code+'</span><b>→</b></div><h3>'+esc(tr(s.name))+'</h3><div class="snip">'+esc(s.snip)+'</div></a>';
   }).join('');
-  var tt=TOOLS.filter(function(t){return !t.admin||isAdmin()}).map(function(t){
+  var tt=TOOLS.map(function(t){
     return '<a class="tile" href="#'+t.id+'" style="--c:'+col(t.c)+'"><div class="tile-top"><span class="code">'+t.code+'</span><b>→</b></div><h3>'+esc(ui(t.key))+'</h3><div class="snip">'+esc(t.snip)+'</div></a>';
   }).join('');
   return '<div class="hero"><div><div class="cm">Information about subjects</div><h1 class="wm"><span class="a">INFA</span><span class="b">SUB</span><span class="c2">()</span></h1>'+
@@ -1147,7 +1142,7 @@ function openTopic(id,i){
 document.addEventListener('click',function(e){
   var t=e.target&&e.target.closest?e.target.closest('[data-topic],[data-tpclose],#tpv'):null;if(!t)return;
   if(t.hasAttribute('data-topic')){var p=t.getAttribute('data-topic').split(':');openTopic(p[0],+p[1]);return;}
-  if(t.hasAttribute('data-tpclose')||(t.id==='tpv'&&e.target===t&&!t.classList.contains('pfull'))){closeTopic();}
+  if(t.hasAttribute('data-tpclose')||(t.id==='tpv'&&e.target===t)){closeTopic();}
 });
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape')closeTopic();
@@ -1194,12 +1189,12 @@ en:{back:'← Back to books',chs:'Chapters',prev:'← Previous',next:'Next →',
 function bk(k){return (BK[lang]||BK.ru)[k]}
 
 /* ===== PDF books (open inside the site, Tajik section) ===== */
-var PDF_BOOKS=[{id:'abramyan',file:'books/abramyan.pdf',author:'Абрамян',pages:216,langs:['tg'],
+var PDF_BOOKS=[{id:'abramyan',js:'abramyan.js',file:'books/abramyan.pdf',author:'Абрамян',pages:216,langs:['tg'],
   t:{ru:'Задачник по программированию (C++, Python)',tg:'Маҷмӯаи масъалаҳо оид ба барномасозӣ (C++, Python)',en:'Programming problem book (C++, Python)'},
   d:{ru:'Задачи с примерами и ответами на C++ и Python.',tg:'Масъалаҳо бо мисолҳо ва ҷавобҳо дар C++ ва Python.',en:'Problems with examples and answers in C++ and Python.'}}];
-var PBT={ru:{read:'Читать',back:'← К книгам',newtab:'Открыть в новой вкладке',dl:'Скачать PDF',pg:'стр.',by:'Автор',prev:'← Назад',next:'Далее →',load:'Загрузка книги…',fail:'Не удалось открыть книгу здесь. Откройте её в новой вкладке.',hint:'Книга открыта прямо на сайте. Если окно пустое, нажмите «Открыть в новой вкладке».'},
-tg:{read:'Хондан',back:'← Ба китобҳо',newtab:'Дар ҳамлаи нав кушодан',dl:'Зеркашии PDF',pg:'сах.',by:'Муаллиф',prev:'← Қафо',next:'Пеш →',load:'Китоб бор мешавад…',fail:'Китобро дар ин ҷо кушодан муяссар нашуд. Онро дар ҳамлаи нав кушоед.',hint:'Китоб бевосита дар сайт кушода шудааст. Агар равзана холӣ бошад, «Дар ҳамлаи нав кушодан»-ро пахш кунед.'},
-en:{read:'Read',back:'← Back to books',newtab:'Open in a new tab',dl:'Download PDF',pg:'p.',by:'Author',prev:'← Prev',next:'Next →',load:'Loading book…',fail:'Could not open the book here. Open it in a new tab.',hint:'The book opens right on the site. If the frame is empty, press “Open in a new tab”.'}};
+var PBT={ru:{read:'Читать',back:'← К книгам',newtab:'Открыть в новой вкладке',dl:'Скачать PDF',pg:'стр.',by:'Автор',prev:'← Назад',next:'Далее →',load:'Загрузка книги… (около 15 МБ, подождите)',fail:'Не удалось открыть книгу здесь. Откройте её в новой вкладке.',hint:'Книга открыта прямо на сайте. Если окно пустое, нажмите «Открыть в новой вкладке».'},
+tg:{read:'Хондан',back:'← Ба китобҳо',newtab:'Дар ҳамлаи нав кушодан',dl:'Зеркашии PDF',pg:'сах.',by:'Муаллиф',prev:'← Қафо',next:'Пеш →',load:'Китоб бор мешавад… (тақрибан 15 МБ, интизор шавед)',fail:'Китобро дар ин ҷо кушодан муяссар нашуд. Онро дар ҳамлаи нав кушоед.',hint:'Китоб бевосита дар сайт кушода шудааст. Агар равзана холӣ бошад, «Дар ҳамлаи нав кушодан»-ро пахш кунед.'},
+en:{read:'Read',back:'← Back to books',newtab:'Open in a new tab',dl:'Download PDF',pg:'p.',by:'Author',prev:'← Prev',next:'Next →',load:'Loading book… (about 15 MB, please wait)',fail:'Could not open the book here. Open it in a new tab.',hint:'The book opens right on the site. If the frame is empty, press “Open in a new tab”.'}};
 PBT.tg.newtab='Дар ҷадвали нав кушодан';PBT.tg.hint='Китоб бевосита дар сайт кушода шудааст. Агар равзана холӣ бошад, «Дар ҷадвали нав кушодан»-ро пахш кунед.';PBT.tg.fail='Китобро дар ин ҷо кушодан муяссар нашуд. Онро дар ҷадвали нав кушоед.';
 function PB(){return PBT[lang]||PBT.ru}
 var readPdf='';
@@ -1210,12 +1205,39 @@ function pdfCards(){
   }).join('');
 }
 function isMobileUA(){return /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent||'')}
+var PDF_BLOBS={};
+/* the book lives in abramyan.js (base64 inside JavaScript); it is fetched once, only when somebody opens the book */
+function pdfLoad(b,cb){
+  if(PDF_BLOBS[b.id])return cb(PDF_BLOBS[b.id]);
+  function make(){
+    var d=window.INFASUB_PDF&&window.INFASUB_PDF[b.id];if(!d)return false;
+    try{var bin=atob(d),n=bin.length,u=new Uint8Array(n),i;for(i=0;i<n;i++)u[i]=bin.charCodeAt(i);
+      PDF_BLOBS[b.id]={url:URL.createObjectURL(new Blob([u],{type:'application/pdf'}))};
+      delete window.INFASUB_PDF[b.id];return true;}catch(e){return false}
+  }
+  if(make())return cb(PDF_BLOBS[b.id]);
+  if(!b.js)return cb(null);
+  var s=document.createElement('script');s.src=b.js;s.async=true;
+  s.onload=function(){cb(make()?PDF_BLOBS[b.id]:null)};s.onerror=function(){cb(null)};
+  document.head.appendChild(s);
+}
 function pdfReaderHtml(b){
   var T=PB(),url=encodeURI(b.file);
-  var head2='<p class="pdfbar"><button type="button" class="rdbtn" data-pdf-back>'+esc(T.back)+'</button> <a class="rdbtn" href="'+url+'" target="_blank" rel="noopener">'+esc(T.newtab)+'</a> <a class="rdbtn" href="'+url+'" download>'+esc(T.dl)+'</a></p>'+
+  var head2='<p class="pdfbar"><button type="button" class="rdbtn" data-pdf-back>'+esc(T.back)+'</button> <a class="rdbtn" id="pdf-nt" href="'+url+'" target="_blank" rel="noopener">'+esc(T.newtab)+'</a> <a class="rdbtn" id="pdf-dl" href="'+url+'" download>'+esc(T.dl)+'</a></p>'+
     '<h2 class="bktitle">'+esc(b.author)+' — '+esc(b.t[lang]||b.t.ru)+'</h2><p class="pdfhint">'+esc(T.by)+': <b>'+esc(b.author)+'</b> · '+b.pages+' '+esc(T.pg)+'. '+esc(T.hint)+'</p>';
-  if(isMobileUA())return head2+'<div class="pdfm" id="pdfm" data-file="'+esc(url)+'" data-id="'+b.id+'"><p class="pdfst">'+esc(T.load)+'</p></div>';
-  return head2+'<div class="pdfbox"><iframe src="'+url+'#view=FitH" title="'+esc(b.t[lang]||b.t.ru)+'" loading="lazy"></iframe></div>';
+  return head2+'<div class="pdfm" id="pdfhost" data-id="'+b.id+'"><p class="pdfst">'+esc(T.load)+'</p></div>';
+}
+function pdfHostInit(){
+  var host=document.getElementById('pdfhost');if(!host)return;
+  var b=pdfBookById(host.getAttribute('data-id'));if(!b)return;
+  pdfLoad(b,function(src){
+    if(document.getElementById('pdfhost')!==host)return;
+    var url=src?src.url:encodeURI(b.file),T=PB();
+    var nt=document.getElementById('pdf-nt'),dl=document.getElementById('pdf-dl');
+    if(nt)nt.href=url;if(dl){dl.href=url;dl.setAttribute('download',b.id+'.pdf');}
+    if(isMobileUA()){host.id='pdfm';host.setAttribute('data-file',url);host.setAttribute('data-id',b.id);pdfMobileInit();}
+    else{host.className='pdfbox';host.removeAttribute('id');host.innerHTML='<iframe src="'+esc(url)+'#view=FitH" title="'+esc(b.t[lang]||b.t.ru)+'"></iframe>';}
+  });
 }
 function pdfMobileInit(){
   var box=document.getElementById('pdfm');if(!box)return;
@@ -1488,8 +1510,8 @@ function fmtDate(t){if(!t)return '—';try{return new Date(t).toLocaleDateString
 function userRows(){
   var me=srvOn()?SRV.me:sessionLogin(),q=userQ.trim().toLowerCase(),arr;
   var LST=srvList();
-  if(LST)arr=LST.map(function(u){return {login:u.id,sub:'',name:u.name||'—',av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});
-  else{var us=getUsers();arr=Object.keys(us).map(function(k){var u=us[k]||{};return {login:k,sub:'',name:u.name||'—',av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});}
+  if(LST)arr=LST.map(function(u){return {login:u.id,adm:!!u.adm,sub:u.em,name:u.name||u.em,av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});
+  else{var us=getUsers();arr=Object.keys(us).map(function(k){var u=us[k]||{};return {login:k,sub:k,name:u.name||k,av:u.av,main:u.main||'',school:u.school||'',city:u.city||'',country:u.country||'',created:u.created||0}});}
   var all=arr.length,on=arr.filter(function(u){return isOnline(u.login)}).length;
   arr.sort(function(a,b){return (isOnline(b.login)?1:0)-(isOnline(a.login)?1:0)||b.created-a.created});
   if(q)arr=arr.filter(function(u){return (u.name+' '+u.sub+' '+u.school+' '+u.city+' '+u.country).toLowerCase().indexOf(q)>-1});
@@ -1500,7 +1522,7 @@ function userRows(){
     if(u.school)meta.push(u.school);if(u.city)meta.push(u.city);if(u.country)meta.push(u.country);
     meta.push(ui('users_since')+': '+fmtDate(u.created));
     var on=isOnline(u.login);
-    return '<div class="ucard" role="button" tabindex="0" data-uprof="'+esc(u.login)+'"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(on?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ust'+(on?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
+    return '<div class="ucard" role="button" tabindex="0" data-uprof="'+esc(u.login)+'"'+(sb?' style="--c:'+col(sb.c)+'"':'')+'><span class="uav">'+avHtml(u,true)+'<i class="dot'+(on?' on':'')+'"></i></span><div class="ui"><b>'+esc(u.name)+(u.adm?' <span class="ubadge adm">'+esc(ADT().adm)+'</span>':'')+(u.login===me?' <span class="uyou">'+esc(ui('users_you'))+'</span>':'')+'</b><span class="ue">'+esc(u.sub)+'</span><span class="ust'+(on?' on':'')+'">'+esc(presText(u.login))+'</span><span class="um">'+meta.map(esc).join(' · ')+'</span></div></div>';
   }).join('')+'</div>'};
 }
 function viewUsers(){
@@ -1514,63 +1536,32 @@ document.addEventListener('input',function(e){
 
 
 /* ===== profile card of a person (with "send message") ===== */
-var PFT={ru:{back:'← Назад',chat:'Переписка',nomsg:'Сообщений пока нет. Напишите первым!',msg:'Отправить сообщение',you:'Это вы',country:'Страна',city:'Город',school:'Школа',main:'Основной предмет',since:'Регистрация',about:'О себе',streak:'Серия',best:'лучшая',d:'дн.',mine:'Открыть мой профиль'},
-tg:{back:'← Қафо',chat:'Мукотиба',nomsg:'Ҳоло паём нест. Аввалин шавед!',msg:'Фиристодани паём',you:'Ин шумо',country:'Кишвар',city:'Шаҳр',school:'Мактаб',main:'Фанни асосӣ',since:'Сабти ном',about:'Дар бораи худ',streak:'Силсила',best:'беҳтарин',d:'рӯз',mine:'Кушодани профили ман'},
-en:{back:'← Back',chat:'Conversation',nomsg:'No messages yet. Write first!',msg:'Send message',you:'You',country:'Country',city:'City',school:'School',main:'Main subject',since:'Registered',about:'About',streak:'Streak',best:'best',d:'d',mine:'Open my profile'}};
+var PFT={ru:{msg:'Отправить сообщение',you:'Это вы',country:'Страна',city:'Город',school:'Школа',main:'Основной предмет',since:'Регистрация',about:'О себе',streak:'Серия',best:'лучшая',d:'дн.',mine:'Открыть мой профиль'},
+tg:{msg:'Фиристодани паём',you:'Ин шумо',country:'Кишвар',city:'Шаҳр',school:'Мактаб',main:'Фанни асосӣ',since:'Сабти ном',about:'Дар бораи худ',streak:'Силсила',best:'беҳтарин',d:'рӯз',mine:'Кушодани профили ман'},
+en:{msg:'Send message',you:'You',country:'Country',city:'City',school:'School',main:'Main subject',since:'Registered',about:'About',streak:'Streak',best:'best',d:'d',mine:'Open my profile'}};
 function PF(){return PFT[lang]||PFT.ru}
 function profData(id){
   var L=srvList(),i;
-  if(L){for(i=0;i<L.length;i++)if(L[i].id===id){var u=L[i];return {id:id,name:u.name||'—',av:u.av,country:u.country,city:u.city,school:u.school,main:u.main,about:u.about,created:u.created}}}
+  if(L){for(i=0;i<L.length;i++)if(L[i].id===id){var u=L[i];return {id:id,name:u.name||u.em,em:u.em,adm:!!u.adm,av:u.av,country:u.country,city:u.city,school:u.school,main:u.main,about:u.about,created:u.created}}}
   var us=getUsers(),x=us[id];if(x)return {id:id,name:x.name||id,av:x.av,country:x.country,city:x.city,school:x.school,main:x.main,about:x.about,created:x.created};
   return null;
 }
-function pfThreadHtml(id){
-  var me=msMe(),T=PF(),arr=msAll().filter(function(m){return (m.from===me&&m.to===id)||(m.from===id&&m.to===me)}).sort(function(a,b){return a.t-b.t}).slice(-50);
-  if(!arr.length)return '<p class="pfempty">'+esc(T.nomsg)+'</p>';
-  var dt=function(t){try{return new Date(t).toLocaleString(lang==='tg'?'tg-TJ':lang==='en'?'en-GB':'ru-RU',{dateStyle:'short',timeStyle:'short'})}catch(e){return ''}};
-  return arr.map(function(m){return '<div class="pfm '+(m.from===me?'mine':'their')+'"><p>'+esc(m.text)+'</p><small>'+esc(dt(m.t))+'</small></div>'}).join('');
-}
-function pfMarkRead(id){
-  var me=msMe(),un=msAll().filter(function(m){return m.from===id&&m.to===me&&!m.read});if(!un.length)return;
-  if(srvOn()){un.forEach(function(m){m.read=true});api('msg_read',{token:tokGet()}).catch(function(){});}
-  else{var raw=getMsgs();raw.forEach(function(m){if(m.from===id&&m.to===me)m.read=true});putMsgs(raw);}
-  setTimeout(msBadge,0);
-}
-function pfRefreshThread(){var el=document.getElementById('pf-thread'),f=document.getElementById('pf-form');if(!el||!f)return;var id=f.getAttribute('data-to');el.innerHTML=pfThreadHtml(id);pfMarkRead(id);el.scrollTop=el.scrollHeight;}
 function openProfile(id){
   var d=profData(id);if(!d)return;closeTopic();
-  var me=lbMe()===id,sb=d.main&&subj(d.main)?subj(d.main):null,st=null,ol=null,T=PF(),M=MS();
+  var me=lbMe()===id,sb=d.main&&subj(d.main)?subj(d.main):null,st=null,T=PF();
   lbStreakRows().forEach(function(r){if(r.id===id)st=r});
-  olyRows().forEach(function(r){if(r.id===id)ol=r});
   var rows=[[T.country,d.country],[T.city,d.city],[T.school,d.school],[T.main,sb?tr(sb.name):''],[T.since,d.created?fmtDate(d.created):'']].filter(function(r){return r[1]});
-  var o=document.createElement('div');o.className='pfull';o.id='tpv';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
-  var chips='';
-  if(st)chips+='<span class="pfchip">🔥 '+esc(T.streak)+': <b>'+st.cur+'</b> · '+esc(T.best)+': <b>'+st.best+'</b> '+esc(T.d)+'</span>';
-  if(ol)chips+='<span class="pfchip">🏆 '+esc(LT('oly'))+': <b>'+ol.total+'</b> '+esc(LT('pts'))+'</span>';
-  o.innerHTML='<div class="pvin" style="--c:'+(sb?col(sb.c):'var(--accent)')+'"><div class="pftop"><button type="button" class="rdbtn" data-tpclose>'+esc(T.back)+'</button><b>'+esc(d.name)+'</b></div>'+
-    '<div class="ppt pfhero"><span class="uav">'+avHtml({login:id,av:d.av},true)+'<i class="dot'+(isOnline(id)?' on':'')+'"></i></span><div><h2>'+esc(d.name)+(me?' <span class="uyou">'+esc(T.you)+'</span>':'')+'</h2><span class="ust'+(isOnline(id)?' on':'')+'">'+esc(presText(id))+'</span></div></div>'+
-    (chips?'<div class="pfchips">'+chips+'</div>':'')+
+  var o=document.createElement('div');o.className='tpv';o.id='tpv';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
+  o.innerHTML='<div class="tpd ppd" style="--c:'+(sb?col(sb.c):'var(--accent)')+'"><div class="tph"><span class="tpc">'+esc(me?T.you:'')+'</span><button type="button" class="tpx" data-tpclose aria-label="'+esc(TP().close)+'">✕</button></div>'+
+    '<div class="ppt"><span class="uav">'+avHtml({login:id,av:d.av},true)+'<i class="dot'+(isOnline(id)?' on':'')+'"></i></span><div><h2>'+esc(d.name)+'</h2><span class="ust'+(isOnline(id)?' on':'')+'">'+esc(presText(id))+'</span></div></div>'+
+    (st?'<p class="pfs">🔥 '+esc(T.streak)+': <b>'+st.cur+'</b> · '+esc(T.best)+': <b>'+st.best+'</b> '+esc(T.d)+'</p>':'')+
     (rows.length?'<dl class="pfd">'+rows.map(function(r){return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>'}).join('')+'</dl>':'')+
     (d.about?'<div class="tps"><h4>'+esc(T.about)+'</h4><p>'+esc(d.about)+'</p></div>':'')+
-    (me?'<p><button type="button" class="btn" data-auth-open data-tpclose>'+esc(T.mine)+'</button></p>':
-      '<div class="pfchat"><h4>'+esc(T.chat)+'</h4><div class="pfthread" id="pf-thread">'+pfThreadHtml(id)+'</div><form id="pf-form" data-to="'+esc(id)+'" novalidate><textarea class="fld" id="pf-text" maxlength="500" rows="3" placeholder="'+esc(M.ph)+'"></textarea><div class="aerr" id="pf-err" role="alert"></div><button type="submit" class="btn">✉ '+esc(M.send)+'</button></form></div>')+
-    '</div>';
+    (SRV.admin&&srvOn()&&!me?admBlock(id,d):'')+
+    '<div class="tpn"><span></span>'+(me?'<button type="button" class="btn" data-auth-open data-tpclose>'+esc(T.mine)+'</button>':'<button type="button" class="btn" data-msto="'+esc(id)+'">✉ '+esc(T.msg)+'</button>')+'<span></span></div></div>';
   document.body.appendChild(o);document.body.style.overflow='hidden';
-  if(!me){pfMarkRead(id);var th=document.getElementById('pf-thread');if(th)th.scrollTop=th.scrollHeight;}
-  var x=o.querySelector('[data-tpclose]');if(x)x.focus();
+  var x=o.querySelector('.tpx');if(x)x.focus();
 }
-document.addEventListener('submit',function(e){
-  if(!e.target||e.target.id!=='pf-form')return;e.preventDefault();
-  var M=MS(),to=e.target.getAttribute('data-to'),ta=document.getElementById('pf-text'),er=document.getElementById('pf-err'),tx=(ta.value||'').trim(),btn=e.target.querySelector('button[type=submit]');
-  er.style.color='';if(!tx){er.textContent=M.e_text;return;}
-  if(btn)btn.disabled=true;
-  msSendTo(to,tx,function(ok,key){
-    if(btn)btn.disabled=false;
-    if(ok){ta.value='';er.style.color='var(--ok)';er.textContent=M.sent;pfRefreshThread();}
-    else er.textContent=M[key]||M.e_net;
-  });
-});
-document.addEventListener('keydown',function(e){if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)&&e.target&&e.target.id==='pf-text'){var f=document.getElementById('pf-form');if(f&&f.requestSubmit)f.requestSubmit();}});
 document.addEventListener('click',function(e){
   var t=e.target&&e.target.closest?e.target.closest('[data-uprof],[data-msto]'):null;if(!t)return;
   if(t.hasAttribute('data-msto')){var to=t.getAttribute('data-msto');closeTopic();msTo=to;msSetOpen(true);return;}
@@ -1581,23 +1572,84 @@ document.addEventListener('keydown',function(e){
 });
 
 
-/* ===== autosave: every minute progress is saved (server when signed in, always on this device); status pill in the corner ===== */
+/* ===== administrator: edit / reset / delete participants ===== */
+var ADTX={
+ru:{adm:'админ',title:'Администратор',email:'Почта',name:'Имя',country:'Страна',city:'Город',school:'Школа / класс',main:'Основной предмет',about:'О себе',none:'— не выбран —',save:'Сохранить изменения',rolymp:'Сбросить олимпиаду',all:'Все предметы',rstreak:'Сбросить огонёк',rprog:'Сбросить решённые задачи',del:'Удалить аккаунт',cdel:'Удалить аккаунт {n}? Это нельзя отменить.',crst:'Сбросить? Это нельзя отменить.',done:'Готово ✓',err:'Не получилось, попробуйте ещё раз'},
+tg:{adm:'админ',title:'Администратор',email:'Почта',name:'Ном',country:'Кишвар',city:'Шаҳр',school:'Мактаб / синф',main:'Фанни асосӣ',about:'Дар бораи худ',none:'— интихоб нашудааст —',save:'Нигоҳ доштани тағйирот',rolymp:'Барқарор кардани олимпиада',all:'Ҳамаи фанҳо',rstreak:'Барқарор кардани силсила',rprog:'Барқарор кардани масъалаҳои ҳалшуда',del:'Нест кардани аккаунт',cdel:'Аккаунти {n} нест карда шавад? Инро бозгардонидан мумкин нест.',crst:'Барқарор карда шавад? Инро бозгардонидан мумкин нест.',done:'Тайёр ✓',err:'Нашуд, боз кӯшиш кунед'},
+en:{adm:'admin',title:'Administrator',email:'Email',name:'Name',country:'Country',city:'City',school:'School / grade',main:'Main subject',about:'About',none:'— none —',save:'Save changes',rolymp:'Reset olympiad',all:'All subjects',rstreak:'Reset streak',rprog:'Reset solved problems',del:'Delete account',cdel:'Delete the account {n}? This cannot be undone.',crst:'Reset? This cannot be undone.',done:'Done ✓',err:'Something went wrong, please try again'}
+};
+function ADT(){return ADTX[lang]||ADTX.ru}
+function admBlock(id,d){
+  var A=ADT();
+  function fld(k,l,v,max){return '<label>'+esc(l)+'<input class="fld" data-af="'+k+'" maxlength="'+max+'" value="'+esc(v||'')+'"></label>'}
+  return '<div class="admb" data-adm="'+esc(id)+'"><h4>🛡 '+esc(A.title)+'</h4>'+(d.em?'<p class="adme">'+esc(A.email)+': <b>'+esc(d.em)+'</b></p>':'')+
+    fld('name',A.name,d.name,60)+fld('country',A.country,d.country,40)+fld('city',A.city,d.city,40)+fld('school',A.school,d.school,60)+
+    '<label>'+esc(A.main)+'<select class="fld" data-af="main"><option value="">'+esc(A.none)+'</option>'+SUBJECTS.map(function(s){return '<option value="'+s.id+'"'+(d.main===s.id?' selected':'')+'>'+esc(tr(s.name))+'</option>'}).join('')+'</select></label>'+
+    '<label>'+esc(A.about)+'<textarea class="fld" data-af="about" maxlength="200" rows="2">'+esc(d.about||'')+'</textarea></label>'+
+    '<div class="admr"><button type="button" class="btn sm" data-admsave>'+esc(A.save)+'</button></div>'+
+    '<div class="admr"><select class="fld" data-admsub><option value="all">'+esc(A.all)+'</option>'+SUBJECTS.map(function(s){return '<option value="'+s.id+'">'+esc(tr(s.name))+'</option>'}).join('')+'</select><button type="button" class="btn ghost sm" data-admreset="olymp">'+esc(A.rolymp)+'</button></div>'+
+    '<div class="admr"><button type="button" class="btn ghost sm" data-admreset="streak">'+esc(A.rstreak)+'</button><button type="button" class="btn ghost sm" data-admreset="prog">'+esc(A.rprog)+'</button></div>'+
+    '<div class="admr"><button type="button" class="btn ghost sm admdel" data-admdel>'+esc(A.del)+'</button></div></div>';
+}
+function admRefresh(id,close){
+  SRV.busy=false;
+  api('sync',{token:tokGet()}).then(function(r){
+    if(r&&r.ok){SRV.users=r.users;SRV.me=r.me;SRV.admin=!!r.admin;SRV.at=Date.now();}
+    presRefreshUsers();if(typeof lbFetch==='function')lbFetch();
+    if(close)closeTopic();else openProfile(id);
+  }).catch(function(){});
+}
+document.addEventListener('click',function(e){
+  var t=e.target&&e.target.closest?e.target.closest('[data-admsave],[data-admreset],[data-admdel]'):null;if(!t)return;
+  var box=t.closest('[data-adm]');if(!box||!SRV.admin)return;
+  var id=box.getAttribute('data-adm'),A=ADT(),tk=tokGet(),del=false,req;
+  function done(r){if(r&&r.ok){toast(A.done);admRefresh(id,del);}else toast(A.err);}
+  if(t.hasAttribute('data-admsave')){
+    var pr={};Array.prototype.forEach.call(box.querySelectorAll('[data-af]'),function(el){pr[el.getAttribute('data-af')]=el.value});
+    req=api('admin_edit',{token:tk,id:id,profile:pr});
+  }else if(t.hasAttribute('data-admreset')){
+    if(!window.confirm(A.crst))return;
+    var sel=box.querySelector('[data-admsub]');
+    req=api('admin_reset',{token:tk,id:id,what:t.getAttribute('data-admreset'),subj:sel?sel.value:'all'});
+  }else{
+    var nm=(box.querySelector('[data-af="name"]')||{}).value||'';
+    if(!window.confirm(A.cdel.replace('{n}',nm)))return;
+    del=true;req=api('admin_delete',{token:tk,id:id});
+  }
+  req.then(done).catch(function(){toast(A.err)});
+});
+/* admin reset on the server: drop the local copies so they are not pushed back */
+function epGet(){var l=sessionLogin();if(!l)return 0;try{return +localStorage.getItem('infasub-ep:'+l)||0}catch(e){return 0}}
+function epCheck(ep){
+  var l=sessionLogin();if(!l||!ep)return;
+  var k='infasub-ep:'+l,cur=0;try{cur=+localStorage.getItem(k)||0}catch(e){}
+  if(ep<=cur)return;
+  try{localStorage.setItem(k,String(ep))}catch(e){}
+  Object.keys(solved).forEach(function(x){delete solved[x]});Object.keys(vals).forEach(function(x){delete vals[x]});
+  try{localStorage.setItem(solvedKey(),'{}');localStorage.setItem('infasub-vals:'+l,'{}');var o=stAll();o[stKey()]=[];localStorage.setItem('infasub-streak',JSON.stringify(o));}catch(e){}
+  AS.sig='';streakDraw();if(view==='problems')render();
+}
+
+/* ===== autosave: every 15 seconds progress is saved (server when signed in, always on this device); small status icon in the header ===== */
 var AS_MS=15000,AS={state:'idle',last:0,next:Date.now()+AS_MS,busy:false,sig:''};
-var AST={ru:{saving:'Сохранение…',saved:'Сохранено',local:'Сохранено на устройстве',err:'Нет связи, повторю через 15 секунд',auto:'Автосохранение каждые 15 секунд',in:'через',s:'с',sh:'с'},
-tg:{saving:'Нигоҳдорӣ…',saved:'Нигоҳ дошта шуд',local:'Дар дастгоҳ нигоҳ дошта шуд',err:'Алоқа нест, баъд аз 15 сония такрор мекунам',auto:'Худнигоҳдорӣ ҳар 15 сония',in:'баъд аз',s:'сон',sh:'с'},
-en:{saving:'Saving…',saved:'Saved',local:'Saved on this device',err:'No connection, will retry in 15 seconds',auto:'Autosave every 15 seconds',in:'in',s:'s',sh:'s'}};
+var AST={ru:{saving:'Сохранение…',saved:'Сохранено',local:'Сохранено на устройстве',err:'Нет связи, повторю через 15 секунд',auto:'Автосохранение каждые 15 секунд',in:'через',s:'с'},
+tg:{saving:'Нигоҳдорӣ…',saved:'Нигоҳ дошта шуд',local:'Дар дастгоҳ нигоҳ дошта шуд',err:'Алоқа нест, баъд аз 15 сония такрор мекунам',auto:'Худнигоҳдорӣ ҳар 15 сония',in:'баъд аз',s:'сон'},
+en:{saving:'Saving…',saved:'Saved',local:'Saved on this device',err:'No connection, will retry in 15 seconds',auto:'Autosave every 15 seconds',in:'in',s:'s'}};
 function AT(){return AST[lang]||AST.ru}
-var asEl=document.createElement('div');asEl.id='autosave';asEl.className='asave';asEl.setAttribute('role','status');asEl.setAttribute('aria-live','polite');(function(){var sb=document.getElementById('streak');if(sb&&sb.parentNode)sb.parentNode.insertBefore(asEl,sb);else document.body.appendChild(asEl);})();
+var asEl=document.createElement('div');asEl.id='autosave';asEl.className='asave';asEl.setAttribute('role','status');asEl.setAttribute('aria-live','polite');
+(function(){var sb=document.getElementById('streak');if(sb&&sb.parentNode)sb.parentNode.insertBefore(asEl,sb);else document.body.appendChild(asEl);})();
 function asHM(t){var d=new Date(t),p=function(n){return n<10?'0'+n:''+n};return p(d.getHours())+':'+p(d.getMinutes())}
 function asDraw(){
   var me=sessionLogin();if(!me){asEl.style.display='none';return;}asEl.style.display='';
-  var T=AT(),left=Math.max(0,Math.ceil((AS.next-Date.now())/1000)),ic='☁',tx='';
-  var full=T.auto;
-  if(AS.state==='saving'){ic='⟳';full=T.saving;}
-  else if(AS.state==='ok'){tx=left+T.sh;full=(AUTH_API&&tokGet()?T.saved:T.local)+' '+asHM(AS.last)+' · '+T.in+' '+left+' '+T.s;}
-  else if(AS.state==='err'){ic='⚠';full=T.err;}
-  else{tx=left+T.sh;}
-  asEl.className='asave '+AS.state;asEl.innerHTML='<span class="asi">'+ic+'</span>'+(tx?'<span class="asn">'+esc(tx)+'</span>':'');asEl.title=full;asEl.setAttribute('aria-label',full);
+  var T=AT(),ic='☁',txt='';
+  if(AS.state==='saving')ic='⟳';
+  else if(AS.state==='ok'){ic='✓';txt=asHM(AS.last);}
+  else if(AS.state==='err')ic='⚠';
+  var html='<span class="asi">'+ic+'</span>'+(txt?'<span class="ast">'+esc(txt)+'</span>':''),cls='asave '+AS.state;
+  if(asEl.className!==cls)asEl.className=cls;
+  if(asEl._h!==html){asEl.innerHTML=html;asEl._h=html;}
+  var tip=(AS.state==='ok'?(AUTH_API&&tokGet()?T.saved:T.local)+' '+asHM(AS.last)+' · ':AS.state==='err'?T.err+' · ':'')+T.auto;
+  if(asEl.title!==tip)asEl.title=tip;
 }
 function asLocal(){
   var l=sessionLogin();if(!l)return;
@@ -1607,16 +1659,19 @@ function autoSave(){
   if(AS.busy||!sessionLogin())return;
   asLocal();
   var tk=tokGet();
+  if(!AUTH_API||!tk){AS.state='ok';AS.last=Date.now();AS.next=Date.now()+AS_MS;asDraw();return;}
   var sig=JSON.stringify([Object.keys(solved).sort(),stDays()]);
-  if(!AUTH_API||!tk||sig===AS.sig){AS.state='ok';AS.last=Date.now();AS.next=Date.now()+AS_MS;asDraw();return;}
+  if(sig===AS.sig&&AS.state!=='err'){AS.state='ok';AS.last=Date.now();AS.next=Date.now()+AS_MS;asDraw();return;} /* ничего не менялось: лишних запросов не шлём */
   AS.busy=true;AS.state='saving';asDraw();
   Promise.all([
-    api('progress_save',{token:tk,solved:Object.keys(solved)}),
-    api('streak_save',{token:tk,days:stDays()})
+    api('progress_save',{token:tk,ep:epGet(),solved:Object.keys(solved)}),
+    api('streak_save',{token:tk,ep:epGet(),days:stDays()})
   ]).then(function(rs){
     var bad=rs.some(function(r){return !(r&&r.ok)});
-    AS.busy=false;AS.state=bad?'err':'ok';if(!bad)AS.sig=sig;AS.last=Date.now();AS.next=Date.now()+AS_MS;asDraw();
-    if(bad&&rs.some(function(r){return r&&r.error==='auth'})){tokSet('');}
+    AS.busy=false;AS.state=bad?'err':'ok';AS.last=Date.now();AS.next=Date.now()+AS_MS;if(!bad)AS.sig=sig;asDraw();
+    if(!bad)srvSync(true);
+    else if(rs.some(function(r){return r&&r.error==='auth'})){tokSet('');}
+    if(rs.some(function(r){return r&&r.error==='stale'})){SRV.busy=false;srvSync(true);}
   }).catch(function(){AS.busy=false;AS.state='err';AS.next=Date.now()+AS_MS;asDraw();});
 }
 setInterval(function(){if(!sessionLogin()){asDraw();return;}if(Date.now()>=AS.next&&!document.hidden)autoSave();else asDraw();},1000);
@@ -1624,73 +1679,6 @@ document.addEventListener('visibilitychange',function(){if(document.hidden){asLo
 window.addEventListener('pagehide',asLocal);
 document.addEventListener('input',function(e){var el=e.target;if(el&&el.getAttribute&&el.getAttribute('data-pid')){vals[el.getAttribute('data-pid')]=el.value;}});
 setTimeout(function(){if(sessionLogin())autoSave();},4000);
-
-
-/* ===== admin panel ===== */
-var ADT={
-ru:{s:'Управление участниками: изменение профилей, сброс результатов, удаление.',no:'Нет доступа. Этот раздел только для администратора.',search:'Поиск по имени, почте, стране',total:'Всего участников',online:'В сети',user:'Участник',email:'Почта',loc:'Страна, город',reg:'Регистрация',seen:'Был(а) в сети',stat:'Итоги',act:'Действия',edit:'Изменить',del:'Удалить участника',rso:'Сбросить олимпиаду',rss:'Сбросить огонёк',rsp:'Сбросить решённые задачи',save:'Сохранить',cancel:'Отмена',name:'Имя',country:'Страна',city:'Город',school:'Школа',main:'Основной предмет',none:'не выбран',about:'О себе',cdel:'Удалить участника «{n}» вместе со всеми данными? Это нельзя отменить.',crs:'Сбросить «{what}» у участника «{n}»? Это нельзя отменить.',done:'Готово',fail:'Не удалось. Попробуйте ещё раз.',self:'Себя удалить нельзя.',adm:'админ',pts:'балл.',solved:'решено',days:'дн.',load:'Загрузка…'},
-tg:{s:'Идоракунии иштирокчиён: тағйири профилҳо, бозсозии натиҷаҳо, нест кардан.',no:'Дастрасӣ нест. Ин бахш танҳо барои администратор аст.',search:'Ҷустуҷӯ аз рӯи ном, почта, кишвар',total:'Ҳамаи иштирокчиён',online:'Дар шабака',user:'Иштирокчӣ',email:'Почта',loc:'Кишвар, шаҳр',reg:'Сабти ном',seen:'Дар шабака буд',stat:'Натиҷаҳо',act:'Амалҳо',edit:'Тағйир додан',del:'Нест кардани иштирокчӣ',rso:'Бозсозии олимпиада',rss:'Бозсозии оташча',rsp:'Бозсозии масъалаҳои ҳалшуда',save:'Нигоҳ доштан',cancel:'Бекор',name:'Ном',country:'Кишвар',city:'Шаҳр',school:'Мактаб',main:'Фанни асосӣ',none:'интихоб нашудааст',about:'Дар бораи худ',cdel:'Иштирокчии «{n}»-ро бо ҳамаи маълумоташ нест мекунед? Инро бозгардонидан мумкин нест.',crs:'«{what}»-ро барои иштирокчии «{n}» бозсозӣ мекунед? Инро бозгардонидан мумкин нест.',done:'Тайёр',fail:'Муяссар нашуд. Боз кӯшиш кунед.',self:'Худро нест кардан мумкин нест.',adm:'админ',pts:'хол',solved:'ҳал шуд',days:'рӯз',load:'Бор мешавад…'},
-en:{s:'Manage participants: edit profiles, reset results, delete.',no:'No access. This section is for the administrator only.',search:'Search by name, email, country',total:'Total participants',online:'Online',user:'Participant',email:'Email',loc:'Country, city',reg:'Registered',seen:'Last seen',stat:'Progress',act:'Actions',edit:'Edit',del:'Delete participant',rso:'Reset olympiad',rss:'Reset streak',rsp:'Reset solved problems',save:'Save',cancel:'Cancel',name:'Name',country:'Country',city:'City',school:'School',main:'Main subject',none:'not chosen',about:'About',cdel:'Delete participant “{n}” with all their data? This cannot be undone.',crs:'Reset “{what}” for “{n}”? This cannot be undone.',done:'Done',fail:'Failed. Try again.',self:'You cannot delete yourself.',adm:'admin',pts:'pts',solved:'solved',days:'d',load:'Loading…'}};
-function AD(k){var d=ADT[lang]||ADT.ru;return d[k]!==undefined?d[k]:ADT.ru[k]}
-function isAdmin(){return !!(AUTH_API&&SRV&&SRV.admin&&srvOn())}
-var ADM={users:null,q:''};
-function admFetch(){if(!isAdmin())return;api('admin_users',{token:tokGet()}).then(function(r){if(r&&r.ok){ADM.users=r.users;ADM.at=Date.now();admDraw();}}).catch(function(){})}
-function admAgo(u){if(u.ago===null||u.ago===undefined)return null;return u.ago+(Date.now()-(ADM.at||Date.now()))/1000}
-function admSeen(u){var a=admAgo(u);if(a===null)return '—';if(a<50)return '🟢 '+PR().on;var m=Math.floor(a/60);if(m<1)return PR().now;var T=PR();return m<60?m+' '+T.u[0]:m<1440?Math.floor(m/60)+' '+T.u[1]:Math.floor(m/1440)+' '+T.u[2]}
-function admDraw(){
-  var box=document.getElementById('adbox');if(!box)return;
-  var us=ADM.users;if(!us){box.innerHTML='<p class="lbnote">'+esc(AD('load'))+'</p>';return;}
-  var q=ADM.q.trim().toLowerCase();
-  var on=us.filter(function(u){var a=admAgo(u);return a!==null&&a<50}).length;
-  var c=document.getElementById('adcount');if(c)c.textContent=us.length+' · '+AD('online')+': '+on;
-  var rows=us.filter(function(u){return !q||(u.name+' '+u.email+' '+u.country+' '+u.city+' '+u.school).toLowerCase().indexOf(q)>-1});
-  var h='<div class="lbwrap"><table class="lbt adt"><thead><tr><th>'+esc(AD('user'))+'</th><th>'+esc(AD('email'))+'</th><th>'+esc(AD('loc'))+'</th><th>'+esc(AD('reg'))+'</th><th>'+esc(AD('seen'))+'</th><th>'+esc(AD('stat'))+'</th><th>'+esc(AD('act'))+'</th></tr></thead><tbody>';
-  rows.forEach(function(u){
-    var loc=[u.country,u.city].filter(Boolean).join(', ')||'—';
-    var st=(u.olymp?'🏆 '+u.olymp.pts+' '+AD('pts')+' · ':'')+'✓ '+u.solved+' · 🔥 '+u.streak;
-    h+='<tr><td><div class="lbw"><span class="uav">'+avHtml({login:u.id,av:u.av},false)+'</span><div><b>'+esc(u.name)+'</b>'+(u.adm?' <span class="uyou">'+esc(AD('adm'))+'</span>':'')+'</div></div></td><td class="adem">'+esc(u.email)+'</td><td>'+esc(loc)+'</td><td>'+esc(u.created?fmtDate(u.created):'—')+'</td><td>'+esc(admSeen(u))+'</td><td class="adst">'+esc(st)+'</td>'+
-      '<td class="ada"><button type="button" class="abtn" data-adm="edit:'+u.id+'" title="'+esc(AD('edit'))+'" aria-label="'+esc(AD('edit'))+'">✎</button><button type="button" class="abtn" data-adm="olymp:'+u.id+'" title="'+esc(AD('rso'))+'" aria-label="'+esc(AD('rso'))+'">🏆</button><button type="button" class="abtn" data-adm="streak:'+u.id+'" title="'+esc(AD('rss'))+'" aria-label="'+esc(AD('rss'))+'">🔥</button><button type="button" class="abtn" data-adm="progress:'+u.id+'" title="'+esc(AD('rsp'))+'" aria-label="'+esc(AD('rsp'))+'">✓</button><button type="button" class="abtn danger" data-adm="del:'+u.id+'" title="'+esc(AD('del'))+'" aria-label="'+esc(AD('del'))+'">🗑</button></td></tr>';
-  });
-  box.innerHTML=h+'</tbody></table></div>';
-}
-function viewAdmin(){
-  var h=head(ui('t_admin'),AD('s'),'ADM','red');
-  if(!isAdmin())return h+'<div class="readme"><p>'+esc(AD('no'))+'</p></div>';
-  return h+'<div class="utop"><span class="utot">'+esc(AD('total'))+': <b id="adcount">…</b></span><input type="search" id="adsearch" class="usearch" placeholder="'+esc(AD('search'))+'" value="'+esc(ADM.q)+'" autocomplete="off"></div><div id="adbox"></div>';
-}
-function admUser(id){var us=ADM.users||[];for(var i=0;i<us.length;i++)if(us[i].id===id)return us[i];return null}
-function admEdit(id){
-  var u=admUser(id);if(!u)return;closeTopic();
-  var o=document.createElement('div');o.className='tpv';o.id='tpv';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');
-  var fld=function(k,l,v,tag){return '<label class="adl">'+esc(l)+(tag==='ta'?'<textarea class="fld" id="adf-'+k+'" maxlength="200" rows="3">'+esc(v)+'</textarea>':'<input class="fld" id="adf-'+k+'" maxlength="60" value="'+esc(v)+'">')+'</label>'};
-  var opts='<option value="">'+esc(AD('none'))+'</option>'+SUBJECTS.map(function(s){return '<option value="'+s.id+'"'+(u.main===s.id?' selected':'')+'>'+esc(tr(s.name))+'</option>'}).join('');
-  o.innerHTML='<div class="tpd ppd"><div class="tph"><span class="tpc">'+esc(u.email)+'</span><button type="button" class="tpx" data-tpclose aria-label="'+esc(TP().close)+'">✕</button></div><h2>'+esc(AD('edit'))+'</h2>'+
-    fld('name',AD('name'),u.name)+fld('country',AD('country'),u.country)+fld('city',AD('city'),u.city)+fld('school',AD('school'),u.school)+
-    '<label class="adl">'+esc(AD('main'))+'<select class="fld" id="adf-main">'+opts+'</select></label>'+fld('about',AD('about'),u.about,'ta')+
-    '<div class="tpn"><button type="button" class="rdbtn" data-tpclose>'+esc(AD('cancel'))+'</button><button type="button" class="btn" data-adm-save="'+u.id+'">'+esc(AD('save'))+'</button></div></div>';
-  document.body.appendChild(o);document.body.style.overflow='hidden';var f=document.getElementById('adf-name');if(f)f.focus();
-}
-function admCall(action,data,ok){
-  data.token=tokGet();
-  api(action,data).then(function(r){
-    if(r&&r.ok){toast(AD('done'));if(ok)ok();admFetch();lbFetch();if(typeof srvSync==='function')srvSync(true);}
-    else toast(r&&r.error==='self'?AD('self'):AD('fail'));
-  }).catch(function(){toast(AD('fail'))});
-}
-document.addEventListener('click',function(e){
-  var t=e.target&&e.target.closest?e.target.closest('[data-adm],[data-adm-save]'):null;if(!t||!isAdmin())return;
-  if(t.hasAttribute('data-adm-save')){
-    var id=t.getAttribute('data-adm-save'),g=function(k){var el=document.getElementById('adf-'+k);return el?el.value:''};
-    admCall('admin_update',{target:id,profile:{name:g('name'),country:g('country'),city:g('city'),school:g('school'),main:g('main'),about:g('about')}},closeTopic);return;
-  }
-  var p=t.getAttribute('data-adm').split(':'),act=p[0],id2=p[1],u=admUser(id2);if(!u)return;
-  if(act==='edit'){admEdit(id2);return;}
-  if(act==='del'){if(window.confirm(AD('cdel').replace('{n}',u.name)))admCall('admin_delete',{target:id2});return;}
-  var what=act==='olymp'?AD('rso'):act==='streak'?AD('rss'):AD('rsp');
-  if(window.confirm(AD('crs').replace('{what}',what).replace('{n}',u.name)))admCall('admin_reset',{target:id2,kind:act});
-});
-document.addEventListener('input',function(e){if(e.target&&e.target.id==='adsearch'){ADM.q=e.target.value;admDraw();}});
-setInterval(function(){if(view==='admin'&&isAdmin())admFetch()},20000);
 
 /* ===== leaders (flame leaderboard) and subject olympiad ===== */
 var LBT={
@@ -1708,7 +1696,7 @@ var OLY_SEC=1800,olyTimer=null,olyReview=null;
 function fmtMS(n){n=Math.max(0,Math.round(n));var m=Math.floor(n/60),s=n%60;return m+':'+(s<10?'0':'')+s}
 function lbFetch(){if(!AUTH_API||LB.busy)return;LB.busy=true;api('leaderboard',{}).then(function(r){LB.busy=false;if(r&&r.ok){LB.streak=r.streak;LB.olymp=r.olymp;lbRefresh();}}).catch(function(){LB.busy=false})}
 function lbRefresh(){var a=document.getElementById('lbbox');if(a&&view==='leaders')a.innerHTML=lbBody();var b=document.getElementById('olyboard');if(b&&(view==='olymp'||view==='leaders'))b.innerHTML=olyBoardHtml();}
-function streakPush(){var tk=tokGet();if(!AUTH_API||!tk||!sessionLogin())return;api('streak_save',{token:tk,days:stDays()}).then(function(){lbFetch()}).catch(function(){})}
+function streakPush(){var tk=tokGet();if(!AUTH_API||!tk||!sessionLogin())return;api('streak_save',{token:tk,ep:epGet(),days:stDays()}).then(function(){lbFetch()}).catch(function(){})}
 function streakMerge(days){
   if(!Array.isArray(days))return;
   var o=stAll(),k=stKey(),a=Array.isArray(o[k])?o[k]:[],set={};
@@ -1864,7 +1852,6 @@ function render(){
   else if(v==='users')h=viewUsers();
   else if(v==='leaders')h=viewLeaders();
   else if(v==='olymp')h=viewOlymp();
-  else if(v==='admin')h=viewAdmin();
   else if(v==='quizzes')h=viewQuiz();
   else h=viewHome();
   $('#view').innerHTML=h;
@@ -1877,8 +1864,7 @@ function render(){
   if(v==='languages')renderLangList();
   if(v==='calculator'){renderHist();updateCalc();}
   if(v==='quizzes'){exReset();refreshExec();}
-  if(v==='books'&&readPdf)pdfMobileInit();
-  if(v==='admin'){if(ADM.users)admDraw();admFetch();}
+  if(v==='books'&&readPdf)pdfHostInit();
   if(v==='leaders')lbFetch();
   if(v==='olymp'){lbFetch();olyTick();}
 }
@@ -1961,7 +1947,7 @@ function loadSolved(){
   try{var vv=localStorage.getItem('infasub-vals:'+(localStorage.getItem('infasub-session')||''));vals=vv?(JSON.parse(vv)||{}):{};}catch(e){vals={};}
 }
 function solvedSave(){try{localStorage.setItem(solvedKey(),JSON.stringify(solved))}catch(e){}progPush();}
-function progPush(){var tk=tokGet();if(!AUTH_API||!tk||!sessionLogin())return;api('progress_save',{token:tk,solved:Object.keys(solved)}).catch(function(){})}
+function progPush(){var tk=tokGet();if(!AUTH_API||!tk||!sessionLogin())return;api('progress_save',{token:tk,ep:epGet(),solved:Object.keys(solved)}).catch(function(){})}
 function progMerge(list){
   if(!Array.isArray(list))return;var add=0;
   list.forEach(function(id){if(typeof id==='string'&&!solved[id]){solved[id]=1;add++}});
@@ -2032,7 +2018,7 @@ function gateStrip(){
   var el=document.getElementById('gstrip');
   if(curUserObj()){if(el)el.remove();return;}
   var arr=[];
-  if(SRV.pub)arr=SRV.pub.map(function(u){return {login:u.id,name:u.name||'—',av:u.av}});
+  if(SRV.pub)arr=SRV.pub.map(function(u){return {login:u.id,name:u.name||u.em,av:u.av}});
   else if(!AUTH_API){var us=getUsers();arr=Object.keys(us).map(function(k){return {login:k,name:us[k].name||k,av:us[k].av}});}
   if(!arr.length){if(el)el.remove();return;}
   if(!el){el=document.createElement('div');el.id='gstrip';el.className='gstrip';document.body.appendChild(el);}
@@ -2154,7 +2140,7 @@ function COUNTRIES(){return COUNTRIES_[lang]||COUNTRIES_.ru}
 function finishLogin(email,name){
   var users=getUsers();if(!users[email])users[email]={name:name,created:Date.now()};else{users[email].name=name;if(!users[email].created)users[email].created=Date.now()}
   var _pc=pendCountry;pendCountry='';if(_pc&&!users[email].country)users[email].country=_pc;
-  putUsers(users);setSession(email);srvReset();if(_pc)srvPush();srvSync();regPending=null;closeOv();renderAuth();var uo=curUserObj();if(uo&&!uo.main){if(AUTH_API&&tokGet()){api('sync',{token:tokGet()}).then(function(r){if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();var _op=JSON.stringify(SRV.olymp),_fs=!SRV.synced,_ad=SRV.admin;SRV.admin=!!r.admin;if(_ad!==SRV.admin)setTimeout(render,0);SRV.olymp=r.olymp||null;SRV.synced=true;streakMerge(r.days);progMerge(r.solved);srvReconcile();if(view==='olymp'&&(_fs||_op!==JSON.stringify(SRV.olymp)))render();}}).catch(function(){}).then(function(){var u2=curUserObj();if(u2&&!u2.main&&!document.getElementById('ov'))openAuth('setup')});}else setTimeout(function(){openAuth('setup')},250);}
+  putUsers(users);setSession(email);srvReset();if(_pc)srvPush();srvSync();regPending=null;closeOv();renderAuth();var uo=curUserObj();if(uo&&!uo.main){if(AUTH_API&&tokGet()){api('sync',{token:tokGet()}).then(function(r){if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.admin=!!r.admin;epCheck(r.ep);SRV.at=Date.now();var _op=JSON.stringify(SRV.olymp),_fs=!SRV.synced;SRV.olymp=r.olymp||null;SRV.synced=true;streakMerge(r.days);progMerge(r.solved);srvReconcile();if(view==='olymp'&&(_fs||_op!==JSON.stringify(SRV.olymp)))render();}}).catch(function(){}).then(function(){var u2=curUserObj();if(u2&&!u2.main&&!document.getElementById('ov'))openAuth('setup')});}else setTimeout(function(){openAuth('setup')},250);}
 }
 function openAuth(mode){
   closeOv();lastFocus=document.activeElement;authMode=mode||'login';var u=curUserObj();
@@ -3070,13 +3056,13 @@ function presRefreshUsers(){
 }
 
 /* ===== shared data through the server (AUTH_API): users, profiles, messages, online status ===== */
-var SRV={admin:false,me:'',users:null,msgs:null,at:0,busy:false,pushed:false,pub:null,pubAt:0,olymp:null,streakPushed:false,synced:false,progPushed:false};
+var SRV={me:'',admin:false,users:null,msgs:null,at:0,busy:false,pushed:false,pub:null,pubAt:0,olymp:null,streakPushed:false,synced:false,progPushed:false};
 function srvList(){return srvOn()?SRV.users:SRV.pub}
 function pubFetch(){if(!AUTH_API)return;api('public_users',{}).then(function(r){if(r&&r.ok){SRV.pub=r.users;SRV.pubAt=Date.now();gateStrip();presRefreshUsers();}}).catch(function(){})}
 function tokGet(){try{return localStorage.getItem('infasub-tok')||''}catch(e){return ''}}
 function tokSet(t){try{if(t)localStorage.setItem('infasub-tok',t);else localStorage.removeItem('infasub-tok')}catch(e){}}
 function srvOn(){return !!AUTH_API&&!!SRV.users&&!!sessionLogin()&&!!tokGet()}
-function srvReset(){SRV.users=null;SRV.msgs=null;SRV.me='';SRV.pushed=false;SRV.busy=false;SRV.olymp=null;SRV.streakPushed=false;SRV.synced=false;SRV.progPushed=false;SRV.admin=false}
+function srvReset(){SRV.users=null;SRV.msgs=null;SRV.me='';SRV.admin=false;SRV.pushed=false;SRV.busy=false;SRV.olymp=null;SRV.streakPushed=false;SRV.synced=false;SRV.progPushed=false}
 function srvPush(){
   var tk=tokGet();if(!AUTH_API||!tk)return;var u=curUserObj();if(!u)return;
   api('profile_save',{token:tk,profile:{name:u.name,main:u.main,av:u.av||'',school:u.school,country:u.country,city:u.city,about:u.about}}).then(function(){SRV.busy=false;srvSync(true)}).catch(function(){});
@@ -3086,7 +3072,9 @@ function srvReconcile(){
   var us=getUsers(),u=us[sessionLogin()];if(!u)return;
   var F=['main','av','school','country','city','about'],srvHas=F.some(function(k){return mine[k]}),locHas=F.some(function(k){return u[k]});
   if(!srvHas&&locHas&&!SRV.pushed){SRV.pushed=true;srvPush();return;}
-  if(srvHas){var ch=false;F.forEach(function(k){if(!u[k]&&mine[k]){u[k]=mine[k];ch=true}});if(mine.name&&u.name!==mine.name){u.name=mine.name;ch=true}if(ch){putUsers(us);renderAuth();}}
+  if(srvHas){var ch=false;F.forEach(function(k){if(!u[k]&&mine[k]){u[k]=mine[k];ch=true}});if(mine.name&&u.name!==mine.name){u.name=mine.name;ch=true}
+    if(mine.aed&&mine.aed>(u.aed||0)){F.forEach(function(k){u[k]=mine[k]||''});u.aed=mine.aed;ch=true}
+    if(ch){putUsers(us);renderAuth();}}
 }
 function srvSync(force){
   if(!AUTH_API||SRV.busy)return;var tk=tokGet();
@@ -3095,7 +3083,7 @@ function srvSync(force){
   SRV.busy=true;
   api('sync',{token:tk}).then(function(r){
     SRV.busy=false;
-    if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.at=Date.now();var _op=JSON.stringify(SRV.olymp),_fs=!SRV.synced,_ad=SRV.admin;SRV.admin=!!r.admin;if(_ad!==SRV.admin)setTimeout(render,0);SRV.olymp=r.olymp||null;SRV.synced=true;streakMerge(r.days);progMerge(r.solved);srvReconcile();if(view==='olymp'&&(_fs||_op!==JSON.stringify(SRV.olymp)))render();olyFlush();msBadge();presRefreshUsers();msRefreshInbox();if(typeof pfRefreshThread==='function')pfRefreshThread();if(msPanel.classList.contains('open')&&document.activeElement!==document.getElementById('ms-text'))msRender();}
+    if(r&&r.ok){SRV.users=r.users;SRV.msgs=r.msgs;SRV.me=r.me;SRV.admin=!!r.admin;epCheck(r.ep);SRV.at=Date.now();var _op=JSON.stringify(SRV.olymp),_fs=!SRV.synced;SRV.olymp=r.olymp||null;SRV.synced=true;streakMerge(r.days);progMerge(r.solved);srvReconcile();if(view==='olymp'&&(_fs||_op!==JSON.stringify(SRV.olymp)))render();olyFlush();msBadge();presRefreshUsers();msRefreshInbox();if(msPanel.classList.contains('open')&&document.activeElement!==document.getElementById('ms-text'))msRender();}
     else if(r&&r.error==='auth'){tokSet('');srvReset();msBadge();presRefreshUsers();}
   }).catch(function(){SRV.busy=false});
 }
@@ -3179,20 +3167,12 @@ function msSetOpen(o){
   if(o){msRender();if(typeof aiSetOpen==='function'&&typeof aiPanel!=='undefined'&&aiPanel)aiSetOpen(false);}
   msPanel.classList.toggle('open',o);msBtn.setAttribute('aria-expanded',String(o));
 }
-function msSendTo(to,tx,cb){
-  if(srvOn()){api('msg_send',{token:tokGet(),to:to,text:tx}).then(function(r){if(r&&r.ok){(SRV.msgs=SRV.msgs||[]).push(r.msg);cb(true)}else cb(false,r&&r.error==='wait'?'e_wait':'e_net')}).catch(function(){cb(false,'e_net')});return;}
-  var me=sessionLogin(),a=getMsgs();a.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),from:me,to:to,text:tx.slice(0,500),t:Date.now(),read:false});
-  cb(putMsgs(a),'e_text');
-}
 function msPeople(){
-  var me=msMe(),list=[];
-  if(srvOn())list=SRV.users.filter(function(u){return u.id!==me}).map(function(u){return {id:u.id,name:u.name||'—',extra:u.country||u.city||''}});
-  else{var us=getUsers();list=Object.keys(us).filter(function(k){return k!==me}).map(function(k){return {id:k,name:us[k].name||'—',extra:us[k].country||us[k].city||''}});}
-  var cnt={};list.forEach(function(p){cnt[p.name]=(cnt[p.name]||0)+1});
-  return list.map(function(p){return {id:p.id,name:p.name,label:p.name+(cnt[p.name]>1&&p.extra?' · '+p.extra:'')}});
+  var me=msMe();
+  if(srvOn())return SRV.users.filter(function(u){return u.id!==me}).map(function(u){return {id:u.id,name:u.name||u.em,label:(u.name||u.em)+' ('+u.em+')'}});
+  var us=getUsers();return Object.keys(us).filter(function(k){return k!==me}).map(function(k){return {id:k,name:us[k].name||k,label:(us[k].name||k)+' ('+k+')'}});
 }
 function msRender(){
-  var _kt=document.getElementById('ms-text'),_ks=document.getElementById('ms-to'),keepTx=_kt?_kt.value:'',keepTo=_ks?_ks.value:'',hadFocus=!!_kt&&document.activeElement===_kt;
   var T=MS(),me=sessionLogin(),h='';
   msLastLang=lang;msLastUser=me||'';
   var logged=!!me&&(srvOn()||!!getUsers()[me]);
@@ -3211,10 +3191,6 @@ function msRender(){
   }
   h+='<p class="msnote">'+esc(srvOn()?T.note2:T.note)+'</p></div>';
   msPanel.innerHTML=h;
-  var t2=document.getElementById('ms-text'),s2=document.getElementById('ms-to');
-  if(t2&&keepTx)t2.value=keepTx;
-  if(s2&&keepTo){for(var oi=0;oi<s2.options.length;oi++)if(s2.options[oi].value===keepTo){s2.value=keepTo;break}}
-  if(t2&&hadFocus)t2.focus();
 }
 function msBadge(){
   var T=MS(),me=sessionLogin(),n=msUnread(me);
