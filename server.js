@@ -243,7 +243,7 @@ function idMap() {
 }
 function outMsg(m, ids) {
   const nm = (id) => (ids[id] && db.users[ids[id]] ? db.users[ids[id]].name : '?');
-  return { id: m.id, from: m.from, to: m.to, fromName: nm(m.from), toName: nm(m.to), text: m.text, t: m.t, read: !!m.read };
+  return { id: m.id, from: m.from, to: m.to, fromName: nm(m.from), toName: nm(m.to), text: m.text, t: m.t, read: !!m.read, readAt: m.readAt || 0, dlv: m.dlv || 0 };
 }
 
 function actSync(d) {
@@ -261,7 +261,10 @@ function actSync(d) {
       ago: seen[e] ? Math.round((now - seen[e]) / 1000) : null
     };
   });
-  const msgs = db.msgs.filter((m) => m.to === myId || m.from === myId).slice(-300).map((m) => outMsg(m, ids));
+  let dch = false;
+  for (const m of db.msgs) if (m.to === myId && !m.dlv) { m.dlv = now; dch = true; } /* устройство получателя забрало сообщение: «доставлено» */
+  if (dch) save();
+  const msgs = db.msgs.filter((m) => (m.to === myId || m.from === myId) && !(m.dm && m.dm.includes(myId))).slice(-300).map((m) => outMsg(m, ids));
   return { ok: true, me: myId, admin: adminView, ep: db.ep[me] || 0, users, msgs, now, days: db.streak[me] || [], olymp: db.olymp[me] || null, solved: db.prog[me] || [] };
 }
 
@@ -394,12 +397,49 @@ function actMsgRead(d) {
   const me = authTok(d);
   if (!me) return { ok: false, error: 'auth' };
   const myId = uid(me);
+  const wid = d.with ? String(d.with) : '', now = Date.now();
   let ch = false;
-  db.msgs.forEach((m) => { if (m.to === myId && !m.read) { m.read = true; ch = true; } });
+  db.msgs.forEach((m) => { if (m.to === myId && !m.read && (!wid || m.from === wid)) { m.read = true; m.readAt = now; if (!m.dlv) m.dlv = now; ch = true; } });
   if (ch) save();
   return { ok: true };
 }
 
+
+/* ---------- удаление сообщений ---------- */
+function hideForMe(m, myId) { m.dm = m.dm || []; if (!m.dm.includes(myId)) m.dm.push(myId); }
+function actMsgDelete(d) {
+  const me = authTok(d);
+  if (!me) return { ok: false, error: 'auth' };
+  const myId = uid(me), id = String(d.id || ''), mode = d.mode === 'all' ? 'all' : 'me';
+  const m = db.msgs.find((x) => x.id === id);
+  if (!m || (m.from !== myId && m.to !== myId)) return { ok: false, error: 'no_msg' };
+  if (mode === 'all') {
+    if (m.from !== myId) return { ok: false, error: 'forbidden' }; /* у всех можно удалить только своё */
+    db.msgs = db.msgs.filter((x) => x.id !== id);
+  } else {
+    hideForMe(m, myId);
+    if (m.dm.includes(m.from) && m.dm.includes(m.to)) db.msgs = db.msgs.filter((x) => x.id !== id);
+  }
+  save();
+  return { ok: true };
+}
+function actMsgDeleteChat(d) {
+  const me = authTok(d);
+  if (!me) return { ok: false, error: 'auth' };
+  const myId = uid(me), wid = String(d.with || '');
+  if (!wid) return { ok: false, error: 'invalid' };
+  const keep = [];
+  for (const m of db.msgs) {
+    if ((m.from === myId && m.to === wid) || (m.from === wid && m.to === myId)) {
+      hideForMe(m, myId);
+      if (m.dm.includes(m.from) && m.dm.includes(m.to)) continue;
+    }
+    keep.push(m);
+  }
+  db.msgs = keep;
+  save();
+  return { ok: true };
+}
 
 /* ---------- администратор ---------- */
 function adminOf(d) { const me = authTok(d); return me && isAdmin(me) ? me : null; }
@@ -488,6 +528,8 @@ const server = http.createServer((req, res) => {
         case 'profile_save': out = actProfile(d); break;
         case 'msg_send':   out = actMsgSend(d); break;
         case 'msg_read':   out = actMsgRead(d); break;
+        case 'msg_delete': out = actMsgDelete(d); break;
+        case 'msg_delete_chat': out = actMsgDeleteChat(d); break;
         case 'admin_edit': out = actAdminEdit(d); break;
         case 'admin_delete': out = actAdminDelete(d); break;
         case 'admin_reset': out = actAdminReset(d); break;
